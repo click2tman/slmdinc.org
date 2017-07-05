@@ -1,0 +1,92 @@
+uuid: c0eb8f85-6bb7-4be4-95cf-a00863e30f4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ocms_team_member.body
+    - field.field.node.ocms_team_member.field_ocms_banner_image
+    - field.field.node.ocms_team_member.field_ocms_facebook_account
+    - field.field.node.ocms_team_member.field_ocms_linkedin_account
+    - field.field.node.ocms_team_member.field_ocms_member_photo
+    - field.field.node.ocms_team_member.field_ocms_slideshow
+    - field.field.node.ocms_team_member.field_ocms_slideshow_image
+    - field.field.node.ocms_team_member.field_ocms_slideshow_text
+    - field.field.node.ocms_team_member.field_ocms_subtitle
+    - field.field.node.ocms_team_member.field_ocms_twitter_account
+    - image.style.ocms_member_photo
+    - node.type.ocms_team_member
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_team_member.default
+targetEntityType: node
+bundle: ocms_team_member
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ocms_facebook_account:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ocms_linkedin_account:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ocms_member_photo:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ocms_member_photo
+      image_link: file
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ocms_subtitle:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ocms_twitter_account:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  langcode: true

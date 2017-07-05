@@ -1,0 +1,43 @@
+core: '8.x'
+type: 'theme'
+base theme: 'ocms_base'
+version: '8.x-1.0.0'
+name: 'OCMS Child'
+description: 'A custom Child theme based on bootstrap framework and using Sass'
+package: 'Bootstrap'
+
+regions:
+  header_disclaimer: 'Header - Disclaimer Message'
+  header: 'Header - Full Width'
+  header_left: 'Header Left - Col 2'
+  header_right: 'Header Right - Col 10'
+  search_form_collapsible: 'Search Form Collapsible'
+  info_menu_collapsible: 'Info Menu Collapsible'
+  header_nav_collapsible: 'Header Nav Collapsible'
+  site_navigation: 'Main Navigation'
+  help: 'Help'
+  breadcrumbs: 'Breadcrumbs'
+  content: 'Primary Content'
+  share_content: 'Share Block Content'
+  contact_pages_content: 'Contact Pages Content'
+  error_message_content: 'Error Page Content'
+  sidebar_first: 'Secondary Navigation'
+  sidebar_second: 'Related Content'
+  footer_first:  'Footer First Column'
+  footer_second: 'Footer Second Column'
+  footer_third:  'Footer Third Column'
+  footer_fourth: 'Footer Fourth Column'
+  footer_fifth:  'Footer Fifth Column'
+
+regions_hidden:
+  footer: 'Footer'
+  highlighted: 'Highlighted'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  ## @TODO Would need to relook at these regions when implementing main menu
+  navigation: 'Navigation'
+  ##
+
+libraries:
+  - 'ocms_eitc/global-styling'
+  - 'ocms_eitc/global-scripts'

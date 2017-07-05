@@ -1,0 +1,21 @@
+uuid: ddd6a7d9-b1db-465c-9ca2-8e43853aa1a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_background_image_block
+    - field.storage.block_content.field_ocms_block_reference
+id: block_content.ocms_background_image_block.field_ocms_block_reference
+field_name: field_ocms_block_reference
+entity_type: block_content
+bundle: ocms_background_image_block
+label: 'Block Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,17 @@
+/**
+ * @file
+ * Visual styles for Levelplus's companies carousel view.
+ */
+
+.view-companies-carousel .owl-carousel {
+  padding-top: 10px;
+}
+.view-companies-carousel img {
+  -webkit-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+.view-companies-carousel img:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}

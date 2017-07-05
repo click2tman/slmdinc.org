@@ -1,0 +1,21 @@
+uuid: 65e0e4b8-5fed-434a-8ce8-296dc9717f83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_tab_content
+    - paragraphs.paragraphs_type.ocms_tab
+  module:
+    - text
+id: paragraph.ocms_tab.field_ocms_tab_content
+field_name: field_ocms_tab_content
+entity_type: paragraph
+bundle: ocms_tab
+label: 'Tab content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

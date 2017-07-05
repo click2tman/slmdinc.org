@@ -1,0 +1,22 @@
+uuid: b8f227cf-c090-4fe3-9124-892d4ea6b629
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ocms_showcase
+_core:
+  default_config_hash: mNSEjmIaq0m9UzmyCw3tIdAaoL1aXraV7kXrFU7ksCo
+id: ocms_showcase_local_tasks
+theme: ocms_showcase
+region: content
+weight: -15
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

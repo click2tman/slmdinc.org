@@ -1,0 +1,225 @@
+ /**
+ * Variable Stylesheet
+ * @description Defining Custom Variables
+ */
+
+//-------------- Global Colors ----------------//
+/* Primary */
+$ocms-blue:              #234E76;
+$darkest-gray:          #333333;
+$dark-gray:             #4E4E4E;
+$white:                 #FFFFFF;
+
+/* Secondary */
+$ocms-blue-2:            #227DAE;
+$ocms-blue-3:            #2DA5E5;
+$ocms-blue-4:            #183650;
+$ocms-blue-5:            #015988;
+
+/* Background and Border */
+$gray:                  #D6D7D9;
+$medium-gray:           #B1B1B1;
+$light-gray:            #CCCCCC;
+$lighter-gray:          #E0E0E0;
+$lightest-gray:         #F0F0F0;
+
+/* Alert and Special State */
+$light-blue:            #EAF2FA;
+$light-red:             #FAF0F0;
+$light-yellow:          #FFF1D2;
+$light-green:           #E7F4E4;
+$alert-red:             #A6192E;
+
+/* Colors Used But Not In Listed In Style Guide */
+$purple:                #800080;
+$link-hover:            #1F74A1;
+$dark-gray:             #4E4E4E;
+$gray-1:                #7F7F7F;
+$gray-2:                #E5E5E5;
+$ocms-blue-6:            #205493;
+
+/*Clean Up Colors*/
+$black:                 #000;
+$hr-border-color:       $light-gray; //TODO please name this color more appropriately
+$primary-alt-light:     #32B7FF;
+$primary-alt-darkest:   #195B7F;
+
+//-------------- Global Elements ----------------//
+
+/*Typography*/
+$font-color:            $darkest-gray;
+$caution-font-color:    $ocms-blue;
+
+// Font Size
+$h1-size:       34px;
+$h2-size:       24px;
+$h3-size:       19px;
+$h4-size:       16px;
+$bcopy:         16px;
+$error-title:   60px;
+$disclaimer:    13px;
+
+// Links
+$link-static:               $ocms-blue-5;
+$link-visited: 			    $purple;
+$link-clicked:              $ocms-blue;
+
+/* Forms Fields */
+$field-error-color:                 $alert-red;
+$input-color:                       $dark-gray;
+$input-border-color:                $gray-2;
+$field-disabled-color:              $lightest-gray;
+$field-highlight-color:             $ocms-blue-3;
+$required-field-border-color:       $alert-red;
+$help-text-color:                   $font-color;
+
+/* Buttons */
+$button-color:					    $ocms-blue-2;
+$button-text-color:                 $white;
+$button-hover-color:                $ocms-blue-6;
+$button-disabled-color:				$gray;
+$button-disabled-text-color:        $darkest-gray;
+$button-glow-color:			        $ocms-blue-3;
+
+
+
+//-------------- Components ----------------//
+/**
+ * Header
+ */
+$header-background-color:           $ocms-blue;
+
+$nav-background-color:              $lighter-gray;
+$nav-background-hover-color:        $white;
+$nav-hover-color:                   $ocms-blue-2;
+$nav-border-color:                  $light-gray;
+$nav-box-shadow-color-1:            $light-gray;
+$nav-box-shadow-color-2:            $white;
+$nav-background-active-color:       $white;
+$nav-text-color:                    $black;
+$nav-icon-background-color:         $dark-gray;
+$nav-icon-color:                    $white;
+$mnav-background-hover-color:       $light-blue;
+$mnav-border-hover-color:           $ocms-blue-2;
+$main-nav-link-width:               100% / 8;
+$info-menu-link-hover-bg:           #17344f;
+
+//Mobile Header
+$nav-hover-border-color:            $ocms-blue-2;
+
+//Info Menu
+$info-menu-background-color:        $ocms-blue-2;
+$info-menu-border-color:            $white;
+
+//Search
+$search-border-color:                $light-gray;
+
+/**
+ * Secondary Navigation
+ */
+$sec-nav-left-border-color:         $ocms-blue-2;
+$sec-nav-border-color:              $medium-gray;
+$sec-nav-link-color:                $darkest-gray;
+$sec-nav-highlight-color:           $light-blue;
+
+
+/**
+ * Footer
+ */
+$footer-bg-color:                   $lighter-gray;
+$footer-font-color:                 $darkest-gray; 
+$footer-col-width-sm:               100% / 5;
+
+/**
+ * Callout
+ */
+$callout-border:                    $light-gray;
+$callout-title-color:               $ocms-blue;
+
+//-------------- Pages ----------------//
+/**
+ * Home Page
+ */
+$home-content-list-title-bg:        $ocms-blue;
+
+// Landing Page
+$landing-page-bg:                   $light-blue;
+$landing-page-border-color:         $ocms-blue;
+
+// Error pages
+$icon-color:                        $ocms-blue-2;
+$header-top-bg-color:               $ocms-blue;
+
+// Block settings
+$block-height: 2.645rem;
+$banner-link-height: 4.2rem;
+
+// Line-height - leading
+$lheight44:     2.75rem;
+$lheight26:     1.625rem;
+$lheight24:     1.5rem;
+$lheight21:     1.31rem;
+$lheight20:     1.25rem;
+
+$lheight_base:  1.25;
+
+//Article Accordion Styling
+$article-title-border-color:    $ocms-blue;
+$article-accordion-heading-color: $darkest-gray;
+$article-accordion-icon-color: $ocms-blue-2;
+$article-accordion-border-color: $light-gray;
+$article-accordion-background-color: $lightest-gray;
+
+
+//Free File Fillable Page
+$free-file-fillable-title-border-color:         $ocms-blue;
+$free-file-fillable-border-color:               $light-gray;
+$free-file-fillable-header-color:               $ocms-blue;
+$free-file-fillable-link-color:                 $ocms-blue-2;
+$free-file-fillable-link-hover:                 $link-hover;
+$free-file-fillable-link-visited:               $link-visited;
+$free-file-fillable-link-focus:                 $ocms-blue;
+
+//Contact Pages
+$contact-title-border-color:                    $ocms-blue;
+
+//Breadcrumbs
+$bc-active-font-color:                          $darkest-gray;
+$bc-link-color:                                 $ocms-blue-5;
+
+//Simple Table Colors
+$st-header-color:                               $darkest-gray;
+$st-border-color:                               $lightest-gray;
+
+//Complex Table Colors
+$ct-header-color:                               $white;
+$ct-header-background-color:                    $ocms-blue;
+$ct-border-color:                               $light-gray;
+$ct-even-background-color:                      $white;
+$ct-odd-background-color:                       $lightest-gray;
+
+// Language Switcher
+ $ls-active-font-color: $darkest-gray;
+ $ls-link-color: $ocms-blue-4;
+
+// Mega Menu
+$popular-box-border:                            #2da5e5;
+$popular-box-background:                        #f8fcff;
+
+/*Homepage Refresh */
+
+// Top 8 Links
+$top-8-link-color:                              $ocms-blue-2;
+$top-8-border-color:                            $light-gray;
+
+
+// Forms and Instructions Links
+$forms-instruct-title-color:                   $ocms-blue-2;
+$forms-instruct-border-color:                  $light-gray;
+
+// Icon List
+$icon-list-color:                              $ocms-blue-2;
+
+// In Page Search
+$ips-but-bckgrd:                               $ocms-blue-6;
+$ips-input-bckgrd:                               $primary-alt-light;

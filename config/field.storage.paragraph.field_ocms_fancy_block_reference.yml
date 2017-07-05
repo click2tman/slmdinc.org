@@ -1,0 +1,20 @@
+uuid: aabb40a8-75f1-4bfe-bc65-57ca19f0defd
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - paragraphs
+id: paragraph.field_ocms_fancy_block_reference
+field_name: field_ocms_fancy_block_reference
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

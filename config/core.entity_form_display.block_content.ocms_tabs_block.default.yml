@@ -1,0 +1,43 @@
+uuid: 55e9f7f3-9a71-4040-82a9-53cfdd40732a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_tabs_block
+    - field.field.block_content.ocms_tabs_block.field_ocms_block_reference
+  module:
+    - workbench_moderation
+id: block_content.ocms_tabs_block.default
+targetEntityType: block_content
+bundle: ocms_tabs_block
+mode: default
+content:
+  field_ocms_block_reference:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

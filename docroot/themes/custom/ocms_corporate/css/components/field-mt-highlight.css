@@ -1,0 +1,192 @@
+/**
+ * @file
+ * Visual styles for Levelplus's Highlight field (paragraphs).
+ */
+
+/*Service/Product Highlight*/
+.field--name-field-ocms-prg-highlight {
+  margin: 65px 0 20px;
+}
+.field--name-field-ocms-prg-highlight > .field__item,
+.field--name-field-ocms-prg-highlight > .field__items > .field__item {
+  margin-bottom: 40px;
+}
+.field--name-field-ocms-prg-highlight .field__label {
+  text-align: center;
+  font-size: 2em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+.field--name-field-ocms-subheader-body + .field--name-field-ocms-prg-highlight {
+  margin-top: 50px;
+}
+.field--name-field-ocms-highlight-title {
+  font-size: 2em;
+  margin: 20px 0 10px;
+}
+.layout-one-sidebar .field--name-field-ocms-highlight-title {
+  font-size: 1.6em;
+}
+.field--name-field-ocms-highlight-link a {
+  font-size: 0.87em;
+  text-transform: uppercase;
+  padding: 11px 35px 11px 20px;
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  line-height: 1;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  min-height: 40px;
+  font-weight: 700;
+  border: 2px solid;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  position: relative;
+}
+.field--name-field-ocms-highlight-link a:hover {
+  color: #ffffff;
+}
+.field--name-field-ocms-highlight-link a:after {
+  content: "\f105";
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  right: 20px;
+  font-family: "FontAwesome";
+  font-size: 1.4em;
+  line-height: 1;
+  -webkit-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+.field--name-field-ocms-highlight-link a:hover:after {
+  color: #ffffff;
+  right: 15px;
+}
+
+/*revert clearfix of body field*/
+.field--name-field-ocms-highlight-body:after {
+  clear: none;
+}
+
+/*apply clearfix to .paragraph--type--ocms-highlight*/
+.field--name-field-ocms-prg-highlight .paragraph--type--ocms-highlight:before,
+.field--name-field-ocms-prg-highlight .paragraph--type--ocms-highlight:after {
+  display: table;
+  content: "";
+}
+.field--name-field-ocms-prg-highlight .paragraph--type--ocms-highlight:after {
+  clear: both;
+}
+@media (min-width:768px) {
+  .field--name-field-ocms-prg-highlight .field--type-image {
+    width: 47%;
+  }
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--type-image,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--type-image {
+    float: left;
+  }
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--type-image,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--type-image {
+    float: right;
+  }
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link {
+    margin: 0 0 0 55%;
+    padding-top: 20px;
+  }
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link {
+    margin: 0 55% 0 0;
+    padding-top: 20px;
+  }
+  .field--name-field-ocms-prg-highlight .field--name-field-ocms-highlight-title + .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight .field--name-field-ocms-highlight-title + .field--name-field-ocms-highlight-link,
+  .field--name-field-ocms-prg-highlight .field--name-field-ocms-highlight-body + .field--name-field-ocms-highlight-link {
+    padding-top: 10px;
+  }
+}
+@media (min-width:992px) {
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link {
+    margin-left: 53%;
+    padding-top: 5px;
+  }
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-one-sidebar .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .layout-two-sidebars .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link {
+    margin-right: 53%;
+    padding-top: 5px;
+  }
+}
+@media (min-width:1200px) {
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(odd) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link {
+    margin-left: 59%;
+    padding-top: 40px;
+  }
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-title,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight > .field__items > .field__item:nth-child(even) .field--name-field-ocms-highlight-image ~ .field--name-field-ocms-highlight-link {
+    margin-right: 59%;
+    padding-top: 40px;
+  }
+  .field--name-field-ocms-prg-highlight .field--name-field-ocms-highlight-title + .field--name-field-ocms-highlight-body,
+  .field--name-field-ocms-prg-highlight .field--name-field-ocms-highlight-title + .field--name-field-ocms-highlight-link,
+  .field--name-field-ocms-prg-highlight .field--name-field-ocms-highlight-body + .field--name-field-ocms-highlight-link {
+    padding-top: 10px;
+  }
+}
+@media (min-width:768px) and (max-width:1199px) {
+  .layout-one-sidebar .field--name-field-ocms-highlight-title {
+    margin: 0px 0 10px;
+  }
+}
+@media (min-width:768px) and (max-width:991px) {
+  .field--name-field-ocms-highlight-title {
+    font-size: 1.6em;
+    margin-top: 0px;
+  }
+}

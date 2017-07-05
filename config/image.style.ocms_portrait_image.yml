@@ -1,0 +1,14 @@
+uuid: 13ac5373-238f-4299-871a-165cbcbf5a6b
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_portrait_image
+label: 'Portrait Image (750x835)'
+effects:
+  2dead6ed-f11f-4521-945a-4d8def72fb70:
+    uuid: 2dead6ed-f11f-4521-945a-4d8def72fb70
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 835

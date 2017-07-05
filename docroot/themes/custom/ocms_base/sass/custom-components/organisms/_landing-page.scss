@@ -1,0 +1,35 @@
+/**
+ * Landing Page Stylesheet
+ * @description Defining style for landing page node type
+ */
+
+.ocms-page-node-type-landing-page {
+  &__banner {
+    background-color: $landing-page-bg;
+    border-bottom: 7px solid $landing-page-border-color;
+    padding: 0px 0 15px 0;
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: -5px 0 0 0;
+  }
+
+  .block-region-primary-content {
+    h2 {
+      @extend h3;      
+    }
+    .field--name-body {
+      margin-bottom: 30px;
+    }
+  }
+
+  .block-region-related-content {
+    h2 {
+      @extend h3;
+    }
+  }
+}

@@ -1,0 +1,372 @@
+diff --git a/core/modules/block_content/block_content.install b/core/modules/block_content/block_content.install
+index 4279cde..92f1d1d 100644
+--- a/core/modules/block_content/block_content.install
++++ b/core/modules/block_content/block_content.install
+@@ -61,3 +61,12 @@ function block_content_update_8003() {
+   \Drupal::entityDefinitionUpdateManager()
+     ->installFieldStorageDefinition('revision_user', 'block_content', 'block_content', $revision_user);
+ }
++
++/**
++ * Update block_content 'custom block library' view permission.
++ */
++function block_content_update_8200() {
++  $config_factory = \Drupal::configFactory();
++  $config = $config_factory->getEditable('views.view.block_content');
++  $config->set('display.default.display_options.access.options.perm', 'access custom block library')->save(TRUE);
++}
+diff --git a/core/modules/block_content/block_content.permissions.yml b/core/modules/block_content/block_content.permissions.yml
+new file mode 100644
+index 0000000..1fc28e0
+--- /dev/null
++++ b/core/modules/block_content/block_content.permissions.yml
+@@ -0,0 +1,8 @@
++access custom block library:
++  title: 'Access the Custom block library page'
++  description: 'Get an overview of all custom blocks.'
++administer block types:
++  title: 'Administer block types'
++
++permission_callbacks:
++  - \Drupal\block_content\BlockContentPermissions::blockTypePermissions
+diff --git a/core/modules/block_content/block_content.routing.yml b/core/modules/block_content/block_content.routing.yml
+index 75ea9b2..7f65a24 100644
+--- a/core/modules/block_content/block_content.routing.yml
++++ b/core/modules/block_content/block_content.routing.yml
+@@ -4,7 +4,7 @@ entity.block_content_type.collection:
+     _entity_list: 'block_content_type'
+     _title: 'Custom block library'
+   requirements:
+-    _permission: 'administer blocks'
++    _entity_create_access: 'block_content_type'
+ 
+ block_content.add_page:
+   path: '/block/add'
+@@ -14,7 +14,7 @@ block_content.add_page:
+   options:
+     _admin_route: TRUE
+   requirements:
+-    _permission: 'administer blocks'
++    _block_content_add_access: 'block_content'
+ 
+ block_content.add_form:
+   path: '/block/add/{block_content_type}'
+@@ -24,7 +24,7 @@ block_content.add_form:
+   options:
+     _admin_route: TRUE
+   requirements:
+-    _permission: 'administer blocks'
++    _block_content_add_access: 'block_content'
+ 
+ entity.block_content_type.delete_form:
+   path: '/admin/structure/block/block-content/manage/{block_content_type}/delete'
+@@ -73,7 +73,7 @@ block_content.type_add:
+     _entity_form: 'block_content_type.add'
+     _title: 'Add'
+   requirements:
+-    _permission: 'administer blocks'
++    _entity_create_access: 'block_content_type'
+ 
+ entity.block_content_type.edit_form:
+   path: '/admin/structure/block/block-content/manage/{block_content_type}'
+@@ -88,4 +88,4 @@ entity.block_content.collection:
+     _title: 'Custom block library'
+     _entity_list: 'block_content'
+   requirements:
+-    _permission: 'administer blocks'
++    _permission: 'access custom block library'
+diff --git a/core/modules/block_content/block_content.services.yml b/core/modules/block_content/block_content.services.yml
+new file mode 100644
+index 0000000..9c4ca5f
+--- /dev/null
++++ b/core/modules/block_content/block_content.services.yml
+@@ -0,0 +1,6 @@
++services:
++  access_check.block_content.add:
++    class: Drupal\block_content\Access\BlockContentAddAccessCheck
++    arguments: ['@entity_type.manager']
++    tags:
++      - { name: access_check, applies_to: _block_content_add_access }
+diff --git a/core/modules/block_content/config/optional/views.view.block_content.yml b/core/modules/block_content/config/optional/views.view.block_content.yml
+index 20fe0bf..706bc22 100644
+--- a/core/modules/block_content/config/optional/views.view.block_content.yml
++++ b/core/modules/block_content/config/optional/views.view.block_content.yml
+@@ -22,7 +22,7 @@ display:
+       access:
+         type: perm
+         options:
+-          perm: 'administer blocks'
++          perm: 'access custom block library'
+       cache:
+         type: tag
+         options: {  }
+diff --git a/core/modules/block_content/src/Access/BlockContentAddAccessCheck.php b/core/modules/block_content/src/Access/BlockContentAddAccessCheck.php
+new file mode 100644
+index 0000000..fe99003
+--- /dev/null
++++ b/core/modules/block_content/src/Access/BlockContentAddAccessCheck.php
+@@ -0,0 +1,67 @@
++<?php
++
++namespace Drupal\block_content\Access;
++
++use Drupal\Core\Access\AccessResult;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Routing\Access\AccessInterface;
++use Drupal\Core\Session\AccountInterface;
++use Drupal\block_content\BlockContentTypeInterface;
++
++/**
++ * Determines access for block content add pages.
++ *
++ * @ingroup block_content_access
++ */
++class BlockContentAddAccessCheck implements AccessInterface {
++
++  /**
++   * The entity type manager.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
++   */
++  protected $entityTypeManager;
++
++  /**
++   * Constructs a EntityCreateAccessCheck object.
++   *
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity type manager.
++   */
++  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
++    $this->entityTypeManager = $entity_type_manager;
++  }
++
++  /**
++   * Checks access to the block content add page for the block type.
++   *
++   * @param \Drupal\Core\Session\AccountInterface $account
++   *   The currently logged in account.
++   * @param \Drupal\block_content\BlockContentTypeInterface $block_content_type
++   *   (optional) The block type. If not specified, access is allowed if there
++   *   exists at least one block type for which the user may create a block.
++   *
++   * @return string
++   *   A \Drupal\Core\Access\AccessInterface constant value.
++   */
++  public function access(AccountInterface $account, BlockContentTypeInterface $block_content_type = NULL) {
++    $access_control_handler = $this->entityTypeManager->getAccessControlHandler('block_content');
++    // If checking whether a block of a particular type may be created.
++    if ($account->hasPermission('administer blocks')) {
++      return AccessResult::allowed()->cachePerPermissions();
++    }
++    if ($block_content_type) {
++      return $access_control_handler->createAccess($block_content_type->id(), $account, [], TRUE);
++    }
++    // If checking whether a block of any type may be created.
++    foreach ($this->entityTypeManager->getStorage('block_content_type')->loadMultiple() as $block_content_type) {
++      if (($access = $access_control_handler->createAccess($block_content_type->id(), $account, [], TRUE)) && $access->isAllowed()) {
++        return $access;
++      }
++    }
++
++    // No opinion.
++    return AccessResult::neutral();
++  }
++
++}
+diff --git a/core/modules/block_content/src/BlockContentAccessControlHandler.php b/core/modules/block_content/src/BlockContentAccessControlHandler.php
+index d0c19c5..3d4e80c 100644
+--- a/core/modules/block_content/src/BlockContentAccessControlHandler.php
++++ b/core/modules/block_content/src/BlockContentAccessControlHandler.php
+@@ -17,11 +17,35 @@ class BlockContentAccessControlHandler extends EntityAccessControlHandler {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
+-    if ($operation === 'view') {
+-      return AccessResult::allowed();
++  protected function checkAccess(EntityInterface $block_content, $operation, AccountInterface $account) {
++    $type = $block_content->bundle();
++
++    switch ($operation) {
++      case 'view':
++        return AccessResult::allowed();
++
++      case 'create':
++        return AccessResult::allowedIfHasPermission($account, 'create ' . $type . ' blocks');
++
++      case 'update':
++        if ($account->hasPermission('edit any ' . $type . ' blocks', $account)) {
++          return AccessResult::allowed()->cachePerPermissions();
++        }
++
++      case 'delete':
++        if ($account->hasPermission('delete any ' . $type . ' blocks', $account)) {
++          return AccessResult::allowed()->cachePerPermissions();
++        }
+     }
+-    return parent::checkAccess($entity, $operation, $account);
++
++    return parent::checkAccess($block_content, $operation, $account);
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
++    return AccessResult::allowedIf($account->hasPermission('administer blocks') || $account->hasPermission('create ' . $entity_bundle . ' blocks'))->cachePerPermissions();
+   }
+ 
+ }
+diff --git a/core/modules/block_content/src/BlockContentPermissions.php b/core/modules/block_content/src/BlockContentPermissions.php
+new file mode 100644
+index 0000000..846faaa
+--- /dev/null
++++ b/core/modules/block_content/src/BlockContentPermissions.php
+@@ -0,0 +1,59 @@
++<?php
++
++namespace Drupal\block_content;
++
++use Drupal\Core\StringTranslation\StringTranslationTrait;
++use Drupal\block_content\Entity\BlockContentType;
++
++/**
++ * Provides dynamic permissions for blocks of different types.
++ */
++class BlockContentPermissions {
++
++  use StringTranslationTrait;
++
++  /**
++   * Returns an array of block type permissions.
++   *
++   * @return array
++   *   The block content type permissions.
++   *
++   * @see \Drupal\user\PermissionHandlerInterface::getPermissions()
++   */
++  public function blockTypePermissions() {
++    $perms = array();
++    // Generate block permissions for all block types.
++    foreach (BlockContentType::loadMultiple() as $type) {
++      $perms += $this->buildPermissions($type);
++    }
++
++    return $perms;
++  }
++
++  /**
++   * Returns a list of block permissions for a given block type.
++   *
++   * @param \Drupal\block_content\Entity\BlockContentType $type
++   *   The block type.
++   *
++   * @return array
++   *   An associative array of permission names and descriptions.
++   */
++  protected function buildPermissions(BlockContentType $type) {
++    $type_id = $type->id();
++    $type_params = ['%type_name' => $type->label()];
++
++    return [
++      "create $type_id blocks" => [
++        'title' => $this->t('%type_name: Create new blocks', $type_params),
++      ],
++      "edit any $type_id blocks" => [
++        'title' => $this->t('%type_name: Edit any blocks', $type_params),
++      ],
++      "delete any $type_id blocks" => [
++        'title' => $this->t('%type_name: Delete any blocks', $type_params),
++      ],
++    ];
++  }
++
++}
+diff --git a/core/modules/block_content/src/BlockContentTypeAccessControlHandler.php b/core/modules/block_content/src/BlockContentTypeAccessControlHandler.php
+new file mode 100644
+index 0000000..f37b095
+--- /dev/null
++++ b/core/modules/block_content/src/BlockContentTypeAccessControlHandler.php
+@@ -0,0 +1,39 @@
++<?php
++
++namespace Drupal\block_content;
++
++use Drupal\Core\Access\AccessResult;
++use Drupal\Core\Entity\EntityAccessControlHandler;
++use Drupal\Core\Entity\EntityInterface;
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Defines the access control handler for the block type.
++ *
++ * @see \Drupal\block_content\Entity\BlockContentType
++ */
++class BlockContentTypeAccessControlHandler extends EntityAccessControlHandler {
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
++    if ($account->hasPermission('administer blocks')) {
++      return AccessResult::allowed()->cachePerPermissions();
++    }
++
++    if ($operation == 'view') {
++      return AccessResult::allowed();
++    }
++
++    return parent::checkAccess($entity, $operation, $account);
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
++    return AccessResult::allowedIf($account->hasPermission('administer blocks') || $account->hasPermission('administer block types'))->cachePerPermissions();
++  }
++
++}
+diff --git a/core/modules/block_content/src/Controller/BlockContentController.php b/core/modules/block_content/src/Controller/BlockContentController.php
+index 1caad74..6f31817 100644
+--- a/core/modules/block_content/src/Controller/BlockContentController.php
++++ b/core/modules/block_content/src/Controller/BlockContentController.php
+@@ -73,7 +73,16 @@ public function __construct(EntityStorageInterface $block_content_storage, Entit
+    *   returns the custom block add page for that custom block type.
+    */
+   public function add(Request $request) {
+-    $types = $this->blockContentTypeStorage->loadMultiple();
++    $types = array();
++
++    // Only use block types the user has access to.
++    foreach ($this->entityTypeManager()->getStorage('block_content_type')->loadMultiple() as $type) {
++      $access = $this->entityTypeManager()->getAccessControlHandler('block_content')->createAccess($type->id(), NULL, [], TRUE);
++      if ($access->isAllowed()) {
++        $types[$type->id()] = $type;
++      }
++    }
++
+     if ($types && count($types) == 1) {
+       $type = reset($types);
+       return $this->addForm($type, $request);
+diff --git a/core/modules/block_content/src/Entity/BlockContentType.php b/core/modules/block_content/src/Entity/BlockContentType.php
+index 339b4e5..5dd4862 100644
+--- a/core/modules/block_content/src/Entity/BlockContentType.php
++++ b/core/modules/block_content/src/Entity/BlockContentType.php
+@@ -12,6 +12,7 @@
+  *   id = "block_content_type",
+  *   label = @Translation("Custom block type"),
+  *   handlers = {
++ *     "access" = "Drupal\block_content\BlockContentTypeAccessControlHandler",
+  *     "form" = {
+  *       "default" = "Drupal\block_content\BlockContentTypeForm",
+  *       "add" = "Drupal\block_content\BlockContentTypeForm",
+@@ -20,7 +21,7 @@
+  *     },
+  *     "list_builder" = "Drupal\block_content\BlockContentTypeListBuilder"
+  *   },
+- *   admin_permission = "administer blocks",
++ *   admin_permission = "administer block types",
+  *   config_prefix = "type",
+  *   bundle_of = "block_content",
+  *   entity_keys = {

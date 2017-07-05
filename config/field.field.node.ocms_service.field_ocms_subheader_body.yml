@@ -1,0 +1,22 @@
+uuid: 7057547c-2371-4f76-8194-75a975ecccc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_subheader_body
+    - node.type.ocms_service
+  module:
+    - text
+id: node.ocms_service.field_ocms_subheader_body
+field_name: field_ocms_subheader_body
+entity_type: node
+bundle: ocms_service
+label: 'Subheader body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

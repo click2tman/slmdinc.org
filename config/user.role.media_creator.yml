@@ -1,0 +1,17 @@
+uuid: 20c209d5-cddb-469c-ac3e-1182a5bfc51e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uiYWNcZNGbEyD3eOgmj9IP7UK6coj8bSl3HuPqj6mJ4
+id: media_creator
+label: 'Media creator'
+weight: 5
+is_admin: null
+permissions:
+  - 'access media overview'
+  - 'access media_browser entity browser pages'
+  - 'create media'
+  - 'delete media'
+  - 'update media'
+  - 'use text format full_html'

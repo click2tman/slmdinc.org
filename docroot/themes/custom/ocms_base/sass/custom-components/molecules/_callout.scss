@@ -1,0 +1,35 @@
+/**
+ * Callout
+ * @description Style for Callout Custom Blocks
+ */
+
+.ocms-callout {
+  border: 1px solid $callout-border;
+  padding: 20px;
+  margin-bottom: 30px;
+  @media only screen and (max-width: $screen-xs-max) {
+    float: left;
+  }
+
+  &__title {
+    @extend h3;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    color: $callout-title-color !important;
+  }
+
+  // .field--name-body {
+  //   margin-bottom: 30px;
+  // }
+
+  .field--item a, .field--name-field-ocms-link a {
+      display: block;
+      padding-top: 20px;
+      &:before {
+        // @extend .fa;
+        text-decoration: underline;
+        content: "+";
+        // content: $fa-var-plus;
+      }
+  }
+}

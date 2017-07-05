@@ -1,0 +1,13 @@
+.page-node-type-article {
+    //Style the Banner that extends across the page-break-inside:
+    .ocms-page-node-type-article-page__title {
+        border-bottom: 10px solid $article-title-border-color;
+    }
+
+    .region-sidebar-second {
+        h2 {
+                font-weight: bold;
+                @include typi($h3-map, $rem:false);
+        }
+    }
+}

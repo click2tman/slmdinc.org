@@ -1,0 +1,33 @@
+name: 'OCMS Education'
+type: 'theme'
+base theme: 'classy'
+description: 'A Bootstrap-based, responsive Drupal theme by <a href="http://www.morethanthemes.com/" target="_blank">More than (just) Themes</a>.'
+version: '8.x-1.0.0'
+core: '8.x'
+libraries:
+  - ocms_education/bootstrap
+  - ocms_education/fontawesome
+  - ocms_education/global-styling
+  - ocms_education/local-stylesheets
+regions:
+  header_top_first: 'Header Top First'
+  header_top_second: 'Header Top Second'
+  header: 'Header'
+  navigation: 'Navigation'
+  banner: 'Banner'
+  system_messages: 'System Messages'
+  highlighted: 'Highlighted'
+  promoted: 'Promoted Area'
+  content: 'Content'
+  sidebar_first: 'First Sidebar'
+  sidebar_second: 'Second Sidebar'
+  bottom_content: 'Bottom Content'
+  footer_top_first: 'Footer Top First'
+  footer_top_second: 'Footer Top Second'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  sub_footer_first: 'Subfooter First'
+  footer: 'Subfooter Second'
+  hidden_blocks_collection: 'Hidden blocks collection'

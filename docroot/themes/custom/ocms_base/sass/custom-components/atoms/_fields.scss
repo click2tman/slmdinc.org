@@ -1,0 +1,116 @@
+/**
+ * Form Fields Stylesheet
+ * @description Define styles for form fields
+ */
+
+/*TODO: Change search icon background, need feedback from Design Team
+/*Input Fields*/
+
+input {
+  max-width: 370px;
+}
+
+textarea {
+  max-width: 570px;
+}
+
+.form-control {
+  color: $input-color;
+  border-color: $input-border-color;
+
+  &:focus {
+      @include box-shadow(0 0 10px 0 $field-highlight-color);
+  }
+
+  &:disabled {
+      background-color: $field-disabled-color;
+      border-color: $field-disabled-color;
+  }
+
+}
+.form-required:after {
+  @extend .fa;
+  background-image: none;
+  content: $fa-var-asterisk;
+  padding-left: 0.2rem;
+  font-size: 7px;
+  vertical-align: super;
+}
+.ocms-main-container {
+  .ocms-has-error__border {
+          @include border-radius(4px);
+          color: inherit;
+          padding: 6px 12px;
+          font-size: 14px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: $field-error-color;
+          &:focus {
+            -moz-box-shadow: 0 0 10px 0 $field-error-color;
+            -webkit-box-shadow: 0 0 10px 0 $field-error-color;
+            box-shadow: 0 0 10px 0 $field-error-color;
+            border-color: $field-error-color;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(166, 25, 46, 0.9), 0 0 8px rgba(166, 25, 46, 0.9);
+            box-shadow: inset 0 1px 1px rgba(166, 25, 46, 0.9), 0 0 8px rgba(166, 25, 46, 0.9);
+          }
+  }
+  .has-error  {
+    &.form-control {
+      @include border-top-right-radius(4px);
+      color: $darkest-gray;
+      padding: 6px 12px;   
+      font-size: 14px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: $field-error-color;
+      &:focus {
+        -moz-box-shadow: 0 0 10px 0 $field-error-color;
+        -webkit-box-shadow: 0 0 10px 0 $field-error-color;
+        box-shadow: 0 0 10px 0 $field-error-color;
+        border-color: $field-error-color;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(166, 25, 46, 0.9), 0 0 8px rgba(166, 25, 46, 0.9);
+        box-shadow: inset 0 1px 1px rgba(166, 25, 46, 0.9), 0 0 8px rgba(166, 25, 46, 0.9);
+      }
+    }
+    &.control-label {
+      color: $field-error-color;
+    }
+  }
+  label {
+    &.ocms-has-error {
+      color: $field-error-color;
+    }
+    &.control-label {
+      &:after {
+        @extend .fa;
+        background-image: none;
+        content: $fa-var-asterisk;
+        padding-left: 0.2rem;
+        font-size: 7px;
+        vertical-align: super;
+      }
+    }
+  }
+  div {
+    .ocms-has-error__title {
+      color: $field-error-color;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      &:after {
+        @extend .fa;
+        background-image: none;
+        content: $fa-var-asterisk;
+        padding-left: 0.2rem;
+        font-size: 7px;
+        vertical-align: super;
+      }
+    }
+    .ocms-has-error__message {
+      color: $field-error-color;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+}

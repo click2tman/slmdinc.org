@@ -1,0 +1,52 @@
+uuid: f20cc8d7-713f-443e-bf0f-6d518e19ad28
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ocms_slideshow_entry.field_ocms_bg_video_vimeo
+    - field.field.node.ocms_slideshow_entry.field_ocms_bg_video_volume
+    - field.field.node.ocms_slideshow_entry.field_ocms_bg_video_youtube
+    - field.field.node.ocms_slideshow_entry.field_ocms_slideshow
+    - field.field.node.ocms_slideshow_entry.field_ocms_slideshow_image
+    - field.field.node.ocms_slideshow_entry.field_ocms_slideshow_path
+    - field.field.node.ocms_slideshow_entry.field_ocms_slideshow_text
+    - image.style.large
+    - node.type.ocms_slideshow_entry
+  module:
+    - image
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_slideshow_entry.teaser
+targetEntityType: node
+bundle: ocms_slideshow_entry
+mode: teaser
+content:
+  field_ocms_slideshow_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: large
+      image_link: content
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_bg_video_vimeo: true
+  field_ocms_bg_video_volume: true
+  field_ocms_bg_video_youtube: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_path: true
+  field_ocms_slideshow_text: true
+  langcode: true

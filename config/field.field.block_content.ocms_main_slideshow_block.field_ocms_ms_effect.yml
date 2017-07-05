@@ -1,0 +1,23 @@
+uuid: ba0aed2c-d924-45b5-9649-82e32395ac96
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_ms_effect
+  module:
+    - options
+id: block_content.ocms_main_slideshow_block.field_ocms_ms_effect
+field_name: field_ocms_ms_effect
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Slideshow Effect'
+description: 'From the drop-down menu, select the slideshow effect you prefer.'
+required: false
+translatable: false
+default_value:
+  -
+    value: fade
+default_value_callback: ''
+settings: {  }
+field_type: list_string

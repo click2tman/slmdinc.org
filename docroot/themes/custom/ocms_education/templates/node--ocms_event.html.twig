@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Scholarly's theme implementation to display an Event node.
+ */
+#}
+{% extends "node.html.twig" %}
+{% block content %}
+  <div class="event-content-wrapper clearfix">
+    {% if view_mode=='full' %}
+      <div class="event-info">
+        {% if event_date %}
+          <div class="event-date-wrapper">
+            <div class="event-date">
+              <div class="month">{{ event_date | format_date('custom', 'M')}}</div>
+              <div class="day">{{ event_date | format_date('custom', 'd')}}</div>
+            </div>
+          </div>
+          <div class="event-duration">
+            <i class="fa fa-clock-o"></i>
+            {{ event_date | format_date('custom', 'F j, g:i a') }}
+          </div>
+        {% endif %}
+        {% if content.field_ocms_event_location|render %}
+          <div class="event-place">
+            <i class="fa fa-map-marker"></i>
+            {{ content.field_ocms_event_location }}
+          </div>
+        {% endif %}
+        {% if content.field_ocms_event_latitude|render and content.field_ocms_event_longitude|render %}
+          {{ attach_library('ocms_education/google-maps-init') }}
+          <div class="google-map-canvas"
+            data-attribute-ocms-latitude="{{node.field_ocms_event_latitude.value}}"
+            data-attribute-ocms-longitude="{{node.field_ocms_event_longitude.value}}"
+            data-attribute-ocms-map-zoom="10">
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="event-content {{ view_mode=='full' ? 'custom-width' : 'full-width' }}">
+      <div class="node--main-content">
+        <div{{ content_attributes }}>
+          {{ content | without('field_ocms_event_latitude', 'field_ocms_event_longitude', 'group_ocms_event_details','comment','field_ocms_event_date')}}
+        </div>
+      </div>
+    </div>
+    {{ content.group_ocms_event_details }}
+    {{ content.comment }}
+  </div>
+{% endblock %}

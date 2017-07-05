@@ -1,0 +1,31 @@
+uuid: 9acb9626-8247-4bb1-ad72-7f11cbb7c0f6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:ocms_fltt_block:b44dde86-57d6-4d2e-b25d-4d99bba4b2e5'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: whyme
+theme: ocms_showcase
+region: featured_top
+weight: 0
+provider: null
+plugin: 'block_content:b44dde86-57d6-4d2e-b25d-4d99bba4b2e5'
+settings:
+  id: 'block_content:b44dde86-57d6-4d2e-b25d-4d99bba4b2e5'
+  label: 'Why Me?'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/60"
+    negate: false
+    context_mapping: {  }

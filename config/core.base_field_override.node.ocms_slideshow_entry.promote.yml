@@ -1,0 +1,22 @@
+uuid: 94c13a70-bf05-4027-9589-7ca0fb6260c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ocms_slideshow_entry
+id: node.ocms_slideshow_entry.promote
+field_name: promote
+entity_type: node
+bundle: ocms_slideshow_entry
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

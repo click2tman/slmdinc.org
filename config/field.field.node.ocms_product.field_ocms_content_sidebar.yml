@@ -1,0 +1,21 @@
+uuid: ea64c571-e956-4cfd-9944-7f1ecab5e151
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_content_sidebar
+    - node.type.ocms_product
+  module:
+    - text
+id: node.ocms_product.field_ocms_content_sidebar
+field_name: field_ocms_content_sidebar
+entity_type: node
+bundle: ocms_product
+label: 'Content Sidebar'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

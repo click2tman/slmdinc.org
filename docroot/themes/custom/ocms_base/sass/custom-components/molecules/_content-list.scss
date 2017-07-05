@@ -1,0 +1,144 @@
+/**
+ * Content List Stylesheet
+ * @description Define styles for a component element, content list
+ */
+
+// Content List: Primary Listing
+// @description Style for List View Blocks on the Homepage
+.ocms-content-list {
+    h2.block-title {
+        background-color: $home-content-list-title-bg;
+        color: $white !important;
+        padding: 18px 20px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        @extend h3;
+    }
+
+    .view-content .views-field-title, .more-link {
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        &:before {
+            @extend .fa;
+            content: $fa-var-angle-right;
+            margin-left: 0;
+            padding-right: 7px;
+            vertical-align: top;
+            display: inline-block;
+            width: 5px;
+            top: 2px;
+            position: relative;
+        }
+
+        a {
+            display: inline-block;
+            width: 92%;
+        }
+    }
+}
+
+// Content List: Primary Listing
+// @description Style for List View Blocks on the Landing Pages
+.primary-list {
+    margin-bottom: 30px;
+
+    .view-header h2 {
+        background-color: $home-content-list-title-bg;
+        color: $white;
+        padding: 18px 20px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        @extend h3;
+    }
+
+    .more-link {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        a::before {
+            @extend .fa;
+            content: $fa-var-angle-right;
+            margin-left: 0;
+            padding-right: 7px;
+        }
+    }
+
+    .field-content {
+        &:before {
+            @extend .fa;
+            content: $fa-var-angle-right;
+            margin-left: 0;
+            padding-right: 7px;
+            vertical-align: top;
+            display: inline-block;
+            width: 5px;
+            top: 2px;
+            position: relative;
+        }
+
+        a {
+            display: inline-block;
+            width: 92%;
+        }
+    }
+
+    .btn-primary a {
+        color: $white;
+        text-decoration: none;
+        &::before {
+            content: '';
+            padding-right: 0px;
+        }
+    }
+}
+// .ocms-main-container {
+//     .field--name-field-ocms-content-list {
+//         .field--item {
+//             &:before {
+//                 @extend .fa;
+//                 content: $fa-var-circle;
+//                 color: $font-color;
+//                 font-size: 6px;
+//                 padding-right: 8px;
+//                 position: relative;
+//                 top: -2px;
+//             }
+//         }
+//     }
+// }
+// Content List: Secondary Listing
+// @description Style for Content List Custom Blocks
+.block-region-related-content, .region-sidebar-second {
+    .field--name-field-content-list {
+        margin-bottom: 30px;
+
+        .field--item {
+            &:before {
+                @extend .fa;
+                content: $fa-var-circle;
+                color: $font-color;
+                font-size: 6px;
+                margin-right: 0.5rem;
+                vertical-align: top;
+                display: inline-block;
+                width: 5px;
+                top: 8px;
+                position: relative;
+            }
+
+            > a {
+                display: inline-block;
+                width: 92%;
+            }
+        }
+    }
+}
+
+.region-sidebar-second {
+    h2.block-title {
+        font-weight: bold;
+        font-size: 1.1875em;
+        line-height: 1.36842;
+    }
+}

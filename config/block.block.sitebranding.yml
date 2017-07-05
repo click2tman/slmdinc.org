@@ -1,0 +1,23 @@
+uuid: 9c3d8eaf-815d-455e-bbdf-ad7c7775e3b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_showcase
+id: sitebranding
+theme: ocms_showcase
+region: slideout
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

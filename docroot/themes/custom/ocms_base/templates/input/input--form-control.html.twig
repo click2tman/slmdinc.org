@@ -1,0 +1,48 @@
+{% extends "input.html.twig" %}
+{#
+/**
+ * @file
+ * Default theme implementation for an 'input__textfield' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ * - icon: An icon.
+ * - input_group: Flag to display as an input group.
+ * - icon_position: Where an icon should be displayed.
+ * - prefix: Markup to display before the input element.
+ * - suffix: Markup to display after the input element.
+ * - type: The type of input.
+ *
+ * @ingroup templates
+ *
+ * @see \Drupal\bootstrap\Plugin\Preprocess\Input
+ * @see template_preprocess_input()
+ */
+#}
+{% spaceless %}
+  {%
+    set classes = [
+      'form-control',
+    ]
+  %}
+  {# Set elements for required fields #}
+  {#{%
+    set hidden = element['#attributes']['type']
+  %}#}
+  {%
+    set type = element['#type']
+  %}
+  {# Set class for required fields #}
+  {%
+  set required_border = "ocms-has-error__border"
+  %}
+ {% block input %}
+    {% if element['#value'] == "" and type != "search" %}
+    <input{{ attributes.addClass(required_border) }} />
+    <div class="ocms-has-error__message">This field is required</div>
+    {% else %}
+    <input{{ attributes.addClass(classes) }} />
+    {% endif %}
+{% endblock %}
+{% endspaceless %}

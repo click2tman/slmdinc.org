@@ -1,0 +1,22 @@
+uuid: 0e45acdc-3bd1-4856-9a6a-9d64bce889dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ocms_product
+id: node.ocms_product.promote
+field_name: promote
+entity_type: node
+bundle: ocms_product
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

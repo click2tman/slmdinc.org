@@ -1,0 +1,27 @@
+uuid: 96085b35-5e26-47f0-92f5-cc7a918791fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.ocms_fancy_tab.field_ocms_fancy_block_reference
+    - field.field.paragraph.ocms_fancy_tab.field_ocms_fancy_subtitle
+    - field.field.paragraph.ocms_fancy_tab.field_ocms_fancy_title
+    - paragraphs.paragraphs_type.ocms_fancy_tab
+id: paragraph.ocms_fancy_tab.preview
+targetEntityType: paragraph
+bundle: ocms_fancy_tab
+mode: preview
+content:
+  field_ocms_fancy_block_reference:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_ocms_fancy_subtitle: true
+  field_ocms_fancy_title: true

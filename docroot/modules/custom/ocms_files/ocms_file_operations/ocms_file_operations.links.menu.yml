@@ -1,0 +1,8 @@
+# Define default links for this module.
+
+irs_file_operations.hello:
+  title: 'IRS File Operations'
+  description: 'This is demo link'
+  route_name: irs_file_operations.hello
+  parent: irspup.info
+

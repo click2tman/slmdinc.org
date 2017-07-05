@@ -1,0 +1,24 @@
+uuid: 8f29b9bc-65d7-41d3-b168-13d0a754732a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_nodes_slideshow_block
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.ocms_nodes_slideshow_block.field_ocms_ns_slide
+id: block_content.ocms_nodes_slideshow_block.full
+targetEntityType: block_content
+bundle: ocms_nodes_slideshow_block
+mode: full
+content:
+  field_ocms_ns_slide:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: ocms_slide_view
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

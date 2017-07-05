@@ -1,0 +1,14 @@
+uuid: 948fe54d-06cc-4754-bdf9-bd9af7211c8d
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_video_gallery_thumbnail
+label: 'Video Gallery thumbnail (400×226 )'
+effects:
+  9abdd71b-db69-45f8-90de-053b54362dec:
+    uuid: 9abdd71b-db69-45f8-90de-053b54362dec
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 226

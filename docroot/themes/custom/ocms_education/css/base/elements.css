@@ -1,0 +1,252 @@
+/* Reset unusual Firefox-on-Android default style, see https://github.com/necolas/normalize.css/issues/214*/
+@media (max-width: 1199px) {
+  .form-text,
+  .form-textarea,
+  .block-superfish select,
+  .block-search .form-submit,
+  #search-block-form .form-submit {
+    background-image: none;
+  }
+}
+body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #1e1e1e;
+}
+p {
+  margin: 0;
+  padding: 0 0 15px 0;
+}
+p.large {
+  font-size: 21px;
+  line-height: 1.33;
+}
+a {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #2a68af;
+}
+a:hover {
+  text-decoration: underline;
+  color: #4187d1;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #4187d1;
+}
+img {
+ height: auto;
+  max-width: 100%;
+}
+code, pre {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre;
+  white-space: pre-wrap;
+  font-family: 'Source Code Pro', Consolas, Monaco, Courier;
+}
+pre {
+  background: #e1e1e1;
+  border:none;
+  border-left: 10px solid #d3d1cd;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  color: #222222;
+  padding: 20px;
+  font-size: 14px;
+  max-height: 62px;
+  overflow: hidden;
+  margin: 40px 0 40px 45px;
+}
+pre:hover {
+  max-height: 10000px;
+  -webkit-transition: all ease-in-out 2s;
+  -moz-transition: all ease-in-out 2s;
+  -o-transition: all ease-in-out 2s;
+  -ms-transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+}
+blockquote {
+  font-size: 24px;
+  font-style: italic;
+  padding:0 0 0 150px;
+  border-left: none;
+  position: relative;
+  margin: 40px 0 50px;
+}
+blockquote p {
+  font-weight: 400;
+  line-height: 1.44;
+}
+.footer-area blockquote {
+  padding-left: 70px;
+}
+
+/* Blockquote quote symbol */
+blockquote:after {
+  position: absolute;
+  font-family: 'PT Serif', Georgia, Times, Times New Roman, Serif;
+  content: "“";
+  left: 45px;
+  top: 0;
+  color: #2a68af;
+  font-style: normal;
+  font-size: 160px;
+  line-height: 1;
+}
+.footer-area blockquote:after {
+  left: 0;
+  font-size: 130px;
+}
+@media (min-width: 992px) {
+  .two-sidebars blockquote {
+    padding: 0 0 0 75px;
+  }
+  .two-sidebars blockquote:after {
+    left: 0;
+    font-size: 130px;
+  }
+}
+@media (max-width: 991px) {
+  .footer-area blockquote {
+    padding-left: 40px;
+    font-size: 18px;
+  }
+  .footer-area blockquote:after {
+    left: 0;
+    font-size: 90px;
+  }
+}
+@media (max-width: 767px) {
+  blockquote {
+    padding: 0 0 0 75px;
+  }
+  blockquote:after {
+    left: 0;
+    font-size: 130px;
+  }
+}
+hr {
+  border-top: 1px solid #c2c2c2;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+/*Headings*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.20;
+  padding: 0;
+  margin: 20px 0 10px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: #1e1e1e;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #4187d1;
+}
+h1 {
+  font-size: 35px;
+}
+h2 {
+  font-size: 28px;
+  font-weight: 400;
+}
+h3 {
+  font-size: 21px;
+}
+h4 {
+  font-size: 19px;
+}
+h5 {
+  font-size: 16px;
+}
+h1.title {
+  margin-top:0;
+  margin-bottom: 20px;
+}
+.footer-area h2 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+#block-views-ocms-latest-news-block-1 h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.footer-area h1,
+.footer-area h2,
+.footer-area h3,
+.footer-area h4,
+.footer-area h5,
+.footer-area h6 {
+  color: #fff;
+}
+.footer-area h1 a,
+.footer-area h2 a,
+.footer-area h3 a,
+.footer-area h4 a,
+.footer-area h5 a,
+.footer-area h6 a {
+  color: #fff;
+}
+.footer-area h1 a:hover,
+.footer-area h2 a:hover,
+.footer-area h3 a:hover,
+.footer-area h4 a:hover,
+.footer-area h5 a:hover,
+.footer-area h6 a:hover {
+  color: #4187d1;
+}
+.subtitle {
+  margin-top: -10px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+.footer-area .subtitle {
+  font-size: 12px;
+  margin-top: 0;
+}
+.block-views h2.title,
+.block-menu h2 {
+  margin-bottom: 20px;
+}
+.sidebar h2.title,
+.sidebar .block-menu h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 4px 0 15px 0;
+}
+.node header h2 {
+  margin-bottom: 5px;
+}
+.node-teaser header h2 {
+  margin-top: 4px;
+}
+.light {
+  font-weight: 400;
+}
+.feed-icons {
+  margin-top: 20px;
+}

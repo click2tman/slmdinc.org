@@ -1,0 +1,28 @@
+{
+  "name": "ocms_base",
+  "version": "1.0.0",
+  "description": "<!-- @file Instructions for subtheming using the Sass Starterkit. --> <!-- @defgroup sub_theming_sass --> <!-- @ingroup sub_theming --> # Sass Starterkit",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \\ \"Error: no test specified \" && exit 1\""
+  },
+  "author": "Ivana Thibodeaux",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-kss": "0.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.1",
+    "gulp-util": "^3.0.8",
+    "gulp-webserver": "^0.9.1",
+    "kss": "^3.0.0-beta.16",
+    "opn": "^4.0.2",
+    "typi": "^2.3.0"
+  }
+}

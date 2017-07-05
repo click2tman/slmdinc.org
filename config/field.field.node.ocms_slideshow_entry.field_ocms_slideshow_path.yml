@@ -1,0 +1,19 @@
+uuid: 3a9d50cf-9a72-46c9-84b0-e3b8de8d0006
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_slideshow_path
+    - node.type.ocms_slideshow_entry
+id: node.ocms_slideshow_entry.field_ocms_slideshow_path
+field_name: field_ocms_slideshow_path
+entity_type: node
+bundle: ocms_slideshow_entry
+label: 'Slideshow entry path'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

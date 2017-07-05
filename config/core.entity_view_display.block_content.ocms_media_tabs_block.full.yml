@@ -1,0 +1,26 @@
+uuid: 283badb2-25fe-4098-a158-f21bf12a5b08
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_media_tabs_block
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.ocms_media_tabs_block.field_ocms_media_tab
+  module:
+    - entity_reference_revisions
+id: block_content.ocms_media_tabs_block.full
+targetEntityType: block_content
+bundle: ocms_media_tabs_block
+mode: full
+content:
+  field_ocms_media_tab:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

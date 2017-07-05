@@ -1,0 +1,23 @@
+uuid: 9dcaf063-e5aa-4cb0-84be-74db68ec5085
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_price
+    - node.type.ocms_service
+id: node.ocms_service.field_ocms_price
+field_name: field_ocms_price
+entity_type: node
+bundle: ocms_service
+label: Price
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

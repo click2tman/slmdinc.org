@@ -1,0 +1,25 @@
+uuid: a4d67715-c63c-42db-90c1-15b44235f947
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cdd0e5c4-d6a2-4103-99cb-fb64c12fda43'
+  module:
+    - block_content
+  theme:
+    - ocms_showcase
+id: copyright
+theme: ocms_showcase
+region: sub_footer_first
+weight: -10
+provider: null
+plugin: 'block_content:cdd0e5c4-d6a2-4103-99cb-fb64c12fda43'
+settings:
+  id: 'block_content:cdd0e5c4-d6a2-4103-99cb-fb64c12fda43'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

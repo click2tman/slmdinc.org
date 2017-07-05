@@ -1,0 +1,7 @@
+ocms_accessibility.form:
+  path: '/admin/config/irspup/accessibility'
+  defaults:
+    _form: '\Drupal\ocms_accessibility\Form\AccessibilityConfigForm'
+    _title: 'Accessibility Config Form'
+  requirements:
+    _permission: 'access administration pages'

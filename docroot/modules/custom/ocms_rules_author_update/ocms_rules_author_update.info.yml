@@ -1,0 +1,7 @@
+name: OCMS Rules Author Update
+type: module
+description: Sends an email to the new author when a node has been updated and the author has changed.
+package: IRS Custom
+core: 8.x
+dependencies:
+  - node

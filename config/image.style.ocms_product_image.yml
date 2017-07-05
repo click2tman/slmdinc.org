@@ -1,0 +1,14 @@
+uuid: 187b05f9-1cc0-46a0-a130-e7139183db47
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_product_image
+label: 'Product Image (750x750)'
+effects:
+  92f835d4-aa3b-4f9e-9c80-fcef0f25364b:
+    uuid: 92f835d4-aa3b-4f9e-9c80-fcef0f25364b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 750

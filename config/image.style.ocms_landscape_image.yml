@@ -1,0 +1,14 @@
+uuid: 122394b3-9d41-4cd8-9057-89f99bcb84a8
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_landscape_image
+label: 'Landscape Image (750x401)'
+effects:
+  6c03b9e5-e109-4298-9103-cac570c03dc0:
+    uuid: 6c03b9e5-e109-4298-9103-cac570c03dc0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 401

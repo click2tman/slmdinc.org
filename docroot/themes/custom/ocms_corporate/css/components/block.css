@@ -1,0 +1,94 @@
+/**
+ * @file
+ * Visual styles for Levelplus's blocks.
+ */
+
+/*Blocks Titles*/
+.footer-area h2.title,
+.footer-area .block > h2 {
+  font-size: 1.12em;
+  margin-bottom: 25px;
+}
+.footer-top-area h2.title,
+.footer-top-area .block > h2 {
+  font-size: 1.12em;
+}
+.sidebar h2.title,
+.sidebar .block>h2 {
+  font-size: 1.12em;
+  margin: 2px 0 10px 0;
+}
+.content-top-area h2.title,
+.content-bottom-area h2.title,
+.featured-area h2.title,
+.content-top-area .block>h2,
+.content-bottom-area .block>h2,
+.featured-area .block>h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.highlighted-area h2.title,
+.highlighted-bottom-area h2.title,
+.featured-bottom-area h2.title,
+.highlighted-area .block>h2,
+.highlighted-bottom-area .block>h2,
+.featured-bottom-area .block>h2  {
+  font-size: 1.62em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/*Blocks*/
+.block {
+  padding: 0 0 25px 0;
+}
+.block-superfish.block,
+.search-area .block,
+#block-system-main.block,
+.header .block-menu.block,
+.header .block-superfish.block,
+.block.block-page-title-block {
+  padding: 0;
+}
+.header-area .block {
+  padding-bottom: 10px;
+}
+.header-area .block:first-child:last-child {
+  padding-bottom: 0;
+}
+.content-top-area .block {
+  padding-bottom: 40px;
+}
+.content-top-area .block:last-child {
+  padding-bottom: 20px;
+}
+.content-bottom-area .block {
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+.content-bottom-area .block:last-child {
+  border-bottom: none;
+}
+.featured-bottom-area .block {
+  padding-bottom: 65px;
+}
+.featured-bottom-area .block:last-child {
+  padding-bottom: 0;
+}
+.subfooter-area .block {
+  padding: 10px 0;
+}
+.sidebar .block {
+  padding: 5px 0 45px 0;
+}
+.block-system-breadcrumb-block {
+  padding: 20px 0 70px;
+}
+.main-content + .block-system-breadcrumb-block,
+.content-bottom + .block-system-breadcrumb-block,
+.featured-top + .block-system-breadcrumb-block,
+.featured-bottom + .block-system-breadcrumb-block {
+  margin-top: 20px;
+}

@@ -1,0 +1,29 @@
+uuid: ce2b8a0d-0771-47c8-b766-9f7c73dd4f7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.ocms_products
+  module:
+    - system
+    - views
+  theme:
+    - ocms_showcase
+id: exposedformocms_productspage_1
+theme: ocms_showcase
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:ocms_products-page_1'
+settings:
+  id: 'views_exposed_filter_block:ocms_products-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /products
+    negate: false
+    context_mapping: {  }

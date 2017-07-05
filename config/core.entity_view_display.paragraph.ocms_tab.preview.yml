@@ -1,0 +1,25 @@
+uuid: 700a5868-562d-4d83-9acb-75b220c1125e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.ocms_tab.field_ocms_tab_content
+    - field.field.paragraph.ocms_tab.field_ocms_tab_title
+    - paragraphs.paragraphs_type.ocms_tab
+  module:
+    - text
+id: paragraph.ocms_tab.preview
+targetEntityType: paragraph
+bundle: ocms_tab
+mode: preview
+content:
+  field_ocms_tab_content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_ocms_tab_title: true

@@ -1,0 +1,31 @@
+uuid: d0354143-51d3-4663-98a9-1795f7ad06fd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:354482c5-6174-4433-bb73-a4050efae12e'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: servicesbanner
+theme: ocms_showcase
+region: banner
+weight: -13
+provider: null
+plugin: 'block_content:354482c5-6174-4433-bb73-a4050efae12e'
+settings:
+  id: 'block_content:354482c5-6174-4433-bb73-a4050efae12e'
+  label: 'Services (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /services
+    negate: false
+    context_mapping: {  }

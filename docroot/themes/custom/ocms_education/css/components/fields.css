@@ -1,0 +1,34 @@
+/* fields */
+.field--name-field-ocms-subheader-body {
+  font-size: 21px;
+  padding: 0 0 5px 0;
+  line-height: 1.33;
+}
+.field-name-field-ocms-subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+@media all and (min-width: 560px) {
+  .node .field--type-image,
+  .node .field--type-video-embed-field {
+    float: left; /* LTR */
+    max-width: 100%;
+  }
+  [dir="rtl"] .node .field--type-image,
+  [dir="rtl"] .node .field--type-video-embed-field {
+    float: right;
+    max-width: 100%;
+  }
+  .node .field--type-image + .field--type-image,
+  .node .field--type-video-embed-field + .field--type-video-embed-field {
+    clear: both;
+  }
+}
+.field--type-image a,
+.field--type-video-embed-field a {
+  border-bottom: none;
+}
+.field-group-accordion-wrapper {
+  margin-bottom: 0!important;
+}

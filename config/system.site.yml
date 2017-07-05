@@ -1,0 +1,15 @@
+uuid: 90bdc615-a7bc-418d-8ef0-e5792231064e
+name: 'LAM-TECH Consulting'
+mail: info@lamtech.sl
+slogan: 'Open CMS'
+page:
+  403: /node/17
+  404: /node/16
+  front: /node/60
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+mail_notification: ''

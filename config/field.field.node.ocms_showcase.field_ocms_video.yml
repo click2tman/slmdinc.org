@@ -1,0 +1,25 @@
+uuid: a4c49670-89d8-44ce-8860-ff7d5f8ffc35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_video
+    - node.type.ocms_showcase
+  module:
+    - video_embed_field
+id: node.ocms_showcase.field_ocms_video
+field_name: field_ocms_video
+entity_type: node
+bundle: ocms_showcase
+label: Video
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: vimeo
+    youtube: youtube
+    youtube_playlist: '0'
+field_type: video_embed_field

@@ -1,0 +1,91 @@
+input.form-text,
+input.form-email,
+input.form-search,
+textarea,
+select {
+  background: #e1e1e1;
+  color: #464646;
+  font-size: 14px;
+  padding: 10px 15px;
+  outline: none;
+  border: none;
+  width: 100%;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+.header-top-area select,
+.footer-area select,
+.subfooter-area select {
+  background-color: #363636;
+  color: #fff;
+}
+input.form-text,
+input.form-email,
+input.form-search {
+  height: 40px;
+}
+.form-search:focus {
+  background-color: rgba(225,225,225,0.75);
+}
+#main .form-actions input[type="submit"] {
+  margin-right: 10px!important;
+}
+.form-style-2 input.form-text,
+.form-style-2 input.form-email,
+.form-style-2 select,
+.form-style-2 textarea,
+#webform-client-form-26 .webform-component input.form-search,
+#webform-client-form-26 .webform-component textarea,
+.contact-message-alternative-form input,
+.contact-message-alternative-form textarea {
+  background: transparent;
+  font-size: 15px;
+  color: #1e1e1e;
+  padding: 5px 15px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #c2c2c2;
+}
+#main-navigation select {
+  margin: 20px 0;
+  padding: 5px 15px;
+}
+.header-top-area select {
+  background-color: #363636;
+  color: #fff;
+  margin: 10px 0 0;
+  padding: 5px 15px;
+}
+textarea {
+  resize: none;
+}
+label {
+  display: block;
+}
+.form-item label {
+  margin-top: 25px;
+}
+.label {
+  color: #1e1e1e;
+}
+fieldset {
+  border: 1px solid #dddddd;
+  padding: 0.5em;
+  margin: 20px 0 35px;
+}
+fieldset legend {
+  border: 1px solid #dddddd;
+  display: inline-block;
+  width: auto;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0px 0 3px;
+}

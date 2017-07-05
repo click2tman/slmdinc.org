@@ -1,0 +1,7 @@
+uuid: fde4e45e-e5ad-4e97-9911-26e076f79351
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_fancy_linked_image
+label: 'Fancy Linked Image'
+behavior_plugins: {  }

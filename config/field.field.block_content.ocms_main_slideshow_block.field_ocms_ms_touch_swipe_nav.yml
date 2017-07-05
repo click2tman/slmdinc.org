@@ -1,0 +1,23 @@
+uuid: 5c6b5a14-29ab-4e37-a910-9cc1d9a4dbb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_ms_touch_swipe_nav
+id: block_content.ocms_main_slideshow_block.field_ocms_ms_touch_swipe_nav
+field_name: field_ocms_ms_touch_swipe_nav
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Enable touch swipe navigation'
+description: 'Use the checkbox to enable or disable touch swipe navigation in mobile devices.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

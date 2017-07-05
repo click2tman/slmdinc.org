@@ -1,0 +1,22 @@
+uuid: b62e7021-aa0f-4d23-8002-2a13e6e8c7f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_corporate
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: ocms_corporate_messages
+theme: ocms_corporate
+region: system_messages
+weight: -23
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

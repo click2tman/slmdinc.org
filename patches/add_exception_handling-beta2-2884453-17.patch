@@ -1,0 +1,248 @@
+diff --git a/search_api_attachments.install b/search_api_attachments.install
+new file mode 100644
+index 0000000..3141b18
+--- /dev/null
++++ b/search_api_attachments.install
+@@ -0,0 +1,65 @@
++<?php
++
++/**
++ * @file
++ * Install, update and uninstall functions for Search API Attachments module.
++ */
++
++/**
++ * Implements hook_schema().
++ */
++function search_api_attachments_schema() {
++  $schema['search_api_attachments_log'] = _schema_definition();
++  return $schema;
++}
++
++/**
++ * Defines the schema for the {search_api_attachments_log} table.
++ */
++function _schema_definition() {
++  return [
++    'description' => 'Logs various messages regarding attachment indexing.',
++    'fields' => [
++      'log_id' => [
++        'type' => 'serial',
++        'not null' => TRUE,
++        'description' => 'Primary Key: The ID of the logged message.',
++      ],
++      'entity_id' => [
++        'type' => 'int',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++        'description' => 'The entity ID the file is attached to',
++      ],
++      'fid' => [
++        'type' => 'int',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++        'description' => 'The file ID',
++      ],
++      'message' => [
++        'type' => 'text',
++        'not null' => TRUE,
++        'size' => 'big',
++        'description' => 'Text of logged message.',
++      ],
++      'timestamp' => [
++        'type' => 'int',
++        'not null' => TRUE,
++        'default' => 0,
++        'description' => 'Unix timestamp of when event occurred.',
++      ],
++    ],
++    'primary key' => ['log_id'],
++  ];
++}
++
++/**
++ * Create search_api_attachments_log table to log file extraction errors.
++ */
++function search_api_attachments_update_8101() {
++  $databaseSchema = \Drupal::database()->schema();
++  if (!$databaseSchema->tableExists('search_api_attachments_log')) {
++    $databaseSchema->createTable('search_api_attachments_log', _schema_definition());
++  }
++}
+diff --git a/src/Plugin/Field/FieldFormatter/ExtractedText.php b/src/Plugin/Field/FieldFormatter/ExtractedText.php
+index 86021dc..c5dc8e0 100644
+--- a/src/Plugin/Field/FieldFormatter/ExtractedText.php
++++ b/src/Plugin/Field/FieldFormatter/ExtractedText.php
+@@ -12,6 +12,8 @@ use Drupal\search_api\Processor\ProcessorPluginManager;
+ use Drupal\search_api_attachments\Plugin\search_api\processor\FilesExtrator;
+ use Drupal\search_api_attachments\TextExtractorPluginManager;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
++use Drupal\Core\Entity\EntityInterface;
++use Drupal\file\Entity\File;
+ 
+ /**
+  * File formatter displaying text extracted form attachment document.
+@@ -130,9 +132,9 @@ class ExtractedText extends FileFormatterBase implements ContainerFactoryPluginI
+    */
+   public function viewElements(FieldItemListInterface $items, $langcode) {
+     $elements = array();
+-
++    $entity = $items->getEntity();
+     foreach ($this->getEntitiesToView($items, $langcode) as $delta => $file) {
+-      if ($contents = $this->extractFileContents($file)) {
++      if ($contents = $this->extractFileContents($entity, $file)) {
+         $elements[$delta] = array(
+           '#markup' => $contents,
+           '#cache' => array(
+@@ -148,16 +150,19 @@ class ExtractedText extends FileFormatterBase implements ContainerFactoryPluginI
+   /**
+    * Extracts content of given file.
+    *
+-   * @param $file
++   * @param \Drupal\Core\Entity\EntityInterface $entity
++   *   The entity the file is attached to.
++   * @param \Drupal\file\Entity\File $file
++   *   A file object.
+    *
+    * @return string|NULL
+    *   Content of the file or NULL if type of file is not supported.
+    */
+-  protected function extractFileContents($file) {
++  protected function extractFileContents(EntityInterface $entity, File $file) {
+     if ($this->isFileIndexable($file)) {
+       return $this
+         ->extractor
+-        ->extractOrGetFromCache($file, $this->extractionMethod);
++        ->extractOrGetFromCache($entity, $file, $this->extractionMethod);
+     }
+   }
+ 
+diff --git a/src/Plugin/search_api/processor/FilesExtrator.php b/src/Plugin/search_api/processor/FilesExtrator.php
+index 996ffa5..5a1c6c9 100644
+--- a/src/Plugin/search_api/processor/FilesExtrator.php
++++ b/src/Plugin/search_api/processor/FilesExtrator.php
+@@ -19,6 +19,10 @@ use Drupal\search_api\Processor\ProcessorProperty;
+ use Drupal\file\Entity\File;
+ use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface;
+ use Drupal\Core\Plugin\PluginFormInterface;
++use Drupal\Core\Database\Connection;
++use Drupal\Core\Entity\EntityInterface;
++use Drupal\Core\Utility\Error;
++use Exception;
+ 
+ /**
+  * Provides file fields processor.
+@@ -95,9 +99,16 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+   protected $moduleHandler;
+ 
+   /**
++   * The database connection object.
++   *
++   * @var \Drupal\Core\Database\Connection
++   */
++  protected $connection;
++
++  /**
+    * {@inheritdoc}
+    */
+-  public function __construct(array $configuration, $plugin_id, array $plugin_definition, TextExtractorPluginManager $text_extractor_plugin_manager, MimeTypeGuesserInterface $mime_type_guesser, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, KeyValueFactoryInterface $key_value, ModuleHandlerInterface $module_handler) {
++  public function __construct(array $configuration, $plugin_id, array $plugin_definition, TextExtractorPluginManager $text_extractor_plugin_manager, MimeTypeGuesserInterface $mime_type_guesser, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, KeyValueFactoryInterface $key_value, ModuleHandlerInterface $module_handler, Connection $connection) {
+     parent::__construct($configuration, $plugin_id, $plugin_definition);
+     $this->textExtractorPluginManager = $text_extractor_plugin_manager;
+     $this->mimeTypeGuesser = $mime_type_guesser;
+@@ -105,6 +116,7 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+     $this->entityTypeManager = $entity_type_manager;
+     $this->keyValue = $key_value;
+     $this->moduleHandler = $module_handler;
++    $this->connection = $connection;
+   }
+ 
+   /**
+@@ -112,7 +124,7 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+    */
+   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+     return new static(
+-        $configuration, $plugin_id, $plugin_definition, $container->get('plugin.manager.search_api_attachments.text_extractor'), $container->get('file.mime_type.guesser'), $container->get('config.factory'), $container->get('entity_type.manager'), $container->get('keyvalue'), $container->get('module_handler')
++        $configuration, $plugin_id, $plugin_definition, $container->get('plugin.manager.search_api_attachments.text_extractor'), $container->get('file.mime_type.guesser'), $container->get('config.factory'), $container->get('entity_type.manager'), $container->get('keyvalue'), $container->get('module_handler'), $container->get('database')
+     );
+   }
+ 
+@@ -183,7 +195,7 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+ 
+             foreach ($files as $file) {
+               if ($this->isFileIndexable($file, $item, $field_name)) {
+-                $extraction .= $this->extractOrGetFromCache($file, $extractor_plugin);
++                $extraction .= $this->extractOrGetFromCache($entity, $file, $extractor_plugin);
+               }
+             }
+             $field->addValue($extraction);
+@@ -196,6 +208,8 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+   /**
+    * Extract file data or get it from cache if available and cache it.
+    *
++   * @param \Drupal\Core\Entity\EntityInterface $entity
++   *   The entity the file is attached to.
+    * @param \Drupal\file\Entity\File $file
+    *   A file object.
+    * @param \Drupal\search_api_attachments\TextExtractorPluginInterface $extractor_plugin
+@@ -204,14 +218,20 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+    * @return string
+    *   $extracted_data
+    */
+-  public function extractOrGetFromCache(File $file, TextExtractorPluginInterface $extractor_plugin) {
++  public function extractOrGetFromCache(EntityInterface $entity, File $file, TextExtractorPluginInterface $extractor_plugin) {
+     $collection = 'search_api_attachments';
+     $key = $collection . ':' . $file->id();
++    $extracted_data = '';
+     if ($cache = $this->keyValue->get($collection)->get($key)) {
+       $extracted_data = $cache;
+     }
+     else {
+-      $extracted_data = $extractor_plugin->extract($file);
++      try {
++        $extracted_data = $extractor_plugin->extract($file);
++      }
++      catch (Exception $e) {
++        $this->logExtractionError($entity, $file, $e);
++      }
+       $this->keyValue->get($collection)->set($key, $extracted_data);
+     }
+     return $extracted_data;
+@@ -508,4 +528,37 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+     return array_keys($excluded_mimes);
+   }
+ 
++  /**
++   * Logs the exception thrown during file extraction.
++   *
++   * @param \Drupal\Core\Entity\EntityInterface $entity
++   *   The entity the file is attached to.
++   * @param \Drupal\file\Entity\File $file
++   *   The file being extracted.
++   * @param \Exception $e
++   *   The exception thrown during file extraction.
++   *
++   * @throws \Exception
++   */
++  protected function logExtractionError(EntityInterface $entity, File $file, Exception $e) {
++    $error = Error::decodeException($e);
++    $errorInformation = [
++      '@type' => $error['%type'],
++      '@message' => $error['@message'],
++      '@function' => $error['%function'],
++      '@line' => $error['%line'],
++      '@file' => $error['%file'],
++    ];
++    $exceptionMessage = t('@type: @message in @function (line @line of @file).', $errorInformation);
++    $this->connection
++      ->insert('search_api_attachments_log')
++      ->fields([
++        'entity_id' => $entity->id(),
++        'fid' => $file->id(),
++        'message' => $exceptionMessage,
++        'timestamp' => REQUEST_TIME,
++      ])
++      ->execute();
++  }
++
+ }

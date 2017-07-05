@@ -1,0 +1,14 @@
+uuid: 89180d07-9754-4d6c-b423-9c32b2912c91
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_slideshow_boxed
+label: 'Slideshow Boxed Width (1140x650)'
+effects:
+  baa0885c-4c89-41bc-a666-0095bd97451f:
+    uuid: baa0885c-4c89-41bc-a666-0095bd97451f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1140
+      height: 650

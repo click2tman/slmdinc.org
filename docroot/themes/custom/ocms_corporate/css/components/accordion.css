@@ -1,0 +1,41 @@
+/*Accordion*/
+.panel-group {
+  margin: 25px 0;
+}
+.panel-group .panel {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.panel-default > .panel-heading {
+  background: transparent;
+  padding: 0;
+  outline: none;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  width: 100%;
+}
+.panel-heading a:not(.collapsed),
+.panel-heading:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.panel-title a {
+  font-weight: 700;
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+}
+.panel-title a:hover {
+  color: #fff !important;
+  text-decoration: none;
+}
+.panel-title a i {
+  padding-right: 10px;
+  font-size: 20px;
+}

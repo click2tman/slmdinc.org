@@ -1,0 +1,14 @@
+uuid: e1c48400-b6dc-4fb4-b5e3-873b261027ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.ocms_slide_view
+label: 'Slide View'
+targetEntityType: node
+cache: true

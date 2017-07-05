@@ -1,0 +1,23 @@
+ocms_linkchecker.admin_settings:
+  path: '/admin/config/services/ocms_linkchecker'
+  defaults:
+    _form: '\Drupal\ocms_linkchecker\Form\SettingsForm'
+    _title: 'OCMS linkchecker settings'
+  requirements:
+    _permission: 'administer OCMS linkchecker'
+
+ocms_linkchecker.broken_links_report:
+  path: '/admin/reports/broken_links'
+  defaults:
+    _controller: '\Drupal\ocms_linkchecker\Controller\BrokenLinksReport::build'
+    _title: 'Broken Links Report'
+  requirements:
+    _permission: 'access broken links report'
+
+ocms_linkchecker.edit_link:
+  path: '/ocms_linkchecker/{linkId}/edit'
+  defaults:
+    _form: '\Drupal\ocms_linkchecker\Form\LinkSettingEdit'
+    _title: 'Edit link settings'
+  requirements:
+    _permission: 'edit link settings'

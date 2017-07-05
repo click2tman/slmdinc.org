@@ -1,0 +1,66 @@
+uuid: 4b04af29-8a35-4379-b0f6-68ac94d26a98
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.article.body
+    - field.field.node.article.field_image
+    - field.field.node.article.field_ocms_banner_image
+    - field.field.node.article.field_ocms_slideshow
+    - field.field.node.article.field_ocms_slideshow_image
+    - field.field.node.article.field_ocms_slideshow_text
+    - field.field.node.article.field_tags
+    - image.style.large
+    - node.type.article
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.full
+targetEntityType: node
+bundle: article
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+      image_link: file
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_tags:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  langcode: true

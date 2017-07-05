@@ -1,0 +1,160 @@
+{#
+/**
+ * @file
+ * OCMS landing Page template for a 4 Row panel layout.
+ *
+ * This template provides a content area of up to four rows, with each row having up to two columns.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *    - content.first_row_col_1: content in the left column of the first row of the primary content area
+ *    - content.first_row_col_2: content in the middle column of the first row of the primary content area
+ *    - content.first_row_col_3: content in the right column of the first row of the primary content area
+ *    - content.second... through content.fourth follows pattern est. by content.first... above
+ */
+#}
+
+<div class="ocms-multi-row-landing-page">
+
+    {# each row may or may not have any content #}
+    {# each row of content may have up to three columns #}
+    {# each row's content areas are independent of other rows #}
+
+  {% if content.first_row_col_1 or content.first_row_col_2 or content.first_row_col_3 %}
+    {# start first Row #}
+    {%
+      set first_row_class = [
+        content.first_row_col_1 and content.first_row_col_2 and content.first_row_col_3 ? 'col-lg-4 col-md-4 col-sm-12',
+        content.first_row_col_1 and content.first_row_col_2 and content.first_row_col_3 is empty ? 'col-lg-6 col-md-6 col-sm-12',
+        content.first_row_col_1 and content.first_row_col_2 is empty and content.first_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.first_row_col_1 is empty and content.first_row_col_2 and content.first_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.first_row_col_1 and content.first_row_col_2 is empty and content.first_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.first_row_col_1 is empty and content.first_row_col_2 and content.first_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.first_row_col_1 is empty and content.first_row_col_2 is empty and content.first_row_col_3 ? 'col-lg-12 col-md-12 col-sm-12',
+        content.first_row_col_1 is empty and content.first_row_col_2 is empty and content.first_row_col_3 is empty ? 'hidden',
+      ]
+    %}
+
+    <div class="row">
+        {% if content.first_row_col_1 %}
+            <div{{ content_attributes.addClass(first_row_class)}}>
+                {{ content.first_row_col_1 }}
+            </div>
+        {% endif %}
+        {% if content.first_row_col_2 %}
+            <div{{ content_attributes.addClass(first_row_class)}}>
+                {{ content.first_row_col_2 }}
+            </div>
+        {% endif %}
+        {% if content.first_row_col_3 %}
+            <div{{ content_attributes.addClass(first_row_class)}}>
+                {{ content.first_row_col_3 }}
+            </div>
+        {% endif %}
+    </div>
+    {# end first Row #}
+  {% endif %}
+
+    {# start second Row #}
+    {%
+      set second_row_class = [
+        content.second_row_col_1 and content.second_row_col_2 and content.second_row_col_3 ? 'col-lg-4 col-md-4 col-sm-12',
+        content.second_row_col_1 and content.second_row_col_2 and content.second_row_col_3 is empty ? 'col-lg-6 col-md-6 col-sm-12',
+        content.second_row_col_1 and content.second_row_col_2 is empty and content.second_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.second_row_col_1 is empty and content.second_row_col_2 and content.second_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.second_row_col_1 and content.second_row_col_2 is empty and content.second_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.second_row_col_1 is empty and content.second_row_col_2 and content.second_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.second_row_col_1 is empty and content.second_row_col_2 is empty and content.second_row_col_3 ? 'col-lg-12 col-md-12 col-sm-12',
+        content.second_row_col_1 is empty and content.second_row_col_2 is empty and content.first_row_col_3 is empty ? 'hidden',
+      ]
+    %}
+
+    <div class="row">
+        {% if content.second_row_col_1 %}
+            <div{{ content_attributes.removeClass(first_row_class).addClass(second_row_class)}}>
+                {{ content.second_row_col_1 }}
+            </div>
+        {% endif %}
+        {% if content.second_row_col_2 %}
+            <div{{ content_attributes.removeClass(first_row_class).addClass(second_row_class)}}>
+                {{ content.second_row_col_2 }}
+            </div>
+        {% endif %}
+        {% if content.second_row_col_3 %}
+            <div{{ content_attributes.removeClass(first_row_class).addClass(second_row_class)}}>
+                {{ content.second_row_col_3 }}
+            </div>
+        {% endif %}
+    </div>
+    {# end second Row #}
+
+    {# start third Row #}
+    {%
+      set third_row_class = [
+        content.third_row_col_1 and content.third_row_col_2 and content.third_row_col_3 ? 'col-lg-4 col-md-4 col-sm-12',
+        content.third_row_col_1 and content.third_row_col_2 and content.third_row_col_3 is empty ? 'col-lg-6 col-md-6 col-sm-12',
+        content.third_row_col_1 and content.third_row_col_2 is empty and content.third_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.third_row_col_1 is empty and content.third_row_col_2 and content.third_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.third_row_col_1 and content.third_row_col_2 is empty and content.third_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.third_row_col_1 is empty and content.third_row_col_2 and content.third_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.third_row_col_1 is empty and content.third_row_col_2 is empty and content.third_row_col_3 ? 'col-lg-12 col-md-12 col-sm-12',
+        content.third_row_col_1 is empty and content.third_row_col_2 is empty and content.first_row_col_3 is empty ? 'hidden',
+      ]
+    %}
+
+    <div class="row">
+        {% if content.third_row_col_1 %}
+            <div{{ content_attributes.removeClass(first_row_class, second_row_class).addClass(third_row_class)}}>
+                {{ content.third_row_col_1 }}
+            </div>
+        {% endif %}
+        {% if content.third_row_col_2 %}
+            <div{{ content_attributes.removeClass(first_row_class, second_row_class).addClass(third_row_class)}}>
+                {{ content.third_row_col_2 }}
+            </div>
+        {% endif %}
+        {% if content.third_row_col_3 %}
+            <div{{ content_attributes.removeClass(first_row_class, second_row_class).addClass(third_row_class)}}>
+                {{ content.third_row_col_3 }}
+            </div>
+        {% endif %}
+    </div>
+    {# end third Row #}
+
+
+    {# start fourth Row #}
+    {%
+      set fourth_row_class = [
+        content.fourth_row_col_1 and content.fourth_row_col_2 and content.fourth_row_col_3 ? 'col-lg-4 col-md-4 col-sm-12',
+        content.fourth_row_col_1 and content.fourth_row_col_2 and content.fourth_row_col_3 is empty ? 'col-lg-6 col-md-6 col-sm-12',
+        content.fourth_row_col_1 and content.fourth_row_col_2 is empty and content.fourth_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.fourth_row_col_1 is empty and content.fourth_row_col_2 and content.fourth_row_col_3 ? 'col-lg-6 col-md-6 col-sm-12',
+        content.fourth_row_col_1 and content.fourth_row_col_2 is empty and content.fourth_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.fourth_row_col_1 is empty and content.fourth_row_col_2 and content.fourth_row_col_3 is empty ? 'col-lg-12 col-md-12 col-sm-12',
+        content.fourth_row_col_1 is empty and content.fourth_row_col_2 is empty and content.fourth_row_col_3 ? 'col-lg-12 col-md-12 col-sm-12',
+        content.fourth_row_col_1 is empty and content.fourth_row_col_2 is empty and content.first_row_col_3 is empty ? 'hidden',
+      ]
+    %}
+
+    <div class="row">
+        {% if content.fourth_row_col_1 %}
+            <div{{ content_attributes.removeClass(first_row_class, second_row_class, third_row_class).addClass(fourth_row_class)}}>
+                {{ content.fourth_row_col_1 }}
+            </div>
+        {% endif %}
+        {% if content.fourth_row_col_2 %}
+            <div{{ content_attributes.removeClass(first_row_class, second_row_class, third_row_class).addClass(fourth_row_class)}}>
+                {{ content.fourth_row_col_2 }}
+            </div>
+        {% endif %}
+        {% if content.fourth_row_col_3 %}
+            <div{{ content_attributes.removeClass(first_row_class, second_row_class, third_row_class).addClass(fourth_row_class)}}>
+                {{ content.fourth_row_col_3 }}
+            </div>
+        {% endif %}
+    </div>
+    {# end fourth Row #}
+
+</div>

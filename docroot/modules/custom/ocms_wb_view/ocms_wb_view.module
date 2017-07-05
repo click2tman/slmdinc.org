@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Removes the default 
+ */
+function ocms_wb_view_local_tasks_alter(&$data) { 
+    unset($data['workbench.content_tab']);
+
+}

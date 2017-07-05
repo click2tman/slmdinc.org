@@ -1,0 +1,79 @@
+/*More links*/
+.more-link {
+  text-align: left;
+}
+.more-link a {
+  font-size: 0.87em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  line-height: 1;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  min-height: 40px;
+  font-weight: 700;
+  border: 2px solid;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 5px 0;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+  padding-right: 35px;
+}
+.more-link a:after {
+  content: "\f105";
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  right: 20px;
+  font-family: "FontAwesome";
+  font-size: 1.4em;
+  line-height: 1;
+  -webkit-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+.more-link a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+.more-link a:hover:after {
+  color: #ffffff;
+  right: 15px;
+}
+.colored-region:not(.dark) .more-link a {
+  background-color: #1e2527;
+  border-color: #1e2527;
+  color: #ffffff;
+}
+.colored-region:not(.dark) .more-link a:hover {
+  background-color: rgba(30, 37, 39, 0.7);
+}
+.dark .more-link a {
+  color: #ffffff;
+}
+.sidebar .block-views .more-link {
+  text-align: left;
+}
+.block-views .more-link {
+  text-align: center;
+  margin: 30px 0 0;
+}
+.sidebar .block-views .more-link,
+.footer-area .block-views .more-link {
+  text-align: left;
+  margin: 10px 0;
+}
+@media (max-width:767px) {
+  .header-area .more-link,
+  .footer-area .more-link {
+    text-align: center;
+  }
+}

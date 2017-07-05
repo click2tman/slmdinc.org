@@ -1,0 +1,7 @@
+uuid: 5b77ac56-a0f9-44b0-9d8d-0c7bab6801aa
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_slideshow_fullscreen
+label: 'Slideshow Full Screen'
+effects: {  }

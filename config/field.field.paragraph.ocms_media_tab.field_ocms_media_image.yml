@@ -1,0 +1,38 @@
+uuid: b987f3d7-2df6-4636-9238-6740a52d9a07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_media_image
+    - paragraphs.paragraphs_type.ocms_media_tab
+  module:
+    - image
+id: paragraph.ocms_media_tab.field_ocms_media_image
+field_name: field_ocms_media_image
+entity_type: paragraph
+bundle: ocms_media_tab
+label: 'Media Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

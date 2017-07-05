@@ -1,0 +1,23 @@
+uuid: 4a03c4e1-1676-44fc-b3e8-6a5c962c564a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_media_button
+    - paragraphs.paragraphs_type.ocms_media_tab
+  module:
+    - link
+id: paragraph.ocms_media_tab.field_ocms_media_button
+field_name: field_ocms_media_button
+entity_type: paragraph
+bundle: ocms_media_tab
+label: 'Media Button'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

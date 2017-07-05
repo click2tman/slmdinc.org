@@ -1,0 +1,23 @@
+uuid: 7b13f84d-b9cb-46ce-9435-a855d44c99e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_main_slideshow_layout
+  module:
+    - options
+id: block_content.ocms_main_slideshow_block.field_ocms_main_slideshow_layout
+field_name: field_ocms_main_slideshow_layout
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Slideshow Layout'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: fullwidth
+default_value_callback: ''
+settings: {  }
+field_type: list_string

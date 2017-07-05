@@ -1,0 +1,25 @@
+uuid: 21c7bd15-8208-4298-b8b9-7492110945a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_ms_initial_height
+id: block_content.ocms_main_slideshow_block.field_ocms_ms_initial_height
+field_name: field_ocms_ms_initial_height
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Slideshow Initial Height'
+description: 'Set the initial height, in pixels'
+required: false
+translatable: false
+default_value:
+  -
+    value: 650
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

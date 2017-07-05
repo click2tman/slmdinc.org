@@ -1,0 +1,65 @@
+uuid: 0ad2db11-24c7-4a94-89a6-e010cf27cbe1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ocms_testimonial.body
+    - field.field.node.ocms_testimonial.field_ocms_banner_image
+    - field.field.node.ocms_testimonial.field_ocms_slideshow
+    - field.field.node.ocms_testimonial.field_ocms_slideshow_image
+    - field.field.node.ocms_testimonial.field_ocms_slideshow_text
+    - field.field.node.ocms_testimonial.field_ocms_subtitle
+    - field.field.node.ocms_testimonial.field_ocms_testimonial_image
+    - image.style.ocms_testimonial_image
+    - node.type.ocms_testimonial
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_testimonial.default
+targetEntityType: node
+bundle: ocms_testimonial
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ocms_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ocms_testimonial_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ocms_testimonial_image
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  langcode: true

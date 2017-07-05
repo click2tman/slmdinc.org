@@ -1,0 +1,7 @@
+name: OCMS Rules Flag Translations
+type: module
+description: Sends an email to authors of outdated translations.
+package: IRS Custom
+core: 8.x
+dependencies:
+  - node

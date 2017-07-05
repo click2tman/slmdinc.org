@@ -1,0 +1,8 @@
+name: OCMS Hierarchical Taxonomy Menu
+type: module
+description: 'Create menus from taxonomy vocabularies based on node being viewed.'
+core: 8.x
+package: 'OCMS Custom'
+dependencies:
+  - taxonomy
+version: '8.x-1.0'

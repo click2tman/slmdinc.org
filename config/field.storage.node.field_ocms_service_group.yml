@@ -1,0 +1,20 @@
+uuid: 09520920-89f3-4e47-977e-48b2bbdb1d75
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_ocms_service_group
+field_name: field_ocms_service_group
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

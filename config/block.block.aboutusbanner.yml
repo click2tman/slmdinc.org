@@ -1,0 +1,31 @@
+uuid: 9f2b2847-9f8d-478e-a3cb-00cd7d6b396b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:5b60f712-e17c-46a9-9af0-badb722797be'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: aboutusbanner
+theme: ocms_showcase
+region: banner
+weight: -17
+provider: null
+plugin: 'block_content:5b60f712-e17c-46a9-9af0-badb722797be'
+settings:
+  id: 'block_content:5b60f712-e17c-46a9-9af0-badb722797be'
+  label: 'About Us (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /about-us
+    negate: false
+    context_mapping: {  }

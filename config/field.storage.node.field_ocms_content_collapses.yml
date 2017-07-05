@@ -1,0 +1,21 @@
+uuid: ddd7e317-30d1-4ab4-b30a-f58579bd7812
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_ocms_content_collapses
+field_name: field_ocms_content_collapses
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

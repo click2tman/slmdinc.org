@@ -1,0 +1,22 @@
+uuid: be6ecaf4-43ba-4d20-8967-a5e9918d8f20
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - ocms_showcase
+_core:
+  default_config_hash: TtirHLOe9LnVibfL6O4jc3ey44ez7E7HIj2qOYzjDzM
+id: ocms_showcase_help
+theme: ocms_showcase
+region: content
+weight: -18
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

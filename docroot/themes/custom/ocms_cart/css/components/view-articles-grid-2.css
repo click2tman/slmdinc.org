@@ -1,0 +1,26 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s articles grid 2 views.
+ */
+.view-articles-grid-2 .views-row {
+  margin-bottom: 40px;
+}
+.view-articles-grid-2 .views-field-title h6 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.view-articles-grid-2 .views-field-title h6 a {
+  text-decoration: none;
+}
+.view-articles-grid-2 .views-field-created {
+  font-size: 15px;
+}
+.region--dark-typography .view-articles-grid-2 .views-field-created {
+  color: #a6a6a6;
+}
+.region--dark-typography .view-articles-grid-2 .views-field-title h6 a {
+  color: #3b3b3b;
+}
+.view-articles-grid-2 .comments-count {
+  padding-left: 20px;
+}

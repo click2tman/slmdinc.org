@@ -1,0 +1,34 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s daily menu views.
+ */
+.view-daily-menu .view-content > h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.region--dark-typography .view-daily-menu .view-content > h3 a {
+  color: #3b3b3b;
+  text-decoration: none;
+}
+.view-daily-menu .views-field-title a {
+  padding-left: 20px;
+  position: relative;
+}
+.view-daily-menu .views-field-title a:after {
+  content: "";
+  width: 2px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
+  background-color: #3b3b3b;
+}
+.region--light-typography .view-daily-menu .views-field-title a:after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.region--dark-typography .view-daily-menu .views-field-title a {
+  color: #3b3b3b;
+  text-decoration: none;
+}

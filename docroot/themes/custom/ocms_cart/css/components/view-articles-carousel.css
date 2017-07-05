@@ -1,0 +1,8 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s articles carousel.
+ */
+.ocms-carousel-articles .mt-carousel-item {
+  margin: 0 15px 40px;
+  text-align: center;
+}

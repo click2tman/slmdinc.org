@@ -1,0 +1,8 @@
+uuid: e8b8738a-174b-4d47-9c97-e47199233d72
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_fltt_block
+label: 'Featured Linked Text Tiles block'
+revision: 1
+description: 'Use this custom block type to create blocks that display featured linked text tiles.'

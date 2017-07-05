@@ -1,0 +1,437 @@
+<?php
+
+/**
+ * @file
+ * Put some appropriate text here at some point.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+// @see: https://api.drupal.org/api/drupal/core%21core.api.php/group/hooks/8.3.x
+// @see: https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21entity.api.php/8.3.x
+// @see: https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21entity.api.php/function/hook_ENTITY_TYPE_update/8.3.x
+// @see: https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21entity.api.php/function/hook_ENTITY_TYPE_delete/8.3.x
+// @see: https://www.drupal.org/node/2294409
+
+/**
+ * Implements hook_help().
+ */
+function ocms_linkchecker_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#ocms_linkchecker':
+      return '<p>' . t('This module provides an aid to finding broken links on your site. It periodically checks contents of all public nodes, tries to find any html links and check for their validity. It reports broken links through the admin interface. For more information about status codes see <a href="@rfc">Status Code Definitions</a>.', array('@rfc' => 'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html')) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function ocms_linkchecker_cron() {
+  $ocms_linkchecker_maintenance = \Drupal::service('ocms_linkchecker.maintenance');
+
+  // Remove outdated links no longer in use once per day.
+  $last_run = \Drupal::state()->get('ocms_linkchecker.last_deleted_links') ?: 0;
+  if ((REQUEST_TIME - $last_run) >= ( 24 * 60 * 60) ) {
+    $ocms_linkchecker_maintenance->deleteUnreferencedLinks();
+    \Drupal::state()->set('ocms_linkchecker.last_deleted_links', REQUEST_TIME);
+  }
+
+  // Remove links for unscanned node types once per day.
+  $last_run = \Drupal::state()->get('ocms_linkchecker.last_deleted_node_links') ?: 0;
+  if ((REQUEST_TIME - $last_run) >= ( 24 * 60 * 60) ) {
+    $ocms_linkchecker_maintenance->deleteUnscannedNodeLinks();
+    \Drupal::state()->set('ocms_linkchecker.last_deleted_node_links', REQUEST_TIME);
+  }
+
+  // Check for broken links
+  // It's not truly necessary to restrict how often this task runs because each
+  // link has its own time stamp and the method will respect the user-selected
+  // interval for how frequently to check a link.
+  //$last_run = \Drupal::state()->get('ocms_linkchecker.check_links') ?: 0;
+  //if ((REQUEST_TIME - $last_run) >= ( 1 * 60 * 60) ) {
+    $ocms_linkchecker_maintenance->checkLinks();
+  //  \Drupal::state()->set('ocms_linkchecker.check_links', REQUEST_TIME);
+  //}
+}
+
+/**
+ * Implements hook_node_type_delete().
+ */
+function ocms_linkchecker_node_type_delete($entity) {
+  \Drupal::state()->delete('ocms_linkchecker.scan_node_' . $entity->get('type'));
+  \Drupal::state()->delete('ocms_linkchecker.scan_comment_' . $entity->get('type'));
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_prepare_form() for node entities.
+ */
+function ocms_linkchecker_node_prepare_form(NodeInterface $node, $operation, FormStateInterface $form_state) {
+  // Node edit tab is viewed.
+  if ($operation == 'edit' && !$node->isNew()) {
+    // Show a message on node edit page if a link check failed once or more.
+    $connection = \Drupal::service('database');
+    $links = $connection->query('SELECT ll.*
+      FROM {ocms_linkchecker_entity} le
+      INNER JOIN {ocms_linkchecker_link} ll
+      ON le.lid = ll.lid
+      WHERE le.entity_id = :nid
+      AND ll.fail_count > :fail_count
+      AND ll.status = :status
+      AND le.entity_type = :node
+      AND le.langcode = :langcode',
+      array(
+        ':nid' => $node->nid->value,
+        ':fail_count' => 0,
+        ':status' => 1,
+        ':node' => 'node',
+        ':langcode' => $node->language()->getId(),
+      ));
+    foreach ($links as $link) {
+// @todo: Switch this to use the service
+//      if (_linkchecker_link_access($link)) {
+        drupal_set_message(\Drupal::service('string_translation')
+          ->formatPlural(
+            $link->fail_count,
+	    'Link check of <a href="@url">@url</a> failed once (status code: @code).',
+	    'Link check of <a href="@url">@url</a> failed @count times (status code: @code).',
+	    array('@url' => $link->url, '@code' => $link->code)
+          ),
+	  'warning',
+	  FALSE
+        );
+//      }
+    }
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function ocms_linkchecker_node_delete($node) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+  $ocms_linkchecker_database_service->deleteNodeLinks($node);
+  $ocms_linkchecker_database_service->setBrokenNodeReferences($node);
+}
+
+/**
+ * Implements hook_node_translation_delete().
+ */
+function ocms_linkchecker_node_translation_delete($node) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+  $ocms_linkchecker_database_service->deleteNodeLinks($node);
+  $ocms_linkchecker_database_service->setBrokenNodeReferences($node);
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function ocms_linkchecker_node_insert($node) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+
+  // Every moderation module saving a forward revision needs to exit here.
+  // Based on the best I was able to understand:
+  // - http://drupal.org/node/1879482
+  // - http://drupal.org/node/218755
+  // - http://drupal.org/node/1522154
+  // I think we just want to check things this way.
+  if (!$node->isDefaultRevision()) {
+    return;
+  }
+
+  // The node is going to be published.
+  $scan_node = \Drupal::state()->get('ocms_linkchecker.scan_node_' . $node->getType()) ?: false;
+  if ($scan_node && $node->isPublished() == NODE_PUBLISHED) {
+    $ocms_linkchecker_database_service->addNodeLinks($node);
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function ocms_linkchecker_node_update($node) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+
+  // Every moderation module saving a forward revision needs to exit here.
+  // Based on the best I was able to understand:
+  // - http://drupal.org/node/1879482
+  // - http://drupal.org/node/218755
+  // - http://drupal.org/node/1522154
+  // I think we just want to check things this way.
+  if (!$node->isDefaultRevision()) {
+    return;
+  }
+
+  // The node is going to be published.
+  $scan_node = \Drupal::state()->get('ocms_linkchecker.scan_node_' . $node->getType()) ?: false;
+  if ($scan_node && $node->isPublished() == NODE_PUBLISHED) {
+    $ocms_linkchecker_database_service->addNodeLinks($node);
+  }
+  else {
+    // The node is going to be unpublished or is not supposed to be scanned.
+    $ocms_linkchecker_database_service =
+      \Drupal::service('ocms_linkchecker.database');
+    $ocms_linkchecker_database_service->deleteNodeLinks($node);
+  }
+  if (!$node->isPublished()) {
+    $ocms_linkchecker_database_service->setBrokenNodeReferences($node);
+  }
+}
+
+/**
+ * Implements hook_comment_delete().
+ */
+function ocms_linkchecker_comment_delete($comment) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+  $ocms_linkchecker_database_service->deleteCommentLinks($comment);
+}
+
+/**
+ * Implements hook_comment_insert().
+ */
+function ocms_linkchecker_comment_insert($comment) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+  $connection = \Drupal::service('database');
+  $node_type = $connection->query('SELECT type FROM {node} WHERE nid = :nid', array(':nid' => $comment->nid))->fetchField();
+  $scan_comment = \Drupal::state()->get('ocms_linkchecker.scan_comment_' . $node_type) ?: false;
+  // The comment is going to be published.
+  if ($scan_comment && $comment->isPublished() == COMMENT_PUBLISHED) {
+//    $ocms_linkchecker_database_service->addCommentLinks($comment);
+  }
+}
+
+/**
+ * Implements hook_comment_update().
+ */
+function ocms_linkchecker_comment_update($comment) {
+  $ocms_linkchecker_database_service =
+    \Drupal::service('ocms_linkchecker.database');
+  $connection = \Drupal::service('database');
+  // The node is going to be published.
+  $node_type = $connection->query('SELECT type FROM {node} WHERE nid = :nid', array(':nid' => $comment->nid))->fetchField();
+  $scan_comment = \Drupal::state()->get('ocms_linkchecker.scan_comment_' . $node->getType()) ?: false;
+  if ($scan_comment && $comment->isPublished() == COMMENT_PUBLISHED) {
+//    $ocms_linkchecker_database_service->addCommentLinks($comment);
+  }
+  else {
+    // The node is going to be unpublished.
+    ocms_linkchecker_comment_delete($comment);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ocms_linkchecker_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    // Catch the custom block add/configure form and add custom submit handler.
+// @todo: I'm coming back to blocks later
+    case 'block_add_block_form':
+      // Add custom submit handler to custom block add form.
+//      $form['#submit'][] = 'linkchecker_block_custom_add_form_submit';
+      break;
+
+// @todo: I'm coming back to blocks later
+    case 'block_admin_configure':
+      // When displaying the form, show the broken links warning.
+//      if (empty($form_state['input']) && is_numeric(arg(5))) {
+        // Show a message on custom block edit page if a link check failed once
+        // or more often.
+//        $ignore_response_codes = preg_split('/(\r\n?|\n)/', variable_get('linkchecker_ignore_response_codes', "200\n206\n302\n304\n401\n403"));
+//  $connection = \Drupal::service('database');
+//        $links = $connection->query('SELECT ll.* FROM {linkchecker_block_custom} lb INNER JOIN {linkchecker_link} ll ON lb.lid = ll.lid WHERE lb.bid = :bid AND ll.fail_count > :fail_count AND ll.status = :status AND ll.code NOT IN (:codes)', array(':bid' => arg(5), ':fail_count' => 0, ':status' => 1, ':codes' => $ignore_response_codes));
+//        foreach ($links as $link) {
+//          if (_linkchecker_link_access($link)) {
+//            drupal_set_message(\Drupal::service('string_translation')->formatPlural($link->fail_count, 'Link check of <a href="@url">@url</a> failed once (status code: @code).', 'Link check of <a href="@url">@url</a> failed @count times (status code: @code).', array('@url' => $link->url, '@code' => $link->code)), 'warning', FALSE);
+//          }
+//        }
+//      }
+
+      // Add custom submit handler to custom block configuration form.
+//      $form['#submit'][] = 'linkchecker_block_custom_configure_form_submit';
+      break;
+
+// @todo: I'm coming back to blocks later
+    case 'block_custom_block_delete':
+      // Add custom submit handler to custom block delete form.
+//      $form['#submit'][] = 'linkchecker_block_custom_delete_form_submit';
+      break;
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function ocms_linkchecker_form_node_type_form_alter(&$form, $form_state) {
+  if (isset($form['type']['#default_value'])) {
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions'][$action]['#submit'][] = 'ocms_linkchecker_node_type_form_submit';
+      }
+    }
+    $form['ocms_linkchecker'] = array(
+      '#title' => t('OCMS Link checker'),
+      '#type' => 'details',
+      '#group' => 'additional_settings',
+//      '#attached' => array(
+//        'js' => array(drupal_get_path('module', 'ocms_linkchecker') . '/ocms_linkchecker-node-form.js'),
+//      ),
+    );
+    $form['ocms_linkchecker']['ocms_linkchecker_scan_node'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Scan content'),
+      '#description' => t('Enables link checking for this content type.'),
+      '#default_value' => \Drupal::state()->get('ocms_linkchecker.scan_node_' . $form['type']['#default_value']) ?: false,
+    );
+
+    if (\Drupal::moduleHandler()->moduleExists('comment')) {
+      $form['ocms_linkchecker']['ocms_linkchecker_scan_comment'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Scan comments'),
+        '#description' => t('Enables link checking for comments.'),
+        '#default_value' => \Drupal::state()->get('ocms_linkchecker.scan_comment_' . $form['type']['#default_value']) ?: false,
+      );
+    }
+  }
+}
+
+/**
+ * Submit handler for linkchecker_form_node_type_form_alter().
+ */
+function ocms_linkchecker_node_type_form_submit($form, $form_state) {
+  $original_linkchecker_state = $form['ocms_linkchecker']['ocms_linkchecker_scan_node']['#default_value'];
+  // Default to TRUE if comment module isn't enabled, we don't care.
+  $original_linkchecker_comment_state = TRUE;
+  if (\Drupal::moduleHandler()->moduleExists('comment')) {
+    $original_linkchecker_comment_state = $form['ocms_linkchecker']['ocms_linkchecker_scan_comment']['#default_value'];
+  }
+  $values = $form_state->getValues();
+  $loaded = FALSE;
+  $node_type = $form['type']['#default_value'];
+  if (!$original_linkchecker_state && $values['ocms_linkchecker_scan_node']) {
+    \Drupal::service('ocms_linkchecker.maintenance')->scanNodeType($node_type);
+  }
+  elseif ($original_linkchecker_state && !$values['ocms_linkchecker_scan_node']) {
+    \Drupal::service('ocms_linkchecker.maintenance')->removeNodeType($node_type);
+  }
+  \Drupal::state()->set('ocms_linkchecker.scan_node_' . $node_type, $values['ocms_linkchecker_scan_node']);
+  // Use !empty here for when comment module isn't enabled and there is no
+  // field.
+//  if (!$original_linkchecker_comment_state && !empty($values['ocms_linkchecker_scan_comment'])) {
+//    // We need to scan comments for this node-type now.
+//    \Drupal::service('ocms_linkchecker.maintenance')->scanCommentType($node_type);
+//  }
+  \Drupal::state()->set('ocms_linkchecker.scan_comment_' . $node_type, $values['ocms_linkchecker_scan_comment']);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+/******
+ ** @todo: I'll see about coming back to comments later
+function ocms_linkchecker_form_comment_form_alter(&$form, &$form_state, $form_id) {
+  // When displaying the form as 'view' or 'preview', show the broken links
+  // warning.
+  if ((empty($form_state['input']) || (isset($form_state['input']['op']) && $form_state['input']['op'] == t('Preview'))) && arg(0) == 'comment' && is_numeric(arg(1)) && arg(2) == 'edit') {
+    // Show a message on comment edit page if a link check failed once or
+    // more often.
+    $ignore_response_codes = preg_split('/(\r\n?|\n)/', variable_get('linkchecker_ignore_response_codes', "200\n206\n302\n304\n401\n403"));
+    $connection = \Drupal::service('database');
+    $links = $connection->query('SELECT ll.* FROM {linkchecker_comment} lc INNER JOIN {linkchecker_link} ll ON lc.lid = ll.lid WHERE lc.cid = :cid AND ll.fail_count > :fail_count AND ll.status = :status AND ll.code NOT IN (:codes)', array(':cid' => arg(1), ':fail_count' => 0, ':status' => 1, ':codes' => $ignore_response_codes));
+    foreach ($links as $link) {
+      if (_linkchecker_link_access($link)) {
+        drupal_set_message(\Drupal::service('string_translation')->formatPlural($link->fail_count, 'Link check of <a href="@url">@url</a> failed once (status code: @code).', 'Link check of <a href="@url">@url</a> failed @count times (status code: @code).', array('@url' => $link->url, '@code' => $link->code)), 'warning', FALSE);
+      }
+    }
+  }
+}
+**
+********/
+/**
+ * Custom submit handler for block add page.
+ */
+/**********
+ ** @todo: I'm coming back to blocks later
+function linkchecker_block_custom_add_form_submit($form, &$form_state) {
+  if (variable_get('linkchecker_scan_blocks', 0)) {
+    $connection = \Drupal::service('database');
+    $bid = $connection->query('SELECT MAX(bid) FROM {block_custom}')->fetchField();
+    _linkchecker_add_block_custom_links($form_state['values'], $bid);
+  }
+}
+**
+*******/
+/**
+ * Custom submit handler for block configure page.
+ */
+/*************
+ ** @todo: I'm coming back to blocks later
+function linkchecker_block_custom_configure_form_submit($form, &$form_state) {
+  if (variable_get('linkchecker_scan_blocks', 0)) {
+    _linkchecker_add_block_custom_links($form_state['values'], $form_state['values']['delta']);
+  }
+}
+**
+*************/
+/**
+ * Custom submit handler for block delete page.
+ */
+/************
+ ** @todo: I'm coming back to blocks later
+function linkchecker_block_custom_delete_form_submit($form, &$form_state) {
+  _linkchecker_delete_block_custom_links($form_state['values']['bid']);
+}
+**
+************/
+
+/**
+ * Load link as object.
+ *
+ * @param int $lid
+ *  The link id.
+ *
+ * @return object
+ */
+/****
+ ** This was being used via %linkchecker_link in a menu structure for the link edit page.
+ ** I haven't created the controller to handle that yet. I don't know if I'm able to get
+ ** the routing.yml file to call a loader of my own. I don't think Symfony would know
+ ** how to load the object for me, even if I gave it some typehint.
+function linkchecker_link_load($lid) {
+  $connection = \Drupal::service('database');
+  return $connection->query('SELECT * FROM {linkchecker_link} WHERE lid = :lid', array(':lid' => $lid))->fetchObject();
+}
+****************************************/
+
+/**
+ * Returns the language code of the given entity.
+ *
+ * Backward compatibility layer to ensure that installations running an older
+ * version of core where entity_language() is not avilable do not break.
+ *
+ * @param string $entity_type
+ *   An entity type.
+ * @param object $entity
+ *   An entity object.
+ *
+ * @return string
+ *   The entity language code.
+ */
+function linkchecker_entity_language($entity_type, $entity) {
+// @todo: I suspect this function is no longer necessary and that there is a native
+//        Drupal 8 method I can use.
+  $langcode = NULL;
+  if (function_exists('entity_language')) {
+    $langcode = entity_language($entity_type, $entity);
+  }
+  elseif (!empty($entity->language)) {
+    $langcode = $entity->language;
+  }
+  return $langcode;
+}

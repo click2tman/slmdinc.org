@@ -1,0 +1,7 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s team members carousel.
+ */
+.mt-carousel-team-members .mt-carousel-item {
+  margin: 15px;
+}

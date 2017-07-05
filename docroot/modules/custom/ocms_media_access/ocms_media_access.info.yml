@@ -1,0 +1,8 @@
+name: 'OCMS Media Access'
+description: 'Media access permissions by entity type'
+package: 'OCMS Custom'
+type: 'module'
+core: '8.x'
+version: '8.x-1.0'
+dependencies :
+ - media_entity

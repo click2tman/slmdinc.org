@@ -1,0 +1,122 @@
+/**
+ * @file
+ * Visual styles for the site branding block in Levelplus.
+ */
+
+ /*Logo - Site name*/
+.logo {
+  padding-top: 5px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.logo:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.logo img {
+  display: block;
+  margin: 0 auto;
+}
+.site-name a {
+  font-size: 2.5em;
+  font-weight: 900;
+  line-height: 1.1;
+  text-decoration: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.site-name a:hover,
+.site-name a:focus {
+  text-decoration: none;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.colored-area .site-name a:hover,
+.colored-area .site-name a:focus {
+  color: #ffffff;
+}
+.site-slogan {
+  font-size: 0.87em;
+  line-height: 1.30;
+  padding: 0;
+}
+.footer-area .site-slogan {
+  font-size: 0.75em;
+  line-height: 1.30;
+  font-weight: 300;
+  clear: left;
+}
+.three-columns .logo-and-site-name-wrapper,
+.three-columns .site-name {
+  display: inline-block;
+  vertical-align: top;
+}
+@media (min-width:481px) {
+  .three-columns .site-name {
+    float: left;
+  }
+}
+@media (min-width:768px) {
+  .footer-area .logo-and-site-name-wrapper {
+    margin-top: 80px;
+  }
+}
+@media (max-width:991px) {
+  .logo-and-site-name-wrapper,
+  .site-name {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+@media (min-width:481px) and (max-width:991px) {
+  .site-name {
+    float: left;
+  }
+}
+@media (max-width:767px) {
+  .logo {
+    visibility: visible;
+  }
+  .footer-area .logo {
+    float: none;
+    margin-right: 0;
+    text-align: center;
+    display: block;
+  }
+  .footer-area .site-name,
+  .footer-area .site-slogan {
+    text-align: center;
+    float: none;
+  }
+  .footer-area .site-name {
+    margin: 5px 0 0 0;
+  }
+  .footer-area .site-slogan {
+    display: block;
+    visibility: visible;
+    padding: 5px 0 0 0;
+  }
+}
+@media (max-width:480px) {
+  .logo {
+    float: none;
+    margin: 0px;
+    display: block;
+    margin-bottom: 5px;
+  }
+}

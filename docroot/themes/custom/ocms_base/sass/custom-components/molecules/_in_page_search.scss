@@ -1,0 +1,136 @@
+.ocms-in-page-search {
+    margin: 30px 0;
+    background-color: $ocms-blue;
+    .block-search-form-block {
+        h2 {
+            color: $white;
+            padding: 40px 0 25px 0;
+            display: block;
+            visibility: visible;
+            position: relative !important;
+            overflow: visible;
+            text-align: center;
+            text-align: center;
+            width: 100%;
+            margin: 0 0 25px 0;
+            @media only screen and (max-width: $screen-xs-max) {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+        form {
+                max-width: 390px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 40px;
+                @media only screen and (max-width: $screen-xs-max) {
+                    padding-top: 30px;
+                     max-width: 300px;
+                }
+            .form-group {
+                margin-bottom: 0;
+            }
+            input {
+                color: $dark-gray;
+                // &::placeholder, &::-moz-placeholder, &::-webkit-placeholder, &::-o-placeholder {
+                //     content: "Search by keyword, form number, and more(e.g. installment agreement, itemized deductions, 1040)";
+                //     color: inherit;
+                // }
+            }
+            input, .input-group-btn > .btn {
+                @media only screen and (max-width: $screen-xs-max) {
+                   margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+// SOLR search styles section
+.block-views-exposed-filter-blockocms-site-index-search-site-search-srt-relevance {
+        float: right;
+        position: relative;
+        left: -39px;
+        .ocms-has-error__border {
+            border-top: 1px solid $light-gray;
+            border-left: 1px solid $light-gray;
+            border-bottom: 1px solid $light-gray;
+            &:focus {
+                -moz-box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                -webkit-box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                border-color: $ips-input-bckgrd;
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+            }
+        }
+        input {
+            margin-top: 1em;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+            outline: 0;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857;
+            color: #555555;
+            background-color: $white;
+            background-image: none;
+            border-top: 1px solid $light-gray;
+            border-left: 1px solid $light-gray;
+            border-bottom: 1px solid $light-gray;
+            left: 1px;
+
+            &:focus {
+                -moz-box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                -webkit-box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+            }
+        }
+        .form-item-field-ocms-historical, .form-item-field-ocms-historical-1,
+        .ocms-has-error__title, .ocms-has-error__message, .input-group-addon, .form-inline .control-label {
+            display: none;
+        }
+        .form-actions .btn {
+            @extend.input-group-btn;
+        }
+        button#edit-submit-ocms-site-index-search {
+            position: absolute;
+            top: 14px;
+            right: -46px;
+            background-color: $white;
+            border: none;
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            color:  $ips-but-bckgrd;
+            min-height: 34px;
+            border-top: 1px solid $light-gray;
+            border-right: 1px solid $light-gray;
+            border-bottom: 1px solid $light-gray;
+            &:focus, &:focus:hover, &:active, &:active:hover {
+                -moz-box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                -webkit-box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+                box-shadow: 0 0 10px 0 $ips-input-bckgrd;
+            }
+            .glyphicon-search {
+                content: "\e003";
+                color: $ips-but-bckgrd;;
+                position: absolute;
+                font-size: 12px;
+                top: 10px;
+                left: 18px;
+                font-family: 'Glyphicons Halflings';
+
+                &:focus, &:focus:hover, &:active, &:active:hover {
+                    color: $white;
+                }
+            }
+            
+            &:active, &:focus, &:active:hover, &:focus:hover {
+                background-color: $ips-but-bckgrd;  
+            }
+        }
+}

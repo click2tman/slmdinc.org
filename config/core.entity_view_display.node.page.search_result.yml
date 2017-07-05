@@ -1,0 +1,53 @@
+uuid: ef5b10ce-e786-45f1-83d1-42b920de8745
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.page.body
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_ocms_banner_image
+    - field.field.node.page.field_ocms_slideshow
+    - field.field.node.page.field_ocms_slideshow_image
+    - field.field.node.page.field_ocms_slideshow_text
+    - field.field.node.page.field_ocms_subheader_body
+    - field.field.node.page.panelizer
+    - field.field.node.page.scheduled_update
+    - node.type.page
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+_core:
+  default_config_hash: OiypyeLb74_-PfEakdyH0LpbA6qmo3kmAot9Z8LlnTk
+id: node.page.search_result
+targetEntityType: node
+bundle: page
+mode: search_result
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_meta_tags: true
+  field_ocms_banner_image: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  field_ocms_subheader_body: true
+  langcode: true
+  links: true
+  panelizer: true
+  scheduled_update: true
+  workbench_moderation_control: true

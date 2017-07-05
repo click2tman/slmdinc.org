@@ -1,0 +1,23 @@
+uuid: 4a341b66-5784-4ad2-acdc-e8922c7766f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_fli_link
+    - paragraphs.paragraphs_type.ocms_fancy_linked_image
+  module:
+    - link
+id: paragraph.ocms_fancy_linked_image.field_ocms_fli_link
+field_name: field_ocms_fli_link
+entity_type: paragraph
+bundle: ocms_fancy_linked_image
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

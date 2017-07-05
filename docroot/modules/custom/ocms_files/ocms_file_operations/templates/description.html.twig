@@ -1,0 +1,32 @@
+<!-
+Template loaded!
+-->
+
+{% trans %}
+
+<h2>Overview</h2>
+  	<div>This module was created to change the Drupal behavior when uploading the document file in media bundle.
+	When this module is installed, it checks for the existence of a file matching the file name of the file being uploaded. It places this file in a private directory (which is not the Drupal standard) overwriting the current file. This new file uses the previous URL which several links and third-party tools expect to contain a particular document. </div>
+<h2>Purpose</h2>
+  	<div>Normally, when we try to upload document files in Drupal, current functionality retains the original file name and alters the file to be uploaded. Typical Drupal behavior is to rename files on upload to "filename_0.<ext>". The default upload feature performs minimal validation, and the new document will not be compatible. This module alters Drupal\'s core functionality to retain the most recent version with the standard naming, so that the file name and URL will be static.
+  	<br/>
+  	<br/>
+	<div>This module also corrects the unwanted default behavior that places any file, published or unpublished into public folders. This is especially problematic with sensitive, draft version documents that need multiple approvals before publishing. Later functionality will also need to delineate archived files (those that are unpublished) into the proper folders with the proper naming. </div>
+<h2>Solution</h2>
+      1.  Login as admin or Media user<br/>
+      2.  Go to Extend menu and select Install new Module<br/>
+      3.  Enable the Static file operation module by uploading it.<br/>
+      4.  Go to the URL :- http://site-name.com/admin/config/irspub/irs_file_operations/<br/>
+      5.  Specify the path of the file you wish to place (AJAX code with a path taxonomy helps the user find it).
+      6.  User may choose to designate a Tax Year for the document.
+      7.  Select the document option for file upload.<br/>
+      8.  The module then checks for the file existence through the help of custom "HOOK" that produces an overwrite checkbox if found.
+      9.  User saves or publishes document overwriting the current file.
+  	<br/>
+  	<h4><a target="_blank" href="/modules/custom/irspup/irs_file_operations/files/static-file-upload.pdf">WorkFlow Diagram</a></h4>
+  	<h4><a href="/modules/custom/irspup/irs_file_operations/files/functional-design-ocms-static-file-upload.pdf">Design Document</a></h4>
+        <h4><a href="/modules/custom/irspup/irs_file_operations/files/Technical-Design-Document.pdf">Technical Design Document</a></h4>
+  	<h2>Usage</h2>
+  	<div>This module is important in limiting the large number of files stored within the system. It allows the IRS to preserve their URL naming convention which feeds numerous applications. Adding this will aid in seemlessly transitioning the upload process to the Drupal platform.</div>
+
+{% endtrans %}

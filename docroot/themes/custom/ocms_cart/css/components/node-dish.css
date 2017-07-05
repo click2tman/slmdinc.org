@@ -1,0 +1,38 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s dish content type.
+ */
+.node--type-ocms-dish .node__header {
+  padding: 0;
+}
+.page-node-type-ocms-dish .col-md-12 .block-page-title-block {
+  text-align: center;
+}
+.page-node-type-ocms-dish .block-page-title-block h1 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 70px;
+}
+.node--type-ocms-dish .field--name-body > h4 {
+  margin-top: 0;
+}
+
+/*price field*/
+.node--type-ocms-dish .field--name-field-ocms-price {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/*share links*/
+.node--type-ocms-dish .share-links ul li a {
+  font-size: 30px;
+}
+
+/*image field*/
+.node--type-ocms-dish .field--name-field-image {
+  margin-bottom: 30px;
+}
+.node--type-ocms-dish.node--view-mode-teaser .images-container {
+  margin-bottom: 15px;
+}

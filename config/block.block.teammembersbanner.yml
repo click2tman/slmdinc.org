@@ -1,0 +1,31 @@
+uuid: 288078a6-8531-4526-b17f-eea825965307
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:da1d652b-41cc-4aa7-991b-bbdca31a4d03'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: teammembersbanner
+theme: ocms_showcase
+region: banner
+weight: -11
+provider: null
+plugin: 'block_content:da1d652b-41cc-4aa7-991b-bbdca31a4d03'
+settings:
+  id: 'block_content:da1d652b-41cc-4aa7-991b-bbdca31a4d03'
+  label: 'Team members (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /team-members
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,23 @@
+uuid: f0a1f877-d8ec-4ecc-9eaa-fd3d2e6a1447
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_slideshow
+    - node.type.ocms_testimonial
+id: node.ocms_testimonial.field_ocms_slideshow
+field_name: field_ocms_slideshow
+entity_type: node
+bundle: ocms_testimonial
+label: 'Promote to front page slideshow'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

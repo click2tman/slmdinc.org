@@ -1,0 +1,25 @@
+uuid: d61122b5-76da-49a0-92a4-4ba2f62f8320
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_video_gallery_block
+    - field.field.block_content.ocms_video_gallery_block.field_ocms_video_gallery_slides
+  module:
+    - entity_reference_revisions
+id: block_content.ocms_video_gallery_block.default
+targetEntityType: block_content
+bundle: ocms_video_gallery_block
+mode: default
+content:
+  field_ocms_video_gallery_slides:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

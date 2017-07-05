@@ -1,0 +1,31 @@
+uuid: d5f802bc-cea3-424e-b797-00d072c1334e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e717f2d9-d496-4e49-8f03-e5c72c21bfb5'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: blogbanner_2
+theme: ocms_showcase
+region: banner
+weight: -10
+provider: null
+plugin: 'block_content:e717f2d9-d496-4e49-8f03-e5c72c21bfb5'
+settings:
+  id: 'block_content:e717f2d9-d496-4e49-8f03-e5c72c21bfb5'
+  label: 'Blog (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /articles
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,38 @@
+uuid: 192218b3-ce5d-4a3d-9dc5-bfcea6775a34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_vgs_thumbnail
+    - paragraphs.paragraphs_type.ocms_video_gallery_slide
+  module:
+    - image
+id: paragraph.ocms_video_gallery_slide.field_ocms_vgs_thumbnail
+field_name: field_ocms_vgs_thumbnail
+entity_type: paragraph
+bundle: ocms_video_gallery_slide
+label: Thumbnail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

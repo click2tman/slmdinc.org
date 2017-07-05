@@ -1,0 +1,8 @@
+irspup.info:
+  path: '/admin/config/irspup'
+  defaults:
+    _controller: '\Drupal\irspup\Controller\IrsPupController::description'
+  requirements:
+    _permission: 'access administration pages'
+
+

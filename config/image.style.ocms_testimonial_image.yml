@@ -1,0 +1,14 @@
+uuid: 728e335c-bfc4-440e-a285-2f3b6370c159
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_testimonial_image
+label: 'Testimonial Image (110x110)'
+effects:
+  5db342ae-3b20-4349-bbbd-feadf3a6d002:
+    uuid: 5db342ae-3b20-4349-bbbd-feadf3a6d002
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 110
+      height: 110

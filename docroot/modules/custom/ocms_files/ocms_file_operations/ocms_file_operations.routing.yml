@@ -1,0 +1,13 @@
+# Provides a simple user interface that tells the developer where to go.
+
+# Menu items corresponding to these URLs are defined separately in the
+# irs_file_operation.links.menu.yml file.
+
+        
+irs_file_operations.hello:
+    path: '/admin/config/irspup/irs_file_operations'
+    defaults:
+        _controller: '\Drupal\irs_file_operations\Controller\IrsFileOperationsController::description'
+        _title: 'IRS Static File Operations Module Description'
+    requirements:
+        _permission: 'access administration pages'

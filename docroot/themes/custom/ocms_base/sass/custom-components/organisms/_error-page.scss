@@ -1,0 +1,90 @@
+/** Error Mantenance Page CSS **/
+.ocms-header_irs_banner {
+    min-height: 80px;
+    background-color: $header-top-bg-color;
+
+    span.ocms-logo {
+        margin-top: .65em;
+        margin-left: -.5em;
+
+        img {
+            width: 50%;
+        }
+    }
+}
+
+.ocms-error-message {
+  text-align: center;
+  margin: 80px auto 115px auto;
+
+  p {
+    margin: 0;
+  }
+
+  &__icon {
+    color: $icon-color;
+    padding-bottom: 0;
+  }
+
+  &__title {
+    font-size: em(60);
+    line-height: line(64,60);
+    margin: 35px 0;
+  }
+
+  &__subtitle {
+    font-size: em(24);
+    margin-top: 0;
+    font-weight: 700;
+  }
+
+  &__body {
+    font-size: em(24);
+  }
+
+  &__body_strong {
+    font-size: inherit;
+    font-weight: bold;
+    padding-top: 70px;
+  }
+
+  .big_top {
+      padding-top: 70px;
+    }
+
+  .small_top {
+      padding-top: 35px;
+    }
+
+  &__links {
+    color: $darkest-gray;
+    font-size: inherit;
+
+
+    li {
+      border-right: 2px solid $darkest-gray;
+      padding: 0 10px;
+      display: inline;
+    }
+
+    li:last-child {
+      border-right: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+  }
+
+
+  .block-search-form-block {
+      max-width: 390px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1.25rem;
+   }
+}

@@ -1,0 +1,19 @@
+uuid: bdd54e64-f6d5-4bfa-b1b1-5ddd628906cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_font_awesome_classes
+    - node.type.ocms_benefit
+id: node.ocms_benefit.field_ocms_font_awesome_classes
+field_name: field_ocms_font_awesome_classes
+entity_type: node
+bundle: ocms_benefit
+label: 'Font Awesome classes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

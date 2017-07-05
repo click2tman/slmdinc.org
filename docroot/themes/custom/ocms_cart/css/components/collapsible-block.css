@@ -1,0 +1,76 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s collapsible block.
+ */
+.container-fluid .field--ocms-collapsible-block {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.field--ocms-collapsible-block.trigger-icon-enabled {
+  padding: 30px 0;
+}
+.region .block:last-child:first-child .field--ocms-collapsible-block.trigger-icon-enabled {
+  padding: 0;
+}
+.collapsible-block__trigger {
+  position: relative;
+}
+.collapsible-block__trigger h3 {
+  margin: 0;
+}
+.collapsible-block__trigger-bar a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  position: relative;
+  text-decoration: none;
+}
+.collapsible-block__trigger-bar .collapsible-block-icon {
+  font-size: 14px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  text-align: center;
+  line-height: 1;
+  margin-top: -7px;
+}
+.collapsible-block__trigger a:hover,
+.collapsible-block__trigger a:focus {
+  color: #ffffff;
+}
+.collapsible-block__trigger-icon a {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -30px;
+  z-index: 99;
+  border-radius: 100%;
+}
+.collapsible-block__trigger-icon .collapsible-block-icon {
+  font-size: 16px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+.collapsible-block__expand-icon {
+  display: none;
+}
+.collapsible-block__collapse-icon {
+  display: inline-block;
+}
+.collapsed .collapsible-block__expand-icon {
+  display: inline-block;
+}
+.collapsed .collapsible-block__collapse-icon {
+  display: none;
+}

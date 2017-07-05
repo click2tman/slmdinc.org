@@ -1,0 +1,64 @@
+// ----------------------------------------------------------------------
+// Main SASS File
+// @description This SASS file defines all the imports
+// ----------------------------------------------------------------------
+
+// ------------------------ Bootstrap Imports ----------------------------//
+// Default variables.
+@import "default-variables";
+
+// Bootstrap Framework.
+@import "../bootstrap/assets/stylesheets/bootstrap";
+
+// Font Awesome
+@import "../fonts/font-awesome/font-awesome";
+
+// Source Sans Pro
+@import "../fonts/source-sans-pro/source-sans-pro";
+
+// Base-theme overrides.
+@import "overrides";
+
+// ------------------------ Compass Imports ------------------------------//
+@import "compass";
+
+// ------------------------ Typi Import ------------------------------//
+@import "../node_modules/typi/scss/typi";
+
+// ----------------------- Custom Imports -------------------------------//
+@import "custom-components/variables";
+@import "custom-components/mixins";
+@import "custom-components/global";
+
+// Atoms/Elements
+@import "custom-components/atoms/buttons";
+@import "custom-components/atoms/fields";
+@import "custom-components/atoms/tables";
+@import "custom-components/atoms/typography";
+@import "custom-components/atoms/share_buttons";
+
+// Molecular/Page-Partials
+@import "custom-components/molecules/breadcrumbs";
+@import "custom-components/molecules/forms";
+@import "custom-components/molecules/accordion";
+@import "custom-components/molecules/alert";
+@import "custom-components/molecules/content-list";
+@import "custom-components/molecules/callout";
+@import "custom-components/molecules/content-box-with-image";
+@import "custom-components/molecules/header";
+@import "custom-components/molecules/footer";
+@import "custom-components/molecules/secondary_navigation";
+@import "custom-components/molecules/mega_menu";
+@import "custom-components/molecules/language_switcher";
+@import "custom-components/molecules/in_page_search";
+@import "custom-components/molecules/icon_list.scss";
+
+//Organisms/Pages
+@import "custom-components/organisms/home-page";
+@import "custom-components/organisms/article-page";
+@import "custom-components/organisms/content-list-page";
+@import "custom-components/organisms/error-page";
+@import "custom-components/organisms/free-file-fillable";
+@import "custom-components/organisms/landing-page";
+@import "custom-components/organisms/contact-page";
+@import "custom-components/organisms/faq-page";

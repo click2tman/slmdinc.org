@@ -1,0 +1,90 @@
+/*Node links*/
+ul.links {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+@media (min-width: 1200px) {
+  .search-area ul.links {
+    padding: 0;
+  }
+}
+ul.links li a {
+  font-size: 0.87em;
+  text-transform: uppercase;
+  padding: 11px 35px 11px 20px;
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  line-height: 1;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  min-height: 40px;
+  font-weight: 700;
+  border: 2px solid;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 5px 0;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+}
+ul.links li.comment-forbidden a + a {
+  margin-left: 10px;
+}
+ul.links li a:after {
+  content: "\f105";
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  right: 20px;
+  font-family: "FontAwesome";
+  font-size: 1.4em;
+  line-height: 1;
+  -webkit-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+ul.links li a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+ul.links li a:hover:after {
+  color: #ffffff;
+  right: 15px;
+}
+ul.links li a.active {
+  color: #363636;
+}
+ul.links li a.active:hover {
+  color: #ffffff;
+}
+.colored-region:not(.dark) ul.links li a {
+  background-color: #1e2527;
+  border-color: #1e2527;
+  color: #ffffff;
+}
+.colored-region:not(.dark) ul.links li a:hover {
+  background-color: rgba(30, 37, 39, 0.7);
+}
+.dark ul.links li a {
+  color: #ffffff;
+}
+.node__links ul.links {
+  display: block;
+  text-align: center;
+}
+.node__links ul.links li a {
+  margin: 5px;
+}
+ul.links.inline li {
+  padding: 0;
+  display: inline-block;
+}
+ul.links.inline li a {
+  margin: 0 10px 10px 0;
+}

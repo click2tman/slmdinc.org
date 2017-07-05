@@ -1,0 +1,64 @@
+/** Custom Alert Message CSS **/
+.ocms-media-alert {
+    &__info, &__danger, &__success, &__warning, &__historical {
+        color: $darkest-gray;
+        padding: 20px;
+        width: 100%;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        margin-bottom: 30px;
+    }
+
+    &__info {
+        background-color: $light-blue;
+    }
+
+    &__danger {
+        background-color: $light-red;
+    }
+
+    &__success {
+        background-color: $light-green;
+    }
+
+    &__warning, &__historical {
+        background-color: $light-yellow;
+        //** place warning icon before the text **/
+        &:before {
+            @extend .fa;
+            content: $fa-var-warning;
+            display: block;
+            float: left;
+            font-size: 35px;
+            margin-top: 2px;
+            padding-right: 20px;
+        }
+    }
+
+    &__icon {
+        font-size: em(30);
+        display: inline-block;
+        vertical-align: top;
+        width: 1em;
+        margin-right: 20px;
+    }
+
+    &__content {
+            display: inline-block;
+            vertical-align: top;
+            width: 85%;
+
+            @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                width: 83%;
+            }
+
+            @media only screen and (max-width: $screen-xs-max) {
+                width: 82%;
+            }
+
+            &-title {
+                @extend h3;
+                margin-top: 0 !important;
+            }
+        }
+}

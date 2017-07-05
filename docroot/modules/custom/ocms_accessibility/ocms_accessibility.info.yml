@@ -1,0 +1,9 @@
+name: 'OCMS Accessibility Form Validation'
+type: 'module'
+description: 'js validation'
+package: 'OCMS Custom'
+core: '8.x'
+dependencies:
+  - ckeditor_a11ychecker
+  - irspup
+version: '8.x-1.0'

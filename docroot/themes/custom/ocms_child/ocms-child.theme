@@ -1,0 +1,89 @@
+<?php
+/**
+ * @file
+ * OCMS Base sub-theme: OCMS EITC
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Bootstrap::preprocess()
+ *
+ */
+ // function ocms_eitc_preprocess_node__{add-content-type}(&$variables) {
+ //   $variables['#attached']['library'][] = 'ocms_eitc/{add-library}';
+ //  }
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Bootstrap::preprocess()
+ *
+ */
+
+// function ocms_eitc_preprocess_html(&$variables) {
+//   $node = \Drupal::routeMatch()->getParameter('node');
+
+//   if ($node) {
+//       // Adding `audience` meta tag
+//       $aud = $node->field_ocms_audience->value;
+
+//       if($aud) {
+//         $meta_aud = [ '#tag' => 'meta', '#attributes' => ['name' => 'audience', 'content' => $aud] ];
+//         $variables['page']['#attached']['html_head'][] = [ $meta_aud, 'audience' ];
+//       }
+
+//       // Adding `irsStandard-type` meta tag
+//       $st = $node->field_ocms_article_type->value;
+
+//       if($st) {
+//         $meta_st = [ '#tag' => 'meta', '#attributes' => ['name' => 'irsStandard-type', 'content' => $st] ];
+//         $variables['page']['#attached']['html_head'][] = [ $meta_st, 'irsStandard-type' ];
+//       }
+
+//       // Adding `uniqueID` meta tag
+//       $nid = $node->nid->value;
+
+//       if ($nid) {
+//         $meta_uid = [ '#tag' => 'meta', '#attributes' => ['name' => 'uniqueID', 'content' => $nid] ];
+//         $variables['page']['#attached']['html_head'][] = [ $meta_uid, 'uniqueID' ];
+//       }
+//   }
+// }
+
+// function ocms_eitc_preprocess_node__ocms_article(&$variables) {
+//   // Add custom JavaScript library for OCMS Article content type
+//   $variables['#attached']['library'][] = 'ocms_eitc/node-article';
+// }
+
+// function ocms_eitc_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+//   // Add content type suggestions.
+//   if ($node = \Drupal::request()->attributes->get('node')) {
+//     array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+//   }
+// }
+
+// function ocms_eitc_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+//   // Block suggestions for custom block bundles.
+//   if (isset($variables['elements']['content']['#block_content'])) {
+//     array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+//   }
+// }
+
+// function ocms_eitc_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+//   $form_type = $form_state->getBuildInfo()['base_form_id'];
+  
+// //Ensure this is applied to Contact Forms
+//   if(isset($form_type) && $form_type == 'contact_message_form') {
+//     $form['actions']['cancel'] = array(
+//       '#type' => 'html_tag',
+//       '#tag' => 'button',
+//       '#value' => t('Cancel'),
+// 	  '#weight' => 100,
+//       '#attributes' => ['type' => 'reset', 'name' => 'cancel-btn']
+//     );
+//   }
+//   $form['#attributes']['novalidate'] = 'novalidate';
+// }

@@ -1,0 +1,25 @@
+uuid: a0b81efd-8ba4-4d17-b86a-92bbb8682f6a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:ocms_dropdowns_block:831addca-be76-4ae7-b991-48ae0aa575ce'
+  module:
+    - block_content
+  theme:
+    - ocms_showcase
+id: headerdropdowns
+theme: ocms_showcase
+region: header_third
+weight: 0
+provider: null
+plugin: 'block_content:831addca-be76-4ae7-b991-48ae0aa575ce'
+settings:
+  id: 'block_content:831addca-be76-4ae7-b991-48ae0aa575ce'
+  label: 'Header Dropdowns'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

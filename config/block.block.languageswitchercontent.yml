@@ -1,0 +1,20 @@
+uuid: 489f2844-2c78-45ec-9592-2b13ffbcde87
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - ocms_showcase
+id: languageswitchercontent
+theme: ocms_showcase
+region: hidden_blocks_collection
+weight: 0
+provider: null
+plugin: 'language_block:language_content'
+settings:
+  id: 'language_block:language_content'
+  label: 'Language switcher (Content)'
+  provider: language
+  label_display: '0'
+visibility: {  }

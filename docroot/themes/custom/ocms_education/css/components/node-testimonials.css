@@ -1,0 +1,21 @@
+.page-node-type-ocms-testimonial .field--name-body,
+.page-node-type-ocms-testimonial .field--name-field-ocms-subtitle {
+  padding: 0 0 0 55px;
+}
+.page-node-type-ocms-testimonial .field--name-body p {
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  padding: 5px;
+}
+.page-node-type-ocms-testimonial .field--name-body p:first-child:after {
+  position: absolute;
+  font-family: 'PT Serif', Georgia, Times, Times New Roman, Serif;
+  content: "“";
+  left: -60px;
+  top: 0px;
+  color: #2a68af;
+  font-size: 96px;
+  font-style: normal;
+  line-height: 1;
+}

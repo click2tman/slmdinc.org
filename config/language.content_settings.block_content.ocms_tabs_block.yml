@@ -1,0 +1,16 @@
+uuid: 178fb5a4-b45f-4422-9a86-a18ea739e35e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_tabs_block
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: block_content.ocms_tabs_block
+target_entity_type_id: block_content
+target_bundle: ocms_tabs_block
+default_langcode: site_default
+language_alterable: true

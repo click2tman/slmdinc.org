@@ -1,0 +1,2 @@
+permission_callbacks:
+  - Drupal\ocms_media_access\MediaAccessPermissions::mediaTypePermissions

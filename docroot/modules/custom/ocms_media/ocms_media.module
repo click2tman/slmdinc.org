@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Process custom media entities.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ocms_media_preprocess_media(&$variables) {
+  $bundle = $variables['elements']['#media']->bundle();
+
+  if ($bundle == 'ocms_hyperlink') {
+    // This hyperlink media item.
+    $hyperlink_media = $variables['elements']['#media'];
+    $hyperlink_type = $hyperlink_media->field_ocms_link_type->value;
+
+    // Media item.
+    if ($hyperlink_type == 'Media Select') {
+      // Get the media item's field_document (entity reference).
+      $media_id = $hyperlink_media->field_ocms_media_select->target_id;
+      $media_entity = \Drupal::entityTypeManager()->getStorage('media')->load($media_id);
+      $media_document_id = $media_entity->get('field_document')->target_id;
+      // Get the referenced entity's file path.
+      $media_file = \Drupal::entityTypeManager()->getStorage('file')->load($media_document_id);
+      $media_relative_path = file_url_transform_relative(file_create_url($media_file->getFileUri()));
+      // Set template variables.
+      $variables['hyperlink_url'] = $media_relative_path;
+      $variables['hyperlink_title'] = $hyperlink_media->field_ocms_media_link_title->value;
+    }
+
+    // Content select item.
+    if ($hyperlink_type == 'Content Select') {
+      $nid = $hyperlink_media->field_ocms_content_select->target_id;
+      $content_path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $nid);
+      $variables['hyperlink_url'] = $content_path;
+      $variables['hyperlink_title'] = $hyperlink_media->field_ocms_content_link_title->value;
+    }
+
+    // Hyperlink item.
+    if ($hyperlink_type == 'Hyperlink') {
+      $variables['hyperlink_url'] = $hyperlink_media->field_ocms_link->uri;
+      $variables['hyperlink_title'] = $hyperlink_media->field_ocms_link->title;
+    }
+
+    $variables['content'] = [
+      '#markup' => t('<a href="@url" title="@title">@title</a>', ['@title' => $variables['hyperlink_title'], '@url' => $variables['hyperlink_url']]),
+    ];
+  }
+
+}

@@ -1,0 +1,31 @@
+uuid: 1a8059ae-be41-4a78-b78d-9cea64ed9b32
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7b2bbd11-0646-47a5-8db2-bb2a81c1161d'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: aboutus
+theme: ocms_showcase
+region: content_top
+weight: 0
+provider: null
+plugin: 'block_content:7b2bbd11-0646-47a5-8db2-bb2a81c1161d'
+settings:
+  id: 'block_content:7b2bbd11-0646-47a5-8db2-bb2a81c1161d'
+  label: 'About us'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/60"
+    negate: false
+    context_mapping: {  }

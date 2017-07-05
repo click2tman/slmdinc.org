@@ -1,0 +1,52 @@
+general:
+  scan_blocks: 0
+  check_link_types: 1
+extract:
+  from_a: 1
+  from_audio: 0
+  from_embed: 0
+  from_iframe: 0
+  from_image: 0
+  from_object: 0
+  from_video: 0
+  filter:
+    default_blacklist:
+      - filter_autop
+      - insert_block
+      - insert_view
+      - smiley
+      - smileys
+      - weblinks_embed
+      - weblinks_filter
+    blacklist: 
+      - filter_autop
+      - insert_block
+      - insert_view
+      - smiley
+      - smileys
+      - weblinks_embed
+      - weblinks_filter
+check:
+  max_connections: 8 
+  user_agent: 'Drupal (+http://drupal.org/)'
+  interval: 2419200
+  disable_for_urls: |
+    example.com
+    example.net
+    example.org
+  reserved_urls: |
+    example.com
+    example.net
+    example.org
+  log_level: 6
+error:
+  impersonate_account: 1
+  status_301_action_threshold: 0
+  status_401_action_threshold: 0
+  ignore_response_codes: |
+    200
+    206
+    302
+    304
+    401
+    403

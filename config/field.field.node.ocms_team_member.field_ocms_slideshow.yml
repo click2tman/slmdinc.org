@@ -1,0 +1,23 @@
+uuid: 68743ae3-fc30-4f8b-9cab-2ec7ec1437ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_slideshow
+    - node.type.ocms_team_member
+id: node.ocms_team_member.field_ocms_slideshow
+field_name: field_ocms_slideshow
+entity_type: node
+bundle: ocms_team_member
+label: 'Promote to front page slideshow'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

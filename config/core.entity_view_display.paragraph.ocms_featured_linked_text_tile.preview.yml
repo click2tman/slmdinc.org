@@ -1,0 +1,27 @@
+uuid: 49329699-432a-49e9-b46c-b8e653d35f73
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_body
+    - field.field.paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_link
+    - field.field.paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_title
+    - paragraphs.paragraphs_type.ocms_featured_linked_text_tile
+  module:
+    - text
+id: paragraph.ocms_featured_linked_text_tile.preview
+targetEntityType: paragraph
+bundle: ocms_featured_linked_text_tile
+mode: preview
+content:
+  field_ocms_fltt_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_ocms_fltt_link: true
+  field_ocms_fltt_title: true

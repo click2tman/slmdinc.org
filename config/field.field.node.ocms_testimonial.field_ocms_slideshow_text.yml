@@ -1,0 +1,21 @@
+uuid: df0c5a02-b8d8-43e7-a2b4-95c4cb0fa976
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_slideshow_text
+    - node.type.ocms_testimonial
+  module:
+    - text
+id: node.ocms_testimonial.field_ocms_slideshow_text
+field_name: field_ocms_slideshow_text
+entity_type: node
+bundle: ocms_testimonial
+label: 'Slideshow text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

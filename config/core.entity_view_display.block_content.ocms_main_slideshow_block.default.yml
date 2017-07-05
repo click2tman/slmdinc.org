@@ -1,0 +1,43 @@
+uuid: 3629b0d4-b0dc-4930-84e5-471c9a16a66e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_main_slideshow_layout
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_main_slideshow_slide
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_background_opacity
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_bullets_position
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_effect
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_effect_duration
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_ignore_header_hgt
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_initial_height
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_navigation_style
+    - field.field.block_content.ocms_main_slideshow_block.field_ocms_ms_touch_swipe_nav
+  module:
+    - entity_reference_revisions
+id: block_content.ocms_main_slideshow_block.default
+targetEntityType: block_content
+bundle: ocms_main_slideshow_block
+mode: default
+content:
+  field_ocms_main_slideshow_slide:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_ocms_main_slideshow_layout: true
+  field_ocms_ms_background_opacity: true
+  field_ocms_ms_bullets_position: true
+  field_ocms_ms_effect: true
+  field_ocms_ms_effect_duration: true
+  field_ocms_ms_ignore_header_hgt: true
+  field_ocms_ms_initial_height: true
+  field_ocms_ms_navigation_style: true
+  field_ocms_ms_touch_swipe_nav: true
+  langcode: true

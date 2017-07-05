@@ -1,0 +1,11 @@
+name: 'OCMS Static FileView'
+type: module
+description: 'view files'
+# core: 8.x
+core: '8.x'
+package: 'OCMS Custom'
+dependencies:  
+  - "file\r"
+  - "entity\r"
+  - media_entity
+version: 8.x-1.0

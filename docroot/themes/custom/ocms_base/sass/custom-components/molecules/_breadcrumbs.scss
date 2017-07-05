@@ -1,0 +1,42 @@
+
+.region.region-breadcrumbs {
+    width: 100%;
+
+     @media only screen and (max-width: 769px) {
+        display: none;
+    }    
+}
+
+.breadcrumb {
+
+     background-color: transparent;
+     padding: 8px 1px;
+
+     li:first-child {
+         &:before {
+             content: "";
+             margin-right: 0; 
+         }
+     }
+
+
+     > li > a {
+         font-weight: bold;
+         color: #015988;
+         color: $bc-link-color;
+     }
+
+     > li.active {
+         color: #333;
+         color: $bc-active-font-color;
+         font-weight: bold;
+     }
+
+     > li + li:before {
+         @extend .fa;
+        content: $fa-var-angle-right;
+        margin-right: 0;
+        color: #333;
+        color: $bc-active-font-color;
+     }
+}

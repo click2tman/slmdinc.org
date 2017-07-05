@@ -1,0 +1,7 @@
+uuid: 6105cc40-0f59-4abf-ac96-de3e0b1eacf8
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_fancy_tab
+label: 'Fancy Tab'
+behavior_plugins: {  }

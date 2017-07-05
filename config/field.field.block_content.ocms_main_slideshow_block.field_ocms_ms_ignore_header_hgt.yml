@@ -1,0 +1,23 @@
+uuid: edfb878a-70e1-4226-8471-2d79e4e5c681
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_ms_ignore_header_hgt
+id: block_content.ocms_main_slideshow_block.field_ocms_ms_ignore_header_hgt
+field_name: field_ocms_ms_ignore_header_hgt
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Ignore Header Height'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

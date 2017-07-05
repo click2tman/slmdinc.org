@@ -1,0 +1,8 @@
+uuid: 74c14d0d-8523-4948-97f4-610a3aceb291
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_media_tabs_block
+label: 'Media Tabs Block'
+revision: 1
+description: 'Use this custom block type to create blocks in a tabbed design, using the corresponding Bootstrap feature'

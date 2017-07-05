@@ -1,0 +1,24 @@
+uuid: 07966d43-7602-4dea-b471-21fd38c6964f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_tab.field_ocms_tab_content
+    - field.field.paragraph.ocms_tab.field_ocms_tab_title
+    - paragraphs.paragraphs_type.ocms_tab
+  module:
+    - text
+id: paragraph.ocms_tab.default
+targetEntityType: paragraph
+bundle: ocms_tab
+mode: default
+content:
+  field_ocms_tab_content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_ocms_tab_title: true

@@ -1,0 +1,174 @@
+.ocms-share-menu {
+    // float:right;  
+    padding: 0;  
+    // @media only screen and (max-width: $screen-md-max) {
+        // float:none;
+    // }
+    .addtoany_list a span {
+    display: none;
+    }
+    .a2a_button_facebook.ocms-social-title::before {
+        content: "\f082";
+        color: #3b5998;
+        @extend.fa;
+        font-size: 24px;
+        padding-right: 4px;
+        position: relative;
+        top: 2px;
+    }
+    .a2a_button_twitter.ocms-social-title::before {
+        content: "\f081";
+        color: #55acee;
+        @extend.fa;
+        font-size: 24px;
+        padding-right: 4px;
+        position: relative;
+        top: 2px;
+    }
+    .a2a_button_linkedin.ocms-social-title::before {
+        content: "\f08c";
+        color:#007bb5;
+        @extend.fa;
+        font-size: 24px;
+        padding-right: 4px;
+        position: relative;
+        top: 2px;
+    }
+    .ocms-share-items {
+        font-weight: bold;
+        font-size: 17px;
+        line-height: 20px;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 20px;
+        @media only screen and (max-width: $screen-xs-min) {
+            // margin-top: 12px;
+            float: left;
+        }
+
+        ol, ul {
+            padding-left: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+            position: relative;
+
+            .ocms-share-link {
+                padding: 6px 20px 6px 20px;
+                text-decoration: none;
+                @include border-radius(3px);
+                border: 2px solid $button-color;
+                color: $button-color;
+                text-align: center;
+                margin-right: 10px;
+                cursor: pointer;
+                background-color: transparent;
+                min-width: 121px;
+
+                    // @media only screen and (max-width: $screen-xs-max) {
+                    //     min-width: inherit;            
+                    // }
+                    &:hover, &:active, &:focus, &:active:hover, &:focus:hover {
+                        background-color: $white;
+                        @include box-shadow(0 0 0.5rem 0 $button-glow-color);
+                    }
+                    &:before {
+                        @extend .fa;
+                        content: $fa-var-mail-forward;
+                        padding-right: 12px;
+                    }
+                    @media only screen and (max-width: $screen-xs-max) {
+                        margin-top: 0px;
+                        margin-left: 0px;
+                    }
+                }
+            &:hover > .ocms-social-links {
+                display: block;
+            }
+
+        }
+        .ocms-social-links {
+            display: none;
+            position: absolute;
+            left: -5px;
+            padding: 6px 0 0 6px;
+            top: 36px;
+            z-index: 999; 
+            @include box-shadow(0.25rem 0.5rem 0.5rem $light-gray);
+            
+            // @media only screen and (max-width: $screen-xs-max) {
+            //     top: 56px;
+            // }  
+            li {
+                background-color:$white;
+                border-top: 1px solid $light-gray;
+                border-left: 1px solid $light-gray;
+                border-right: 1px solid $light-gray;
+                min-width: 247px;
+                width: 100%;
+                padding-top: 6px;
+                padding-bottom: 6px;
+                padding-left: 6px;
+                cursor: pointer;
+                
+                .ocms-social-title {
+                    padding-left: 6px;
+                    font-weight: normal;
+                }
+                a {
+                    text-decoration: none;
+                    cursor: pointer;
+                    &:hover {
+                        opacity: 0.75;
+                    }   
+                }
+                &:first-child {
+                    border-top-left-radius: 3px 3px;
+                    border-top-right-radius: 3px 3px;
+                }
+                &:last-child {
+                    border-bottom: none;
+                    border-bottom-left-radius: 3px 3px;
+                    border-bottom-right-radius: 3px 3px;
+                }    
+            }   
+        }
+        .ocms-print {
+        padding: 6px 20px 6px 20px;
+        text-decoration: none;
+        @include border-radius(3px);
+        border: 2px solid $button-color;
+        color: $button-color;
+        text-align: center;
+        // float: right;
+        cursor: pointer;
+        background-color: $white;
+        align-self: flex-start;
+        min-width: 120px;
+
+        // @media only screen and (max-width: $screen-xs-max) {
+        //     min-width: inherit;
+        // }
+        a {
+            text-decoration: none;
+        }       
+        &:before {
+            @extend .fa;
+            content: $fa-var-print;
+            padding-right: 12px;
+            }
+            // @media only screen and (max-width: $screen-xs-max) {
+            //     margin: 0 0 10px 0;
+            // }
+
+            &:hover, &:active, &:focus, &:active:hover, &:focus:hover {
+                background-color: $white;
+                @include box-shadow(0 0 0.5rem 0 $button-glow-color);
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s reservation form.
+ */
+.mt-reservation-form {
+  background-color: #f6f6f6;
+  text-align: center;
+  padding: 35px 30px 0;
+  border-radius: 5px 5px 0 0;
+}
+.visible-banner {
+  display: none;
+}
+.banner .visible-banner {
+  display: block;
+}
+.mt-reservation-form .form-item > label {
+  text-align: left;
+  padding-left: 16px;
+  margin-bottom: 5px;
+  font-size: 0.85em;
+  font-weight: 400;
+}
+.mt-reservation-form .form-item {
+  text-align: left;
+}
+.mt-reservation-form .form-item:last-child {
+  margin-bottom: 0;
+}
+.mt-reservation-form h2 {
+  line-height: 1.15;
+  margin-top: 0;
+}
+.mt-reservation-form ~ .form-actions {
+  text-align: center;
+  background-color: #f6f6f6;
+  border-radius: 0 0 5px 5px;
+  margin-top: 0px;
+  margin-bottom: 90px;
+  padding: 20px 0 40px;
+}
+.mt-reservation-form ~ .form-actions input[type="submit"] {
+  margin-bottom: 0;
+}
+.region--gray-background .mt-reservation-form,
+.region--gray-background .mt-reservation-form ~ .form-actions {
+  background-color: #ffffff;
+}
+.region--light-typography .mt-reservation-form,
+.region--light-typography .mt-reservation-form ~ .form-actions {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.region--black-background .mt-reservation-form,
+.region--black-background .mt-reservation-form ~ .form-actions {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+@media (min-width: 992px) {
+  .col-md-12 .mt-reservation-form-text {
+    width: 58.33333333%;
+    float: left;
+    position: relative;
+    padding: 0 15px;
+  }
+  .col-md-12 .mt-reservation-form {
+    margin-top: 30px;
+  }
+  .col-md-12 .mt-reservation-form,
+  .col-md-12 .mt-reservation-form ~ .form-actions {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .col-md-12 .mt-reservation-form ~ .form-actions {
+    margin-bottom: 40px;
+  }
+  .banner .col-md-12 .mt-reservation-form {
+    width: 41.66666667%;
+    float: left;
+    position: relative;
+  }
+  .banner .col-md-12 .mt-reservation-form ~ .form-actions {
+    width: 41.66666667%;
+    float: right;
+    position: relative;
+  }
+}

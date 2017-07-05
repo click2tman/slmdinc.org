@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s testimonials carousel.
+ */
+.mt-carousel-testimonials .mt-carousel-item {
+  margin: 0 15px;
+}
+.mt-carousel-testimonials .owl-dots {
+  text-align: center;
+  padding-right: 15px;
+  margin-top: 40px;
+}
+.mt-carousel-testimonials .owl-nav {
+  top: -10px;
+}

@@ -1,0 +1,26 @@
+uuid: 93e23df7-3a35-4918-a284-77891866f2f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_body
+    - field.field.paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_link
+    - field.field.paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_title
+    - paragraphs.paragraphs_type.ocms_featured_linked_text_tile
+  module:
+    - text
+id: paragraph.ocms_featured_linked_text_tile.default
+targetEntityType: paragraph
+bundle: ocms_featured_linked_text_tile
+mode: default
+content:
+  field_ocms_fltt_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_ocms_fltt_link: true
+  field_ocms_fltt_title: true

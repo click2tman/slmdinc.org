@@ -1,0 +1,117 @@
+/**
+ * @file
+ * Styles for Levelplus's buttons.
+ */
+a.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  font-size: 0.87em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  line-height: 1;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  min-height: 40px;
+  font-weight: 700;
+  border: 2px solid;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 5px 0;
+  text-align: center;
+  background-color: transparent;
+}
+a.button {
+  position: relative;
+  padding: 11px 35px 11px 20px;
+}
+a.button:after {
+  content: "\f105";
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  right: 20px;
+  font-family: "FontAwesome";
+  font-size: 1.4em;
+  line-height: 1;
+  -webkit-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+a.button:hover:after {
+  color: #ffffff;
+  right: 15px;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  margin-right: 5px;
+}
+a.button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+a.button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus,
+a.button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  text-decoration: none;
+  color: #ffffff;
+}
+span.button-operator {
+  margin: 0 10px 0 5px;
+}
+
+/*Colored Region*/
+.colored-region:not(.dark) a.button,
+.colored-region:not(.dark) input[type="submit"],
+.colored-region:not(.dark) input[type="reset"],
+.colored-region:not(.dark) input[type="button"] {
+  background-color: #1e2527;
+  border-color: #1e2527;
+  color: #ffffff;
+}
+.colored-region:not(.dark) a.button:hover,
+.colored-region:not(.dark) input[type="submit"]:hover,
+.colored-region:not(.dark) input[type="reset"]:hover,
+.colored-region:not(.dark) input[type="button"]:hover {
+  background-color: rgba(30, 37, 39, 0.7);
+}
+.colored-region.dark a.button,
+.colored-region.dark input[type="submit"],
+.colored-region.dark input[type="reset"],
+.colored-region.dark input[type="button"] {
+  color: #ffffff;
+}
+
+/*Dark button*/
+.button-dark {
+  background-color: #1e2527 !important;
+  border-color: #1e2527 !important;
+  color: #ffffff !important;
+}
+.dark .button-dark {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.button-dark:hover,
+.button-dark:focus,
+.button-dark:active {
+  background-color: rgba(30, 37, 39, 0.7) !important;
+}
+.dark input[type="submit"],
+.dark input[type="reset"],
+.dark input[type="button"] {
+  color: #ffffff;
+}

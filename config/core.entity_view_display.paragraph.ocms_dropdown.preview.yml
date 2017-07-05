@@ -1,0 +1,25 @@
+uuid: 30ada0be-427b-490e-a77d-0ca3203c4f82
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.ocms_dropdown.field_ocms_dropdown_block
+    - field.field.paragraph.ocms_dropdown.field_ocms_dropdown_trigger_icon
+    - paragraphs.paragraphs_type.ocms_dropdown
+id: paragraph.ocms_dropdown.preview
+targetEntityType: paragraph
+bundle: ocms_dropdown
+mode: preview
+content:
+  field_ocms_dropdown_block:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_ocms_dropdown_trigger_icon: true

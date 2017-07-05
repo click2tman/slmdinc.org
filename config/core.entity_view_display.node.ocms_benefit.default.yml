@@ -1,0 +1,86 @@
+uuid: 23660204-700f-4e47-82c9-808e4528edd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ocms_benefit.body
+    - field.field.node.ocms_benefit.field_image
+    - field.field.node.ocms_benefit.field_ocms_banner_image
+    - field.field.node.ocms_benefit.field_ocms_font_awesome_classes
+    - field.field.node.ocms_benefit.field_ocms_slideshow
+    - field.field.node.ocms_benefit.field_ocms_slideshow_image
+    - field.field.node.ocms_benefit.field_ocms_slideshow_text
+    - field.field.node.ocms_benefit.field_ocms_subheader_body
+    - field.field.node.ocms_benefit.field_ocms_video
+    - field.field.node.ocms_benefit.field_tags
+    - image.style.large
+    - node.type.ocms_benefit
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+    - video_embed_field
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_benefit.default
+targetEntityType: node
+bundle: ocms_benefit
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: large
+      image_link: file
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ocms_subheader_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ocms_video:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: large
+      link_image_to: provider
+    third_party_settings: {  }
+    type: video_embed_field_thumbnail
+    region: content
+  field_tags:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_font_awesome_classes: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  langcode: true

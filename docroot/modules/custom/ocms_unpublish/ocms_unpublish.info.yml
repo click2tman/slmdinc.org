@@ -1,0 +1,8 @@
+name: 'OCMS One Year Content Unpublish'
+type: module
+description: 'Sets default unpublish date for certain types of entities'
+package: 'OCMS Custom'
+core: 8.x
+dependencies:
+  - scheduled_updates
+version: 8.x-1.0

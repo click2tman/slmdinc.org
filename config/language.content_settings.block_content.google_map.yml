@@ -1,0 +1,16 @@
+uuid: 9e9046dc-054d-4adc-bb6c-c789913dd914
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.google_map
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: block_content.google_map
+target_entity_type_id: block_content
+target_bundle: google_map
+default_langcode: site_default
+language_alterable: true

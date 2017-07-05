@@ -1,0 +1,36 @@
+uuid: 0af34485-689e-4ea0-9f87-f007a46a35c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_ocm_ms_slide_caption_cl
+field_name: field_ocm_ms_slide_caption_cl
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'region--dark-typography region--white-background'
+      label: White
+    -
+      value: 'region--dark-typography region--gray-background'
+      label: 'Light Gray'
+    -
+      value: 'region--light-typography region--colored-background'
+      label: Colored
+    -
+      value: 'region--light-typography region--dark-background'
+      label: 'Dark Colored'
+    -
+      value: 'region--light-typography region--black-background'
+      label: Black
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

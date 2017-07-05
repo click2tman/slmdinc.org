@@ -1,0 +1,6 @@
+{
+  "name": "drupal/ocms_taxonomy_breadcrumb",
+  "type": "drupal-module",
+  "description": "Adds the current page title and taxonomy terms (channel) to the breadcrumb.",
+  "license": "GPL-2.0+"
+}

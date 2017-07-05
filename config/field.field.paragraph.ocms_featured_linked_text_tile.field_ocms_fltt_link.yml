@@ -1,0 +1,23 @@
+uuid: a218a845-98ba-40fe-93e3-1542dbe9a70e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_fltt_link
+    - paragraphs.paragraphs_type.ocms_featured_linked_text_tile
+  module:
+    - link
+id: paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_link
+field_name: field_ocms_fltt_link
+entity_type: paragraph
+bundle: ocms_featured_linked_text_tile
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

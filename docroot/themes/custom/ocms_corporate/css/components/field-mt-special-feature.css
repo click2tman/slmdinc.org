@@ -1,0 +1,95 @@
+/**
+ * @file
+ * Visual styles for Levelplus's Special Features field.
+ */
+.field--name-field-ocms-prg-special-features {
+  position: relative;
+  margin: 50px -15px 0;
+}
+.field--name-field-ocms-prg-special-features > .field__item,
+.field--name-field-ocms-prg-special-features > .field__items > .field__item {
+  margin-bottom: 40px;
+}
+.field--name-field-ocms-prg-special-features .field__label {
+  text-align: center;
+  font-size: 2em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+.layout-no-sidebars .field--name-field-ocms-prg-special-features {
+  margin: 50px -15px 25px;
+  padding: 60px 0;
+}
+.boxed.layout-no-sidebars .field--name-field-ocms-prg-special-features {
+  overflow: hidden;
+}
+
+/*apply clearfix to field-ocms-special-feature field*/
+.field--name-field-ocms-prg-special-features:before {
+  display: table;
+  content: " ";
+}
+.field--name-field-ocms-prg-special-features:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/*apply full width background color to field-ocms-special-feature field*/
+.layout-no-sidebars .field--name-field-ocms-prg-special-features:before {
+  width: 5200px;
+  height: 100%;
+  margin-left: -2600px;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  content: " ";
+  background-color: #f3f7fa;
+}
+.field--name-field-ocms-prg-special-features > .field__item,
+.field--name-field-ocms-prg-special-features > .field__items > .field__item {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  position: relative;
+}
+.field--name-field-ocms-prg-special-features .field--name-field-ocms-sf-title {
+  font-size: 3.12em;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.field--name-field-ocms-prg-special-features .field--name-field-ocms-sf-image {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 12px auto 20px;
+  vertical-align: top;
+}
+.field--name-field-ocms-sf-fa-class {
+  font-size: 48px;
+  color: #d6d6d6;
+  margin-bottom: 10px;
+}
+.field--name-field-ocms-sf-subtitle {
+  font-size: 0.875em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+@media (min-width:768px) {
+  .field--name-field-ocms-prg-special-features > .field__item,
+  .field--name-field-ocms-prg-special-features > .field__items > .field__item {
+    width: 33%;
+    float: left;
+  }
+  .field--name-field-ocms-prg-special-features > .field__item:nth-child(3n+1),
+  .field--name-field-ocms-prg-special-features > .field__items > .field__item:nth-child(3n+1) {
+    clear: both;
+  }
+}

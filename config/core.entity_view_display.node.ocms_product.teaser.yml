@@ -1,0 +1,109 @@
+uuid: 8dd01190-f2e8-4b2b-86f5-6e09b58f07a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ocms_product.body
+    - field.field.node.ocms_product.field_image
+    - field.field.node.ocms_product.field_ocms_banner_image
+    - field.field.node.ocms_product.field_ocms_buy_link
+    - field.field.node.ocms_product.field_ocms_collections
+    - field.field.node.ocms_product.field_ocms_content_sidebar
+    - field.field.node.ocms_product.field_ocms_content_tabs
+    - field.field.node.ocms_product.field_ocms_landscape_image
+    - field.field.node.ocms_product.field_ocms_most_popular
+    - field.field.node.ocms_product.field_ocms_price
+    - field.field.node.ocms_product.field_ocms_pricing_table_item
+    - field.field.node.ocms_product.field_ocms_product_availability
+    - field.field.node.ocms_product.field_ocms_product_code
+    - field.field.node.ocms_product.field_ocms_slideshow
+    - field.field.node.ocms_product.field_ocms_slideshow_image
+    - field.field.node.ocms_product.field_ocms_slideshow_text
+    - field.field.node.ocms_product.field_ocms_subheader_body
+    - field.field.node.ocms_product.field_ocms_video
+    - field.field.node.ocms_product.field_tags
+    - image.style.ocms_product_image
+    - node.type.ocms_product
+  module:
+    - image
+    - link
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_product.teaser
+targetEntityType: node
+bundle: ocms_product
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ocms_product_image
+      image_link: content
+    third_party_settings: {  }
+  field_ocms_buy_link:
+    type: link
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_ocms_price:
+    type: number_decimal
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_collections: true
+  field_ocms_content_sidebar: true
+  field_ocms_content_tabs: true
+  field_ocms_landscape_image: true
+  field_ocms_most_popular: true
+  field_ocms_pricing_table_item: true
+  field_ocms_product_availability: true
+  field_ocms_product_code: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  field_ocms_subheader_body: true
+  field_ocms_video: true
+  langcode: true
+  links: true

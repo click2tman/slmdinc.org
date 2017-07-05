@@ -1,0 +1,23 @@
+/*Parallax*/
+.parallax-active .colored-region.dark {
+  background-color: #1e2527;
+}
+.parallax-active .light-gray-region {
+  background-color: #f4f7fb;
+}
+.parallax-active .highlighted-bottom {
+  background-image: url("../../images/parallax-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  margin: -1px 0 0 0;
+  z-index: 2;
+  padding-top: 55px !important;
+}
+.no-touchevents .parallax-active .highlighted-bottom {
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

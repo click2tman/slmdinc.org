@@ -1,0 +1,6 @@
+check_compliance:
+  version: 1.x
+  js:
+    js/check_compliance.js: {}
+  dependencies:
+    - core/jquery

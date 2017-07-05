@@ -1,0 +1,69 @@
+uuid: 234d7f12-c005-4e17-971b-d019391a7605
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_fancy_linked_image.field_ocms_fli_button_icon
+    - field.field.paragraph.ocms_fancy_linked_image.field_ocms_fli_image
+    - field.field.paragraph.ocms_fancy_linked_image.field_ocms_fli_link
+    - field.field.paragraph.ocms_fancy_linked_image.field_ocms_fli_shape
+    - field.field.paragraph.ocms_fancy_linked_image.field_ocms_fli_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.ocms_fancy_linked_image
+  module:
+    - image
+    - link
+    - workbench_moderation
+id: paragraph.ocms_fancy_linked_image.default
+targetEntityType: paragraph
+bundle: ocms_fancy_linked_image
+mode: default
+content:
+  field_ocms_fli_button_icon:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ocms_fli_image:
+    type: image_image
+    weight: 1
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  field_ocms_fli_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ocms_fli_shape:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ocms_fli_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  status:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

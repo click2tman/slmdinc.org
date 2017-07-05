@@ -1,0 +1,7 @@
+name: 'OCMS Taxonomy Breadcrumb'
+type: 'module'
+description: 'Add the current page title and channel taxonomy terms  to the breadcrumb.'
+core: '8.x'
+package: 'OCMS Custom'
+version: '8.x-1.1'
+configure: ocms_taxonomy_breacrumb.admin_settings

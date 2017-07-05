@@ -1,0 +1,28 @@
+uuid: f277edd9-51b5-4e9c-9e07-4c8a8f1249f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.storage.paragraph.field_ocms_fancy_block_reference
+    - paragraphs.paragraphs_type.ocms_fancy_tab
+id: paragraph.ocms_fancy_tab.field_ocms_fancy_block_reference
+field_name: field_ocms_fancy_block_reference
+entity_type: paragraph
+bundle: ocms_fancy_tab
+label: 'Block Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      basic: basic
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

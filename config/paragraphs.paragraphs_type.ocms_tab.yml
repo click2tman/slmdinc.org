@@ -1,0 +1,7 @@
+uuid: b8323cc3-f7c0-4e3d-bf29-960accbc088e
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_tab
+label: Tab
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies: {  }
+template: subscriber_notification_email
+label: 'Subscriber Notification Email'
+description: 'Message Subscribe Template for Email Notifications'
+text:
+  -
+    value: "<p>Subscribed Content:[node:title] - Changed</p>\r\n"
+    format: full_html
+  -
+    value: "<p>[node:title] has been updated. Please visit the site to see the change.</p>\r\n"
+    format: full_html
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

@@ -1,0 +1,108 @@
+/**
+ * @file
+ * Visual styles for Levelplus's latest items views.
+ */
+
+.view-latest-items.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+.view-latest-items .views-row {
+  padding: 8px;
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+  -ms-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  clear: both;
+}
+.view-latest-items .views-field-field-image {
+  width: 40%;
+  margin-right: 20px;
+  float: left;
+}
+.view-latest-items .views-field-field-image ~ .views-field-title,
+.view-latest-items .views-field-field-image ~ .views-field-body {
+  margin-left: 47%;
+}
+.view-latest-items .views-field-created {
+  text-align: right;
+  padding: 0 10px;
+  border-right: 1px solid #c2c2c2;
+  line-height: 1;
+  margin-top: 4px;
+  font-size: 0.75em;
+  margin-right: 20px;
+  float: left;
+}
+.view-latest-items .views-field-created ~ .views-field-title,
+.view-latest-items .views-field-created ~ .views-field-body {
+  margin-left: 75px !important;
+}
+.view-latest-items .views-field-title a {
+  text-transform: uppercase;
+  font-weight: 900;
+  display: block;
+  font-size: 0.87em;
+  margin-bottom: 0;
+}
+.view-latest-items .views-field-title a:hover {
+  text-decoration: underline;
+}
+.view-latest-items .views-field-body {
+  font-size: 0.87em;
+  line-height: 1.5;
+}
+.view-latest-items .views-field-body p {
+  padding: 0;
+}
+.block-views .view-latest-items.row .more-link {
+  margin-left: 8px;
+}
+.footer-area .view-latest-items .views-field-field-image ~ .views-field-title,
+.footer-area .view-latest-items .views-field-field-image ~ .views-field-body {
+  margin-left: 48%;
+}
+.colored-region .view-latest-items .views-row:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+@media (min-width:992px) {
+  .two-sidebars .sidebar .view-latest-items .views-field-field-image {
+    display: none;
+  }
+  .two-sidebars .sidebar .view-latest-items .views-field-title,
+  .two-sidebars .sidebar .view-latest-items .views-field-body {
+    margin-left: 0;
+  }
+}
+@media (min-width:768px) and (max-width:991px) {
+  .view-latest-items .views-field-field-image ~ .views-field-title,
+  .view-latest-items .views-field-field-image ~ .views-field-body {
+    margin-left: 45%;
+  }
+}
+@media (min-width:481px) and (max-width:991px) {
+  .view-latest-items.row .views-row {
+    clear: none;
+  }
+}
+@media (min-width:481px) and (max-width:767px) {
+  .view-latest-items .views-field-field-image {
+    margin-right: 10px;
+  }
+}
+@media (max-width:480px) {
+  .view-latest-items.row .views-row {
+    clear: both;
+    float: none;
+    width: 100%;
+  }
+  .view-latest-items .views-field-field-image {
+    margin-right: 7%;
+  }
+}
+.view-latest-items .views-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

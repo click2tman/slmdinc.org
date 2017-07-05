@@ -1,0 +1,65 @@
+/*Tabs*/
+.nav-tabs {
+  border-bottom: 1px solid;
+  margin: 25px 0 20px;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: 0px;
+  padding: 0;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  border: none;
+  padding: 8px 20px;
+  display: block;
+  color: #2e3436;
+  font-weight: 300;
+  font-size: 0.93em;
+  border-radius: 0;
+  text-decoration: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.nav-tabs li a i {
+  padding-right: 10px;
+  font-size: 20px;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  cursor: default;
+  border-color: transparent;
+  border: none;
+  background-color: transparent;
+}
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+  border: none;
+  text-decoration: none;
+  color: #ffffff;
+}
+@media (min-width:992px) and (max-width:1199px) {
+  .two-sidebars .nav-tabs > li > a {
+    padding: 8px 10px;
+  }
+}
+.colored-region .nav-tabs {
+  border-color: #ffffff;
+}
+.colored-region .nav-tabs > li > a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.colored-region .nav-tabs > li > a:hover,
+.colored-region .nav-tabs > li > a:focus {
+  background-color: transparent;
+  color: #ffffff;
+}
+.colored-region .nav-tabs > li.active > a,
+.colored-region .nav-tabs > li.active > a:hover,
+.colored-region .nav-tabs > li.active > a:focus {
+  color: #ffffff;
+}

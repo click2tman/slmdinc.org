@@ -1,0 +1,20 @@
+uuid: 2b90044d-67dd-4dcb-83cb-530dcca7c57f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_ocms_ms_slide_caption_opac
+field_name: field_ocms_ms_slide_caption_opac
+entity_type: paragraph
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

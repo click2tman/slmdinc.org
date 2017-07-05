@@ -1,0 +1,8 @@
+uuid: 15fa3184-a254-44f4-bda1-aacdc16e80cf
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_video_gallery_block
+label: 'Video Gallery block'
+revision: 1
+description: 'Display Youtube and Vimeo videos in a gallery slideshow block'

@@ -1,0 +1,33 @@
+/**
+ * @file
+ * Visual styles for Levelplus's isotope filters.
+ */
+
+.filter-items {
+  display: none;
+}
+.filters {
+  margin: 5px 0 45px 0;
+  display: none;
+  text-align: center;
+}
+.filters > li {
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px;
+}
+.filters > li + li {
+  margin: 5px;
+}
+.isotope ul {
+  padding: 0;
+}
+.isotope-item {
+  list-style: none;
+}
+@media (max-width:767px) {
+  .isotope-item {
+    max-width: 100%;
+  }
+}

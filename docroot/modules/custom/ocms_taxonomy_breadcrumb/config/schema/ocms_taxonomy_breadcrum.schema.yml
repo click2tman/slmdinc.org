@@ -1,0 +1,9 @@
+# Schema for the configuration files of the module.
+
+ocms_taxonomy_breadcrum.configuration:
+  type: config_object
+  label: 'Taxonomy Used for Breadcrumbs'
+  mapping:
+    breacrumb_taxonomy:
+      type: string
+      label: 'Taxonomy Used for Breadcrumbs'

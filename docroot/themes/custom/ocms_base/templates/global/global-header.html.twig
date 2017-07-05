@@ -1,0 +1,167 @@
+{# Header Template #}
+
+<header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+
+  {# Client requested that this be commented out and possibly added back later#}
+
+  {#{% if page.header_disclaimer %}
+    <div class="ocms-header_disclaimer">
+        <div class="{{ container }}">
+          <div class="row">
+            <div class="col-md-12">
+              <span class="ocms-disclaimer"><img src="/themes/custom/ocms_base/images/favicon-sl.png" alt="American Flag">
+                  {{page.header_disclaimer }}
+              </span>
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endif %}#}
+
+  {% block navbar %}
+
+    {%
+      set navbar_classes = [
+        'navbar',
+        theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+        theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
+      ]
+    %}
+
+    <div class="ocms-header-main">
+      <div class="{{ container }}">
+        <div class="row ocms-header-main__content">
+
+          {% if page.header %}
+          <div class="col-md-12">
+            {{ page.header }}
+          </div>
+          {% endif %}
+
+          {# Classes arrays #}
+          {%
+            set header_left_classes = [
+              page.header_left and page.header_right ? 'col-xs-2 no-gutter',
+              page.header_left is empty and page.header_right ? 'col-md-12',
+              page.header_left and page.header_right is empty ? 'col-md-12'
+            ]
+          %}
+          {%
+            set header_right_classes = [
+              page.header_left and page.header_right ? 'col-sm-10 hidden-xs',
+              page.header_left is empty and page.header_right ? 'col-md-12',
+              page.header_left and page.header_right is empty ? 'col-md-12'
+            ]
+          %}
+          {%
+            set collapsible_region_classes = [
+              'col-xs-12',
+              'hidden-sm',
+              'hidden-md',
+              'hidden-lg',
+              'collapse'
+            ]
+          %}
+
+          {% if page.header_left or page.header_right %}
+              {% if page.header_left %}
+                <div{{ attributes.removeClass(header_right_classes).removeClass('ocms-header-content-rt').addClass(header_left_classes).addClass('ocms-header-content-lt') }}>
+                  {{ page.header_left }}
+                </div>
+              {% endif %}
+
+              {% if page.header_right %}
+              <div{{ attributes.removeClass(header_left_classes).removeClass('ocms-header-content-lt').addClass(header_right_classes).addClass('ocms-header-content-rt') }}>
+                {{ page.header_right }}
+              </div>
+              {% endif %}
+
+              {# Mobile/Tablet Menu Buttons #}
+              <div class="col-xs-10 hidden-sm hidden-md hidden-lg no-gutter">
+                <div class="ocms-header-mobile-menu pull-right">
+                  <button id="ocms-mobile-navbar-searchBtn" class="ocms-header-mobile-menu__searchBtn" data-target="#navbar-collapse" type="button">
+                    <span class="sr-only">{{ 'Toggle search'|t }}</span>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                  <a id="ocms-mobile-navbar-infoBtn" href="{{ path('entity.node.canonical', {'node': 9}) }}" class="ocms-header-mobile-menu__infoBtn mobile-info-icon">{{ 'HELP'|t }}
+                  </a>
+                  <button id="ocms-mobile-navbar-menuBtn" class="ocms-header-mobile-menu__menuBtn mobile-menu-icon" data-target="#ocms-header-nav-collapse" type="button">
+                    MENU
+                    <span class="sr-only">{{ 'Toggle menu'|t }}</span>
+                  </button>
+                </div>
+              </div>
+          {% endif %}
+
+          {% if page.search_form_collapsible %}
+            <div id="navbar-collapse" {{ attributes.removeClass(header_right_classes).addClass(collapsible_region_classes, "no-gutter") }}>
+              {{ page.search_form_collapsible }}
+            </div>
+          {% endif %}
+
+        </div> {# End of header-main__content #}
+      </div>
+    </div> {# End of header-main #}
+
+    {% if page.site_navigation %}
+      <div class="header-nav hidden-xs">
+          <div class="{{ container }}">
+            <div class="row">
+              <div class="col-md-12">
+              {{page.site_navigation }}
+              </div>
+            </div>
+          </div>
+      </div>
+    {% endif %}
+
+    {% if page.info_menu_collapsible %}
+      <div id="ocms-info-menu-collapse" {{ attributes.removeClass(header_right_classes).addClass(collapsible_region_classes) }}>
+        {{ page.info_menu_collapsible }}
+      </div>
+    {% endif %}
+
+    {% if page.header_nav_collapsible %}
+      <div id="ocms-header-nav-collapse" {{ attributes.removeClass(header_right_classes).addClass(collapsible_region_classes) }}>
+        {{ page.header_nav_collapsible }}
+      </div>
+    {% endif %}
+
+  {% endblock %} {# End of Navbar Block #}
+</header>
+{# Mega Menu Area #}
+{% if page.mega_menu_file %}
+    <div class="filing">
+      <div class="{{ container }}">
+          {{ page.mega_menu_file }}
+      </div>
+    </div>
+{% endif %}
+{% if page.mega_menu_pay %}   
+    <div class="payments">
+      <div class="{{ container }}">
+        {{ page.mega_menu_pay }}
+      </div>
+    </div>
+{% endif %}
+{% if page.mega_menu_refunds %}
+    <div class="refunds">
+      <div class="{{ container }}">
+        {{ page.mega_menu_refunds }}
+      </div>
+    </div>
+{% endif %}
+{% if page.mega_menu_cnd %}
+    <div class="cnd">
+      <div class="{{ container }}">
+        {{ page.mega_menu_cnd }}
+      </div>
+    </div>
+{% endif %}
+{% if page.mega_menu_fni %}
+    <div class="fni">
+      <div class="{{ container }}">
+        {{ page.mega_menu_fni }}
+      </div>
+    </div>
+{% endif %}

@@ -1,0 +1,51 @@
+##
+# Global Library
+# @description Assets that will be loaded on every page of the Drupal site
+#
+# Minified version will be used for production
+##
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      # css/style.min.css: {}
+
+global-scripts:
+  js:
+    js/main.js: {}
+    js/mega-menu-navigation.js: {}
+    js/header-mobile.js: {}
+    js/autotracker.js: {}
+    js/jquery-accessibleMegaMenu.js: {}
+  dependencies:
+    - core/jquery
+
+analytics-scripts:   
+  header: true
+  js:
+    js/static_assets/https.js: {}
+    js/static_assets/reporting/federated-analytics.js: {}
+    js/static_assets/reporting/google-analytics.js: {}
+    js/static_assets/leftnav/height.js: {}
+    js/static_assets/foresee/foresee-trigger.js: {}
+    js/iep-reporting.js: {}  
+  dependencies:
+    - core/jquery
+    
+##
+# Content Type: {Add Content Type} Library
+# @description JavaScript library that will only be loaded in the {Add Content Type} content type
+#
+# Uncomment the code below to add a new JavaScript library
+##
+#{Add-content-type}:
+# js:
+#   js/{add-custom-file-name}.js
+
+##
+# Content Type: OCMS Article Library
+# @description JavaScript library that will only be loaded in the OCMS Article content type
+##
+node-article:
+  js:
+    js/node--article.js: {}

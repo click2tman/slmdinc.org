@@ -1,0 +1,78 @@
+{% extends "node.html.twig" %}
+{#
+/**
+ * @file
+ * Levelplus's theme implementation to display a Team member node.
+ */
+#}
+
+{% block content %}
+  {{ content|without('field_ocms_member_photo','field_ocms_facebook_account','field_ocms_twitter_account','field_ocms_linkedin_account','body','comment') }}
+  {% if node.field_ocms_member_photo.value %}
+    <div class="row content">
+      <div class="col-md-6">
+        <div class="photo-container">
+          {{ content.field_ocms_member_photo }}
+          {% if node.field_ocms_facebook_account.value or node.field_ocms_twitter_account.value or node.field_ocms_linkedin_account.value %}
+            <ul class="members-social-bookmarks text-center">
+              {% if node.field_ocms_facebook_account.value %}
+                <li class="social-media-item">
+                  <a target="_blank" href="{{ node.field_ocms_facebook_account.value }}">
+                    <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
+                  </a>
+                </li>
+              {% endif %}
+              {% if node.field_ocms_twitter_account.value %}
+                <li class="social-media-item">
+                  <a target="_blank" href="{{ node.field_ocms_twitter_account.value }}">
+                    <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
+                  </a>
+                </li>
+              {% endif %}
+              {% if node.field_ocms_linkedin_account.value %}
+                <li class="social-media-item">
+                  <a target="_blank" href="{{ node.field_ocms_linkedin_account.value }}">
+                    <i class="fa fa-linkedin"><span class="sr-only">linkedin</span></i>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-md-6">
+        {{ content.body }}
+      </div>
+    </div>
+  {% else %}
+    <div class="content">
+      {% if node.field_ocms_facebook_account.value or node.field_ocms_twitter_account.value or node.field_ocms_linkedin_account.value %}
+        <ul class="members-social-bookmarks text-center">
+          {% if node.field_ocms_facebook_account.value %}
+            <li class="social-media-item">
+              <a target="_blank" href="{{ node.field_ocms_facebook_account.value }}">
+                <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
+              </a>
+            </li>
+          {% endif %}
+          {% if node.field_ocms_twitter_account.value %}
+            <li class="social-media-item">
+              <a target="_blank" href="{{ node.field_ocms_twitter_account.value }}">
+                <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
+              </a>
+            </li>
+          {% endif %}
+          {% if node.field_ocms_linkedin_account.value %}
+            <li class="social-media-item">
+              <a target="_blank" href="{{ node.field_ocms_linkedin_account.value }}">
+                <i class="fa fa-linkedin"><span class="sr-only">linkedin</span></i>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endif %}
+      {{ content.body }}
+    </div>
+  {% endif %}
+  {{ content.comment }}
+{% endblock %}

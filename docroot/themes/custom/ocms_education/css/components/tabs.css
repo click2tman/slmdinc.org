@@ -1,0 +1,115 @@
+/* Tabs */
+.nav-tabs {
+  border-bottom: 1px solid #c2c2c2;
+  margin:20px 0;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+  padding: 0;
+  margin-left: 0;
+}
+.nav-tabs > li > a {
+  margin-right: 5px;
+  border: 1px solid transparent;
+  padding: 8px 25px;
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1e1e1e;
+  border-radius: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  font-size: 21px;
+}
+.nav-tabs li a i {
+  padding-right: 10px;
+  font-size: 20px;
+}
+.nav-tabs > li > a:hover {
+  border-color: #252525 #252525 #252525;
+  background: #252525;
+  text-decoration: none;
+  color: #fff;
+}
+.nav-tabs > li.active > a {
+  cursor: default;
+  background-color: transparent;
+  border: 1px solid #c2c2c2;
+  border-bottom-color: #fff;
+  color: #1e1e1e;
+}
+.nav-tabs > li.active > a:hover {
+  color: #1e1e1e;
+  border: 1px solid #c2c2c2;
+  border-bottom-color: #fff;
+  background-color: transparent;
+}
+ul.nav-tabs:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+#block-featuredtabs {
+  margin-top: -93px;
+}
+#block-featuredtabs.block, #block-featuredtabs .block {
+  padding: 0;
+}
+@media (max-width: 1199px) {
+  .nav-tabs > li > a {
+    padding: 8px 15px;
+    font-size: 18px;
+  }
+  #block-featuredtabs {
+    margin-top: -88px;
+  }
+}
+@media (max-width: 767px) {
+  .nav-tabs > li > a {
+    font-size: 14px;
+    padding: 8px 8px!important;
+  }
+  #block-featuredtabs {
+    margin-top: -83px;
+  }
+}
+#bottom-content .region >.block:first-child ul.nav-tabs {
+  border-color: transparent;
+  margin: 15px 0 30px;
+}
+#bottom-content .region >.block:first-child ul.nav-tabs > li {
+  margin: 0 15px -1px 0;
+}
+#bottom-content .region >.block:first-child ul.nav-tabs > li > a {
+  padding: 8px 20px;
+}
+#bottom-content .region >.block:first-child ul.nav-tabs > li.active > a {
+  background-color: #f2f2f2;
+  border-color: transparent;
+}
+.bottom-content-area .nav-tabs > li.active > a,
+.bottom-content-area .nav-tabs > li.active > a:hover {
+  border-bottom-color: #f2f2f2;
+}
+
+/* Footer Tabs */
+.footer-area .nav-tabs {
+  border-bottom: 1px solid #252525;
+}
+.footer-area ul.nav-tabs > li > a,
+.footer-area .nav-tabs > li > a {
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 10px;
+}
+.footer-area ul.nav-tabs > li.active > a,
+.footer-area .nav-tabs > li.active > a {
+  border-color: #252525 #252525 #252525;
+  background: #252525;
+  text-decoration: none;
+  color: #fff;
+}

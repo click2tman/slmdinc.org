@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Visual styles for Levelplus's video background.
+ */
+
+.video-bg-active .highlighted-bottom {
+  overflow: hidden;
+  padding-top: 55px !important;
+}
+.video-container {
+  z-index: 1!important;
+}

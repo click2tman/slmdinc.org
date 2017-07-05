@@ -1,0 +1,354 @@
+/**
+ * @file
+ * Visual styles for Levelplus's forms.
+ */
+
+.form-item,
+.form-actions {
+  margin: 20px 0 20px;
+}
+input.form-text,
+input.form-tel,
+input.form-email,
+input.form-url,
+input.form-search,
+input.form-file,
+input.form-number,
+input.form-color,
+textarea.form-textarea,
+textarea,
+select.form-select,
+select {
+  background: #ffffff;
+  font-size: 0.87em;
+  padding: 9px 20px;
+  outline:none;
+  border: 1px solid #bdbdbd;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+  width: 100%;
+  line-height: 1;
+  min-height: 40px;
+  -webkit-appearance: none;
+  -webkit-box-shadow: inset 0 2px 5px rgba(0,0,0,0.12);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.12);
+}
+.form-type-password-confirm input.form-text {
+  width: 50%;
+}
+select.form-select,
+select {
+  margin: 10px 0;
+}
+
+/*webkit specific rules for select list*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select.form-select,
+  select {
+    background-image: url("../../images/angle-down-black.png");
+    background-image: linear-gradient(transparent, transparent), url("../../images/angle-down-black.svg");
+    background-size: 20px 20px; background-repeat: no-repeat; background-position: 98.5% 50%;
+  }
+  .colored-region select.form-select,
+  .colored-region select {
+    background-image: url("../../images/angle-down-white.png");
+    background-image: linear-gradient(transparent, transparent), url("../../images/angle-down-white.svg");
+  }
+}
+
+/*inline form elements*/
+.container-inline:not(.block) {
+  margin: 15px 0;
+}
+.container-inline input.form-text,
+.container-inline input.form-tel,
+.container-inline input.form-email,
+.container-inline input.form-url,
+.container-inline input.form-search,
+.container-inline input.form-file,
+.container-inline input.form-number,
+.container-inline input.form-color {
+  width: auto;
+  margin-right: 5px;
+  line-height: 1;
+}
+.container-inline input[type="submit"] {
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .container-inline .form-actions {
+    margin: 10px 0;
+    display: block;
+  }
+  .container-inline .form-submit {
+    margin-top: 5px;
+  }
+  .container-inline input.form-text,
+  .container-inline input.form-tel,
+  .container-inline input.form-email,
+  .container-inline input.form-url,
+  .container-inline input.form-search,
+  .container-inline input.form-file,
+  .container-inline input.form-number,
+  .container-inline input.form-color {
+    width: 100%;
+  }
+}
+
+/*forms style 2*/
+.form-style-2 input.form-text,
+.form-style-2 input.form-tel,
+.form-style-2 input.form-email,
+.form-style-2 input.form-url,
+.form-style-2 input.form-search,
+.form-style-2 input.form-file,
+.form-style-2 input.form-number,
+.form-style-2 input.form-color,
+.form-style-2 textarea.form-textarea,
+.form-style-2 textarea,
+.contact-message-alternative-form input.form-text,
+.contact-message-alternative-form input.form-tel,
+.contact-message-alternative-form input.form-email,
+.contact-message-alternative-form input.form-url,
+.contact-message-alternative-form input.form-search,
+.contact-message-alternative-form input.form-file,
+.contact-message-alternative-form input.form-number,
+.contact-message-alternative-form input.form-color,
+.contact-message-alternative-form textarea.form-textarea,
+.contact-message-alternative-form textarea{
+  background: transparent;
+  padding: 10px 20px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border:none;
+  border-bottom: 1px solid rgba(46,52,54,0.5);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-style-2 textarea.form-textarea,
+.form-style-2 textarea,
+.contact-message-alternative-form textarea.form-textarea,
+.contact-message-alternative-form textarea {
+  padding-top: 20px;
+}
+.form-style-2 .colored-region input.form-text,
+.form-style-2 .colored-region input.form-tel,
+.form-style-2 .colored-region input.form-email,
+.form-style-2 .colored-region input.form-url,
+.form-style-2 .colored-region input.form-search,
+.form-style-2 .colored-region input.form-file,
+.form-style-2 .colored-region input.form-number,
+.form-style-2 .colored-region input.form-color,
+.form-style-2 .colored-region textarea.form-textarea,
+.form-style-2 .colored-region textarea,
+.colored-region .contact-message-alternative-form input.form-text,
+.colored-region .contact-message-alternative-form input.form-tel,
+.colored-region .contact-message-alternative-form input.form-email,
+.colored-region .contact-message-alternative-form input.form-url,
+.colored-region .contact-message-alternative-form input.form-search,
+.colored-region .contact-message-alternative-form input.form-file,
+.colored-region .contact-message-alternative-form input.form-number,
+.colored-region .contact-message-alternative-form input.form-color,
+.colored-region .contact-message-alternative-form textarea.form-textarea,
+.colored-region .contact-message-alternative-form textarea {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.form-style-2 .colored-region input.form-text:focus,
+.form-style-2 .colored-region input.form-tel:focus,
+.form-style-2 .colored-region input.form-email:focus,
+.form-style-2 .colored-region input.form-url:focus,
+.form-style-2 .colored-region input.form-search:focus,
+.form-style-2 .colored-region input.form-file:focus,
+.form-style-2 .colored-region input.form-number:focus,
+.form-style-2 .colored-region input.form-color:focus,
+.form-style-2 .colored-region textarea.form-textarea:focus,
+.form-style-2 .colored-region textarea:focus,
+.colored-region .contact-message-alternative-form input.form-text:focus,
+.colored-region .contact-message-alternative-form input.form-tel:focus,
+.colored-region .contact-message-alternative-form input.form-email:focus,
+.colored-region .contact-message-alternative-form input.form-url:focus,
+.colored-region .contact-message-alternative-form input.form-search:focus,
+.colored-region .contact-message-alternative-form input.form-file:focus,
+.colored-region .contact-message-alternative-form input.form-number:focus,
+.colored-region .contact-message-alternative-form input.form-color:focus,
+.colored-region .contact-message-alternative-form textarea.form-textarea:focus,
+.colored-region .contact-message-alternative-form textarea:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: #ffffff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/*textarea*/
+textarea.form-textarea,
+textarea {
+  resize: none;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+label {
+  display: block;
+  font-size: 0.87em;
+  margin-bottom: 5px;
+}
+.label {
+  color: #2e3436;
+}
+.colored-region .label {
+  color: #ffffff;
+}
+
+/*fieldset*/
+fieldset {
+  border: 1px solid #acacac;
+  padding: 0.5em;
+  margin: 20px 0 35px;
+}
+fieldset legend {
+  border: 1px solid #acacac;
+  display: inline-block;
+  width: auto;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  font-weight: 400;
+}
+fieldset legend a {
+  text-decoration: none;
+}
+
+/*checkboxes and radios*/
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0px 10px 4px 1px;
+}
+
+/*Form placeholder*/
+::-webkit-input-placeholder {
+  color: #969696;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #969696;
+}
+:-ms-input-placeholder {
+  color: #969696;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #969696;
+}
+.colored-region ::-webkit-input-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+.colored-region ::-moz-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+.colored-region :-ms-input-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+.colored-region :-moz-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+.colored-region .opened ::-webkit-input-placeholder {
+  color: #969696;
+}
+.colored-region .opened ::-moz-placeholder {
+  color: #969696;
+}
+.colored-region .opened :-ms-input-placeholder {
+  color: #969696;
+}
+.colored-region .opened :-moz-placeholder {
+  color: #969696;
+}
+
+/* Disabled form elements */
+.form-disabled input,
+.form-disabled select,
+.form-disabled textarea {
+  background: #ededed;
+  border-color: #bbb;
+  color: #717171;
+}
+.form-disabled label {
+  color: #717171;
+}
+
+/* Form error styles. */
+.form-item textarea.error + .cke {
+  border: 2px solid red;
+}
+
+/* Form error message styles. */
+.form-item--error-message {
+  color: #e32700;
+}
+
+/*forms @colored regions*/
+.colored-region fieldset,
+.colored-region fieldset legend {
+  color: inherit;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.colored-region input.form-text,
+.colored-region input.form-tel,
+.colored-region input.form-email,
+.colored-region input.form-url,
+.colored-region input.form-search,
+.colored-region input.form-file,
+.colored-region input.form-number,
+.colored-region input.form-color,
+.colored-region textarea.form-textarea,
+.colored-region textarea,
+.colored-region select.form-select,
+.colored-region select,
+.colored-region input.form-text:focus,
+.colored-region input.form-tel:focus,
+.colored-region input.form-email:focus,
+.colored-region input.form-url:focus,
+.colored-region input.form-search:focus,
+.colored-region input.form-file:focus,
+.colored-region input.form-number:focus,
+.colored-region input.form-color:focus,
+.colored-region textarea.form-textarea:focus,
+.colored-region textarea:focus,
+.colored-region select.form-select:focus,
+.colored-region select:focus {
+  border-color: #fff !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/*Subscribe form*/
+.subscribe-form {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  left: 0;
+}
+.subscribe-form.container-inline {
+  margin-top: 6px;
+}
+@media (min-width: 768px) {
+  .footer-top-area .subscribe-form .form-text {
+    width: 60%;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .footer-top-area .subscribe-form input[type="submit"] {
+    padding: 11px 15px;
+  }
+}

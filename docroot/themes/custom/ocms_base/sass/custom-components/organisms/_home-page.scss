@@ -1,0 +1,490 @@
+/**
+ * Home Page Stylesheet
+ */
+
+// Page Title
+.path-frontpage .ocms-page-node-type-landing-page__banner {
+    @extend .sr-only;
+}
+
+/**
+ * Home Page Banner Links
+ */
+.home-banner  { // this class is added via configuration
+    margin-bottom: 30px;
+
+    @media only screen and (min-width: $screen-lg-min) { // 1200px
+        padding: 0 15px;
+    }
+
+    > div {
+        @include border-radius(3px);
+        border: 1px solid $button-color;
+        color: $button-color;
+        padding: 15px 20px;
+        text-align: center;
+        text-transform: uppercase;
+
+        &:active, &:focus, &:active:hover, &:focus:hover {
+            box-shadow: 0 0 0.5rem $button-color;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: $screen-xs-max) { // 767px
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/**
+ * Homepage Hero
+ */
+
+.ocms-homepage-hero {
+
+    position: relative;
+
+    img {
+        max-height: 250px;
+        width: 100%;
+        position: absolute;
+    }
+}
+.ocms-homepage-hero--gradient {
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 72%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 72%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 72%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ 
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    top: 151px;
+}
+
+/**
+ * Home Page Content
+ */
+.ocms-home-stacked {
+    span.views-label.views-label-field-media-video-embed-field {
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    // Social Media view
+    .social-media { // this class is added via configuration
+        text-align: center;
+        padding-top: 30px;
+
+        .youtube, .twitter, .tumblr, .irs2go { // these classes are added via configuration
+            background-image: url(/themes/custom/ocms_base/images/social_group.png);
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            margin-right: 0.25rem;
+            height: 3rem;
+            width: 4rem;
+            background-position: top left;
+            font-size: 0;
+            text-decoration: none;
+            cursor: pointer;
+
+            @media only screen and (max-width: $screen-xs-min) {
+                width: 3.5rem;
+            }
+        }
+
+        .twitter {
+            background-position-x: -60px;
+            background-position-y: 2px;
+        }
+
+        .tumblr {
+            background-position-x: -125px;
+            background-position-y: 2px;
+        }
+
+        .irs2go {
+            background-position-x: -190px;
+            background-position-y: 2px;
+        }
+    }
+}
+
+
+/* Homepage Refresh */
+
+
+//Top 8 Links with Icons
+.top-8 {
+    
+    color: $top-8-link-color;
+    background-color: $white;
+    border: 2px solid $top-8-border-color;
+    box-shadow: 1px 2px 2px $top-8-border-color;
+    font-weight: bold;
+    text-decoration: none;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    // width: 50%;
+
+    @media only screen and (max-width: $screen-xs-max) { // 767px
+        width: 100%;
+    }
+
+    @media only screen and (min-width: $screen-sm-min) { // 768px
+        width: 46%;
+    }
+
+    @media only screen and (min-width: $screen-md-min) { // 992px
+        width: 47%;
+    }
+
+    @media only screen and (min-width: $screen-lg-min) { // 1200px
+        width: 48%;
+    }
+
+    &.col-1 {
+        margin-right: 15px;
+        @media only screen and (max-width: $screen-xs-max) { // 767px
+            margin-right: 0;
+        }
+    }
+
+    &.col-2 {
+        margin-left: 15px;
+        @media only screen and (max-width: $screen-xs-max) { // 767px
+            margin-left: 0;
+        }
+    }
+
+    a, a:active, a:focus, a:visited, a:hover{
+        text-decoration: none;
+        color: $top-8-link-color;
+    }
+
+    i {
+        padding-right:10px;
+    }
+}
+
+//Forms & Instructions Blocks
+.forms-instructions-blocks {
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    border: 2px solid $forms-instruct-border-color;
+    box-shadow: 1px 2px 2px $forms-instruct-border-color;
+    text-align: center;
+    max-width: 270px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 30px;
+
+    &:hover {
+        border: 2px solid $forms-instruct-title-color;
+        box-shadow: 0px 0px 0px $forms-instruct-border-color;
+    }
+
+    .forms-instructions-label-link {
+
+        a, a:active, a:focus, a:visited, a:hover {        
+            color: $forms-instruct-title-color;
+            text-decoration: none;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+    }
+}
+
+
+//Feature Call Out Blocks
+.ocms-home-cards {
+    margin-top: 40px;
+    &__first {
+        padding-left: 35px;
+        padding-right: 20px;
+        padding-top: 20px;
+        background-color: rgba(255, 255, 255, 0.5);
+        
+        .row-1 {
+            margin-top: 20px;
+        }
+    }
+}
+
+.ocms-home-cards__third {
+    margin-top: 30px;
+    
+    .col-xs-12.col-sm-6 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.ocms-home-cards__fourth {
+
+    .col-xs-12.col-sm-6.col-lg-5 {
+        padding-left: 0;
+    }
+
+    .col-xs-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.block-region-third-row-col-2-top, .block-region-third-row-col-2-bottom, .block-region-fourth-row-col-1, .block-region-fourth-row-col-2, .block-region-third-row-col-1{
+    margin-bottom: 30px;
+}
+
+.block-region-third-row-col-1, .block-region-fourth-row-col-1 {
+    margin-right: 30px;
+}
+
+/* Collective Styling for Homepage Features */
+
+.ocms-hmpg-callout-image {
+    position: relative;
+}
+
+.ocms-landing-pg-callout, .ocms-hmpg-callout-image, .ocms-hmpg-callout-horizontal-no-image, .ocms-twitter-block, .ocms-hmpg-callout-learn-more {
+
+    border: 2px solid $forms-instruct-border-color;
+    box-shadow: 1px 2px 2px $forms-instruct-border-color;
+
+    .ocms-landing-pg-callout-link {
+        
+        padding-bottom: 10px;
+
+        a {
+            font-size: 33px;
+            line-height: 44px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+	
+    .ocms-landing-pg-callout-desc {
+        padding-bottom: 10px;
+    }
+
+    .ocms-landing-pg-callout-tag-line {
+        background-color: #234E76;
+        color: white;
+        text-transform: uppercase;
+        margin-bottom:15px;
+    }
+}
+
+.ocms-hmpg-callout-image, .ocms-hmpg-callout-learn-more {
+        display: flex;
+        overflow: hidden;
+        color: $white;
+
+
+    .ocms-hmpg-callout-image-content {
+        margin-top: 8em;
+    }
+
+    .ocms-landing-pg-callout-with-image-content {
+        padding-top: 33em;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .ocms-landing-pg-callout-link {
+
+        a {
+            color: $white;
+        }
+    }
+}
+
+.ocms-landing-pg-callout {
+
+    .ocms-landing-pg-callout-link {
+
+        a {
+            color: #333;
+        }
+    }
+}
+
+
+.block-region-fourth-row-col-1 {
+    .ocms-hmpg-callout-image {
+        height: 665px;
+        width: 470px;
+    }
+
+}
+
+
+/* Learn More Callout Block Styling */
+.ocms-hmpg-callout-learn-more {
+	
+        height: 214px;
+        
+	.ocms-hmpg-callout-learn-more-content {
+		margin-left: 2.5em;
+		
+		.ocms-landing-pg-callout-learn-more-title {
+			font-weight: bold;
+			font-size: 19px;
+			line-height: 26px;
+			padding-top: 20px;
+			display:block;
+			padding-bottom: 10px;
+		}     
+
+		.ocms-landing-pg-callout-learn-more-link {
+			display: block;
+			max-width: 120px;
+			white-space: nowrap;
+			background-color: #227DAE;
+			color: #FFFFFF;
+			padding: 15px 20px;
+			margin-top: 0px;
+			text-align: center;
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: bold;
+			border-radius: 4px;
+			margin-bottom: 80px;
+
+			a, a:hover, a:visited, a:focus {
+				color: $white;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+/* Twitter Block Styling */
+.ocms-twitter-block {
+
+    height: 214px;
+    border: 2px solid $forms-instruct-border-color;
+    box-shadow: 1px 2px 2px $forms-instruct-border-color;
+    
+    .ocms-twitter-content {
+        .FollowButton::after {
+            content: "IRS";
+        }  
+    }
+
+    blockquote.twitter-tweet {
+        padding: 20px 30px;
+        margin: 0 0 20px;
+        font-size: 16px;
+        width: 100%;
+        border-left: 0px;
+    } 
+}
+
+
+.ocms-hmpg-callout-vertical-content {
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    margin-top: 30em;
+    z-index: 1;
+}
+
+.ocms-hmpg-callout-horizontal-content {
+    margin-left: 2.5em;
+    margin-top: 8em;
+    margin-right: 2.5em;
+    z-index: 1;
+}
+
+.ocms-hmpg-callout-horizontal-no-image {
+
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        background: url(/sites/default/files/image/ocms-mark.svg);
+        background-repeat: no-repeat !important;
+        background-size: cover;
+        z-index: 0;
+        top: -35px;
+        bottom: 0;
+        left: 270px;
+        right: 0;
+        opacity: 0.1;
+    }
+
+    .ocms-hmpg-callout-no-image-content {
+        margin-left: 2.5em;
+        margin-right: 2.5em;
+        margin-top: 5em;
+
+        span.ocms-landing-pg-callout-link {
+            display:block;
+            margin-top: 10px;
+
+            a, a:hover, a:visited, a:focus {
+                color: #333;
+            }
+        }
+
+    }
+}
+
+
+.ocms-homepage-callout--gradient
+{  
+    background: -moz-linear-gradient(top, transparent 1%, black 100%);
+    background: -webkit-linear-gradient(top, transparent 1%, black 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, #000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+    width: 100vw;
+    height: 218px;
+    position: absolute;
+    bottom: 0;
+
+}
+
+
+/* Sizing */
+.block-region-third-row-col-1 {
+
+    .ocms-hmpg-callout-image {
+        height: 665px;
+    }
+
+    .ocms-hmpg-callout-horizontal-no-image {
+        height: 665px;
+    }
+}
+.block-region-third-row-col-2-top {
+
+    .ocms-hmpg-callout-image {
+        height: 315px;
+    }
+
+    .ocms-hmpg-callout-horizontal-no-image {
+        height: 315px;
+    }
+}
+
+.block-region-third-row-col-2-bottom {
+    
+    .ocms-hmpg-callout-image {
+        height: 315px;
+    }
+
+    .ocms-hmpg-callout-horizontal-no-image {
+        height: 315px;
+    }
+}

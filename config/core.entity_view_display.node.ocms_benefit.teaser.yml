@@ -1,0 +1,66 @@
+uuid: 7cc65ca9-4caf-42ce-966e-50815c89d920
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ocms_benefit.body
+    - field.field.node.ocms_benefit.field_image
+    - field.field.node.ocms_benefit.field_ocms_banner_image
+    - field.field.node.ocms_benefit.field_ocms_font_awesome_classes
+    - field.field.node.ocms_benefit.field_ocms_slideshow
+    - field.field.node.ocms_benefit.field_ocms_slideshow_image
+    - field.field.node.ocms_benefit.field_ocms_slideshow_text
+    - field.field.node.ocms_benefit.field_ocms_subheader_body
+    - field.field.node.ocms_benefit.field_ocms_video
+    - field.field.node.ocms_benefit.field_tags
+    - image.style.large
+    - node.type.ocms_benefit
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_benefit.teaser
+targetEntityType: node
+bundle: ocms_benefit
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: large
+      image_link: content
+    third_party_settings: {  }
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_font_awesome_classes: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  field_ocms_subheader_body: true
+  field_ocms_video: true
+  field_tags: true
+  langcode: true

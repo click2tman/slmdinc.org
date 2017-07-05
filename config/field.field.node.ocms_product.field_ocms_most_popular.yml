@@ -1,0 +1,23 @@
+uuid: 4bfff115-d73e-427f-b43a-01964ba6179b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_most_popular
+    - node.type.ocms_product
+id: node.ocms_product.field_ocms_most_popular
+field_name: field_ocms_most_popular
+entity_type: node
+bundle: ocms_product
+label: 'Most Popular'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

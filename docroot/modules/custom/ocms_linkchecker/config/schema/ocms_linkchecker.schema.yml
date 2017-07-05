@@ -1,0 +1,91 @@
+# Schema for the configuration files of the OCMS linkchecker module.
+ocms_linkchecker.settings:
+  type: config_object
+  label: 'OCMS Linkchecker settings'
+  mapping:
+    general:
+      type: mapping
+      label: 'general'
+      mapping:
+        scan_blocks:
+          type: integer
+          label: 'Scan blocks'
+        check_link_types:
+          type: integer
+          label: 'Check link types'
+        expire:
+          type: integer
+          label: 'Discard items older than'
+    extract:
+      type: mapping
+      label: 'Extract'
+      mapping:
+        from_a:
+          type: integer
+          label: 'From anchor tags'
+        from_audio:
+          type: integer
+          label: 'From audio'
+        from_embed:
+          type: integer
+          label: 'From embed'
+        from_iframe:
+          type: integer
+          label: 'From iframe'
+        from_image:
+          type: integer
+          label: 'From image'
+        from_object:
+          type: integer
+          label: 'From object'
+        from_video:
+          type: integer
+          label: 'From video'
+        filter:
+          type: mapping
+          label: 'Filter'
+          mapping:
+            default_blacklist:
+              type: sequence
+              label: 'Default filter blacklist'
+            blacklist:
+              type: sequence
+              label: 'Filter blacklist'
+    check:
+      type: mapping
+      label: 'check'
+      mapping:
+        max_connections:
+          type: integer
+          label: 'Max connections'
+        user_agent:
+          type: string
+          label: 'User agent'
+        interval:
+          type: integer
+          label: 'Interval'
+        disable_for_urls:
+          type: string
+          label: 'Disable for URLs'
+        reserved_urls:
+          type: string
+          label: 'Reserved URLs'
+        log_level:
+          type: integer
+          label: 'Log Level'
+    error:
+      type: mapping
+      label: 'error'
+      mapping:
+        impersonate_account:
+          type: integer
+          label: 'Impersonate account'
+        status_301_action_threshold:
+          type: integer
+          label: 'Status 301 action threshold'
+        status_401_action_threshold:
+          type: integer
+          label: 'Status 401 action threshold'
+        ignore_response_codes:
+          type: string
+          label: 'Ignore response codes'

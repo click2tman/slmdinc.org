@@ -1,0 +1,22 @@
+uuid: 0a28cb2c-d966-453c-bd35-00d6316d202d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_showcase
+_core:
+  default_config_hash: qKmwVUVq2h8GkeY4X-f8i_QzMNxBy7gAP8wo9gcdBlk
+id: ocms_showcase_content
+theme: ocms_showcase
+region: content
+weight: -14
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

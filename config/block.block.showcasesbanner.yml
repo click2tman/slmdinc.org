@@ -1,0 +1,31 @@
+uuid: da7a1485-abf6-4c66-a289-d385d3e49187
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cdce23e8-637f-4802-859b-f411feafacdb'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: showcasesbanner
+theme: ocms_showcase
+region: banner
+weight: -12
+provider: null
+plugin: 'block_content:cdce23e8-637f-4802-859b-f411feafacdb'
+settings:
+  id: 'block_content:cdce23e8-637f-4802-859b-f411feafacdb'
+  label: 'Showcases (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /showcases-isotope
+    negate: false
+    context_mapping: {  }

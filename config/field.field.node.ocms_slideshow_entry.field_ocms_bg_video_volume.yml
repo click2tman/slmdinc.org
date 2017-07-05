@@ -1,0 +1,25 @@
+uuid: 1c7d036e-c1df-4776-8abd-40f2223b3e71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_bg_video_volume
+    - node.type.ocms_slideshow_entry
+id: node.ocms_slideshow_entry.field_ocms_bg_video_volume
+field_name: field_ocms_bg_video_volume
+entity_type: node
+bundle: ocms_slideshow_entry
+label: 'Background Video Volume'
+description: 'Set the Volume of the Background Video from 0 to 100 (e.g. 50).'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

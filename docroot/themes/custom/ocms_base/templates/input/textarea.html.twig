@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Bootstrap theme implementation for a 'textarea' #type form element.
+ *
+ * Available variables
+ * - wrapper_attributes: A list of HTML attributes for the wrapper element.
+ * - attributes: A list of HTML attributes for the textarea element.
+ * - resizable: An indicator for whether the textarea is resizable.
+ * - required: An indicator for whether the textarea is required.
+ * - value: The textarea content.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_textarea()
+ */
+#}
+{%
+  set classes = [
+    'form-textarea',
+    'form-control',
+    resizable ? 'resize-' ~ resizable,
+    required ? 'required',
+  ]
+%}
+{# Set class for required fields #}
+{%
+  set required_border = (element['#value'] == "") ?  "ocms-has-error__border" : ""
+%}
+  {#{%
+  set hidden = element['#attributes']['type']
+%}#}
+<div{{ wrapper_attributes.addClass('form-textarea-wrapper') }}>
+    {% if element['#value'] == "" %}
+      <textarea{{ attributes.addClass(required_border) }}>{{ value }}</textarea>
+      <div class="ocms-has-error__message">This field is required</div>
+    {% else %}
+      <textarea{{ attributes.addClass(classes) }}>{{ value }}</textarea>
+    {% endif %}
+</div>

@@ -1,0 +1,21 @@
+uuid: 81abe909-cfd5-44ce-87c1-5059cdf757ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_background_image_block
+    - field.storage.block_content.field_ocms_bg_image_color
+  module:
+    - options
+id: block_content.ocms_background_image_block.field_ocms_bg_image_color
+field_name: field_ocms_bg_image_color
+entity_type: block_content
+bundle: ocms_background_image_block
+label: 'Background Image Overlay Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

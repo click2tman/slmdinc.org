@@ -1,0 +1,19 @@
+uuid: 0e0a1ee1-059f-45c8-84a6-ccaf68db4b26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_vgs_youtube_id
+    - paragraphs.paragraphs_type.ocms_video_gallery_slide
+id: paragraph.ocms_video_gallery_slide.field_ocms_vgs_youtube_id
+field_name: field_ocms_vgs_youtube_id
+entity_type: paragraph
+bundle: ocms_video_gallery_slide
+label: 'Youtube ID'
+description: 'Provide the ID of the Video you''d like to use from Youtube (e.g 3wbvpOIIBQA). This field will override the Vimeo field if both are populated. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

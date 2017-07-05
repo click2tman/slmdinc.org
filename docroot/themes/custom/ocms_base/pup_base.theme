@@ -1,0 +1,209 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme: OCMS Base
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Bootstrap::preprocess()
+ *
+ */
+ // function ocms_base_preprocess_node__{add-content-type}(&$variables) {
+ //   $variables['#attached']['library'][] = 'ocms_base/{add-library}';
+ //  }
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Bootstrap::preprocess()
+ *
+ */
+
+function ocms_base_preprocess_block(&$variables) {
+  if (!empty($variables['content']['#view'])) {
+    $block_view = $variables['content']['#view']->current_display;
+
+    // Set field_ocms_callout_details url value for use in block template.
+    if ($block_view == 'block_3' || $block_view == 'block_4' || $block_view == 'block_5' || $block_view == 'block_6' ) {
+      $variables['image_url'] = $variables['content']['#view']->field['image']->original_value;
+      $variables['has_image'] = 'true';
+
+      if($variables['image_url'] == null)
+      {
+        $variables['image_url'] = '/sites/default/files/image/ocms-mark.svg';
+        $variables['has_image'] = 'false';
+      }
+    }
+  }
+}
+function ocms_base_preprocess_page(&$variables) {
+  // if (!empty($variables['content']['#view'])) {
+  //   $block_view = $variables['content']['#view']->current_display;
+
+  //   // Set field_ocms_callout_details url value for use in block template.
+  //   if ($block_view == 'block_3' || $block_view == 'block_4' || $block_view == 'block_5' || $block_view == 'block_6' ) {
+  //     $variables['image_url'] = $variables['content']['#view']->field['image']->original_value;
+  //     $variables['has_image'] = 'true';
+
+  //     if($variables['image_url'] == null)
+  //     {
+  //       $variables['image_url'] = '/sites/default/files/image/ocms-mark.svg';
+  //       $variables['has_image'] = 'false';
+  //     }
+  //   }
+  // }
+  $variables['page_image'] = $variables['content']['#view']->field['image']->original_value;
+}
+
+function ocms_base_preprocess_html(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  // $node_id = $node->id();
+  // $title = $node->title->value;
+
+  if ($node) {
+      // Adding `audience` meta tag
+      $aud = $node->field_ocms_audience->value;
+
+      if($aud) {
+        $meta_aud = [ '#tag' => 'meta', '#attributes' => ['name' => 'audience', 'content' => $aud] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_aud, 'audience' ];
+      }
+
+      // Adding `irsStandard-type` meta tag
+      $st = $node->field_ocms_article_type->value;
+
+      if($st) {
+        $meta_st = [ '#tag' => 'meta', '#attributes' => ['name' => 'irsStandard-type', 'content' => $st] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_st, 'irsStandard-type' ];
+      }
+
+      // Adding `uniqueID` meta tag
+      $nid = $node->nid->value;
+
+      if ($nid) {
+        $meta_uid = [ '#tag' => 'meta', '#attributes' => ['name' => 'uniqueID', 'content' => $nid] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_uid, 'uniqueID' ];
+      }
+
+      // Adding `isHistorical` meta tag
+      $hist = $node->field_ocms_historical->value;
+
+      if ($hist) {
+        $meta_hist = [ '#tag' => 'meta', '#attributes' => ['name' => 'isHistorical', 'content' => $hist] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_hist, 'isHistorical' ];
+      }
+
+      // Adding `historical-date` meta tag
+      $hd = $node->field_ocms_historical_date->value;
+
+      if ($hd) {
+        $meta_hd = [ '#tag' => 'meta', '#attributes' => ['name' => 'historical-date', 'content' => $hd] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_hd, 'historical-date' ];
+      }
+
+      // Adding `modified-date` meta tag
+      $md = $node->changed->value;
+
+      if ($md) {
+        $meta_md = [ '#tag' => 'meta', '#attributes' => ['name' => 'changed', 'content' => $md] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_md, 'changed' ];
+      }
+
+      // Adding `topic` meta tag
+      $topic = $node->field_ocms_topic->value;
+
+      if ($topic) {
+        $meta_topic = [ '#tag' => 'meta', '#attributes' => ['name' => 'topic', 'content' => $topic] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_topic, 'topic' ];
+      }
+
+      // Adding `guidance` meta tag
+      $guid = $node->field_ocms_guidance_type->value;
+
+      if ($guid) {
+        $meta_guid = [ '#tag' => 'meta', '#attributes' => ['name' => 'guidance', 'content' => $guid] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_guid, 'guidance' ];
+      }
+
+      // Adding `channel` meta tag
+      $chan = $node->field_ocms_channel->value;
+      // kint($chan);
+
+      if ($chan) {
+        $meta_chan = [ '#tag' => 'meta', '#attributes' => ['name' => 'channel', 'content' => $chan] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_chan, 'channel' ];
+      }
+
+      // Adding `prod-SEID` meta tag
+      $prodSEID = $user->field_ocms_seid->value;
+
+      if ($prodSEID) {
+        $meta_prodSEID = [ '#tag' => 'meta', '#attributes' => ['name' => 'prod-SEID', 'content' => $prodSEID] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_prodSEID, 'prod-SEID' ];
+      }
+
+      // Adding `sme-SEID` meta tag
+      $smedSEID = $node->sme_SEID->value;
+
+      if ($smedSEID) {
+        $meta_smedSEID = [ '#tag' => 'meta', '#attributes' => ['name' => 'sme-SEID', 'content' => $smedSEID] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_smedSEID, 'sme-SEID' ];
+      }
+
+      // Adding `organization` meta tag
+      $org = $node->field_ocms_organization->value;
+
+      if ($org) {
+        $meta_org = [ '#tag' => 'meta', '#attributes' => ['name' => 'organization', 'content' => $org] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_org, 'organization' ];
+      }
+
+      // Adding `otID` meta tag
+      $otID = $node->field_ocms_ot_unique_id->value;
+
+      if ($otID) {
+        $meta_otID = [ '#tag' => 'meta', '#attributes' => ['name' => 'otID', 'content' => $otID] ];
+        $variables['page']['#attached']['html_head'][] = [ $meta_otID, 'otID' ];
+      }
+
+  }
+}
+
+function ocms_base_preprocess_node__ocms_article(&$variables) {
+  // Add custom JavaScript library for OCMS Article content type
+  $variables['#attached']['library'][] = 'ocms_base/node-article';
+}
+
+function ocms_base_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Add content type suggestions.
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+  }
+}
+
+function ocms_base_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+function ocms_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form_type = $form_state->getBuildInfo()['base_form_id'];
+
+//Ensure this is applied to Contact Forms
+  if(isset($form_type) && $form_type == 'contact_message_form') {
+    $form['actions']['cancel'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'button',
+      '#value' => t('Cancel'),
+	  '#weight' => 100,
+      '#attributes' => ['type' => 'reset', 'name' => 'cancel-btn']
+    );
+  }
+  $form['#attributes']['novalidate'] = 'novalidate';
+}

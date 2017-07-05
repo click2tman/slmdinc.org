@@ -1,0 +1,44 @@
+<?php
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\message\Entity\Message;
+use Drupal\message\MessageInterface;
+use Drupal\message_subscribe\Subscribers\DeliveryCandidate;
+use Drupal\message_subscribe\Subscribers\DeliveryCandidateInterface;
+
+/*
+ * Implements hook_node_update().
+ */
+function ocms_subscribe_sendmail_node_update(\Drupal\Core\Entity\EntityInterface $node) {   
+  //create a default message entity so we can get subscriber ids, do not save
+  $message = Message::create(['template' => 'subscriber_notification_email', 'uid' => $node->getOwnerId()]);
+  
+  // Replace explicit notification with subscription-based notification
+  // If Message-subscribe exists, let this module use it.
+  
+  if (\Drupal::moduleHandler()->moduleExists('message_subscribe')) {
+    
+	$subscriberer = \Drupal::service('message_subscribe.subscribers');//use module service	
+	$uids = $subscriberer->getSubscribers($node, $message);//get sub uids 
+	
+	//loop ids create message
+	foreach ($uids as $uid => $delivery_candidate) {   
+		//create messages for each subscriber and save for queue. Note: template is hard coded here.
+		$message = Message::create(['template' => 'subscriber_notification_email', 'uid' => $delivery_candidate->getAccountId(),'field_ocms_node_ref' => $node]);  
+		//$message->set('field_ocms_node_ref‎‎', $node);//ref field set 
+		$message->save();
+		
+		// Allow modules to alter the message for the specific user.
+		\Drupal::moduleHandler()->alter('message_subscribe_message', $message, $delivery_candidate);
+		
+		//user message notify to send immediate email
+		$notifier = \Drupal::service('message_notify.sender');
+		$notifier->send($message, array('email' => $options));		
+    }
+  }
+  //log changes
+  if (\Drupal::moduleHandler()->moduleExists('dblog')) {
+	$lm = 'Subscriber email sent for updated content: '.$node->getTitle();
+	\Drupal::logger('Message Subscribe')->notice(t($lm));
+  }
+  
+}

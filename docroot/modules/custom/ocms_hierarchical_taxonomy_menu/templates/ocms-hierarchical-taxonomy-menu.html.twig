@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display the hierarchical taxonomy menu.
+ *
+ * Available variables:
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - id: The term id.
+ *   - title: The menu link title.
+ *   - parentId: The parent term id.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *
+ * @ingroup themeable
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, 0) }}
+
+{% macro menu_links(items, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul class="menu nav ocms-second-nav">
+    {% else %}
+      <ul>
+    {% endif %}
+    {% for item in items %}
+      <li{{ item.attributes }}>
+        {{ link(item.title, item.url, item.options) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro menu_links %}

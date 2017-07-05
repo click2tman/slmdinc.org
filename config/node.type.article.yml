@@ -1,0 +1,17 @@
+uuid: 71d02ce9-132d-496d-8bba-de2ed38c67c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Article
+type: article
+description: 'An article, such as a news article or piece of investigative report. Use articles for time-sensitive content like news, press releases or blog posts'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * A simple module file to template the module page
+ *
+ * 1.0 - Behavior is as follows:
+ *   If the same file exist in folder. replace the new file with older one.
+ */
+
+
+// function test_twig_theme($existing, $type, $theme, $path) {
+//   return array(
+//     'test_twig' => array(
+//       'variables' => array('test_var' => NULL),
+//     ),
+//   );
+// }
+
+// function irs_ocms_theme($existing, $type, $theme, $path) {
+//   return array(
+//     'irs_pup' => array(
+//       'variables' => array('var' => NULL),
+//     ),
+//   );
+// }

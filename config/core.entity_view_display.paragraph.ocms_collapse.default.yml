@@ -1,0 +1,31 @@
+uuid: 0bc41f2f-d044-486f-a520-990240cf2dc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_collapse.field_ocms_collapse_body
+    - field.field.paragraph.ocms_collapse.field_ocms_collapse_title
+    - paragraphs.paragraphs_type.ocms_collapse
+  module:
+    - text
+id: paragraph.ocms_collapse.default
+targetEntityType: paragraph
+bundle: ocms_collapse
+mode: default
+content:
+  field_ocms_collapse_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ocms_collapse_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

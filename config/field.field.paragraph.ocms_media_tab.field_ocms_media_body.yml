@@ -1,0 +1,21 @@
+uuid: 3cc9cb5f-40d3-4cf1-a7ed-16b8be34f105
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_media_body
+    - paragraphs.paragraphs_type.ocms_media_tab
+  module:
+    - text
+id: paragraph.ocms_media_tab.field_ocms_media_body
+field_name: field_ocms_media_body
+entity_type: paragraph
+bundle: ocms_media_tab
+label: 'Media Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: d7b12ee0-20ee-40d1-aa33-f2f5f5608db8
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_ocms_fancy_subtitle
+field_name: field_ocms_fancy_subtitle
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

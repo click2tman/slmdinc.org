@@ -1,0 +1,54 @@
+uuid: 0a0fdbb4-bf92-47a1-857e-42e265379f4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_dropdowns_block
+    - field.storage.block_content.field_ocms_dropdown
+    - paragraphs.paragraphs_type.ocms_dropdown
+  module:
+    - entity_reference_revisions
+id: block_content.ocms_dropdowns_block.field_ocms_dropdown
+field_name: field_ocms_dropdown
+entity_type: block_content
+bundle: ocms_dropdowns_block
+label: 'Dropdown '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ocms_dropdown: ocms_dropdown
+    target_bundles_drag_drop:
+      ocms_collapse:
+        weight: 10
+        enabled: false
+      ocms_dropdown:
+        enabled: true
+        weight: 11
+      ocms_fancy_linked_image:
+        weight: 12
+        enabled: false
+      ocms_fancy_tab:
+        weight: 13
+        enabled: false
+      ocms_featured_linked_text_tile:
+        weight: 14
+        enabled: false
+      ocms_main_slideshow_slide:
+        weight: 15
+        enabled: false
+      ocms_media_tab:
+        weight: 16
+        enabled: false
+      ocms_tab:
+        weight: 17
+        enabled: false
+      ocms_video_gallery_slide:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

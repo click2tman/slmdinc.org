@@ -1,0 +1,31 @@
+uuid: 20023f97-a213-4cd8-8323-2174a15cebe0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e2457238-1ebd-48e6-8003-70225a8035a3'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: productsbanner
+theme: ocms_showcase
+region: banner
+weight: -14
+provider: null
+plugin: 'block_content:e2457238-1ebd-48e6-8003-70225a8035a3'
+settings:
+  id: 'block_content:e2457238-1ebd-48e6-8003-70225a8035a3'
+  label: 'Products (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /products
+    negate: false
+    context_mapping: {  }

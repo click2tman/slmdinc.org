@@ -1,0 +1,28 @@
+uuid: 817ed686-5b9f-4178-92ba-8c0337e84d59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_collections
+    - node.type.ocms_product
+    - taxonomy.vocabulary.ocms_product_groups
+id: node.ocms_product.field_ocms_collections
+field_name: field_ocms_collections
+entity_type: node
+bundle: ocms_product
+label: 'Product Groups'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ocms_product_groups: ocms_product_groups
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

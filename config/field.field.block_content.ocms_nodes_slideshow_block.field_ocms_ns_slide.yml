@@ -1,0 +1,30 @@
+uuid: 79d22c02-2c37-4bf3-9547-18dd1abb8a7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_nodes_slideshow_block
+    - field.storage.block_content.field_ocms_ns_slide
+    - node.type.ocms_product
+    - node.type.ocms_service
+id: block_content.ocms_nodes_slideshow_block.field_ocms_ns_slide
+field_name: field_ocms_ns_slide
+entity_type: block_content
+bundle: ocms_nodes_slideshow_block
+label: 'Node Slide'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      ocms_product: ocms_product
+      ocms_service: ocms_service
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ocms_product
+field_type: entity_reference

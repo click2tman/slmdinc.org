@@ -1,0 +1,242 @@
+/**
+ * @file
+ * Overall specifications for Levelplus.
+ */
+body {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #2e3436;
+  text-rendering: optimizeLegibility;
+}
+p {
+  margin: 0;
+  padding: 0 0 15px 0;
+}
+p.large {
+  font-size: 2em;
+  line-height: 1.3;
+  font-weight: 100;
+}
+p.small {
+  font-size: 0.87em;
+}
+a {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+p:not(.more-link) a:not(.button),
+.bordered-link {
+  border-bottom: 1px solid;
+  color: #2e3436;
+}
+p:not(.more-link) a:not(.button):hover,
+.bordered-link:hover,
+p:not(.more-link) a:not(.button):focus,
+.bordered-link:focus {
+  text-decoration: none;
+  color: #2e3436;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+a:focus {
+  outline: none;
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+code,
+pre {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre;
+  white-space: pre-wrap;
+  font-family: 'Source Code Pro', Consolas, Monaco, Courier;
+}
+pre {
+  background: #f6f6f6;
+  border: none;
+  border-left: 1px solid;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  padding: 20px;
+  font-size: 0.8em;
+  max-height: 58px;
+  overflow: hidden;
+  margin: 40px 0 40px 45px;
+}
+.colored-region pre {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fafafa;
+}
+pre:hover {
+  max-height: 10000px;
+  -webkit-transition: all ease-in-out 2s;
+  -moz-transition: all ease-in-out 2s;
+  -o-transition: all ease-in-out 2s;
+  -ms-transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+}
+blockquote {
+  font-size: 1.6em;
+  padding: 0 0 0 30px;
+  margin: 40px 0 50px 60px;
+  border-width: 3px;
+  text-align: left;
+}
+blockquote p {
+  line-height: 1.4;
+}
+blockquote footer {
+  font-size: 0.62em;
+  font-weight: 300;
+  font-style: italic;
+  color: inherit;
+}
+blockquote footer:before {
+  content: "";
+}
+blockquote footer cite {
+  font-size: 0.68em;
+  font-style: normal;
+  display: block;
+  text-transform: uppercase;
+}
+.colored-region blockquote {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.footer-area blockquote {
+  padding-left: 20px;
+  font-size: 1.2em;
+  margin: 25px 0 25px 15px;
+}
+@media (min-width:768px) and (max-width:991px) {
+  .footer-area blockquote {
+    font-size: 1em;
+  }
+}
+@media (max-width:767px) {
+  blockquote {
+    margin: 40px 0 50px 15px;
+    padding: 0 0 0 20px
+  }
+}
+hr {
+  border-top: 1px solid #ebebeb;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.colored-region hr {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.bordered-block {
+  padding: 30px;
+  border: 3px solid;
+}
+.bordered-block > h1,
+.bordered-block > h2,
+.bordered-block > h3,
+.bordered-block > h4,
+.bordered-block > h5 {
+  margin-top: 0;
+}
+.bordered-block > p:last-child {
+  padding-bottom: 0;
+}
+.colored-region .bordered-block {
+  border-color: #ffffff;
+}
+@media (max-width:480px) {
+  .bordered-block {
+    padding: 20px;
+  }
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/*Headings*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.20;
+  padding: 0;
+  margin: 20px 0 10px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 3.1em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.6em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.12em;
+}
+h1.title {
+  margin-top: 0;
+}
+h1.page-title {
+  text-align: center;
+  position: relative;
+  padding-bottom: 75px;
+}
+h1.page-title:after {
+  content: "///";
+  font-size: 26px;
+  font-weight: 300;
+  width: 40px;
+  text-align: center;
+  height: 30px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  margin-left: -20px;
+}
+.list-inline {
+  margin-left: 0;
+}
+.list-inline > li {
+  display: inline-block;
+  padding: 0
+}

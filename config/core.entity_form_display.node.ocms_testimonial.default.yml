@@ -1,0 +1,130 @@
+uuid: 57174d54-6214-4d0a-bbea-271c4e29e1b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ocms_testimonial.body
+    - field.field.node.ocms_testimonial.field_ocms_banner_image
+    - field.field.node.ocms_testimonial.field_ocms_slideshow
+    - field.field.node.ocms_testimonial.field_ocms_slideshow_image
+    - field.field.node.ocms_testimonial.field_ocms_slideshow_text
+    - field.field.node.ocms_testimonial.field_ocms_subtitle
+    - field.field.node.ocms_testimonial.field_ocms_testimonial_image
+    - image.style.thumbnail
+    - node.type.ocms_testimonial
+  module:
+    - image
+    - path
+    - text
+    - workbench_moderation
+id: node.ocms_testimonial.default
+targetEntityType: node
+bundle: ocms_testimonial
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ocms_banner_image:
+    type: image_image
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  field_ocms_slideshow:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_ocms_slideshow_image:
+    type: image_image
+    weight: 6
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  field_ocms_slideshow_text:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_ocms_subtitle:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ocms_testimonial_image:
+    type: image_image
+    weight: 3
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 11
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

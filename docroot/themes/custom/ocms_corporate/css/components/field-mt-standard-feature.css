@@ -1,0 +1,64 @@
+/**
+ * @file
+ * Visual styles for Levelplus's Standard Features field.
+ */
+
+.field--name-field-ocms-prg-standard-feature {
+  margin: 45px -15px 0;
+  position: relative;
+}
+.field--name-field-ocms-prg-standard-feature > .field__item,
+.field--name-field-ocms-prg-standard-feature > .field__items > .field__item {
+  margin-bottom: 40px;
+}
+.field--name-field-ocms-prg-standard-feature .field__label {
+  text-align: center;
+  font-size: 2em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+.field--type-entity-reference-revisions ~ .field--type-entity-reference-revisions ~ .field--name-field-ocms-prg-standard-feature {
+  margin-top: 20px;
+}
+
+/*apply clearfix to field-ocms-standard-feature field*/
+.field--name-field-ocms-prg-standard-feature:before {
+  display: table;
+  content: " ";
+}
+.field--name-field-ocms-prg-standard-feature:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.field--name-field-ocms-prg-standard-feature > .field__item,
+.field--name-field-ocms-prg-standard-feature > .field__items > .field__item {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  position: relative;
+}
+.field--name-field-ocms-stf-title {
+  font-size: 1.12em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.field--name-field-ocms-stf-image {
+  margin-bottom: 20px;
+}
+@media (min-width:768px) {
+  .field--name-field-ocms-prg-standard-feature > .field__item,
+  .field--name-field-ocms-prg-standard-feature > .field__items > .field__item {
+    width: 25%;
+    float: left;
+  }
+  .field--name-field-ocms-prg-standard-feature > .field__item:nth-child(4n+1),
+  .field--name-field-ocms-prg-standard-feature > .field__items > .field__item:nth-child(4n+1) {
+    clear: both;
+  }
+}

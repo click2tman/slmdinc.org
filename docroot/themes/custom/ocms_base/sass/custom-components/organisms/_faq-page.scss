@@ -1,0 +1,74 @@
+/**
+ * Components - FAQ PAGE CSS
+ * @description Defines style for FAQ Content and Accodions
+ */
+
+.ocms-faq-accordion { // this class is added via configuration
+    @extend body;
+    
+    h4 { font-style: normal; }
+
+    > .ocms-faq-accordion:last-child {
+        .ui-accordion-header {
+            border-bottom: 1px solid $article-accordion-border-color;
+        }
+    }
+
+    .ui-accordion-header {
+        @include border-radius(0);
+        background: transparent;
+        font-weight: bold;
+        color: inherit;
+        background-color: $article-accordion-background-color;
+        border-top: 1px solid $article-accordion-border-color;
+        border-left: 1px solid $article-accordion-border-color;
+        border-right: 1px solid $article-accordion-border-color;
+        border-bottom: 0;
+        margin-top: 0;
+        padding: 15px 20px;
+
+        > div {
+            display: inline-block;
+            width: 90%;
+        }
+
+        &::before {
+            @extend .fa;
+            font-size: em(25);
+            content: $fa-var-angle-right;
+            color: $article-accordion-icon-color;
+            margin-right: 15px;
+            display: inline-block;
+            width: 1%;
+            vertical-align: top;
+        }
+
+        &.ui-accordion-header-active:before {
+            content: $fa-var-angle-down;
+        }
+    }
+
+    .ui-state-default .ui-icon {
+        display: none;
+    }
+
+    .ui-widget-content {
+        @include border-radius(0);
+        border-top: 1px solid $light-gray;
+        border-right: 1px solid $light-gray;
+        border-left: 1px solid $light-gray;
+        padding: 20px 30px;
+        a { color: $ocms-blue-2; }
+
+        p { margin-bottom: 20px; }
+        
+    }
+
+    table {
+        margin-bottom: 1rem;
+
+        td, th {
+            padding: 1rem;
+        }
+    }
+}

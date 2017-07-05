@@ -1,0 +1,45 @@
+/*Faculty Courses view*/
+#block-views-block-ocms-faculty-courses-block-1 h2.title {
+  margin: 3px 0 0 0;
+  padding: 12px 12px 12px 75px;
+  font-size: 22px;
+  font-weight: 700;
+  background-color: #e4e4e4;
+  position: relative;
+}
+.block-views .view-faculty-courses {
+  border-bottom: none;
+}
+.block-views .view-faculty-courses .view-content {
+  padding: 25px 75px;
+}
+.block-views .view-faculty-courses .views-row {
+  border-bottom: none;
+  margin: 0;
+  padding: 0 0 4px;
+}
+.block-views .view-faculty-courses .views-row .views-field-title a {
+  font-weight: 400px;
+}
+@media (max-width: 767px) { 
+  .block-views .view-faculty-courses .view-content {
+    padding: 25px 20px;
+  }
+}
+
+/*Faculty Courses view icon*/
+#block-views-block-ocms-faculty-courses-block-1 h2.title:after {
+  font-family: "FontAwesome";
+  content: "\f02d";
+  background-color: #555555;
+  color: #fff;
+  width: 55px;
+  height: 100%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 52px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 400;
+}

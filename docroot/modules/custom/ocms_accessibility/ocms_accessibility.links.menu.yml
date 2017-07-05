@@ -1,0 +1,6 @@
+# Define default links for this module.
+ocms_accessibility.form:
+  title: 'Accessibility Settings'
+  description: 'Manage content types with accessibility check on submit.'
+  route_name: ocms_accessibility.form
+  parent: irspup.info

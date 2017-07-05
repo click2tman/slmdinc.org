@@ -1,0 +1,28 @@
+<?php
+
+
+function ocms_taxonomy_breadcrumb_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+	
+  if ($route_match && $node = $route_match->getParameter('node')) {
+    $breadcrumb->addCacheableDependency($node);
+  }
+}
+
+// take the "Node of off breadcrumbs"
+function ocms_taxonomy_breadcrumb_preprocess_breadcrumb(&$variables) {
+  $breadcrumb = &$variables['breadcrumb'];
+  foreach ($breadcrumb as $key=>$crumb){
+  	if ($crumb['text']=="Node"){
+  		  unset($breadcrumb[$key]);
+  	}
+	
+	if ($crumb['text']=="Contact"){
+  		  unset($breadcrumb[$key]);
+  	}
+  
+  
+  }
+ 
+ 
+}
+

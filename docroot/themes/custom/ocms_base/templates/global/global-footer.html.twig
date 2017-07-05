@@ -1,0 +1,17 @@
+{% if page.footer_first or page.footer_second or page.footer_fourth or page.footer_fifth %}
+<footer class="ocms-footer" role="footer-navigation">
+  <section class="{{ container }}" role="tablist" aria-multiselectable="true">
+
+    {% block footer %}
+    <div class="row">
+      <div class="col-sm-footer">{{ page.footer_first }}</div>
+      <div class="col-sm-footer">{{ page.footer_second }}</div>
+      <div class="col-sm-footer">{{ page.footer_third }}</div>
+      <div class="col-sm-footer">{{ page.footer_fourth }}</div>
+      <div class="col-sm-footer">{{ page.footer_fifth }}</div>
+    </div>
+   {% endblock %}
+
+  </section>
+</footer>
+{% endif %}

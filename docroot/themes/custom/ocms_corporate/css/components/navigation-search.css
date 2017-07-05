@@ -1,0 +1,276 @@
+/**
+ * @file
+ * Visual styles for Levelplus's navigation search.
+ */
+
+@media (min-width: 1200px) {
+  .full-width .search-area {
+    overflow: hidden;
+  }
+  .full-width .search-area:before {
+    height: 1000%;
+    position: absolute;
+    width: 1px;
+    left: 15px;
+    top: -100px;
+    content: "";
+    display: block;
+  }
+}
+#block-ocms-navigation-search .form-actions,
+#block-ocms-navigation-search .form-item {
+  margin: 0;
+}
+.search-area form {
+  position: relative;
+}
+.search-area input[type="submit"]:hover {
+  outline: none;
+  background: transparent;
+}
+@media (min-width:1200px) {
+  .full-width .search-area .form-search {
+    border: none;
+    padding-left: 40px;
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #e7eff5;
+    width: 160px;
+  }
+  .full-width .search-area .form-actions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    width: 40px;
+  }
+  .full-width .search-area .form-actions:after {
+    font-family: 'FontAwesome';
+    content: "\f002";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 500;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    -webkit-transition: linear 0.2s;
+    -o-transition: linear 0.2s;
+    transition: linear 0.2s;
+  }
+  .full-width .search-area input[type="submit"] {
+    border: none;
+  }
+  .full-width .search-area.opened .form-search {
+    color: #2e3436;
+    width: 100%;
+    font-size: 36px;
+    padding-left: 70px;
+    text-transform: none;
+    padding-right: 10px;
+  }
+  .full-width .search-area.opened .form-actions:after {
+    font-size: 36px;
+    top: 12px;
+  }
+  .fixed-width .search-area .form-search {
+    width: 40px;
+    position: absolute;
+    z-index: 500;
+    right: 0;
+    top: 10px;
+    padding: 10px 19px;
+    margin: 0;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    font-size: 14px;
+    color: transparent;
+    border: 1px solid;
+    height: 40px;
+    -webkit-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -moz-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -o-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -ms-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .form-style-2 .colored-region .search-area input.form-search:focus {
+    background-color: transparent;
+  }
+  .fixed-width .search-area .form-actions {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 16px;
+  }
+  .fixed-width .search-area .form-actions:after {
+    font-family: 'FontAwesome';
+    content: "\f002";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: 500;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    -webkit-transition: linear 0.2s;
+    -o-transition: linear 0.2s;
+    transition: linear 0.2s;
+  }
+  .fixed-width .search-area input[type="submit"] {
+    background-color: transparent;
+    min-width: 0;
+    position: relative;
+    z-index: 501;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    border-color: transparent;
+  }
+  .fixed-width .search-area form:hover .form-search,
+  .fixed-width .search-area .form-search:focus {
+    width: 350px;
+    background-color: #ffffff;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-transition: border-radius linear 0s, width 0.35s linear 0s;
+    -moz-transition: border-radius linear 0s, width 0.35s linear 0s;
+    -o-transition: border-radius linear 0s, width 0.35s linear 0s;
+    -ms-transition: border-radius linear 0s, width 0.35s linear 0s;
+    transition: border-radius linear 0s, width 0.35s linear 0s;
+    color: #2e3436;
+  }
+  .fixed-width .search-area form:hover .form-actions:after {
+    color: #2e3436;
+  }
+  .boxed .search-area .nav-button {
+    display: none;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .search-area .nav-button {
+    display: none;
+  }
+}
+@media (min-width: 1440px) {
+  body:not(.boxed) .full-width .search-area:not(.opened) .field {
+    display: inline-block;
+  }
+}
+@media (max-width:1199px) {
+  .search-area .form-search {
+    width: 40px;
+    position: absolute;
+    z-index: 500;
+    right: 0;
+    padding: 10px 20px;
+    margin: 0;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    font-size: 14px;
+    color: transparent;
+    border: 1px solid;
+    height: 40px;
+    -webkit-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -moz-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -o-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -ms-transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    transition: width linear 0.35s, border-radius 0.15s linear 0.35s;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .search-area .form-actions {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 16px;
+  }
+  .search-area .form-actions:after {
+    font-family: 'FontAwesome';
+    content: "\f002";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 500;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    -webkit-transition: linear 0.2s;
+    -o-transition: linear 0.2s;
+    transition: linear 0.2s;
+  }
+  .search-area form:hover .form-actions:after {
+    color: #2e3436;
+  }
+  .search-area input[type="submit"] {
+    background-color: transparent;
+    min-width: 0;
+    position: relative;
+    z-index: 501;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    border-color: transparent;
+  }
+  .form-style-2 .colored-region .search-area input.form-search:focus,
+  .form-style-2 .colored-region .search-area input.form-search:hover {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: #ffffff;
+  }
+}
+@media (min-width:768px) and (max-width:1199px) {
+  body:not(.form-style-2) .search-area form:hover .form-search,
+  body:not(.form-style-2) .search-area .form-search:focus {
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+  }
+  .search-area form:hover .form-search,
+  .search-area .form-search:focus {
+    width: 350px;
+    background-color: #ffffff;
+    -webkit-transition: border-radius linear 0s, width 0.35s linear 0s;
+    -moz-transition: border-radius linear 0s, width 0.35s linear 0s;
+    -o-transition: border-radius linear 0s, width 0.35s linear 0s;
+    -ms-transition: border-radius linear 0s, width 0.35s linear 0s;
+    transition: border-radius linear 0s, width 0.35s linear 0s;
+    color: #2e3436;
+  }
+}
+@media (max-width:767px) {
+  .search-area {
+    margin-bottom: 5px;
+  }
+  body:not(.form-style-2) .search-area .form-search,
+  body:not(.form-style-2) .search-area .form-search:hover {
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+  }
+  .search-area .form-search,
+  .search-area .form-search:hover {
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    color: #ffffff;
+  }
+  .search-area .form-search,
+  .search-area .form-actions:after {
+    z-index: 1;
+  }
+  body:not(.form-style-2) .search-area form:hover .form-actions:after {
+    color: #ffffff;
+  }
+  .search-area input[type="submit"] {
+    z-index: 2;
+    border-color: transparent;
+  }
+}

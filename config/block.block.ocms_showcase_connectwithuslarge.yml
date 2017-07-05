@@ -1,0 +1,31 @@
+uuid: fa906fbf-c0be-4fa5-a8f5-4f104a407425
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:95bc5f72-7a17-4bf3-bcee-1c865b7a18f0'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: ocms_showcase_connectwithuslarge
+theme: ocms_showcase
+region: sidebar_second
+weight: -8
+provider: null
+plugin: 'block_content:95bc5f72-7a17-4bf3-bcee-1c865b7a18f0'
+settings:
+  id: 'block_content:95bc5f72-7a17-4bf3-bcee-1c865b7a18f0'
+  label: 'Connect With Us'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /articles
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,16 @@
+uuid: c38d449f-5f6e-41ae-8bf7-0947527b6b6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_video_gallery_block
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: block_content.ocms_video_gallery_block
+target_entity_type_id: block_content
+target_bundle: ocms_video_gallery_block
+default_langcode: site_default
+language_alterable: true

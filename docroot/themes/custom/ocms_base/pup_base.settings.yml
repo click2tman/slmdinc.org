@@ -1,0 +1,37 @@
+cdn_provider: ''
+schemas:
+  bootstrap: 8000
+  ocms_base: 8000
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: 'themes/custom/ocms_base/favicon.ico'
+  url: 'themes/custom/ocms_base/favicon.ico'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: 'themes/custom/ocms_base/logo.png'
+  url: 'themes/custom/ocms_base/logo.png'
+  use_default: true
+region_wells:
+  site_navigation: ''
+  header: ''
+  header_left: ''
+  header_right: ''
+  navigation: ''
+  navigation_collapsible: ''
+  site_navigation_collapsible: ''
+  help: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: well
+  footer_first: ''
+  footer_second: ''
+  footer_third: ''
+  footer_fourth: ''
+  footer_fifth: ''
+table_responsive: '-1'
+table: ''

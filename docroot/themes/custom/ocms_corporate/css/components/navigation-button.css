@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Visual styles for Levelplus's navigation button.
+ */
+
+.nav-button a.button {
+  margin: 0;
+  padding: 11px 20px;
+}
+.nav-button a.button:after {
+  content: "";
+}
+.header-inside-third .nav-button {
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .header-inside-third .main-navigation .nav-button {
+   text-align: right;
+   padding-top: 10px;
+  }
+}

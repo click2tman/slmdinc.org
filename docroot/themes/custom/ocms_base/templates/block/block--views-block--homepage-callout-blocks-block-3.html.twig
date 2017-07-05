@@ -1,0 +1,15 @@
+{% if has_image =='true' %}
+  <div class="ocms-hmpg-callout-image" style="background: url('{{ image_url }}'); background-size: cover;background-repeat: no-repeat;">
+    <div class="ocms-homepage-callout--gradient">
+    </div>
+    <div class="ocms-hmpg-callout-horizontal-content">
+      {{ content }}
+    </div>  
+  </div>
+{% else %}
+  <div class="ocms-hmpg-callout-horizontal-no-image">
+    <div class="ocms-hmpg-callout-no-image-content">
+      {{ content }}
+    </div>  
+  </div>
+{% endif %}

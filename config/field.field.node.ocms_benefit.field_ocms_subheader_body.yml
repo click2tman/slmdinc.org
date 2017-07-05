@@ -1,0 +1,22 @@
+uuid: b70d13ca-299c-4815-a9cf-921060deaaad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_subheader_body
+    - node.type.ocms_benefit
+  module:
+    - text
+id: node.ocms_benefit.field_ocms_subheader_body
+field_name: field_ocms_subheader_body
+entity_type: node
+bundle: ocms_benefit
+label: 'Subheader body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

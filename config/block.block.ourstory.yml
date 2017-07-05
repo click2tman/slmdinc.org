@@ -1,0 +1,31 @@
+uuid: da248c27-016a-414f-890c-4c6fa5049fb5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a2911f98-c3a3-4d79-b93d-46c93fbbb64a'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: ourstory
+theme: ocms_showcase
+region: content_top
+weight: 0
+provider: null
+plugin: 'block_content:a2911f98-c3a3-4d79-b93d-46c93fbbb64a'
+settings:
+  id: 'block_content:a2911f98-c3a3-4d79-b93d-46c93fbbb64a'
+  label: 'Our Story'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/60"
+    negate: false
+    context_mapping: {  }

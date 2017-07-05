@@ -1,0 +1,31 @@
+/*Transparent*/
+
+/*Layout*/
+.header-container.transparent-header {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(30, 37, 39, 0.8);
+  z-index: 22;
+}
+
+@media (max-width:767px) {
+  .header-container.transparent-header {
+    position: static;
+  }
+}
+
+/*Navigation search bar*/
+.transparent-header .search-area .form-text {
+  background-color: transparent;
+}
+.transparent-header .search-area .form-text {
+  background-color: transparent;
+}
+
+/*Drupal Resets*/
+.transparent-header + .banner .block:first-child .contextual {
+  top: 120px;
+}
+.transparent-header + .banner .block:first-child .view .contextual {
+  top: 150px !important;
+}

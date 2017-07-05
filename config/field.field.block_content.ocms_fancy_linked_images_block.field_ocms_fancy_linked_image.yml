@@ -1,0 +1,54 @@
+uuid: c0f9dcc9-b4c2-4e48-b6e8-259304310892
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_fancy_linked_images_block
+    - field.storage.block_content.field_ocms_fancy_linked_image
+    - paragraphs.paragraphs_type.ocms_fancy_linked_image
+  module:
+    - entity_reference_revisions
+id: block_content.ocms_fancy_linked_images_block.field_ocms_fancy_linked_image
+field_name: field_ocms_fancy_linked_image
+entity_type: block_content
+bundle: ocms_fancy_linked_images_block
+label: 'Fancy Linked Images block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ocms_fancy_linked_image: ocms_fancy_linked_image
+    target_bundles_drag_drop:
+      ocms_collapse:
+        weight: 10
+        enabled: false
+      ocms_dropdown:
+        weight: 11
+        enabled: false
+      ocms_fancy_linked_image:
+        enabled: true
+        weight: 12
+      ocms_fancy_tab:
+        weight: 13
+        enabled: false
+      ocms_featured_linked_text_tile:
+        weight: 14
+        enabled: false
+      ocms_main_slideshow_slide:
+        weight: 15
+        enabled: false
+      ocms_media_tab:
+        weight: 16
+        enabled: false
+      ocms_tab:
+        weight: 17
+        enabled: false
+      ocms_video_gallery_slide:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

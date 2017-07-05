@@ -1,0 +1,31 @@
+uuid: 4dce0cfa-47cb-4ed3-854f-2cea65e16b8e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0b53bdfe-5774-440d-ae17-155c35746bd2'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: testimonialsbanner
+theme: ocms_showcase
+region: banner
+weight: -9
+provider: null
+plugin: 'block_content:0b53bdfe-5774-440d-ae17-155c35746bd2'
+settings:
+  id: 'block_content:0b53bdfe-5774-440d-ae17-155c35746bd2'
+  label: 'Testimonials (Banner)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /testimonials
+    negate: false
+    context_mapping: {  }

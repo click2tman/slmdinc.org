@@ -1,0 +1,13 @@
+iframe_send_height:
+  version: 1.x
+  js:
+    js/iframe_send_height.js: {}
+  dependencies:
+    - core/jquery
+
+pym:
+  version: 1.x
+  js:
+    /libraries/pym/pym.v1.min.js: {}
+  dependencies:
+    - core/jquery

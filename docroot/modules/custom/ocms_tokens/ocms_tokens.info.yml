@@ -1,0 +1,6 @@
+name: 'OCMS Custom tokens'
+description: 'Adds custom tokens not included in core (ex. [node:status]).'
+type: module
+package: 'OCMS Custom'
+core: 8.x
+version: 8.x-1.0

@@ -1,0 +1,12 @@
+name: 'OCMS Static File Operations'
+type: module
+description: 'Change file upload Drupal Default behaviour when a user is adding a file if the same name file exist in same Media folder then replace new file with old.'
+# core: 8.x
+core: '8.x'
+package: 'OCMS Custom'
+dependencies:  
+  - "file\r"
+  - "entity\r"
+  - media_entity
+  - irspup
+version: 8.x-1.0

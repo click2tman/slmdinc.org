@@ -1,0 +1,6 @@
+name: 'OCMS Enforce Revision Log Message'
+description: 'Requires the revision log message for all revisions'
+package: 'OCMS Custom'
+type: 'module'
+version: '8.x-1.0'
+core: '8.x'

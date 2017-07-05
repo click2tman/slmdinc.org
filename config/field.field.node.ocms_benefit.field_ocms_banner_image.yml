@@ -1,0 +1,45 @@
+uuid: 3773f7f7-b84d-4134-a18a-cc4ceb21c32d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_banner_image
+    - node.type.ocms_benefit
+  module:
+    - content_translation
+    - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      file: file
+      alt: '0'
+      title: '0'
+id: node.ocms_benefit.field_ocms_banner_image
+field_name: field_ocms_banner_image
+entity_type: node
+bundle: ocms_benefit
+label: 'Internal banner image(s)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

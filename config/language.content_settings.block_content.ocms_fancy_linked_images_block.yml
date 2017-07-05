@@ -1,0 +1,11 @@
+uuid: ca912e2a-b392-4875-82da-38361656f010
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_fancy_linked_images_block
+id: block_content.ocms_fancy_linked_images_block
+target_entity_type_id: block_content
+target_bundle: ocms_fancy_linked_images_block
+default_langcode: site_default
+language_alterable: false

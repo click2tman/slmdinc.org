@@ -1,0 +1,117 @@
+/** ocms-footer CSS **/
+.ocms-footer {
+    background-color: $footer-bg-color;
+    padding: 30px 0;
+    color: $footer-font-color;
+    margin-top: 0;
+    clear: both;
+
+    @media only screen and (max-width: $screen-md-max) {
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+
+    @media only screen and (max-width: $screen-sm-min) {
+        padding: 0;
+    }
+
+    > .container {
+        @media only screen and (min-width: $screen-sm-max) {
+            padding: 0 40px;
+        }
+    }
+
+    .menu .nav {
+        padding-right: 1rem;
+
+        @media only screen and (max-width: $screen-sm-min) {
+            padding-right: 0;
+        }
+    }
+
+    h2 {
+        font-size: inherit;
+        font-weight: 700;
+        margin-top: 0;
+
+        &:after {
+            @extend .fa;
+        }
+
+        @media screen and (max-width: $screen-sm-min) {
+            cursor: pointer;
+            z-index: 998;
+            position: relative;
+            margin: 0;
+
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-weight: 700;
+            }
+
+            &:after {
+                content: $fa-var-angle-up;
+            }
+
+            &.collapsed:after {
+                content: $fa-var-angle-down;
+            }
+        }
+    }
+
+    .col-sm-footer {
+        width: $footer-col-width-sm;
+        float: left;
+
+        @media screen and (max-width: $screen-sm-min) {
+            width: 100%;
+            float: none;
+        }
+    }
+
+    .nav {
+        > li:first-child {
+            padding-top: 0.5rem;
+        }
+        > li > a {
+            text-decoration: none;
+            color: $footer-font-color;
+
+            &:hover, &:active:hover, &:focus:hover {
+                background: none;
+                text-decoration: underline;
+            }
+
+            &:active, &:visited, &:focus {
+                outline: 0;
+            }
+
+            &:focus {
+                text-decoration: underline;
+            }
+
+            &:before {
+                @extend .fa;
+                content: $fa-var-angle-right;
+                color: $footer-font-color;
+                margin-left: -1em;
+                padding-right: 0.5em;
+            }
+        }
+    }
+
+    .region {
+        @media screen and (max-width: $screen-sm-min) {
+            border-bottom: 1px solid $footer-font-color;
+            padding: 15px 20px;
+        }
+
+        @media screen and (max-width: $screen-xs-min) {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
+}
+/** End ocms-footer CSS **/

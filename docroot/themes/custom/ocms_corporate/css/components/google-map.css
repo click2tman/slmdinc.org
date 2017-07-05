@@ -1,0 +1,19 @@
+/*Google Map*/
+.google-map-canvas {
+  height: 400px;
+}
+.google-map-canvas img {
+  max-width: inherit;
+}
+.featured-top .google-map-canvas {
+  height: 750px;
+}
+.featured-top .map-block {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.map-canvas-container.in,
+.map-canvas-container.collapsing {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}

@@ -1,0 +1,20 @@
+uuid: c68f9e8f-a1eb-407f-991b-27f552bcf451
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ocms_corporate
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: ocms_corporate_local_actions
+theme: ocms_corporate
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

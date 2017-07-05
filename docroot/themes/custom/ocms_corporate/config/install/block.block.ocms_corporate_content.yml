@@ -1,0 +1,22 @@
+uuid: 19832a68-cadb-4aa4-ba44-68f75a5eb454
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_corporate
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: ocms_corporate_content
+theme: ocms_corporate
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

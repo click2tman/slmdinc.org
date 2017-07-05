@@ -1,0 +1,19 @@
+uuid: d3e17980-1f46-4d4e-ae31-3a49ec21bc8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_linkedin_account
+    - node.type.ocms_team_member
+id: node.ocms_team_member.field_ocms_linkedin_account
+field_name: field_ocms_linkedin_account
+entity_type: node
+bundle: ocms_team_member
+label: Linkedin
+description: 'Enter the URL of your Linkedin profile, e.g.: https://www.linkedin.com/in/your-account'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

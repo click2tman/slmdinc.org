@@ -1,0 +1,25 @@
+uuid: 2ce42c3c-aa92-4373-b7c1-3d1ef79252e6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:32291f2c-e75d-499c-a8ba-036d371c03be'
+  module:
+    - block_content
+  theme:
+    - ocms_showcase
+id: footerbottomcustomsitebranding
+theme: ocms_showcase
+region: footer_first
+weight: 0
+provider: null
+plugin: 'block_content:32291f2c-e75d-499c-a8ba-036d371c03be'
+settings:
+  id: 'block_content:32291f2c-e75d-499c-a8ba-036d371c03be'
+  label: 'Footer bottom custom site branding'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

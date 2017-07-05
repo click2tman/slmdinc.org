@@ -1,0 +1,24 @@
+/**
+ * @file
+ * Visual styles for Levelplus's team members view.
+ */
+
+.team .overlay .social-media-item a {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.team .overlay .social-media-item a:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.team .views-field-body {
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}

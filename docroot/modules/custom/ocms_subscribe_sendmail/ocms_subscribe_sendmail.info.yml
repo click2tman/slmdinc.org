@@ -1,0 +1,11 @@
+name: 'OCMS Subscribe Sendmail'
+description: 'Sends emails when someone subscribes to content'
+package: 'OCMS Custom'
+type: 'module'
+version: '8.x-1.0'
+core: '8.x'
+dependencies:
+  - flag
+  - message
+  - message_notify
+  - message_subscribe

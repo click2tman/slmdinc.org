@@ -1,0 +1,8 @@
+name: 'OCMS Custom Modules Base'
+type: module
+description: 'Container for ALL modules developed for IRS Enterprise Portal.'
+package: 'OCMS Custom'
+core: 8.x
+dependencies:
+  - toolbar
+version: '8.x-1.0'

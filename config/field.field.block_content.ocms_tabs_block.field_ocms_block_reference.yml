@@ -1,0 +1,21 @@
+uuid: 89879785-d567-4dab-8e03-9ace2f08a735
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_tabs_block
+    - field.storage.block_content.field_ocms_block_reference
+id: block_content.ocms_tabs_block.field_ocms_block_reference
+field_name: field_ocms_block_reference
+entity_type: block_content
+bundle: ocms_tabs_block
+label: 'Block Reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,24 @@
+uuid: d8d19a01-99b7-40bf-a18b-9e0c2ed119d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_tabs_block
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.ocms_tabs_block.field_ocms_block_reference
+id: block_content.ocms_tabs_block.full
+targetEntityType: block_content
+bundle: ocms_tabs_block
+mode: full
+content:
+  field_ocms_block_reference:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,20 @@
+uuid: 6a0874d1-86ac-412f-a615-f79db8bfa040
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ocms_user_first_name
+  module:
+    - user
+id: user.user.field_ocms_user_first_name
+field_name: field_ocms_user_first_name
+entity_type: user
+bundle: user
+label: 'First Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

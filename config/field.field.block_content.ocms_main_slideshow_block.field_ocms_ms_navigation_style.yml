@@ -1,0 +1,23 @@
+uuid: 47d10393-04f0-498e-8176-2ca2b29804fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_ms_navigation_style
+  module:
+    - options
+id: block_content.ocms_main_slideshow_block.field_ocms_ms_navigation_style
+field_name: field_ocms_ms_navigation_style
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Slideshow Navigation Style'
+description: 'From the drop-down menu, select the style you prefer.'
+required: false
+translatable: false
+default_value:
+  -
+    value: bullets
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,10 @@
+uuid: 5771fce3-6cac-4773-8cd9-b829e1d0df03
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Q0hYjxO3nkaaqrRfXnX3Kx5MPktx3EueHEj36vP40dM
+id: published
+label: Published
+published: true
+default_revision: true

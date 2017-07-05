@@ -1,0 +1,16 @@
+uuid: ea54e081-95ca-422b-b902-9238c8019dd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_fancy_tabs_block
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: block_content.ocms_fancy_tabs_block
+target_entity_type_id: block_content
+target_bundle: ocms_fancy_tabs_block
+default_langcode: site_default
+language_alterable: true

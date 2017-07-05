@@ -1,0 +1,99 @@
+.ocms-header_irs_banner {
+    min-height: 80px;
+    background-color: $header-top-bg-color;
+
+    span.ocms-logo {
+        margin-top: 1em;
+        margin-left: -.5em;
+
+        img {
+            width: 40%;
+        }
+    }
+
+    span.ocms-link {
+        margin-top: 1.85em;
+    }
+
+    a {
+        color: $white;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 3px;
+        background-color: $header-highlight-link-color;
+        padding: 10px 30px;
+
+        &:after {
+            @extend .fa;
+            content: $header-link-icon;
+            margin-left: .4em;
+        }   
+    }
+}
+
+.ocms-header-main {
+    background-color: $header-bg-color;
+
+    .logo {
+        
+        img {   
+            width: 148px;
+        }
+
+        @media only screen and (min-width: 379px) { 
+            margin-top: 22px;
+            margin-bottom: 0px;
+        }
+        
+        @media only screen and (min-width: 768px) { //above 768px
+            margin-top: 22px;
+            margin-bottom: 5px;
+        }
+
+        margin-top: 22px;
+        margin-bottom: 0px;
+    }
+
+    .navbar-text {
+        margin: 0px 0px 15px 0px;
+        font-size: 20px;
+    }
+
+    .region-header-right {
+        .nav {
+            > li {
+                border-right: 1px solid $header-txt-color;
+                
+                > a, a:hover, a:visited, a:active {
+                    color: $header-txt-color;
+                    border-radius: 0px;
+                    background-color: transparent;
+                }
+
+                &:first-child {
+                   > a, a:hover, a:visited, a:focus, a:active {
+                        border-radius: 0px;
+                        background-color: transparent;
+                   }
+                }
+
+                &:last-child {
+                    padding-left: 15px;
+                    > a, a:hover, a:visited, a:focus, a:active {
+                        border-radius: 3px;
+                        color: $white;
+                        font-weight: bold;
+                        background-color: $header-highlight-link-color;
+                        padding: 12px 20px;
+                        margin-top: -2px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.header-nav .navbar-nav > li > a:hover {
+    text-decoration: none;
+}

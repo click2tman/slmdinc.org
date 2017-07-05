@@ -1,0 +1,28 @@
+uuid: 655d418c-1927-4415-ac3a-69cd93a8be69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_service_group
+    - node.type.ocms_service
+    - taxonomy.vocabulary.ocms_service_groups
+id: node.ocms_service.field_ocms_service_group
+field_name: field_ocms_service_group
+entity_type: node
+bundle: ocms_service
+label: 'Service Group'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ocms_service_groups: ocms_service_groups
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

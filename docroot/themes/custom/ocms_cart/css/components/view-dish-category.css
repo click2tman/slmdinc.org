@@ -1,0 +1,24 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s dish category views.
+ */
+.view-dish-category .views-row {
+  margin-bottom: 10px;
+}
+.view-dish-category .views-field-title a {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+}
+.view-dish-category .views-field-field-ocms-price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/*view dishes grid at colored regions*/
+.region--dark-typography .view-dish-category .views-field-title a {
+  color: #3b3b3b;
+}
+.region--dark-typography .view-dish-category .views-field-title a:hover {
+  text-decoration: none;
+}

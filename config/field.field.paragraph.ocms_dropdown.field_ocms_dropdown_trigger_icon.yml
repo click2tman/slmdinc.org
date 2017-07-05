@@ -1,0 +1,19 @@
+uuid: 20322c2c-abff-44d0-a275-a9db00eab92d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_dropdown_trigger_icon
+    - paragraphs.paragraphs_type.ocms_dropdown
+id: paragraph.ocms_dropdown.field_ocms_dropdown_trigger_icon
+field_name: field_ocms_dropdown_trigger_icon
+entity_type: paragraph
+bundle: ocms_dropdown
+label: 'Dropdown Trigger Icon'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

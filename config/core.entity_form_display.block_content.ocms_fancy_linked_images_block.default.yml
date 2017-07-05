@@ -1,0 +1,42 @@
+uuid: e2710ce1-1fdf-411f-a126-db2a7ac1d77a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_fancy_linked_images_block
+    - field.field.block_content.ocms_fancy_linked_images_block.field_ocms_fancy_linked_image
+  module:
+    - paragraphs
+    - workbench_moderation
+id: block_content.ocms_fancy_linked_images_block.default
+targetEntityType: block_content
+bundle: ocms_fancy_linked_images_block
+mode: default
+content:
+  field_ocms_fancy_linked_image:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: 'Linked Images block'
+      title_plural: 'Linked Images blocks'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ocms_fancy_linked_image
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

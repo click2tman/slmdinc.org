@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Visual styles for Levelplus's images views.
+ */
+
+.view-images .views-row {
+  margin-bottom: 20px;
+}
+.view-images h5 {
+  margin-top: 15px;
+  text-align: center;
+}
+.view-images .more-link {
+  padding-left: 10px;
+}

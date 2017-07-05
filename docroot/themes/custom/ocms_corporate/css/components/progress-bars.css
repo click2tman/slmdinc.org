@@ -1,0 +1,10 @@
+/**
+ * @file
+ * Visual styles for Levelplus's progress bars.
+ */
+
+.progress {
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}

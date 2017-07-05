@@ -1,0 +1,21 @@
+uuid: 0da270af-573a-47c8-90b4-a2478fd34b28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_dropdown_block
+    - paragraphs.paragraphs_type.ocms_dropdown
+id: paragraph.ocms_dropdown.field_ocms_dropdown_block
+field_name: field_ocms_dropdown_block
+entity_type: paragraph
+bundle: ocms_dropdown
+label: 'Dropdown Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings: {  }
+field_type: entity_reference

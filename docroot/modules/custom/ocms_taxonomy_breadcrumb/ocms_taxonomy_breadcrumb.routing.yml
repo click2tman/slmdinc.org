@@ -1,0 +1,8 @@
+ocms_taxonomy_breadcrumb.admin_settings:
+  path: '/admin/config/irspup/ocms_taxonomy_breadcrumb'
+  defaults:
+    _form: '\Drupal\ocms_taxonomy_breadcrumb\Form\SettingsForm'
+    _title: 'Taxonomy Breadcrumb configuration screen'
+  requirements:
+    _permission: 'administer site configuration'
+  

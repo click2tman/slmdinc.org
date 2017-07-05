@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Level+ theme.
+
+ocms_corporate.settings:
+  type: theme_settings
+  label: 'Level+ settings'

@@ -1,0 +1,32 @@
+uuid: 056f7ba9-496e-4ef5-8442-5e58e81119ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.ocms_collapse.field_ocms_collapse_body
+    - field.field.paragraph.ocms_collapse.field_ocms_collapse_title
+    - paragraphs.paragraphs_type.ocms_collapse
+  module:
+    - text
+id: paragraph.ocms_collapse.preview
+targetEntityType: paragraph
+bundle: ocms_collapse
+mode: preview
+content:
+  field_ocms_collapse_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ocms_collapse_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

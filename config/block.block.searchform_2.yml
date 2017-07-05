@@ -1,0 +1,26 @@
+uuid: 5943a0ac-b6ef-4680-aab9-bc639afcf40d
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - ocms_showcase
+id: searchform_2
+theme: ocms_showcase
+region: sidebar_second
+weight: -9
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: articles
+    negate: false
+    context_mapping: {  }

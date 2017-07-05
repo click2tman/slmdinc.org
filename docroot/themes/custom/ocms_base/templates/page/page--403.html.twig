@@ -1,0 +1,25 @@
+{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+
+{# Header #}
+{% include 'global-header.html.twig' %}
+
+{% block main %}
+  <div role="main" class="{{ container }}">
+    <div class="row">
+
+      {# Content #}
+      <div class="ocms-error-message col-md-12">
+
+          <i class="fa fa-4x fa-lock ocms-error-message__icon" aria-hidden="true"></i>
+
+          <h1 class="ocms-error-message__title">Access Denied.</h1>
+          <h2 class="ocms-error-message__subtitle">Error 403.</h2>
+          <p class="ocms-error-message__body">Sorry, this page isn't available.</p>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{# Footer #}
+{% include 'global-footer.html.twig' %}

@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Visual styles for Levelplus's maintenance page.
+ */
+
+h1.page-title {
+  text-align: left;
+  padding-bottom: 0;
+}
+
+h1.page-title:after {
+  content: "";
+}

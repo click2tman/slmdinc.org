@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * Restaurant+s's theme implementation to display a Article node.
+ */
+#}
+
+{% extends "node.html.twig" %}
+{% block meta_area %}
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes.addClass('node__title') }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% if display_submitted %}
+    {{ author_picture }}
+  {% endif %}
+  {% if display_submitted or node.comment or (view_mode == "full" and mt_setting.reading_time) %}
+    <div class="node__meta">
+       <ul class="inline-list">
+          {% if display_submitted %}
+            <li class="inline-list__item">
+              <span{{ author_attributes.addClass('node__submitted-info') }}>
+                <i class="fa fa-user"></i> {{ author_name }}
+                <span class="node__submitted-date">
+                  <i class="fa fa-calendar-o"></i> {% trans %}Posted{% endtrans %} {{ node.createdtime|format_date('custom', 'd/F/Y') }}
+                </span>
+              </span>
+              {{ metadata }}
+            </li>
+          {% endif %}
+          {% if node.comment and comment_count > 0 %}
+            <li class="inline-list__item">
+              <span class="comments-count__counter">
+                <i class="fa fa-comments"></i>
+                {% trans %}
+                  1
+                {% plural comment_count %}
+                  {{ comment_count }}
+                {% endtrans %}
+              </span>
+            </li>
+          {% endif %}
+        {% if view_mode == "full" and mt_setting.reading_time %}
+          <li class="inline-list__item">
+            {{ attach_library('ocms_cart/reading-time') }}
+            <span class="reading-time">
+              <i class="fa fa-clock-o"></i>
+              <span>{% trans %}Time to read{% endtrans %}</span>
+              {% if minutes < 1 %}
+                {% trans %}less than 1 minute{% endtrans %}
+              {% elseif minutes < 2 %}
+                {{ minutes }} {% trans %}minute{% endtrans %}
+              {% else %}
+                {{ minutes }} {% trans %}minutes{% endtrans %}
+              {% endif %}
+            </span>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {{ attach_library('ocms_cart/node-article') }}
+  <div class="node__main-content-section">
+    {{ content|without('comment', 'links') }}
+    {% if view_mode == "full" and mt_setting.article_share_links %}
+      {{ attach_library('ocms_cart/share-links') }}
+      <div class="share-links">
+        <ul>
+          <li class="facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('entity.node.canonical', {'node': node.id}) }}&t={{node.label | url_encode(true)}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
+            </a>
+          </li>
+          <li class="twitter">
+            <a href="http://twitter.com/share?text={{node.label | url_encode(true)}}&url={{ url('entity.node.canonical', {'node': node.id}) }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
+            </a>
+          </li>
+          <li class="email">
+            <a href="mailto:?Subject={{node.label | url_encode(true)}}&amp;Body={{ url('entity.node.canonical', {'node': node.id}) }}">
+                <i class="fa fa-envelope-o"><span class="sr-only">email</span></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+    {{ content.links }}
+  </div>
+  {{ content.comment }}
+{% endblock %}

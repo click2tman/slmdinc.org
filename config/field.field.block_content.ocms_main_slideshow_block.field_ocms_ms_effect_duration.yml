@@ -1,0 +1,25 @@
+uuid: 461428ef-fdec-48cd-ae1b-ff17f5e92f70
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_main_slideshow_block
+    - field.storage.block_content.field_ocms_ms_effect_duration
+id: block_content.ocms_main_slideshow_block.field_ocms_ms_effect_duration
+field_name: field_ocms_ms_effect_duration
+entity_type: block_content
+bundle: ocms_main_slideshow_block
+label: 'Slideshow Effect duration (sec)'
+description: 'Set the speed of animations, in seconds.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 9
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

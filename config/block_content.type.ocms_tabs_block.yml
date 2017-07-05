@@ -1,0 +1,8 @@
+uuid: 66560333-66b3-4833-81fb-f6328d51dae1
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_tabs_block
+label: 'Tabs block'
+revision: 1
+description: 'Use this custom block type to display other blocks in a tabbed design, using the corresponding Bootstrap feature.'

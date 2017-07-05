@@ -1,0 +1,20 @@
+uuid: aedb4969-4a2f-4030-b337-ec0dc17b0804
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ocms_showcase
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: ocms_showcase_local_actions
+theme: ocms_showcase
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

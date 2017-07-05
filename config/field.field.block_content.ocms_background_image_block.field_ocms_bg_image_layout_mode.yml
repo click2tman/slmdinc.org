@@ -1,0 +1,23 @@
+uuid: 2f70ca33-9bdd-4198-a978-e8b4f5104db5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_background_image_block
+    - field.storage.block_content.field_ocms_bg_image_layout_mode
+  module:
+    - options
+id: block_content.ocms_background_image_block.field_ocms_bg_image_layout_mode
+field_name: field_ocms_bg_image_layout_mode
+entity_type: block_content
+bundle: ocms_background_image_block
+label: 'Inner Blocks Layout'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: container
+default_value_callback: ''
+settings: {  }
+field_type: list_string

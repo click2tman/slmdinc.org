@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function ocms_linkchecker_schema() {
+
+  $schema['ocms_linkchecker_entity'] = [
+    'description' => 'Stores all link references for entities.',
+    'fields' => [
+      'entity_id'  => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique entity ID.',
+      ],
+      'entity_type'  => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique entity type.',
+      ],
+      'bundle'  => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'description' => 'Primary Key: Unique bundle.',
+      ],
+      'langcode'  => [
+        'type' => 'varchar',
+        'length' => 2,
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique language code.',
+      ],
+      'lid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique {ocms_linkchecker_link}.lid.',
+      ],
+    ],
+    'primary key' => ['entity_id', 'entity_type', 'bundle', 'langcode', 'lid'],
+    'foreign keys' => [
+      'node' => [
+        'table' => 'node',
+        'columns' => ['entity_id' => 'nid'],
+      ],
+      'commment' => [
+        'table' => 'comment',
+        'columns' => ['entity_id' => 'cid'],
+      ],
+      'block' => [
+        'table' => 'block_content',
+        'columns' => ['entity_id' => 'id'],
+      ],
+      'link' => [
+        'table' => 'ocms_linkchecker_link',
+        'columns' => ['lid' => 'lid'],
+      ],
+    ],
+    'indexes' => ['lid' => ['lid']],
+  ];
+
+  $schema['ocms_linkchecker_link'] = [
+    'description' => 'Stores all links.',
+    'fields' => [
+      'lid'  => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique link ID.',
+      ],
+      'urlhash' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'description' => 'The indexable hash of the {ocms_linkchecker_link}.url.',
+      ],
+      'url' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'description' => 'The full qualified link.',
+      ],
+      'method' => [
+        'type' => 'varchar',
+        'length' => 4,
+        'default' => 'HEAD',
+        'not null' => TRUE,
+        'description' => 'The method for checking links (HEAD, GET, POST).',
+      ],
+      'code' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => -1,
+        'description' => 'HTTP status code from link checking.',
+      ],
+      'error' => [
+        'type' => 'text',
+        'not null' => FALSE,
+        'description' => 'The error message received from the remote server while doing link checking.',
+      ],
+      'fail_count' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Fail count of unsuccessful link checks. No flapping detection. (Successful = 0, Unsuccessful = fail_count+1).',
+      ],
+      'last_checked' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp of the last link check.',
+      ],
+      'status' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => 'Boolean indicating if a link should be checked or not.',
+      ],
+    ],
+    'primary key' => ['lid'],
+    'unique keys' => ['urlhash' => ['urlhash']],
+    'indexes' => [
+      'method' => ['method'],
+      'code' => ['code'],
+      'fail_count' => ['fail_count'],
+      'last_checked' => ['last_checked'],
+      'status' => ['status'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ocms_linkchecker_uninstall() {
+  // Remove state settings.
+  \Drupal::state()->delete('ocms_linkchecker.last_deleted_links');
+  \Drupal::state()->delete('ocms_linkchecker.last_deleted_node_links');
+  \Drupal::state()->delete('ocms_linkchecker.check_links');
+  $types = \Drupal::entityTypeManager()
+    ->getStorage('node_type')
+    ->loadMultiple();
+  foreach (array_keys($types) as $node_type) {
+    \Drupal::state()->delete('ocms_linkchecker.scan_node_' . $node_type);
+    \Drupal::state()->delete('ocms_linkchecker.scan_comment_' . $node_type);
+  }
+}

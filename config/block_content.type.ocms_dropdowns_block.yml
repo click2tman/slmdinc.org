@@ -1,0 +1,8 @@
+uuid: 55e7333a-78f8-49d0-bcdf-3cf1177ced62
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_dropdowns_block
+label: 'Dropdowns Block'
+revision: 1
+description: 'Use this custom block type to display other blocks as dropdown elements, using the corresponding Bootstrap feature.'

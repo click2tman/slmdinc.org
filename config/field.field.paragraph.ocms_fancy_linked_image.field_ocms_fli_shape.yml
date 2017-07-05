@@ -1,0 +1,21 @@
+uuid: 9341a8c2-0c42-4347-9155-084c8fa6662a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_fli_shape
+    - paragraphs.paragraphs_type.ocms_fancy_linked_image
+  module:
+    - options
+id: paragraph.ocms_fancy_linked_image.field_ocms_fli_shape
+field_name: field_ocms_fli_shape
+entity_type: paragraph
+bundle: ocms_fancy_linked_image
+label: Shape
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,11 @@
+/**
+ * @file
+ * Visual styles for maintenance page.
+ */
+.maintenance-page #header-top,
+.maintenance-page #subfooter {
+  min-height: 60px;
+}
+.maintenance-page #footer-top {
+  min-height: 40px;
+}

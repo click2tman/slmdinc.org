@@ -1,0 +1,22 @@
+uuid: c7e91788-d271-420e-85c8-ffc8506ef5e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.ocms_testimonial
+  module:
+    - text
+id: node.ocms_testimonial.body
+field_name: body
+entity_type: node
+bundle: ocms_testimonial
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

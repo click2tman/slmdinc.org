@@ -1,0 +1,9 @@
+/* Revolution Slider Boxed Width Styles */
+.boxed .view-slideshow-boxed-width .container {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.view-ocms-slideshow-boxed-width.view {
+  border: none;
+}

@@ -1,0 +1,21 @@
+uuid: cfa43b84-5be7-4ac1-91d5-99c776681a10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_product_availability
+    - node.type.ocms_product
+  module:
+    - options
+id: node.ocms_product.field_ocms_product_availability
+field_name: field_ocms_product_availability
+entity_type: node
+bundle: ocms_product
+label: Availability
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

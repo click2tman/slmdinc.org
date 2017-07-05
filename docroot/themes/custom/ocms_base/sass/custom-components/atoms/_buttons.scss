@@ -1,0 +1,40 @@
+/**
+ * Button Stylesheet
+ * @description Define styles for buttons
+ */
+
+/* Static Button Styling*/
+.btn  {
+    padding: 15px 20px;
+    margin-top: 0px;
+    text-align: center;
+    text-decoration: none;
+    white-space: inherit;
+    font-size: 17px;
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.btn-primary {
+    background-color: $button-color;
+    color: $white;
+
+    &:hover {
+        background-color: $button-hover-color;
+        text-decoration: none;
+    }
+
+    &:active, &:focus, &:active:hover, &:focus:hover {
+        background-color: $button-hover-color;
+        @include box-shadow(0 0 0.5rem 0 $button-glow-color);
+    }
+
+    &:disabled {
+        background-color: $button-disabled-color;
+        border-color: $button-disabled-color;
+        color: $button-disabled-text-color;
+    }
+}

@@ -1,0 +1,80 @@
+uuid: 28f6f88c-dbea-4ea2-8435-c8958d428fa3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.ocms_slide_view
+    - field.field.node.ocms_product.body
+    - field.field.node.ocms_product.field_image
+    - field.field.node.ocms_product.field_ocms_banner_image
+    - field.field.node.ocms_product.field_ocms_buy_link
+    - field.field.node.ocms_product.field_ocms_collections
+    - field.field.node.ocms_product.field_ocms_content_sidebar
+    - field.field.node.ocms_product.field_ocms_content_tabs
+    - field.field.node.ocms_product.field_ocms_landscape_image
+    - field.field.node.ocms_product.field_ocms_most_popular
+    - field.field.node.ocms_product.field_ocms_price
+    - field.field.node.ocms_product.field_ocms_pricing_table_item
+    - field.field.node.ocms_product.field_ocms_product_availability
+    - field.field.node.ocms_product.field_ocms_product_code
+    - field.field.node.ocms_product.field_ocms_slideshow
+    - field.field.node.ocms_product.field_ocms_slideshow_image
+    - field.field.node.ocms_product.field_ocms_slideshow_text
+    - field.field.node.ocms_product.field_ocms_subheader_body
+    - field.field.node.ocms_product.field_ocms_video
+    - field.field.node.ocms_product.field_tags
+    - image.style.ocms_product_image
+    - node.type.ocms_product
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_product.ocms_slide_view
+targetEntityType: node
+bundle: ocms_product
+mode: ocms_slide_view
+content:
+  body:
+    label: hidden
+    type: text_trimmed
+    weight: 0
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ocms_product_image
+      image_link: content
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_buy_link: true
+  field_ocms_collections: true
+  field_ocms_content_sidebar: true
+  field_ocms_content_tabs: true
+  field_ocms_landscape_image: true
+  field_ocms_most_popular: true
+  field_ocms_price: true
+  field_ocms_pricing_table_item: true
+  field_ocms_product_availability: true
+  field_ocms_product_code: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  field_ocms_subheader_body: true
+  field_ocms_video: true
+  field_tags: true
+  langcode: true
+  links: true

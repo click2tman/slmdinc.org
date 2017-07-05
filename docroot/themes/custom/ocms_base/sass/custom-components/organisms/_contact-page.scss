@@ -1,0 +1,48 @@
+/**
+ * Contact Page Stylesheet
+ * @description Defining style for contact page node type
+ */
+    .ocms-page-node-type-contact-page__title {
+        border-bottom: 10px solid $contact-title-border-color;
+    }
+
+.page-node-type-contact-page { // this class is added via configuration
+
+  .block-region-primary-content .field--name-body {
+    margin-bottom: 30px;
+  }
+
+  .block-region-related-content, .region-contact-pages-additional-instructions-content, .region-contact-pages-caution {
+    h2 {
+      @extend h3;
+    }
+  }
+
+  .region-contact-pages-content {
+      margin-bottom: 30px;
+  }
+
+  .ocms-disclaimer--italicized {
+     margin-bottom: 30px;
+  }
+}
+
+button[name="cancel-btn"] {
+	padding: 15.5px 20px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #FFF;
+	color: $button-color;
+	text-decoration: none;
+	border: 2px solid $button-color;
+	border-radius: 4px;
+	
+	&:active {
+		@include box-shadow(0 0 0.5rem 0 $button-glow-color);
+	}
+	
+	&:hover {
+		color: #234E76;
+		border: 2px solid #234E76;	
+	}
+}

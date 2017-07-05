@@ -1,0 +1,43 @@
+uuid: 7a6d6d87-5ea7-47b9-9d11-35343a5fafbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.ocms_product_groups.field_ocms_collection_image
+    - field.field.taxonomy_term.ocms_product_groups.field_ocms_wide_collection_image
+    - image.style.medium
+    - taxonomy.vocabulary.ocms_product_groups
+  module:
+    - image
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.ocms_product_groups.default
+targetEntityType: taxonomy_term
+bundle: ocms_product_groups
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ocms_collection_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_ocms_wide_collection_image: true
+  langcode: true

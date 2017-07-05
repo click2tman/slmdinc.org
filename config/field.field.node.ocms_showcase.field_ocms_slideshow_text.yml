@@ -1,0 +1,21 @@
+uuid: 5f369c58-367b-41f3-a2d7-02f90ac4fcbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_slideshow_text
+    - node.type.ocms_showcase
+  module:
+    - text
+id: node.ocms_showcase.field_ocms_slideshow_text
+field_name: field_ocms_slideshow_text
+entity_type: node
+bundle: ocms_showcase
+label: 'Slideshow text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

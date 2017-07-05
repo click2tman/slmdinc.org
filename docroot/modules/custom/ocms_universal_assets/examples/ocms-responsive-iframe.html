@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test iframe</title>
+  </head>
+  <body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+
+    <div id="header"></div>
+    <script>
+      var pymHeader = new pym.Parent('header', 'http://lamtech.sl/assets/universal/header', {});
+    </script>
+
+    <p>this is my content</p>
+
+    <div id="footer"></div>
+    <script>
+      var pymParent = new pym.Parent('footer', 'http://lamtech.sl/assets/universal/footer', {});
+    </script>
+
+  </body>
+</html>

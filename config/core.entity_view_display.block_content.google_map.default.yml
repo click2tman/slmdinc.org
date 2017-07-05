@@ -1,0 +1,40 @@
+uuid: d0aaa2f4-2409-47ad-acba-ad7eea15597e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.google_map
+    - field.field.block_content.google_map.field_ocms_latitude
+    - field.field.block_content.google_map.field_ocms_longitude
+    - field.field.block_content.google_map.field_ocms_map_zoom
+id: block_content.google_map.default
+targetEntityType: block_content
+bundle: google_map
+mode: default
+content:
+  field_ocms_latitude:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ocms_longitude:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ocms_map_zoom:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

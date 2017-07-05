@@ -1,0 +1,7 @@
+# Define default links for this module.
+irspup.info:
+  title: IRS OCMS
+  description: Custom IRS Modules.
+  route_name: irspup.info
+  parent: system.admin_config
+

@@ -1,0 +1,135 @@
+#header-top {
+  background-color: #252525;
+}
+#header-top-inside {
+  position: relative;
+}
+#header {
+  padding: 40px 0 30px 0;
+  position: relative;
+}
+#page {
+  padding-top: 0!important;
+}
+@media (max-width: 767px) {
+  #header-top-inside.mean-container {
+    padding-right: 55px;
+  }
+  #header-top-inside.mean-container #header-top-left,
+  #header-top-inside.mean-container #header-top-right {
+    z-index: 13;
+    position: relative;
+  }
+  #header {
+    padding: 25px 0 30px 0;
+  }
+
+  /*Fixed header position*/
+  #header {
+    position: relative!important;
+    border: none!important;
+  }
+  #page {
+    margin-top: 0!important;
+  }
+  #header-top {
+   padding: 10px 0;
+  }
+}
+#page-intro-inside {
+  width: 100%;
+  border-bottom: 1px solid #cfd0d2;
+}
+#page-intro .block {
+ padding:0;
+}
+@media (max-width: 767px) {
+  #slideshow {
+    margin: 0 -15px;
+  }
+  #page-intro-inside {
+    position: relative;
+    bottom:0;
+    border-bottom: 1px solid #cfd0d2;
+  }
+}
+#highlighted + #main-content {
+  padding: 20px 0;
+}
+#main-content {
+  padding: 60px 0;
+}
+#promoted {
+  padding: 0 0 20px 0;
+}
+#main {
+  position: relative;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    margin-top: 40px;
+  }
+  #sidebar-first {
+    margin-top: 0;
+  }
+}
+#bottom-content {
+  padding: 30px 0 30px;
+  background: #f2f2f2;
+  margin: 40px 0 0 0;
+}
+#footer-top {
+  padding-top: 20px;
+  background: #c2c2c2;
+}
+@media (min-width: 768px) {
+  #footer-top.two-regions {
+    background: #c2c2c2;
+    background: -moz-linear-gradient(left, #c2c2c2 50%, #d7d7d7 50%);
+    background: -webkit-gradient(left, #c2c2c2 50%, #d7d7d7 50%);
+    background: -webkit-linear-gradient(left, #c2c2c2 49.7%, #d7d7d7 49.7%);
+    background: -o-linear-gradient(left, #c2c2c2 50%, #d7d7d7 50%);
+    background: -ms-linear-gradient(left, #c2c2c2 50%, #d7d7d7 50%);
+    background: linear-gradient(left, #c2c2c2 50%, #d7d7d7 50%);
+  }
+  #footer-top.one-region {
+    background: #c2c2c2;
+  }
+}
+#footer {
+  background-color: #101010;
+  padding: 25px 0 55px 0;
+}
+#subfooter {
+  background-color: #080808;
+  padding: 25px 0 15px;
+}
+@media (min-width: 1200px) {
+  .fix-sidebar-second {
+    padding-left: 45px;
+  }
+  .fix-sidebar-first {
+    padding-right: 45px;
+  }
+}
+
+/*Header top*/
+.header-top-area {
+  color: #fff;
+}
+
+/*Footer*/
+.footer-area, .subfooter-area {
+  color: #a3a3a3;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .footer-area {
+    text-align: center;
+  }
+}
+@media (max-width: 991px) {
+  .subfooter-area {
+    text-align: center;
+  }
+}

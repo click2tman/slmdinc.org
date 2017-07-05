@@ -1,0 +1,55 @@
+/* Simple Table Styling */
+// Must use border 0 in html
+table {
+    border: 1px solid $st-border-color;
+    width: 100%;
+    max-width: 100%;
+
+    th {
+        color: $st-header-color;
+        font-weight: bold;
+        padding: 20px 20px;
+    }
+    
+    tr {
+        border-bottom: 1px solid $st-border-color;
+    }
+    
+    td {
+        padding: 20px 20px;
+
+        &:first-child {
+            border-right: 1px solid transparent;
+        }
+    }
+}
+
+
+table.complex-table {
+    border: 1px solid $ct-border-color;
+
+    th {
+        background-color: $ct-header-background-color;
+        border: 1px solid $ct-header-background-color;
+        color: $ct-header-color;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 20px 20px;
+    }
+
+    tr {
+        border-bottom: 1px solid $ct-border-color;
+
+        &:nth-child(odd) {
+            background-color: $ct-odd-background-color;
+        }
+
+        &:nth-child(even) {
+            background-color: $ct-even-background-color;
+        }
+    }
+    
+    td {
+        border-right: 1px solid $ct-border-color;
+    }
+}

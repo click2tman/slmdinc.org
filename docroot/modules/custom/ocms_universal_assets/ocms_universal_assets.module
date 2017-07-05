@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Universal assets module.
+ */
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ocms_universal_assets_preprocess_page(&$variables, $hook) {
+  $current_url = Url::fromRoute('<current>')->toString();
+
+  // See templates page--assets--universal.html.twig and
+  // html--assets--universal.html.twig.
+  switch ($current_url) {
+    case '/assets/universal/header':
+      $variables['page_asset_item'] = 'header';
+      $variables['page']['content']['#attached']['library'][] = 'ocms_universal_assets/pym';
+      $variables['page']['content']['#attached']['library'][] = 'ocms_universal_assets/iframe_send_height';
+      break;
+
+    case '/assets/universal/footer':
+      $variables['page_asset_item'] = 'footer';
+      $variables['page']['content']['#attached']['library'][] = 'ocms_universal_assets/pym';
+      $variables['page']['content']['#attached']['library'][] = 'ocms_universal_assets/iframe_send_height';
+      break;
+  }
+}

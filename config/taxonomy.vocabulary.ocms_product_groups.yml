@@ -1,0 +1,9 @@
+uuid: a9c32678-8b71-4d1b-b770-3029fb871d1c
+langcode: en
+status: true
+dependencies: {  }
+name: 'OCMS Product Groups'
+vid: ocms_product_groups
+description: ''
+hierarchy: 1
+weight: 0

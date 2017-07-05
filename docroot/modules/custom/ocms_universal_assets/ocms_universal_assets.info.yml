@@ -1,0 +1,6 @@
+name: 'OCMS Universal Assets'
+type: module
+description: 'Exposes header and footer assets to external'
+package: 'OCMS Custom'
+core: 8.x
+version: 8.x-1.0

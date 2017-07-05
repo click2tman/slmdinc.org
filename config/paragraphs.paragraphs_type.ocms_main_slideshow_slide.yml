@@ -1,0 +1,7 @@
+uuid: 6c019302-59d4-4358-a532-dcad1230c292
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_main_slideshow_slide
+label: 'Main Slideshow Slide'
+behavior_plugins: {  }

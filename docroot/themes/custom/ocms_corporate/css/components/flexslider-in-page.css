@@ -1,0 +1,85 @@
+/**
+ * @file
+ * Visual styles for Levelplus's in page slider.
+ */
+
+#in-page-images-slider .image-slider-caption {
+  position: static;
+  width: 100%;
+  padding-top: 25px;
+  padding-right: 200px;
+  min-height: 80px;
+}
+#in-page-images-slider .image-slider-caption p {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.87em;
+}
+#in-page-images-slider .flex-control-nav {
+  display: none;
+}
+
+/*In page slider direction Nav*/
+#in-page-images-slider .flex-direction-nav a {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  width: 70px;
+  height: 45px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  bottom: 10px;
+  margin: 0;
+  text-shadow: none;
+  text-align: center;
+  text-decoration: none;
+  top: auto;
+}
+#in-page-images-slider .flex-direction-nav a.flex-prev {
+  right: 70px;
+  left: auto;
+}
+#in-page-images-slider .flex-direction-nav a:before {
+  font-size: 70px;
+  line-height: 1;
+  font-family: 'FontAwesome';
+  display: inline-block;
+  content: '\f104';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -35px 0 0 -12.5px;
+  -webkit-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+#in-page-images-slider .flex-direction-nav a.flex-next:before {
+  content: '\f105';
+}
+#in-page-images-slider .flex-prev:hover,
+#in-page-images-slider .flex-next:hover {
+  text-decoration: none;
+}
+#in-page-images-slider .flex-prev,
+.flexslider:hover #in-page-images-slider .flex-prev {
+  left: 0;
+}
+#in-page-images-slider .flex-next,
+.flexslider:hover #in-page-images-slider .flex-next {
+  right: 0;
+  text-align: center;
+}
+@media (max-width:1199px) {
+  #in-page-images-slider .image-slider-caption {
+    padding-right: 100px;
+  }
+  #in-page-images-slider .flex-direction-nav a {
+    width: 55px;
+    height: 45px;
+  }
+  #in-page-images-slider .flex-direction-nav a.flex-prev {
+    right: 55px;
+    left: auto;
+  }
+}

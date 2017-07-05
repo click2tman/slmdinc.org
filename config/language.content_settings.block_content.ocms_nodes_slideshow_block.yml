@@ -1,0 +1,16 @@
+uuid: f99d2d58-48db-4557-8a08-526f209c93aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_nodes_slideshow_block
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: block_content.ocms_nodes_slideshow_block
+target_entity_type_id: block_content
+target_bundle: ocms_nodes_slideshow_block
+default_langcode: site_default
+language_alterable: true

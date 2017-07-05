@@ -1,0 +1,14 @@
+uuid: 03d70a32-b77b-49ad-9b57-64b68277c4fd
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_icons
+label: 'Icons (80x80)'
+effects:
+  058bd085-430f-4777-a0c5-100c0b96c7de:
+    uuid: 058bd085-430f-4777-a0c5-100c0b96c7de
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 80
+      height: 80

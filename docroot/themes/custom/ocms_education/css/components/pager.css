@@ -1,0 +1,38 @@
+/**
+ * @file
+ * Visual styles for pager.
+ */
+.pager__items {
+  margin: 20px 0 20px;
+  text-align: center;
+}
+.pager__items li {
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+  font-size: 14px;
+}
+.pager__items li > a {
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #1e1e1e;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  line-height: 1;
+}
+.pager__items li > a:hover {
+  background-color: transparent;
+  border-bottom: 2px solid #4187d1;
+  color: #4187d1;
+}
+.pager__items li.is-active a {
+  border-bottom: 2px solid #2a68af;
+  color: #2a68af;
+  padding: 10px 17px;
+  line-height: 1;
+}
+.pager__items li > a:focus {
+  background: none;
+}

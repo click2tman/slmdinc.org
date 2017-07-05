@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Sends an email to the new author
+ */
+
+use Drupal\Component\Utility\SafeMarkup;
+
+/**
+ * Implements hook_node_update().
+ */
+function ocms_rules_author_update_node_update($node) {
+  $original_node = $node->original;
+  $original_owner = $original_node->getOwner();
+  $original_owner_email = $original_owner->getEmail();
+  $new_owner = $node->getOwner();
+  $new_owner_email = $new_owner->getEmail();
+  if ($new_owner_email != $original_owner_email) {
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'ocms_rules_author_update';
+    $key = 'node_update';
+    $to = $new_owner_email;
+    $params['message'] = 'Node: ' . $node->nid->value . ' was switched from ' . $original_owner->getDisplayName();
+    $params['node_title'] = $node->label();
+    $langcode = $new_owner->getPreferredLangcode();
+    $send = true;
+
+    $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function ocms_rules_author_update_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+ 
+  switch ($key) {
+    case 'node_update':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Node updated: @title', array('@title' => $params['node_title']), $options);
+      $message['body'][] = SafeMarkup::checkPlain($params['message']);
+      break;
+  }
+}

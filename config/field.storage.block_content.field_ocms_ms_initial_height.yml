@@ -1,0 +1,20 @@
+uuid: 603ccbdd-6a3e-43c5-9756-8c201cf10893
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_ocms_ms_initial_height
+field_name: field_ocms_ms_initial_height
+entity_type: block_content
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

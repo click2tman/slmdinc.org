@@ -1,0 +1,42 @@
+uuid: fc87efb2-dfc8-4f27-9d78-ce7c2d4952b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_collapse.field_ocms_collapse_body
+    - field.field.paragraph.ocms_collapse.field_ocms_collapse_title
+    - paragraphs.paragraphs_type.ocms_collapse
+  module:
+    - text
+    - workbench_moderation
+id: paragraph.ocms_collapse.default
+targetEntityType: paragraph
+bundle: ocms_collapse
+mode: default
+content:
+  field_ocms_collapse_body:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_ocms_collapse_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

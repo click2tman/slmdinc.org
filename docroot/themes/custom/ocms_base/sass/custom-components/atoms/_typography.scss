@@ -1,0 +1,141 @@
+/**
+ * Typography
+ * @description Define typographic principles for headers, body copy, links, etc
+ */
+
+/* Font Family */
+// @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,700,700i');
+
+/**
+ * Typi Variables
+ * @description https://github.com/zellwk/typi
+ */
+$breakpoints: (
+  small: 768px,
+  medium: 992px,
+  large: 1200px
+);
+
+/* Typi Font Sizes and Line Heights */
+$typi: (
+    null: ($bcopy, $lheight_base)
+);
+
+$h1-map: (null: ($h1-size, line(44,34)));
+$h2-map: (null: ($h2-size, line(26,24)));
+$h3-map: (null: ($h3-size, line(26,19)));
+$h4-map: (null: ($h4-size, line(21,16)));
+
+$error-map: (null: ($h4-size, line(21,16)));
+
+$disclaimer-map: (null: ($disclaimer, line(20,13)));
+
+$table-map: (null: ($h1-size, line(24,16)));
+
+/* General Typography */
+html {
+    @include typi-base();
+}
+
+body {
+    @extend .ssp;
+    font-weight: normal;
+    font-size: 1rem;
+    color: $font-color;
+	line-height: $lheight_base;
+}
+
+/* Heading */
+// Page Title
+h1 {
+    font-weight: 700;
+    @include typi($h1-map, $rem:false);
+}
+
+// Module Header
+h2 {
+    font-weight: 700;
+    @include typi($h2-map, $rem:false);
+}
+
+// Subhead (h3)
+h3 {
+    font-weight: 700;
+    @include typi($h3-map, $rem:false);
+}
+
+// Subhead (h4)
+h4 {
+    font-weight: 700;
+    font-style: italic;
+    @include typi($h4-map, $rem:false);
+}
+
+a {
+    line-height: em(20);
+    text-decoration: underline;
+    color: $link-static;
+
+    &:hover, &:focus {
+        color: $link-hover;
+    }
+
+    &:active, &:visited {
+        color: $link-visited;
+    }
+}
+
+ol {
+  padding-left: 0;
+  margin-left: 0;
+  counter-reset: list;
+
+  li {
+    list-style: none;
+    margin-left: 0;
+    // align the ordered list elements globally
+    padding-left: em(23);
+    text-indent: em(-23);
+
+    &:before {
+        counter-increment: list;
+        content: counter(list, decimal) ")  ";
+        margin-right: 7px;
+    }
+
+    p {
+        text-indent: 0px;
+        &:first-child {
+            display: inline;
+        }
+    }
+  }
+}
+
+/**
+ * ocms-disclaimer
+ * @description Text used for disclaimer or "Latest Page Update" texts
+ */
+.ocms-disclaimer {
+    @include typi($disclaimer-map, $rem:false);
+
+
+    &--italicized {
+        font-style: italic;
+    }
+}
+
+.caution {
+    font-style: italic;
+    color: $caution-font-color;
+}
+
+/* Table */
+table {
+    line-height: line(24,16);
+}
+
+/* Table Content (primary) */
+th {
+    font-weight: 700;
+}

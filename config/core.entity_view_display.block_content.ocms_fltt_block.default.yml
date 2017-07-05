@@ -1,0 +1,25 @@
+uuid: fb5ce816-aa02-4af3-b2e2-825bcf41274d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_fltt_block
+    - field.field.block_content.ocms_fltt_block.field_ocms_fltt
+  module:
+    - entity_reference_revisions
+id: block_content.ocms_fltt_block.default
+targetEntityType: block_content
+bundle: ocms_fltt_block
+mode: default
+content:
+  field_ocms_fltt:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,16 @@
+uuid: cfc20528-6f8d-4205-bd1e-33c26a1e7720
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_background_image_block
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: block_content.ocms_background_image_block
+target_entity_type_id: block_content
+target_bundle: ocms_background_image_block
+default_langcode: site_default
+language_alterable: true

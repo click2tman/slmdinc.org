@@ -1,0 +1,17 @@
+uuid: 5dc2c284-ee97-4b9d-b783-aec770ed9dde
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Product
+type: ocms_product
+description: 'A Product post is ideal for creating and showcasing your products. It comes with the option to be featured at the front page slide show. It also provides the ability to attach one main product image, which is automatically adjusted to fit into the website layout. Further to that, what’s a particularly great time-saver about a Product post, is that it provides the ability to attach a series of images, thumbnails of which are automatically created and adjusted to fit into the website layout, wherever needed'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

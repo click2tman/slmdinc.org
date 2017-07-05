@@ -1,0 +1,14 @@
+uuid: 9dd2e9fa-d98e-41b3-a788-b2720e18fb73
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_fli_image
+label: 'Fancy Linked Image (750x750)'
+effects:
+  a59ce8ea-2525-4658-8b26-9fa84a2100c6:
+    uuid: a59ce8ea-2525-4658-8b26-9fa84a2100c6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 750

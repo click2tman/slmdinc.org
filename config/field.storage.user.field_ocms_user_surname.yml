@@ -1,0 +1,21 @@
+uuid: 0817a03f-96dc-4daf-be16-0b803a0f3184
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_ocms_user_surname
+field_name: field_ocms_user_surname
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

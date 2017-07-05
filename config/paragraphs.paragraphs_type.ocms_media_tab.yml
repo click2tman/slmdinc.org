@@ -1,0 +1,7 @@
+uuid: 07516e6f-85f2-4df8-a4b0-f3e2d71b83cb
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_media_tab
+label: 'Media Tab'
+behavior_plugins: {  }

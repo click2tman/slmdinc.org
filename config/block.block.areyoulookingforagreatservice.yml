@@ -1,0 +1,31 @@
+uuid: 827dd6b9-51c0-4d6b-b3d2-c732e865b0a8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e5aaece0-08f5-4516-a053-c767a849406e'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: areyoulookingforagreatservice
+theme: ocms_showcase
+region: content
+weight: -13
+provider: null
+plugin: 'block_content:e5aaece0-08f5-4516-a053-c767a849406e'
+settings:
+  id: 'block_content:e5aaece0-08f5-4516-a053-c767a849406e'
+  label: 'Are you looking for a great service?'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/60\r\n<front>"
+    negate: false
+    context_mapping: {  }

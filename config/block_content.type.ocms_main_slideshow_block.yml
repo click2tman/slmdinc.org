@@ -1,0 +1,8 @@
+uuid: 73b81dec-d22a-4187-8d65-e394521c3fdd
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_main_slideshow_block
+label: 'Main Slideshow Block'
+revision: 1
+description: 'Use this custom block type to create main slideshow blocks.'

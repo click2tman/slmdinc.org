@@ -1,0 +1,59 @@
+{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+
+{# Header #}
+{% include 'global-header.html.twig' %}
+
+{% block main %}
+  <div role="main" class="{{ container }}">
+    <div class="row">
+      {# Content #}
+      <div class="ocms-error-message col-md-12">
+          <i class="fa fa-4x fa-exclamation-triangle ocms-error-message__icon" aria-hidden="true"></i>
+          <h1 class="ocms-error-message__title">Page Not Found.</h1>
+          <h2 class="ocms-error-message__subtitle">Error 404.</h2>
+          <p class="ocms-error-message__body">Sorry, this page isn't available.</p>
+          <p class="ocms-error-message__body_strong big_top">Please check the web address or try searching by the keyword below.</p>
+
+          <div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" novalidate="novalidate" id="block-searchform" data-block-plugin-id="search_form_block" role="search">
+
+            <h2 class="visually-hidden">Search form</h2>
+
+            <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+              <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label form-group">
+                <label for="edit-keys" class="control-label sr-only">Search</label>
+                <div class="input-group">
+                  <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" class="form-search form-control" placeholder="Search" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" data-toggle="tooltip" />
+                  <span class="input-group-btn">
+                    <button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name="">
+                      <span class="sr-only">Search</span>
+                      <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="form-actions form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions"></div>
+            </form>
+
+          </div>
+
+          <p class="ocms-error-message__body_strong ocms-error-message small_top">Popular searches:</p>
+          <ul class="ocms-error-message__links">
+            <li><a href="/wheres-my-refund-its-quick-easy-and-secure">Where's My Refund </a></li>
+            <li><a href="/individuals/get-transcript"> Get Transcript</a></li>
+            <li><a href="/individuals/ocms-withholding-calculator"> Withholding Calculator</a></li>
+          </ul>
+        {# Help #}
+        {% if page.error_message_content %}
+          {% block error_message_content %}
+            <p>{{ page.error_message_content }}</p>
+          {% endblock %}
+        {% endif %}
+
+      </div>
+      </section>
+    </div>
+  </div>
+{% endblock %}
+
+{# Footer #}
+{% include 'global-footer.html.twig' %}

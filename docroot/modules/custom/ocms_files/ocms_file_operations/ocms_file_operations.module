@@ -1,0 +1,154 @@
+<?php
+
+use Drupal\irs_file_operations\Controller\IrsFileOperationsController;
+
+/**
+ * Implements hook_form_alter().
+ */
+function irs_file_operations_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+//drupal_set_message ("the form id is $form_id");
+if(isset($form['field_ocms_file_public_path']['widget']['#title']) && (isset($form['field_document']['widget'][0]['#title'])))  {
+   
+    $form['field_ocms_file_public_path']['widget']['#ajax'] = array(
+      'event' => 'change',
+      'callback' => 'dependent_dropdown_callback',
+      'wrapper' => 'dropdown-second-replaces'
+    );
+    $location_path_value = file_default_scheme() . '://';
+    if ((isset($form['field_document']['widget'][0]['#default_value']['fids'][0]))){ 
+      // this will have an fid when you are editing an already existing file  
+      $location_path_value_rep = new IrsFileOperationsController;
+      $location_path_value = $location_path_value_rep->irsFileOperationsUri($form['field_document']['widget'][0]['#default_value']['fids'][0]);
+     
+    }
+    // the upload field is invisible if the path has not been chosen yet
+    $form['field_document'] ['#states'] =  array(
+     'invisible' => array(
+      ':input[name="field_ocms_file_public_path"]' => array('value' =>"_none"),
+     ),
+    );
+    $form['#validate'][] = 'irs_file_operations_form_validate_handler';
+    $form['actions']['publish']['#submit'][] = 'irs_file_operations_form_submit_handler';
+    $form['actions']['unpublish']['#submit'][] = 'irs_file_operations_form_unpublish_handler';
+    $form['location_path'] = array(
+      '#title' => 'File Permanent path/link',
+      '#type' => 'textfield',
+      '#description' => 'This path depends on the selected Static File path',
+      '#prefix' => '<div id="dropdown-second-replaces">',
+      '#suffix' => '</div>',
+      '#attributes' => array('readonly' => 'readonly'),
+      '#default_value' => $location_path_value,
+      '#weight' => 1,
+      '#states' => array(
+         'invisible' => array(
+          ':input[name="field_ocms_file_public_path"]' => array('value' =>"_none"),
+    ),
+  ),
+      
+    );
+
+  }
+}
+
+/**
+ * Submit handler for media published.
+ */
+function irs_file_operations_form_submit_handler(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $IRSFileOpController = new IrsFileOperationsController;
+  $fid = $form_state->getValue('field_document')[0]['fids'][0];
+  $directory = $IRSFileOpController->irsFileOperationsGetTax($form_state->getValue('field_ocms_file_public_path')[0]['target_id']);
+  $destination = 'public://' . $directory;
+  $value = $IRSFileOpController->moveFileToDestination($fid, $destination);
+}
+
+/**
+ * Submit handler for media unpublished.
+ */
+function irs_file_operations_form_unpublish_handler(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $IRSFileOpController = new IrsFileOperationsController;
+  $fid = $form_state->getValue('field_document')[0]['fids'][0];
+  $directory = $IRSFileOpController->irsFileOperationsGetTax($form_state->getValue('field_ocms_file_public_path')[0]['target_id']);
+  $destination = 'private://' . $directory;
+  $value = $IRSFileOpController->moveFileToDestination($fid, $destination);
+}
+
+/**
+ * Update location path based on folder repository field.
+ */
+function dependent_dropdown_callback($form, $form_state) {
+  $IRSFileOpController = new IrsFileOperationsController;
+  $termid = $form_state->getValue('field_ocms_file_public_path')[0]['target_id'];
+  $termname_result = $IRSFileOpController->irsFileOperationsGetTax($termid);
+  $form['location_path']['#value'] = $termname_result;
+  $form['ajax-wrapper']['#attributes'] = array('visibility'=>'initial');
+  return $form['location_path'];
+}
+
+/**
+ * Generate clean string for folder path.
+ */
+function irs_file_operations_clean_string($string) {
+  $string = str_replace(' ', '_', strtolower(trim($string)));
+  $string = preg_replace('/[^A-Za-z0-9\_]/', '-', $string);
+  return preg_replace('/_+/', '_', $string);
+}
+/**
+ * Validate Handler.
+ */
+function irs_file_operations_form_validate_handler(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $file_storage = \Drupal::entityManager()->getStorage('file');
+  $file = $file_storage->load($form_state->getValue('field_document')[0]['fids'][0]);
+  $file_name="";
+  if ($file) {
+    $file_uri = $file->get('uri')->value;
+    $file_name = $file->get('filename')->value;
+    if (!file_exists($file_uri)) {
+      drupal_set_message(t('File does not exists in the system. Please try to remove and upload the file again'), 'error');
+      \Drupal::logger('irs_file_operations')->error('File does not exists in the system. Please try to remove and upload the file again');
+
+    }
+    $form_state->setValue('field_ocms_file_name',$file_name);
+  }
+ 
+}
+
+/*
+ * Implements hooks_cron() for the remove Temp folders
+ */
+function irs_file_operations_cron() {
+
+  $path = file_default_scheme() . '://default/';
+  $directories = scandir($path);
+  foreach ($directories as $directory) {
+    if ($directory!=".."){
+      deleteDirectory($path . '/' . $directory);
+    }  
+    
+  }
+
+
+}
+
+// delete all the files first if its not empty
+function deleteDirectory($dir) {
+    if (!file_exists($dir)) {
+        return true;
+    }
+
+    if (!is_dir($dir)) {
+        return unlink($dir);
+    }
+
+    foreach (scandir($dir) as $item) {
+        if ($item == '.' || $item == '..') {
+            continue;
+        }
+
+        if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            return false;
+        }
+
+    }
+
+    return drupal_rmdir($dir);
+}

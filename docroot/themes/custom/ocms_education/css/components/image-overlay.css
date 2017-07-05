@@ -1,0 +1,99 @@
+/*Image overlay*/
+.overlayed {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  max-width: 100%;
+  float: left;
+}
+.overlay {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  z-index: 2;
+  background-color: rgba(34,34,34,0.25);
+  webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+.overlay i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  font-size: 18px;
+  line-height: 40px;
+  color: #ffffff;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+  -ms-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  background: #252525;
+}
+.node--view-mode-full .overlay i {
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  font-size: 28px;
+  line-height: 80px;
+}
+.node--view-mode-teaser .overlay i::before,
+.block-system-main-block .view-ocms-faculty-staff .overlay i::before,
+.block-system-main-block .view-ocms-students .overlay i::before,
+.view-ocms-courses .overlay i::before,
+.view-ocms-latest-news-block i::before {
+  content: "\f0c1";
+}
+.overlay i:before {
+  line-height: 42px;
+}
+.image-listing-item .overlay i {
+  font-size: 10px;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  line-height: 27px;
+}
+
+/*image caption*/
+.with-image .image-caption {
+  color: #ffffff;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  bottom: 0;
+  padding: 20px;
+  background: transparent -moz-linear-gradient(bottom, #000000 0%, transparent 100%) repeat scroll 0 0;
+  background: transparent -webkit-linear-gradient(bottom, #000000 0%,transparent 100%) repeat scroll 0 0;
+  background: transparent linear-gradient(to top, #000000 0%, transparent 100%) repeat scroll 0 0;
+}
+.image-caption span {
+  margin-right: 15px;
+}
+.with-image .image-caption span a {
+  color: #ffffff;
+}
+.node--view-mode-teaser .overlay i::before {
+  content: "\f0c1";
+}
+
+/*overlay on hover state*/
+.overlayed:hover {
+  color: #ffffff!important;
+  text-decoration: none;
+}
+.overlayed:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}

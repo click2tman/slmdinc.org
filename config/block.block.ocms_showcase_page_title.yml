@@ -1,0 +1,27 @@
+uuid: f7ee9e55-147c-4ebc-8893-08a697794eee
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_showcase
+_core:
+  default_config_hash: 4gVMwfDh7l8qEcj2_i0vG5uKUVe2DMKNbHz4-dzwZz4
+id: ocms_showcase_page_title
+theme: ocms_showcase
+region: content
+weight: -17
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/60"
+    negate: true
+    context_mapping: {  }

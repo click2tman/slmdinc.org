@@ -1,0 +1,44 @@
+<?php
+
+/**
+ *   This module will enforce the revision log if the content type requires it
+ *
+ */
+
+
+function ocms_enforcelog_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  
+  $adding = FALSE;
+  $editing = FALSE;
+  $current_uri = \Drupal::request()->getRequestUri();
+  $entity_type='';
+
+   if (strpos($current_uri,"/add")){
+    $adding = TRUE;
+  }
+
+  
+ // editing of any type of content , media or blocks will be found by looking for 'edit_form' in the id of the form
+  if (strpos($form_id,"edit_form")!== FALSE){
+     $editing = TRUE;
+  }
+  
+ 
+ if ($adding OR $editing ){
+     
+    
+     if (array_key_exists('revision_log', $form)){
+          $form ['revision_log']['#required']=TRUE;
+          $form ['revision_log']['widget'][0]['value']['#required']=TRUE;
+      }
+      if (array_key_exists('revision_information', $form)){
+         $form ['revision_information']['revision_log']['#required']=TRUE;
+      
+     }   
+   }
+ }
+
+
+
+ 
+

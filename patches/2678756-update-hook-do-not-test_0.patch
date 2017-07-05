@@ -1,0 +1,67 @@
+diff --git a/flag.install b/flag.install
+index a98a3ad..7eae2da 100644
+--- a/flag.install
++++ b/flag.install
+@@ -5,8 +5,12 @@
+  * Flag module install/schema/update hooks.
+  */
+ 
++use Drupal\Core\Database\Database;
+ use Drupal\Core\Entity\EntityTypeInterface;
+ use Drupal\Core\Config\Entity\ConfigEntityStorage;
++use Drupal\Core\Extension\MissingDependencyException;
++use Drupal\Core\Utility\UpdateException;
++use Drupal\dynamic_entity_reference\Plugin\Field\FieldType\DynamicEntityReferenceItem;
+ 
+ /**
+  * Implements hook_schema().
+@@ -103,3 +107,49 @@ function flag_requirements($phase) {
+   */
+   return $requirements;
+ }
++
++/**
++ * Update flagging table to use dynamic_entity_reference.
++ */
++function flag_update_8001() {
++  if (!\Drupal::moduleHandler()->moduleExists('dynamic_entity_reference')) {
++    try {
++      /** @var \Drupal\Core\Extension\ModuleInstallerInterface $installer */
++      $installer = \Drupal::service('module_installer');
++      $installer->install(['dynamic_entity_reference']);
++    }
++    catch (MissingDependencyException $e) {
++      throw new UpdateException('The dynamic_entity_reference module could not be found. Please download and rerun database updates.', $e->getCode(), $e);
++    }
++  }
++
++  // Previous schema was `entity_type` and `entity_id`. New schema is
++  // `flagged_entity__target_type` and `flagged_entity__target_id`.
++  // @see \Drupal\dynamic_entity_reference\Plugin\Field\FieldType\DynamicEntityReferenceItem::schema()
++  $spec = [
++    'description' => 'The Entity Type ID of the target entity.',
++    'type' => 'varchar_ascii',
++    'length' => EntityTypeInterface::BUNDLE_MAX_LENGTH,
++  ];
++  Database::getConnection()->schema()->changeField('flagging', 'entity_type', 'flagged_entity__target_type', $spec);
++
++  $spec = [
++    'description' => 'The ID of the target entity.',
++    'type' => 'varchar_ascii',
++    'length' => 255,
++  ];
++  $keys = [
++    'target_id' => ['flagged_entity__target_id', 'flagged_entity__target_type'],
++  ];
++  Database::getConnection()->schema()->changeField('flagging', 'entity_id', 'flagged_entity__target_id', $spec, $keys);
++
++  /** @var \Drupal\dynamic_entity_reference\Storage\IntColumnHandlerInterface $int_column_handler */
++  $int_column_handler = \Drupal::service('dynamic_entity_reference.storage.create_column');
++  // Adds the integer column.
++  $int_column_handler->create('flagging', ['flagged_entity__target_id']);
++
++  // Populate the int column.
++  Database::getConnection()->update('flagging')
++    ->expression('flagged_entity__target_id_int', 'flagged_entity__target_id')
++    ->execute();
++}

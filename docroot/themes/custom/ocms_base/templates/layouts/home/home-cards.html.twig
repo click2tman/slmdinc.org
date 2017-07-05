@@ -1,0 +1,327 @@
+{#
+/**
+ * @file
+ * OCMS HomeTemplate for a 4 row panel layout with 5 optional content rows
+ *
+ * This template provides a 4 row panel display layout, with 5 optional content rows
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.first_row: Content in the top row.
+ *   - content.second_row: Content in the second row. 
+ *   - content.third_row_col_1: Content in the third row, column 1
+ *   - content.third_row_col_2_top: Content in the third row, column 2, top
+ *   - content.third_row_col_2_bottom: Content in the third row, column 2, bottom
+ *   - content.fourth_row_col_1: Content in the fourth row, column 1.
+ *   - content.fourth_row_col_2: Content in the fourth row, column 2.
+ *   - content.fourth_row_col_3: Content in the fourth row, column 3.
+ *   - 5 optional content rows. 
+ */
+#}
+  {{ content.field_ocms_media_image }}
+<div class="ocms-home-cards">
+    {# First Row #}
+    {% if content.first_row %}
+    <div class="row">
+        <div class="col-md-12 ocms-home-cards__first">
+            {{ content.first_row }}
+        </div>
+    </div>
+    {% endif %}  {# First Row Ends #}
+
+    {# Second Row #}
+    {% if content.second_row %}
+    <div class="row">
+        <div class="col-md-12 ocms-home-cards__second">
+            {{ content.second_row }}
+        </div>
+    </div>
+    {% endif %}  {# Second Row Ends #}
+
+    {# Third Row #}
+    {% if (content.third_row_col_1 or content.third_row_col_2_top or content.third_row_col_2_bottom) %}
+    <div class="row">
+        <div class="ocms-home-cards__third">
+            {%
+            set third_row_col_1_class = [
+                content.third_row_col_1 and content.third_row_col_2_top and content.third_row_col_2_bottom ? 'col-xs-12 col-sm-6',
+                content.third_row_col_1 and content.third_row_col_2_top is empty and content.third_row_col_2_bottom ? 'col-xs-12 col-sm-6',
+                content.third_row_col_1 and content.third_row_col_2_top and content.third_row_col_2_bottom is empty ? 'col-xs-12 col-sm-6',
+                content.third_row_col_1 is empty ? 'hidden'
+            ]
+            %}
+            {%
+            set third_row_col_2_class = [
+                content.third_row_col_1 and content.third_row_col_2_top and content.third_row_col_2_bottom ? 'col-xs-12 col-sm-6',
+                content.third_row_col_1 and content.third_row_col_2_top is empty and content.third_row_col_2_bottom ? 'col-xs-12 col-sm-6',
+                content.third_row_col_1 and content.third_row_col_2_top and content.third_row_col_2_bottom is empty ? 'col-xs-12 col-sm-6',
+                content.third_row_col_1 is empty and content.third_row_col_2_top and content.third_row_col_2_bottom ? 'col-xs-12',
+                content.third_row_col_1 is empty and content.third_row_col_2_top is empty and content.third_row_col_2_bottom ? 'col-xs-12',
+                content.third_row_col_1 is empty and content.third_row_col_2_top and content.third_row_col_2_bottom is empty ? 'col-xs-12',
+                content.third_row_col_2_top is empty and content.third_row_col_2_bottom is empty ? 'hidden'
+            ]
+            %}
+          
+            {% if content.third_row_col_1 %}
+                <div{{ create_attribute({'class': third_row_col_1_class}) }}>
+                    {{ content.third_row_col_1 }}
+                </div>
+            {% endif %}
+
+            {% if content.third_row_col_2_top or content.third_row_col_2_bottom %}
+                <div{{ create_attribute({'class': third_row_col_2_class}) }}>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{ content.third_row_col_2_top }}
+                        </div>
+                        <div class="col-xs-12">
+                            {{ content.third_row_col_2_bottom }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    {% endif %}  {# Third Row Ends #}
+
+    {# Fourth Row #}
+    {% if (content.fourth_row_col_1 or content.fourth_row_col_2 or content.fourth_row_col_3) %}
+    <div class="row">
+        <div class="ocms-home-cards__fourth">
+            {%
+            set fourth_row_class = [
+                content.fourth_row_col_1 and content.fourth_row_col_2 and content.fourth_row_col_3 ? 'col-xs-12 col-sm-4',
+                content.fourth_row_col_1 is empty and content.fourth_row_col_2 and content.fourth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.fourth_row_col_1 and content.fourth_row_col_2 is empty and content.fourth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.fourth_row_col_1 and content.fourth_row_col_2 and content.fourth_row_col_3 is empty ? 'col-xs-12 col-sm-6',
+                content.fourth_row_col_1 is empty and content.fourth_row_col_2 is empty and content.fourth_row_col_3 ? 'col-xs-12',
+                content.fourth_row_col_1 and content.fourth_row_col_2 is empty and content.fourth_row_col_3 is empty ? 'col-xs-12',
+                content.fourth_row_col_1 is empty and content.fourth_row_col_2 and content.fourth_row_col_3 is empty ? 'col-xs-12',
+                content.fourth_row_col_1 is empty and content.fourth_row_col_2 is empty and content.fourth_row_col_3 is empty ? 'hidden',
+            ]
+            %}
+        
+            {% if content.fourth_row_col_1 %}
+            <div{{ create_attribute({'class': fourth_row_class}) }}>
+                {{ content.fourth_row_col_1 }}
+            </div>
+            {% endif %}
+
+            {% if content.fourth_row_col_2 %}
+            <div{{ create_attribute({'class': fourth_row_class}) }}>
+                {{ content.fourth_row_col_2 }}
+            </div>
+            {% endif %}
+
+            {% if content.fourth_row_col_3 %}
+            <div{{ create_attribute({'class': fourth_row_class}) }}>
+                {{ content.fourth_row_col_3 }}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}{# Fourth Row Ends #}
+
+
+    {# Optional Content Rows #}
+
+    {# Fifth Row #}
+    {% if (content.fifth_row_col_1 or content.fifth_row_col_2 or content.fifth_row_col_3) %}
+    <div class="row">
+        <div class="ocms-home-cards__fifth">
+            {%
+            set fifth_row_class = [
+                content.fifth_row_col_1 and content.fifth_row_col_2 and content.fifth_row_col_3 ? 'col-xs-12 col-sm-4',
+                content.fifth_row_col_1 is empty and content.fifth_row_col_2 and content.fifth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.fifth_row_col_1 and content.fifth_row_col_2 is empty and content.fifth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.fifth_row_col_1 and content.fifth_row_col_2 and content.fifth_row_col_3 is empty ? 'col-xs-12 col-sm-6',
+                content.fifth_row_col_1 is empty and content.fifth_row_col_2 is empty and content.fifth_row_col_3 ? 'col-xs-12',
+                content.fifth_row_col_1 and content.fifth_row_col_2 is empty and content.fifth_row_col_3 is empty ? 'col-xs-12',
+                content.fifth_row_col_1 is empty and content.fifth_row_col_2 and content.fifth_row_col_3 is empty ? 'col-xs-12',
+                content.fifth_row_col_1 is empty and content.fifth_row_col_2 is empty and content.fifth_row_col_3 is empty ? 'hidden',
+            ]
+            %}
+        
+            {% if content.fifth_row_col_1 %}
+            <div{{ create_attribute({'class': fifth_row_class}) }}>
+                {{ content.fifth_row_col_1 }}
+            </div>
+            {% endif %}
+
+            {% if content.fifth_row_col_2 %}
+            <div{{ create_attribute({'class': fifth_row_class}) }}>
+                {{ content.fifth_row_col_2 }}
+            </div>
+            {% endif %}
+
+            {% if content.fifth_row_col_3 %}
+            <div{{ create_attribute({'class': fifth_row_class}) }}>
+                {{ content.fifth_row_col_3 }}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}{# Fifth Row Ends #}
+
+    {# Sixth Row #}
+    {% if (content.sixth_row_col_1 or content.sixth_row_col_2 or content.sixth_row_col_3) %}
+    <div class="row">
+        <div class="ocms-home-cards__sixth">
+            {%
+            set sixth_row_class = [
+                content.sixth_row_col_1 and content.sixth_row_col_2 and content.sixth_row_col_3 ? 'col-xs-12 col-sm-4',
+                content.sixth_row_col_1 is empty and content.sixth_row_col_2 and content.sixth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.sixth_row_col_1 and content.sixth_row_col_2 is empty and content.sixth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.sixth_row_col_1 and content.sixth_row_col_2 and content.sixth_row_col_3 is empty ? 'col-xs-12 col-sm-6',
+                content.sixth_row_col_1 is empty and content.sixth_row_col_2 is empty and content.sixth_row_col_3 ? 'col-xs-12',
+                content.sixth_row_col_1 and content.sixth_row_col_2 is empty and content.sixth_row_col_3 is empty ? 'col-xs-12',
+                content.sixth_row_col_1 is empty and content.sixth_row_col_2 and content.sixth_row_col_3 is empty ? 'col-xs-12',
+                content.sixth_row_col_1 is empty and content.sixth_row_col_2 is empty and content.sixth_row_col_3 is empty ? 'hidden',
+            ]
+            %}
+        
+            {% if content.sixth_row_col_1 %}
+            <div{{ create_attribute({'class': sixth_row_class}) }}>
+                {{ content.sixth_row_col_1 }}
+            </div>
+            {% endif %}
+
+            {% if content.sixth_row_col_2 %}
+            <div{{ create_attribute({'class': sixth_row_class}) }}>
+                {{ content.sixth_row_col_2 }}
+            </div>
+            {% endif %}
+
+            {% if content.sixth_row_col_3 %}
+            <div{{ create_attribute({'class': sixth_row_class}) }}>
+                {{ content.sixth_row_col_3 }}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}{# Sixth Row Ends #}
+
+    {# Seventh Row #}
+    {% if (content.seventh_row_col_1 or content.seventh_row_col_2 or content.seventh_row_col_3) %}
+    <div class="row">
+        <div class="ocms-home-cards__seventh">
+            {%
+            set seventh_row_class = [
+                content.seventh_row_col_1 and content.seventh_row_col_2 and content.seventh_row_col_3 ? 'col-xs-12 col-sm-4',
+                content.seventh_row_col_1 is empty and content.seventh_row_col_2 and content.seventh_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.seventh_row_col_1 and content.seventh_row_col_2 is empty and content.seventh_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.seventh_row_col_1 and content.seventh_row_col_2 and content.seventh_row_col_3 is empty ? 'col-xs-12 col-sm-6',
+                content.seventh_row_col_1 is empty and content.seventh_row_col_2 is empty and content.seventh_row_col_3 ? 'col-xs-12',
+                content.seventh_row_col_1 and content.seventh_row_col_2 is empty and content.seventh_row_col_3 is empty ? 'col-xs-12',
+                content.seventh_row_col_1 is empty and content.seventh_row_col_2 and content.seventh_row_col_3 is empty ? 'col-xs-12',
+                content.seventh_row_col_1 is empty and content.seventh_row_col_2 is empty and content.seventh_row_col_3 is empty ? 'hidden',
+            ]
+            %}
+        
+            {% if content.seventh_row_col_1 %}
+            <div{{ create_attribute({'class': seventh_row_class}) }}>
+                {{ content.seventh_row_col_1 }}
+            </div>
+            {% endif %}
+
+            {% if content.seventh_row_col_2 %}
+            <div{{ create_attribute({'class': seventh_row_class}) }}>
+                {{ content.seventh_row_col_2 }}
+            </div>
+            {% endif %}
+
+            {% if content.seventh_row_col_3 %}
+            <div{{ create_attribute({'class': seventh_row_class}) }}>
+                {{ content.seventh_row_col_3 }}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}{# Seventh Row Ends #}
+
+    {# Eighth Row #}
+    {% if (content.eighth_row_col_1 or content.eighth_row_col_2 or content.eighth_row_col_3) %}
+    <div class="row">
+        <div class="ocms-home-cards__eighth">
+            {%
+            set eighth_row_class = [
+                content.eighth_row_col_1 and content.eighth_row_col_2 and content.eighth_row_col_3 ? 'col-xs-12 col-sm-4',
+                content.eighth_row_col_1 is empty and content.eighth_row_col_2 and content.eighth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.eighth_row_col_1 and content.eighth_row_col_2 is empty and content.eighth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.eighth_row_col_1 and content.eighth_row_col_2 and content.eighth_row_col_3 is empty ? 'col-xs-12 col-sm-6',
+                content.eighth_row_col_1 is empty and content.eighth_row_col_2 is empty and content.eighth_row_col_3 ? 'col-xs-12',
+                content.eighth_row_col_1 and content.eighth_row_col_2 is empty and content.eighth_row_col_3 is empty ? 'col-xs-12',
+                content.eighth_row_col_1 is empty and content.eighth_row_col_2 and content.eighth_row_col_3 is empty ? 'col-xs-12',
+                content.eighth_row_col_1 is empty and content.eighth_row_col_2 is empty and content.eighth_row_col_3 is empty ? 'hidden',
+            ]
+            %}
+        
+            {% if content.eighth_row_col_1 %}
+            <div{{ create_attribute({'class': eighth_row_class}) }}>
+                {{ content.eighth_row_col_1 }}
+            </div>
+            {% endif %}
+
+            {% if content.eighth_row_col_2 %}
+            <div{{ create_attribute({'class': eighth_row_class}) }}>
+                {{ content.eighth_row_col_2 }}
+            </div>
+            {% endif %}
+
+            {% if content.eighth_row_col_3 %}
+            <div{{ create_attribute({'class': eighth_row_class}) }}>
+                {{ content.eighth_row_col_3 }}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}{# Eighth Row Ends #}
+
+    {# Ninth Row #}
+    {% if (content.ninth_row_col_1 or content.ninth_row_col_2 or content.ninth_row_col_3) %}
+    <div class="row">
+        <div class="ocms-home-cards__ninth">
+            {%
+            set ninth_row_class = [
+                content.ninth_row_col_1 and content.ninth_row_col_2 and content.ninth_row_col_3 ? 'col-xs-12 col-sm-4',
+                content.ninth_row_col_1 is empty and content.ninth_row_col_2 and content.ninth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.ninth_row_col_1 and content.ninth_row_col_2 is empty and content.ninth_row_col_3 ? 'col-xs-12 col-sm-6',
+                content.ninth_row_col_1 and content.ninth_row_col_2 and content.ninth_row_col_3 is empty ? 'col-xs-12 col-sm-6',
+                content.ninth_row_col_1 is empty and content.ninth_row_col_2 is empty and content.ninth_row_col_3 ? 'col-xs-12',
+                content.ninth_row_col_1 and content.ninth_row_col_2 is empty and content.ninth_row_col_3 is empty ? 'col-xs-12',
+                content.ninth_row_col_1 is empty and content.ninth_row_col_2 and content.ninth_row_col_3 is empty ? 'col-xs-12',
+                content.ninth_row_col_1 is empty and content.ninth_row_col_2 is empty and content.ninth_row_col_3 is empty ? 'hidden',
+            ]
+            %}
+        
+            {% if content.ninth_row_col_1 %}
+            <div{{ create_attribute({'class': ninth_row_class}) }}>
+                {{ content.ninth_row_col_1 }}
+            </div>
+            {% endif %}
+
+            {% if content.ninth_row_col_2 %}
+            <div{{ create_attribute({'class': ninth_row_class}) }}>
+                {{ content.ninth_row_col_2 }}
+            </div>
+            {% endif %}
+
+            {% if content.ninth_row_col_3 %}
+            <div{{ create_attribute({'class': ninth_row_class}) }}>
+                {{ content.ninth_row_col_3 }}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}{# Ninth Row Ends #}
+
+</div>

@@ -1,0 +1,7 @@
+uuid: 37dc2dc6-8a5c-4f82-939d-89213c3465d1
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_video_gallery_slide
+label: 'Video Gallery slide'
+behavior_plugins: {  }

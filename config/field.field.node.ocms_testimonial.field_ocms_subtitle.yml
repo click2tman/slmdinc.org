@@ -1,0 +1,19 @@
+uuid: b47c7db3-b6c1-4bc4-b3bc-865e15c727ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_subtitle
+    - node.type.ocms_testimonial
+id: node.ocms_testimonial.field_ocms_subtitle
+field_name: field_ocms_subtitle
+entity_type: node
+bundle: ocms_testimonial
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

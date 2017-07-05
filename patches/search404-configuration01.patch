@@ -1,0 +1,22 @@
+commit 0e249a9635c998d8f9ade5c39c58cc68bbff0ff7
+Author: Jonathon Whitener <jonathon.whitener@accenturefederal.com>
+Date:   Thu May 11 11:13:47 2017 -0500
+
+    Commented out code in Search404
+
+diff --git a/docroot/modules/contrib/search404/src/Form/Search404Settings.php b/docroot/modules/contrib/search404/src/Form/Search404Settings.php
+index 74d805208..e6ccad39f 100644
+--- a/docroot/modules/contrib/search404/src/Form/Search404Settings.php
++++ b/docroot/modules/contrib/search404/src/Form/Search404Settings.php
+@@ -208,9 +208,9 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
+     !empty($form_state->getValue('search404_custom_search_path'))) {
+       $custom_path = $form_state->getValue('search404_custom_search_path');
+ 
+-      if (empty(preg_match("/\/@keys$/", $custom_path))) {
++      /*if (empty(preg_match("/\/@keys$/", $custom_path))) {
+         $form_state->setErrorByName('search404_custom_search_path', t('Custom search path should be ends with search key pattern "/@keys".'));
+-      }
++      }*/
+       if (strpos($custom_path, '/') === 0) {
+         $form_state->setErrorByName('search404_page_redirect', t('Custom search path should not be start with a slash.'));
+       }

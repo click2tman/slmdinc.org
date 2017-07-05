@@ -1,0 +1,38 @@
+uuid: 21688ec5-9283-4d7d-9b98-eef3b68bcf9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ocms_collection_image
+    - taxonomy.vocabulary.ocms_product_groups
+  module:
+    - image
+id: taxonomy_term.ocms_product_groups.field_ocms_collection_image
+field_name: field_ocms_collection_image
+entity_type: taxonomy_term
+bundle: ocms_product_groups
+label: 'Product Group Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

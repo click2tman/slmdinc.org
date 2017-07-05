@@ -1,0 +1,7 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s dishes carousel.
+ */
+.mt-carousel-dishes .mt-carousel-item {
+  margin: 15px;
+}

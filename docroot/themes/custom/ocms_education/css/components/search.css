@@ -1,0 +1,102 @@
+.form-item input.form-search {
+  font-size: 14px;
+  padding: 10px 15px;
+  outline: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  width: 100%;
+  line-height: 1;
+  height: 40px;
+  -webkit-appearance: none;
+}
+.form-item input.form-search::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #464646;
+}
+.form-item input.form-search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color: #464646;
+ opacity: 1;
+}
+.form-item input.form-search::-moz-placeholderr { /* Mozilla Firefox 19+ */
+ color: #464646;
+ opacity: 1;
+}
+.form-item input.form-search:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #464646;
+}
+.header-top-area .form-item input.form-search::-webkit-input-placeholder,
+.footer-area .form-item input.form-search::-webkit-input-placeholder,
+.subfooter-area .form-item input.form-search::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #fff;
+}
+.header-top-area .form-item input.form-search:-moz-placeholder,
+.footer-area .form-item input.form-search:-moz-placeholder,
+.subfooter-area .form-item input.form-search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1;
+}
+.header-top-area .form-item input.form-search::-moz-placeholder,
+.footer-area .form-item input.form-search::-moz-placeholder,
+.subfooter-area .form-item input.form-search::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 1;
+}
+.header-top-area .form-item input.form-search:-ms-input-placeholder,
+.footer-area .form-item input.form-search:-ms-input-placeholder,
+.subfooterp-area .form-item input.form-search:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+.header-top-area .form-search,
+.footer-area .form-search,
+.subfooter-area .form-search, {
+  background-color: #363636;
+  color: #fff;
+}
+.search-help-link {
+  margin-top: 1em;
+}
+
+/*Search Block*/
+.block-search form {
+  position: relative;
+}
+.block-search .form-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+.block-search .form-actions:after {
+  font-family: 'FontAwesome';
+  content: "\f002";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  line-height: 40px;
+  width: 50px;
+  display: block;
+  background-color: #c2c2c2;
+  right: 0;
+  text-align: center;
+  color: #000;
+}
+.header-top-area .block-search .form-actions:after,
+.footer-area .block-search .form-actions:after,
+.subfooter-area .block-search .form-actions:after {
+  color: #fff;
+}
+.block-search .form-actions input {
+  margin: 0;
+  min-width: 0;
+  padding: 13px 25px 12px;
+  z-index: 1;
+  position: relative;
+  background-color: transparent;
+  height: 40px;
+  text-indent: -999999px;
+}
+.block-search .form-actions input:hover {
+  background-color: transparent;
+}

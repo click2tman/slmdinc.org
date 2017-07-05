@@ -1,0 +1,42 @@
+uuid: f0867ce8-4262-406b-ad18-48237cf2981a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_dropdowns_block
+    - field.field.block_content.ocms_dropdowns_block.field_ocms_dropdown
+  module:
+    - paragraphs
+    - workbench_moderation
+id: block_content.ocms_dropdowns_block.default
+targetEntityType: block_content
+bundle: ocms_dropdowns_block
+mode: default
+content:
+  field_ocms_dropdown:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

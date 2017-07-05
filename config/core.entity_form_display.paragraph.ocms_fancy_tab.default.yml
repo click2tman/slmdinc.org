@@ -1,0 +1,51 @@
+uuid: d947f50b-dfe3-4fdc-ad34-54cbb2db87a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_fancy_tab.field_ocms_fancy_block_reference
+    - field.field.paragraph.ocms_fancy_tab.field_ocms_fancy_subtitle
+    - field.field.paragraph.ocms_fancy_tab.field_ocms_fancy_title
+    - paragraphs.paragraphs_type.ocms_fancy_tab
+  module:
+    - workbench_moderation
+id: paragraph.ocms_fancy_tab.default
+targetEntityType: paragraph
+bundle: ocms_fancy_tab
+mode: default
+content:
+  field_ocms_fancy_block_reference:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ocms_fancy_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ocms_fancy_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

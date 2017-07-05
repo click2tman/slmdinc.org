@@ -1,0 +1,87 @@
+/**
+ * Secondary Navigation Stylesheet
+ * @description Define styles for secondary navigation for all node pages
+ */
+
+.block-ocms-hierarchical-taxonomy-menu {
+
+   ul{
+        list-style-type: none;
+        padding: 0;
+
+        li.level-1 {
+              padding-top: 15px;
+              padding-bottom: 15px;
+              border-bottom: 1px solid $sec-nav-border-color;
+              white-space: nowrap;
+
+              a, a:hover, a:visited, a:focus, a:active {
+                  font-weight: bold;
+                  color: $sec-nav-link-color;
+                  text-decoration: none;
+              }
+        }
+        
+        li.level-2 {
+            border-bottom: 1px solid $sec-nav-border-color;
+
+              a, a:hover, a:visited, a:focus, a:active {
+                  font-weight: bold;
+                  color: $sec-nav-link-color;
+                  text-decoration: none;
+
+              }
+        }
+
+        li.level-3 {
+              padding-left: 30px;
+              margin-left: -30px;
+              text-indent: 30px;
+              padding-top: 10px;
+              padding-bottom: 20px;
+
+              a, a:hover, a:visited, a:focus, a:active {
+                  font-weight: normal;
+                  color: $sec-nav-link-color;
+                  text-decoration: none;
+
+              }
+              
+        }
+
+        li.level-4  {
+              padding-left: 60px;
+              margin-left: -60px;
+              text-indent: 60px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+
+              a, a:hover, a:visited, a:focus, a:active {
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  font-weight: normal;
+                  color: $sec-nav-link-color;
+                  text-decoration: none;
+
+              }
+        }
+   }
+
+   
+   /* Is Active Trail States*/
+    li.is-active-trail {
+        > a:first-child {
+            border-left: 2px solid $sec-nav-left-border-color;
+            font-weight: bold;
+        }
+    }
+
+  /* Is Active State */
+    li.is-active {
+        > a:first-child, a:first-child:hover, a:first-child:visited {
+            display: block;
+            background-color: $sec-nav-highlight-color;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+uuid: c90be43d-ab1b-4b90-9934-e2f5e0c72c15
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_fltt_block
+    - field.field.block_content.ocms_fltt_block.field_ocms_fltt
+  module:
+    - paragraphs
+    - workbench_moderation
+id: block_content.ocms_fltt_block.default
+targetEntityType: block_content
+bundle: ocms_fltt_block
+mode: default
+content:
+  field_ocms_fltt:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: 'Linked Text Tile'
+      title_plural: 'Linked Text Tiles'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ocms_featured_linked_text_tile
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

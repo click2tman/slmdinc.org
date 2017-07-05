@@ -1,0 +1,25 @@
+ocms_viewfiles.directory_root:
+  path: '/downloads'
+  defaults:
+    _controller: '\Drupal\ocms_viewfiles\Controller\IrsFileView::content'
+    _title: 'IRS Static Files Directory'
+  requirements:
+    _permission: 'access content'
+ocms_viewfiles.content:
+  path: '/downloads/{path_dir}'
+  defaults:
+    _controller: '\Drupal\ocms_viewfiles\Controller\IrsFileView::dir_content'
+  requirements:
+    _permission: 'access content'
+ocms_viewfiles.subcontent:
+  path: '/downloads/{path_dir}/{path_dir2}'
+  defaults:
+    _controller: '\Drupal\ocms_viewfiles\Controller\IrsFileView::dir_content'
+  requirements:
+    _permission: 'access content'
+ocms_viewfiles.sublevelcontent:
+  path: '/downloads/{path_dir}/{path_dir2}/{path_dir3}'
+  defaults:
+    _controller: '\Drupal\ocms_viewfiles\Controller\IrsFileView::dir_content'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,19 @@
+uuid: 662eafa5-f2f5-4e3f-ad5e-94f5e6387360
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_ocms_ms_slide_link
+field_name: field_ocms_ms_slide_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

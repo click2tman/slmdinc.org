@@ -1,0 +1,8 @@
+uuid: 9a0ac837-9063-4c2c-a0a5-a5c2159656be
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_background_image_block
+label: 'Background Image Block'
+revision: 1
+description: 'Use this custom block type to create blocks with background images.'

@@ -1,0 +1,35 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s team member content type.
+ */
+.photo-container {
+  position: relative;
+  margin: 0 0 20px 0;
+}
+.subtitle-and-social-icons-container {
+  clear: both;
+  margin-bottom: 25px;
+}
+.node--type-ocms-team-member .field--name-field-ocms-subtitle {
+  float: left;
+  font-size: 18px;
+  font-style: italic;
+  color: #a6a6a6;
+  text-transform: none;
+  padding-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.node--type-ocms-team-member .field--name-field-ocms-subtitle + .icons-list {
+  float: right;
+}
+.node--type-ocms-team-member .field--name-field-ocms-subtitle + .icons-list li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.node--type-ocms-team-member .field--name-field-ocms-subtitle + .icons-list li a {
+  color: #a6a6a6;
+}
+.node--type-ocms-team-member .field--name-field-ocms-subtitle + .icons-list li i {
+  font-size: 24px;
+}

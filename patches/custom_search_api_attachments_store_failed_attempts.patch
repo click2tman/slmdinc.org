@@ -1,0 +1,45 @@
+diff --git a/src/Plugin/search_api/processor/FilesExtrator.php b/src/Plugin/search_api/processor/FilesExtrator.php
+index 5a1c6c9..832ffe1 100644
+--- a/src/Plugin/search_api/processor/FilesExtrator.php
++++ b/src/Plugin/search_api/processor/FilesExtrator.php
+@@ -220,20 +220,31 @@ class FilesExtrator extends ProcessorPluginBase implements PluginFormInterface {
+    */
+   public function extractOrGetFromCache(EntityInterface $entity, File $file, TextExtractorPluginInterface $extractor_plugin) {
+     $collection = 'search_api_attachments';
+-    $key = $collection . ':' . $file->id();
++    $extraction_key = "{$collection}:{$file->id()}";
++    $error_key = "{$collection}:error:{$file->id()}";
+     $extracted_data = '';
+-    if ($cache = $this->keyValue->get($collection)->get($key)) {
+-      $extracted_data = $cache;
++
++    if ($previous_error = $this->keyValue->get($collection)->get($error_key)) {
++      if ($previous_error > 1) {
++        return $extracted_data;
++      }
+     }
+-    else {
+-      try {
+-        $extracted_data = $extractor_plugin->extract($file);
++    if ($extracted_data = $this->keyValue->get($collection)->get($extraction_key)) {
++      return $extracted_data;
++    }
++    try {
++      $extracted_data = $extractor_plugin->extract($file);
++    }
++    catch (Exception $e) {
++      $this->logExtractionError($entity, $file, $e);
++      if ($previous_error = $this->keyValue->get($collection)->get($error_key)) {
++        $this->keyValue->get($collection)->set($error_key, $previous_error + 1);
+       }
+-      catch (Exception $e) {
+-        $this->logExtractionError($entity, $file, $e);
++      else {
++        $this->keyValue->get($collection)->set($error_key, 1);
+       }
+-      $this->keyValue->get($collection)->set($key, $extracted_data);
+     }
++    $this->keyValue->get($collection)->set($extraction_key, $extracted_data);
+     return $extracted_data;
+   }
+ 

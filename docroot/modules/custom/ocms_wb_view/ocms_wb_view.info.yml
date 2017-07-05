@@ -1,0 +1,6 @@
+name: 'OCMS Custom Workbench View'
+description: 'Alters the default view of workbench'
+package: 'OCMS Custom'
+type: 'module'
+version: '8.x-1.0'
+core: '8.x'

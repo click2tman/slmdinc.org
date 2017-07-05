@@ -1,0 +1,99 @@
+From b2faf8c87379a8076ad25758e6b8a1f2530e8289 Mon Sep 17 00:00:00 2001
+From: Alejandro Garza <alejandro.garza@acquia.com>
+Date: Wed, 15 Feb 2017 15:56:11 -0500
+Subject: [PATCH] Basing off pull request 413, fixing tests
+
+---
+ library/Solarium/Core/Client/Adapter/Http.php            | 16 ++++++++++++++--
+ library/Solarium/QueryType/Extract/RequestBuilder.php    |  1 -
+ tests/Solarium/Tests/Core/Client/Adapter/HttpTest.php    | 10 +++++++---
+ .../Tests/QueryType/Extract/RequestBuilderTest.php       |  4 +---
+ 4 files changed, 22 insertions(+), 9 deletions(-)
+
+diff --git a/library/Solarium/Core/Client/Adapter/Http.php b/library/Solarium/Core/Client/Adapter/Http.php
+index 740bc9b..3078e23 100644
+--- a/library/Solarium/Core/Client/Adapter/Http.php
++++ b/library/Solarium/Core/Client/Adapter/Http.php
+@@ -111,13 +111,25 @@ public function createContext($request, $endpoint)
+ 
+         if ($method == Request::METHOD_POST) {
+             if ($request->getFileUpload()) {
++                $boundary = '----------' . md5(time());
++                $CRLF = "\r\n";
++                $file = $request->getFileUpload();
++                $filename = basename($file);
++                // Add the proper boundary to the Content-Type header
++                $request->addHeader("Content-Type: multipart/form-data; boundary={$boundary}");
++                $data =  "--{$boundary}" . $CRLF;
++                $data .= 'Content-Disposition: form-data; name="upload"; filename=' . $filename . $CRLF;
++                $data .= 'Content-Type: application/octet-stream' . $CRLF . $CRLF;
++                $data .= file_get_contents($request->getFileUpload()) . $CRLF;
++                $data .= '--' . $boundary . '--';
++                $content_length = strlen($data);
++                $request->addHeader("Content-Length: $content_length\r\n");
+                 stream_context_set_option(
+                     $context,
+                     'http',
+                     'content',
+-                    file_get_contents($request->getFileUpload())
++                    $data
+                 );
+-                $request->addHeader('Content-Type: multipart/form-data');
+             } else {
+                 $data = $request->getRawData();
+                 if (null !== $data) {
+diff --git a/library/Solarium/QueryType/Extract/RequestBuilder.php b/library/Solarium/QueryType/Extract/RequestBuilder.php
+index 4247561..b31f5ba 100644
+--- a/library/Solarium/QueryType/Extract/RequestBuilder.php
++++ b/library/Solarium/QueryType/Extract/RequestBuilder.php
+@@ -107,7 +107,6 @@ public function build(QueryInterface $query)
+         } elseif (is_readable($file)) {
+             $request->setFileUpload($file);
+             $request->addParam('resource.name', basename($query->getFile()));
+-            $request->addHeader('Content-Type: multipart/form-data');
+         } else {
+             throw new RuntimeException('Extract query file path/url invalid or not available');
+         }
+diff --git a/tests/Solarium/Tests/Core/Client/Adapter/HttpTest.php b/tests/Solarium/Tests/Core/Client/Adapter/HttpTest.php
+index 0dcfb9d..0494611 100644
+--- a/tests/Solarium/Tests/Core/Client/Adapter/HttpTest.php
++++ b/tests/Solarium/Tests/Core/Client/Adapter/HttpTest.php
+@@ -184,16 +184,20 @@ public function testCreateContextPostFileRequest()
+ 
+         $context = $this->adapter->createContext($request, $endpoint);
+ 
++        // Remove content from comparison, since we can't determine the
++        // random boundary string.
++        $stream_context_get_options = stream_context_get_options($context);
++        unset($stream_context_get_options['http']['content']);
++        unset($stream_context_get_options['http']['header']);
++
+         $this->assertEquals(
+             array(
+                 'http' => array(
+                     'method' => $method,
+                     'timeout' => $timeout,
+-                    'content' => file_get_contents(__FILE__),
+-                    'header' => 'Content-Type: multipart/form-data',
+                 )
+             ),
+-            stream_context_get_options($context)
++            $stream_context_get_options
+         );
+     }
+ 
+diff --git a/tests/Solarium/Tests/QueryType/Extract/RequestBuilderTest.php b/tests/Solarium/Tests/QueryType/Extract/RequestBuilderTest.php
+index 5f52cb0..3d64ba6 100644
+--- a/tests/Solarium/Tests/QueryType/Extract/RequestBuilderTest.php
++++ b/tests/Solarium/Tests/QueryType/Extract/RequestBuilderTest.php
+@@ -134,9 +134,7 @@ public function testDocumentWithBoostThrowsException()
+ 
+     public function testContentTypeHeader()
+     {
+-        $headers = array(
+-            'Content-Type: multipart/form-data'
+-        );
++        $headers = array();
+         $request = $this->builder->build($this->query);
+         $this->assertEquals($headers,
+                             $request->getHeaders());

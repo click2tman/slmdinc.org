@@ -1,0 +1,47 @@
+uuid: 5dc6c0c3-4b4d-494e-be1a-5ac06f2931f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_video_gallery_block
+    - field.field.block_content.ocms_video_gallery_block.field_ocms_video_gallery_slides
+  module:
+    - paragraphs
+    - workbench_moderation
+id: block_content.ocms_video_gallery_block.default
+targetEntityType: block_content
+bundle: ocms_video_gallery_block
+mode: default
+content:
+  field_ocms_video_gallery_slides:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: 'Video Gallery slide'
+      title_plural: 'Video Gallery slides'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ocms_video_gallery_slide
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

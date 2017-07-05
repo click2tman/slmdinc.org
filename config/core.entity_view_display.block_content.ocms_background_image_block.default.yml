@@ -1,0 +1,33 @@
+uuid: 4597a999-a312-421c-90e1-42b4a94d499f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_background_image_block
+    - field.field.block_content.ocms_background_image_block.field_ocms_background_image
+    - field.field.block_content.ocms_background_image_block.field_ocms_bg_image_color
+    - field.field.block_content.ocms_background_image_block.field_ocms_bg_image_layout_mode
+    - field.field.block_content.ocms_background_image_block.field_ocms_bg_image_opacity
+    - field.field.block_content.ocms_background_image_block.field_ocms_bg_image_positioning
+    - field.field.block_content.ocms_background_image_block.field_ocms_block_reference
+id: block_content.ocms_background_image_block.default
+targetEntityType: block_content
+bundle: ocms_background_image_block
+mode: default
+content:
+  field_ocms_block_reference:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_ocms_background_image: true
+  field_ocms_bg_image_color: true
+  field_ocms_bg_image_layout_mode: true
+  field_ocms_bg_image_opacity: true
+  field_ocms_bg_image_positioning: true
+  langcode: true

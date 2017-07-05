@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Install functions for irspup.
+ */
+
+/**
+ * Update block_content 'custom block library' view permission.
+ */
+function irsocms_update_8001() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('views.view.block_content');
+  $config->set('display.default.display_options.access.options.perm', 'access custom block library')->save(TRUE);
+}

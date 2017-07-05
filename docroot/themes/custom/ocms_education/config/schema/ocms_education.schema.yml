@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Scholarly theme.
+
+ocms_education.settings:
+  type: theme_settings
+  label: 'Scholarly settings'

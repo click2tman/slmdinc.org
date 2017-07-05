@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Provides a context aware menu block based on a selected vocabulary.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ocms_hierarchical_taxonomy_menu_theme($existing, $type, $theme, $path) {
+  return [
+    'ocms_hierarchical_taxonomy_menu' => [
+      'variables' => [
+        'items' => [],
+      ],
+    ],
+  ];
+}

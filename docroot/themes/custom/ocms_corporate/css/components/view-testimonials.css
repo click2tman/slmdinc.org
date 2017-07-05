@@ -1,0 +1,62 @@
+/**
+ * @file
+ * Visual styles for Levelplus's testimonials views.
+ */
+
+.view-testimonials-block:not(.page) {
+  background-color: rgba(231, 239, 245, 0.35);
+  padding: 30px;
+  border-bottom: 10px solid rgba(231, 239, 245, 0.7);
+}
+.view-testimonials-block .views-row {
+  padding: 15px 0;
+}
+.view-testimonials-block .views-field-field-ocms-testimonial-image {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+.view-testimonials-block .views-field-field-ocms-testimonial-image ~ .views-field-title,
+.view-testimonials-block .views-field-field-ocms-testimonial-image ~ .views-field-field-ocms-subtitle {
+  margin-left: 50px;
+}
+.view-testimonials-block .views-field-field-ocms-testimonial-image img {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+.view-testimonials-block .views-field-body {
+  clear: both;
+}
+.view-testimonials-block .views-field-body p {
+  padding: 15px 0 10px;
+  position: relative;
+}
+.view-testimonials-block .views-field-body p:first-child:after {
+  position: absolute;
+  font-family: Georgia, Times New Roman, Serif;
+  content: "“";
+  left: 10px;
+  top: -15px;
+  font-size: 150px;
+  font-style: normal;
+  line-height: 1;
+}
+.view-testimonials-block .views-field-title a {
+  margin: 0;
+  font-style: italic;
+}
+.view-testimonials-block .views-field-field-ocms-subtitle {
+  font-size: 0.68em;
+  text-transform: uppercase;
+}
+.view-testimonials-block .more-link {
+  margin-bottom: 0;
+}
+.colored-region .view-testimonials-block {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.colored-region .view-testimonials-block .views-field-body p:after {
+  color: rgba(255, 255, 255, 0.2) !important;
+}

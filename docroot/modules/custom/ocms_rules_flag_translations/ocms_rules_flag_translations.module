@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Sends an email to authors of outdated translations
+ */
+
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Entity\ContentEntityFormInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ocms_rules_flag_translations_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $form_object = $form_state->getFormObject();
+  if (!($form_object instanceof ContentEntityFormInterface)) {
+    return;
+  }
+  $entity = $form_object->getEntity();
+  $type = $entity->getEntityTypeId();
+  if ($type != 'node') {
+    return;
+  }
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = 'ocms_rules_flag_translations_submit';
+    }
+  }
+}
+
+/**
+ * Custom submit handler
+ *
+ * Checks to see if "Flag other translations as outdated" has been checked.
+ */
+function ocms_rules_flag_translations_submit(array &$form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  if (isset($values['content_translation']['retranslate']) && $values['content_translation']['retranslate']) {
+    $form_object = $form_state->getFormObject();
+    $node = $form_object->getEntity();
+    $node_langcode = $node->language()->getId();
+    $owner = $node->getOwner();
+    $flagger = $owner->getDisplayName();
+    foreach ($node->getTranslationLanguages() as $language) {
+      if ($language->getId() != $node_langcode) {
+        $translated_node = $node->getTranslation($language->getId());
+        $translated_node_owner = $translated_node->getOwner();
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $module = 'ocms_rules_flag_translations';
+        $key = 'flag_translations';
+        $to = $translated_node_owner->getEmail();
+        $params['message'] = $flagger . ' has indicated that ' . $translated_node->getTitle() . ' is outdated. As the author of the ' . $language->getName() . ' translation, you should visit node id: ' . $translated_node->nid->value . ' and update the translation.';
+        $params['node_id'] = $translated_node->nid->value;
+        $params['node_title'] = $node->label();
+        $params['language'] = $language->getName();
+        $langcode = $owner->getPreferredLangcode();
+        $send = true;
+
+        $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function ocms_rules_flag_translations_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+ 
+  switch ($key) {
+    case 'flag_translations':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Node @nid (@title) needs the @language translation updated.', array('@nid' => $params['node_id'], '@title' => $params['node_title'], '@language' => $params['language']), $options);
+      $message['body'][] = SafeMarkup::checkPlain($params['message']);
+      break;
+  }
+}

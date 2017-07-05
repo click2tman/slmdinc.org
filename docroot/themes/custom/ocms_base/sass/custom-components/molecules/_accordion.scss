@@ -1,0 +1,59 @@
+/**
+ * Components - Accordion
+ * @description Defines style for Primary Content: Accordion List
+ */
+
+a.ocms-accordion-heading {
+    color: inherit;
+}
+
+h3.article-accordion {
+    color: $article-accordion-heading-color;
+}
+
+.ocms-accordion-heading {
+    text-decoration: none;
+
+    &:hover, &:focus, &:visited, &:active {
+        text-decoration: none;
+    }
+
+    .article-accordion:before {
+        @extend .fa;
+    }
+}
+
+@media only screen and (max-width: $screen-xs-max) {
+    .ocms-accordion-heading {
+        .article-accordion {
+            text-decoration: none;
+            background-color: $article-accordion-background-color;
+            border: 1px solid $article-accordion-border-color;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 15px 20px;
+
+            &:before {
+                content: $fa-var-angle-down;
+                color: $article-accordion-icon-color;
+                margin-right: 15px;
+            }
+
+        }
+
+        &.collapsed .article-accordion:before {
+            content: $fa-var-angle-right;
+        }
+    }
+
+    .ocms-accordion-body {
+        border-right: 1px solid $article-accordion-border-color;
+        border-left: 1px solid $article-accordion-border-color;
+        padding: 20px 30px;
+
+        &:last-child {
+            border-bottom: 1px solid $article-accordion-border-color;
+        }
+    }
+}
+

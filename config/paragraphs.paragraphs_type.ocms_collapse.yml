@@ -1,0 +1,7 @@
+uuid: 2c49a744-3561-4633-8cef-b2af8e74caa1
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_collapse
+label: Collapse
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: c61fbf20-947e-41c8-a8b9-528c2f69a7cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_ocms_slideshow_text
+field_name: field_ocms_slideshow_text
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

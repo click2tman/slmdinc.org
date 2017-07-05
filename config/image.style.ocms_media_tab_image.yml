@@ -1,0 +1,14 @@
+uuid: 9f29b593-1384-414f-8f04-38f1bf80fac5
+langcode: en
+status: true
+dependencies: {  }
+name: ocms_media_tab_image
+label: 'Media Tab Image (750x422)'
+effects:
+  53605a94-b8ea-4be0-aacd-d5c9afbcd523:
+    uuid: 53605a94-b8ea-4be0-aacd-d5c9afbcd523
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 422

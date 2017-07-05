@@ -1,0 +1,48 @@
+<?php
+
+use Drupal\Core\Render\BubbleableMetadata;
+
+/**
+* Implements hook_token_info().
+*/
+function ocms_tokens_token_info() {
+  $type = array(
+    'name' => t('Nodes'),
+    'description' => t('Tokens related to individual nodes.'),
+    'needs-data' => 'node',
+  );
+
+  // Core tokens for nodes.
+  $node['published'] = array(
+    'name' => t("Node Publish Status"),
+    'description' => t("Returns published or unpublished."),
+  );
+
+  return array(
+    'types' => array('node' => $type),
+    'tokens' => array('node' => $node),
+  );
+}
+
+/**
+* Implements hook_tokens().
+*/
+function ocms_tokens_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = array();
+
+  if ($type == 'node' && !empty($data['node'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $data['node'];
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        // Simple key values on the node.
+        case 'published':
+          $replacements[$original] = ($node->isPublished() ? 'Published' : 'Unpublished');
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}

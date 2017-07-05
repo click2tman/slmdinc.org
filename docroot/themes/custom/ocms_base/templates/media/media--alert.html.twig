@@ -1,0 +1,46 @@
+ {#
+/**
+ * @file
+ * Theme implementation to display an alert message.
+ */
+#}
+
+{# Get alert message date #}
+{% set startDate = content.field_ocms_alert_date_range[0]['start_date']['#plain_text'] | date('m/d/y') %}
+{% set endDate = content.field_ocms_alert_date_range[0]['end_date']['#plain_text'] | date('m/d/y') %}
+{% set nowDate = 'now' | date('m/d/y') %}
+
+{# Get alert type values #}
+{% set alertValue = content.field_ocms_alert_type[0]['#markup'] %}
+
+{# Set classes based on alert type #}
+{%
+    set alertClasses = [
+        (alertValue == 'Info') ? 'ocms-media-alert__info',
+        (alertValue =='Success') ? 'ocms-media-alert__success',
+        (alertValue == 'Warning') ? 'ocms-media-alert__warning',
+        (alertValue == 'Danger') ? 'ocms-media-alert__danger',
+    ]
+%}
+{%
+    set faClasses = [
+        (alertValue == 'Info') ? 'fa fa-info-circle',
+        (alertValue == 'Success') ? 'fa fa-check-circle',
+        (alertValue == 'Warning') ? 'fa fa-exclamation-triangle',
+        (alertValue == 'Danger') ? 'fa fa-exclamation-circle',
+    ]
+%}
+{% if nowDate >= startDate and nowDate <= endDate %}
+<div class="ocms-media-alert">
+    <div{{ content_attributes.addClass(alertClasses) }} role="alert">
+        <div class="ocms-media-alert__icon">
+            <i{{ content_attributes.removeClass(alertClasses).addClass(faClasses) }}  aria-hidden="true"></i>
+        </div>
+
+        <div class="ocms-media-alert__content">
+            <h2 class="ocms-media-alert__content-title">{{ elements.name[0]['#context']['value'] }}</h2>
+            <p>{{ content.field_ocms_alert_message.0['#text']|raw }}</p>
+        </div>
+    </div>
+</div>
+{% endif %}

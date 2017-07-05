@@ -1,0 +1,17 @@
+/**
+ * @file
+ * Visual styles for Levelplus's companies views.
+ */
+
+.view-companies .views-row {
+  margin-bottom: 30px;
+}
+.view-companies img {
+  -webkit-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+.view-companies img:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}

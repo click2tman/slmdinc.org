@@ -1,0 +1,13 @@
+diff --git a/docroot/modules/contrib/conditional_fields/conditional_fields.module b/docroot/modules/contrib/conditional_fields/conditional_fields.module
+index d0400ee..6be590e 100644
+--- a/docroot/modules/contrib/conditional_fields/conditional_fields.module
++++ b/docroot/modules/contrib/conditional_fields/conditional_fields.module
+@@ -202,7 +202,7 @@ function conditional_fields_element_after_build($element, &$form_state) {
+   if (method_exists($build_info['callback_object'], 'getEntity')) {
+     $entity = $build_info['callback_object']->getEntity();
+     if (method_exists($entity, 'getType')) {
+-      $bundle = $entity->getType();
++      $bundle = $entity->bundle();
+       $entity_type = $entity->getEntityTypeId();
+
+       $dependencies = conditional_fields_load_dependencies($entity_type, $bundle);

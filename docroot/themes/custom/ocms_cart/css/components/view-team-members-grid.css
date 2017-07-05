@@ -1,0 +1,45 @@
+/**
+ * @file
+ * Visual styles for Restaurant+'s team members grid views.
+ */
+.view-team-members-grid .views-row {
+  margin-bottom: 25px;
+}
+.view-team-members-grid ul.icons-list {
+  margin: 10px -9px 0;
+  float: right;
+}
+.view-team-members-grid ul.icons-list li {
+  margin: 10px;
+}
+.region--dark-typography .view-team-members-grid .icons-list a {
+  color: #a6a6a6;
+}
+.view-team-members-grid .views-field-title h5 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.view-team-members-grid .views-field-title h5 a:hover {
+  text-decoration: none;
+}
+.view-team-members-grid .views-field-field-ocms-subtitle {
+  font-style: italic;
+}
+.region--dark-typography .view-team-members-grid .views-field-field-ocms-subtitle {
+  color: #a6a6a6;
+}
+.view-team-members-grid .views-title-container {
+  float: left;
+}
+.view-team-members-grid a.hover-color-facebook:hover,
+.region--light-typography .view-team-members-grid a.hover-color-facebook:hover {
+  color: #3b5998;
+}
+.view-team-members-grid a.hover-color-twitter:hover,
+.region--light-typography .view-team-members-grid a.hover-color-twitter:hover {
+  color: #1da1f3
+}
+.view-team-members-grid a.hover-color-linkedin:hover,
+.region--light-typography .view-team-members-grid a.hover-color-linkedin:hover {
+  color: #0077b5;
+}

@@ -1,0 +1,8 @@
+<div class="ocms-callout col-xs-12 col-sm-12">
+  {% if configuration.label %}
+    <h2 class="ocms-callout__title">{{ configuration.label }}</h2>
+  {% endif %}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

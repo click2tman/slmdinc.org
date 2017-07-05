@@ -1,0 +1,94 @@
+home_cards:
+  label: Home Page Cards
+  category: OCMS Base Custom Layouts
+  template: templates/layouts/home/home-cards
+  icon: templates/layouts/home/home-cards.png
+  regions:
+    first_row:
+      label: First Row
+    second_row:
+      label: Second Row
+    third_row_col_1:
+      label: Third Row - Col 1
+    third_row_col_2_top:
+      label: Third Row - Col 2 Top
+    third_row_col_2_bottom:
+      label: Third Row - Col 2 Bottom
+    fourth_row_col_1:
+      label: Fourth Row - Col 1
+    fourth_row_col_2:
+      label: Fourth Row - Col 2
+    fourth_row_col_3:
+      label: Fourth Row - Col 3
+    fifth_row_col_1:
+      label: Fifth Row - Col 1
+    fifth_row_col_2:
+      label: Fifth Row - Col 2
+    fifth_row_col_3:
+      label: Fifth Row - Col 3
+    sixth_row_col_1:
+      label: Sixth Row - Col 1
+    sixth_row_col_2:
+      label: Sixth Row - Col 2
+    sixth_row_col_3:
+      label: Sixth Row - Col 3
+    seventh_row_col_1:
+      label: Seventh Row - Col 1
+    seventh_row_col_2:
+      label: Seventh Row - Col 2
+    seventh_row_col_3:
+      label: Seventh Row - Col 3
+    eighth_row_col_1:
+      label: Eighth Row - Col 1
+    eighth_row_col_2:
+      label: Eighth Row - Col 2
+    eighth_row_col_3:
+      label: Eighth Row - Col 3
+    ninth_row_col_1:
+      label: Ninth Row - Col 1
+    ninth_row_col_2:
+      label: Ninth Row - Col 2
+    ninth_row_col_3:
+      label: Ninth Row - Col 3
+
+multi_row_landing_pages:
+  label: Multi-Row Landing Pages Layouts
+  category: OCMS Base Custom Layouts
+  template: templates/layouts/multi-row-landing-pages/multi-row-landing-pages
+  icon: templates/layouts/multi-row-landing-pages/multi-row-landing-pages.png
+  regions:
+    first_row_col_1:
+      label: First Row - Col 1
+    first_row_col_2:
+      label: First Row - Col 2
+    first_row_col_3:
+      label: First Row - Col 3
+    second_row_col_1:
+      label: Second Row - Col 1
+    second_row_col_2:
+      label: Second Row - Col 2
+    second_row_col_3:
+      label: Second Row - Col 3
+    third_row_col_1:
+      label: Third Row - Col 1
+    third_row_col_2:
+      label: Third Row - Col 2
+    third_row_col_3:
+      label: Third Row - Col 3
+    fourth_row_col_1:
+      label: Fourth Row - Col 1
+    fourth_row_col_2:
+      label: Fourth Row - Col 2
+    fourth_row_col_3:
+      label: Fourth Row - Col 3
+
+one_column:
+  label: One Column Layout
+  category: OCMS Base Custom Layouts
+  template: templates/layouts/one-column/one-column
+  icon: templates/layouts/one-column/one-column.png
+  regions:
+    primary_content:
+      label: Primary Content
+    related_content:
+      label: Related Content

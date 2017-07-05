@@ -1,0 +1,9 @@
+uuid: dafae481-97e8-4686-9dd8-9f4225d2a308
+langcode: en
+status: true
+dependencies: {  }
+name: 'OCMS Collections'
+vid: ocms_collections
+description: ''
+hierarchy: 0
+weight: 0

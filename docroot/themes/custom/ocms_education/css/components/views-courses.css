@@ -1,0 +1,117 @@
+/* Courses Views */
+.view-ocms-courses .views-row {
+  padding-bottom: 5px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #acacac;
+}
+.view-ocms-courses .views-field-title a {
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+.view-ocms-courses .views-field-field-ocms-crs-current-tutor {
+  padding-bottom: 10px;
+}
+.view-ocms-courses .views-field-field-ocms-crs-current-tutor ul {
+  list-style: none;
+  margin: 0;
+}
+.view-ocms-courses .views-field-field-ocms-crs-current-tutor li {
+  margin: 0;
+}
+.view-ocms-courses .views-field-field-ocms-crs-current-tutor .views-label-field-ocms-crs-current-tutor,
+.view-ocms-courses .views-field-field-ocms-crs-current-tutor .field-content {
+  display: inline-block;
+}
+.view-ocms-courses .views-label.views-label-field-ocms-crs-current-tutor {
+  padding-right: 5px;
+}
+
+/* Courses Page */
+.block-system .view-ocms-courses .view-content > h3 {
+  display: block;
+  width: 55px;
+  height: 55px;
+  background-color: #252525;
+  color: #f0f0f0;
+  font-size: 40px;
+  text-align: center;
+  line-height: 53px;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .block-system .view-ocms-courses .views-row.group {
+    margin-left: 150px;
+    position: relative;
+  }
+  .block-system .view-ocms-courses h3 + .views-row.group {
+    margin-top: -73px;
+  }
+  .block-system .view-ocms-courses .views-row.group:before {
+    content: "";
+    height: 200%;
+    width: 1px;
+    background-color: #acacac;
+    left: -75px;
+    top: 8px;
+    display: block;
+    position: absolute;
+  }
+  .block-system .view-ocms-courses .views-row.group:last-child:before {
+    height: 100%;
+  }
+  .block-system .view-ocms-courses .view-content > h3 {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Course Highlights Views */
+.block-views .view-ocms-courses {
+  border-bottom: none;
+}
+.highlight-item.views-row {
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+.highlighted-content-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.highlighted-content-wrapper .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.highlighted-content-wrapper .title a {
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  display: block;
+  background-color: rgba(37,37,37,0.9);
+}
+.highlighted-content-wrapper .title a:hover {
+  text-decoration: none;
+  background-color: rgba(85,85,85,0.9);
+}
+.view-ocms-courses .more-link {
+  clear: both;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.view-ocms-courses .more-link a {
+  text-align: center;
+  border-bottom: 1px solid #acacac;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+.footer-area .view-ocms-courses .more-link a {
+  border-bottom: 1px solid #252525;
+}

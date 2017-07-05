@@ -1,0 +1,32 @@
+uuid: a18f5b07-fb72-4878-ab41-88b6650dae61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_media_tab.field_ocms_media_body
+    - field.field.paragraph.ocms_media_tab.field_ocms_media_button
+    - field.field.paragraph.ocms_media_tab.field_ocms_media_image
+    - field.field.paragraph.ocms_media_tab.field_ocms_media_tab_title
+    - field.field.paragraph.ocms_media_tab.field_ocms_media_title
+    - field.field.paragraph.ocms_media_tab.field_ocms_media_video
+    - paragraphs.paragraphs_type.ocms_media_tab
+  module:
+    - text
+id: paragraph.ocms_media_tab.default
+targetEntityType: paragraph
+bundle: ocms_media_tab
+mode: default
+content:
+  field_ocms_media_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_ocms_media_button: true
+  field_ocms_media_image: true
+  field_ocms_media_tab_title: true
+  field_ocms_media_title: true
+  field_ocms_media_video: true

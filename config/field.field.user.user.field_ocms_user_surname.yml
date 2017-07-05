@@ -1,0 +1,20 @@
+uuid: 11d2de6e-c87a-4246-b681-7dc87dc5cf7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ocms_user_surname
+  module:
+    - user
+id: user.user.field_ocms_user_surname
+field_name: field_ocms_user_surname
+entity_type: user
+bundle: user
+label: Surname
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

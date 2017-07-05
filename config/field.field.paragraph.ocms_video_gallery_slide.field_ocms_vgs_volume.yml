@@ -1,0 +1,25 @@
+uuid: f74c7502-8d46-4842-954a-c489f6b8445e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_vgs_volume
+    - paragraphs.paragraphs_type.ocms_video_gallery_slide
+id: paragraph.ocms_video_gallery_slide.field_ocms_vgs_volume
+field_name: field_ocms_vgs_volume
+entity_type: paragraph
+bundle: ocms_video_gallery_slide
+label: Volume
+description: 'Set the Volume of the Video from 0 to 100 (e.g. 50). 0 value mutes the video'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

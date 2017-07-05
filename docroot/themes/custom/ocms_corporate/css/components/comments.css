@@ -1,0 +1,142 @@
+/**
+ * @file
+ * Visual styles for comments in Levelplus.
+ */
+
+/*Comments*/
+.comment-wrapper {
+  margin-top: 140px;
+}
+.comment-wrapper > h2.title {
+  padding-bottom: 15px;
+  margin: 20px 0 40px 0;
+  font-size: 1.37em;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+.comment-wrapper h2.comment-form__title {
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+}
+.comment-wrapper > h2.title:first-child:before {
+  content: "\f0e6";
+  font-family: "FontAwesome";
+  font-size: 72px;
+  color: rgba(46, 52, 54, 0.2);
+  width: 80px;
+  height: 80px;
+  line-height: 1;
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  margin-left: -40px;
+}
+
+/*Comment*/
+.comment {
+  margin: 0 0 40px 0;
+  overflow: hidden;
+}
+.comment header {
+  padding: 0;
+}
+.comment .field--name-user-picture {
+  float: left;
+  padding: 0 20px 5px 0 !important;
+  min-width: 70px;
+  max-width: 70px;
+  position: relative;
+}
+.comment .field--name-user-picture img {
+  width: 40px;
+}
+.comment .comment__content-container {
+  float: left;
+  width: 85%;
+  position: relative;
+  margin: 0;
+}
+.comment h3.title {
+  margin: 0 0 10px 0;
+  font-size: 1.12em;
+}
+.comment h3.title a {
+  color: #2e3436;
+}
+.comment .comment__meta {
+  font-size: 0.68em;
+  color: #898989;
+  margin: 5px 0 15px;
+}
+.comment .field-name-comment-body {
+  font-size: 0.87em;
+  line-height: 1.7;
+}
+.comment .user-signature {
+  font-size: 0.68em;
+  color: rgba(46, 52, 54, 0.7);
+}
+.comment ul.links {
+  text-align: left;
+  display: inline-block;
+  border-bottom: 1px solid;
+  padding: 0;
+}
+.comment ul.links li {
+  font-size: 0.68em;
+  text-transform: uppercase;
+  padding-right: 5px;
+}
+.comment ul.links li:last-child {
+  padding-right: 0;
+}
+.comment ul.links li a {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  color: #2e3436;
+  display: inline;
+  min-width: 0;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  font-weight: 300;
+}
+.comment ul.links li a:after {
+  content: "";
+}
+.comment ul.links li a:hover {
+  background: transparent;
+}
+.comment ul.links li.comment-forbidden a + a {
+  margin-left: 0;
+}
+.indented {
+  margin-left: 75px;
+}
+@media (max-width:1199px) {
+  .comment .comment__content-container {
+    width: 80%;
+  }
+}
+@media (max-width:767px) {
+  .indented {
+    margin-left: 65px;
+  }
+  .comment .comment__content-container,
+  .comment .field--name-user-picture {
+    float: none;
+    width: 100%;
+  }
+  .comment .field--name-user-picture {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width:480px) {
+  .indented {
+    margin-left: 30px;
+  }
+}

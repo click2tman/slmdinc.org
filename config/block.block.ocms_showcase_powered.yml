@@ -1,0 +1,22 @@
+uuid: 33ed8c77-80cb-42ae-8fc3-37a6c23d7a75
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_showcase
+_core:
+  default_config_hash: k4IkS3vmMMmZ9akysiaFp0CFtCd-bY6-4euN8UMAyTg
+id: ocms_showcase_powered
+theme: ocms_showcase
+region: sub_footer_first
+weight: -9
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

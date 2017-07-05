@@ -1,0 +1,43 @@
+uuid: 5f08f54c-f33e-4c77-9efa-55e237053f39
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ocms_nodes_slideshow_block
+    - field.field.block_content.ocms_nodes_slideshow_block.field_ocms_ns_slide
+  module:
+    - workbench_moderation
+id: block_content.ocms_nodes_slideshow_block.default
+targetEntityType: block_content
+bundle: ocms_nodes_slideshow_block
+mode: default
+content:
+  field_ocms_ns_slide:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

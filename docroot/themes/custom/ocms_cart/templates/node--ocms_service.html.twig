@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Restaurant+s's theme implementation to display a Service node.
+ */
+#}
+
+{% extends "node.html.twig" %}
+{% block content %}
+  {{ attach_library('ocms_cart/node-service') }}
+  {{ content }}
+{% endblock %}

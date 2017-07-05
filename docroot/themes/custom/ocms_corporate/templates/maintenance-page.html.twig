@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ * Levelplus's theme implementation to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ *
+ * @see template_preprocess_maintenance_page()
+ */
+ #}
+
+{{ attach_library('ocms_corporate/maintenance-page') }}
+
+{# #page-container #}
+<div id="page-container" class="page-container">
+
+  {# #header-container #}
+  <div id="header-container" class="header-container colored-region dark">
+
+    {# #header-top #}
+    <div id="header-top" class="clearfix header-top">
+      <div class="container-fluid">
+        <div id="header-top-inside" class="clearfix header-top-inside">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="header-top-area">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {# EOF: #header-top #}
+
+    {# #header #}
+    <header id="header" role="banner" class="clearfix header full-width two-columns">
+      <div class="container-fluid">
+        {# #header-inside #}
+        <div id="header-inside" class="clearfix header-inside">
+          <div class="row">
+            <div class="col-md-4 col-lg-3">
+              <div class="header-area">
+                {# #header-inside-second #}
+                <div id="header-inside-second" class="clearfix header-inside-second">
+                  <div class="logo-and-site-name-wrapper clearfix">
+                    {% if logo %}
+                      <div class="logo">
+                        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-branding__logo">
+                          <img src="{{ logo }}" alt="{{ 'Home'|t }}" />
+                        </a>
+                      </div>
+                    {% endif %}
+                    {% if site_name %}
+                      <div class="site-name site-branding__name">
+                        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+                      </div>
+                    {% endif %}
+                    {% if site_slogan %}
+                      <div class="site-slogan site-branding__slogan">{{ site_slogan }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+                {# EOF:#header-inside-second #}
+              </div>
+            </div>
+          </div>
+        </div>
+        {# EOF: #header-inside #}
+      </div>
+    </header>
+    {# EOF: #header #}
+
+  </div>
+  {# EOF: #header-container #}
+
+  {# #page #}
+  <div id="page" class="clearfix page">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {{ page.system_messages }}
+        </div>
+      </div>
+    </div>
+
+    {# #main-content #}
+    <div id="main-content" class="clearfix main-content white-region">
+      <div class="container">
+        <div class="row">
+          <section class="col-md-12">
+            {# #main #}
+            <div id="main" class="clearfix main main-area">
+              {% if title %}
+                <h1 class="title page-title">{{ title }}</h1>
+              {% endif %}
+              {{ page.content }}
+            </div>
+            {# EOF:#main #}
+          </section>
+          <aside class="col-md-12">
+            {# #sidebar #}
+            <section id="sidebar-second" class="sidebar-second clearfix">
+            </section>
+            {# EOF:#sidebar #}
+          </aside>
+        </div>
+      </div>
+    </div>
+    {# EOF:#main-content #}
+
+  </div>
+  {# EOF:#page #}
+
+</div>
+{# EOF: #page-container #}

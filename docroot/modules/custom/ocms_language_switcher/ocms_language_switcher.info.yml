@@ -1,0 +1,8 @@
+name: 'OCMS Language Switcher'
+type: 'module'
+description: 'Provides a block with links to view content in the translations available for a node.'
+package: 'OCMS Custom'
+core: 8.x
+dependencies:
+  - language
+version: '8.x-1.0'

@@ -1,0 +1,23 @@
+uuid: 755e8288-5bed-4153-a26d-2e7eb88ed213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocm_ms_slide_caption_cl
+    - paragraphs.paragraphs_type.ocms_main_slideshow_slide
+  module:
+    - options
+id: paragraph.ocms_main_slideshow_slide.field_ocm_ms_slide_caption_cl
+field_name: field_ocm_ms_slide_caption_cl
+entity_type: paragraph
+bundle: ocms_main_slideshow_slide
+label: 'Slide Caption Background Color'
+description: 'From the drop-down menu, select the color you prefer.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 'region--light-typography region--dark-background'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

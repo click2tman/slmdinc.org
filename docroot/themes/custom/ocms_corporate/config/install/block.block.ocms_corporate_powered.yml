@@ -1,0 +1,22 @@
+uuid: 6ff966ff-8d3a-4d5b-ba00-cc562b94a989
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ocms_corporate
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: ocms_corporate_powered
+theme: ocms_corporate
+region: sub_footer_first
+weight: -28
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

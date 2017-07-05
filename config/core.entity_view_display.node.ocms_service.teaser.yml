@@ -1,0 +1,70 @@
+uuid: 4efeed3a-ff66-4da1-aee7-7b4f97e52107
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ocms_service.body
+    - field.field.node.ocms_service.field_image
+    - field.field.node.ocms_service.field_ocms_banner_image
+    - field.field.node.ocms_service.field_ocms_buy_link
+    - field.field.node.ocms_service.field_ocms_price
+    - field.field.node.ocms_service.field_ocms_service_group
+    - field.field.node.ocms_service.field_ocms_slideshow
+    - field.field.node.ocms_service.field_ocms_slideshow_image
+    - field.field.node.ocms_service.field_ocms_slideshow_text
+    - field.field.node.ocms_service.field_ocms_subheader_body
+    - field.field.node.ocms_service.field_ocms_video
+    - field.field.node.ocms_service.field_tags
+    - image.style.large
+    - node.type.ocms_service
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_service.teaser
+targetEntityType: node
+bundle: ocms_service
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: large
+      image_link: content
+    third_party_settings: {  }
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_buy_link: true
+  field_ocms_price: true
+  field_ocms_service_group: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  field_ocms_subheader_body: true
+  field_ocms_video: true
+  field_tags: true
+  langcode: true

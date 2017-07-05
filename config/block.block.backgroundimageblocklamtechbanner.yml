@@ -1,0 +1,31 @@
+uuid: 3ce423e5-ed3f-4568-89e1-89ee53948f74
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:ocms_background_image_block:38f89e90-a58d-4ab3-96b6-6578e9c19868'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: backgroundimageblocklamtechbanner
+theme: ocms_showcase
+region: banner
+weight: -8
+provider: null
+plugin: 'block_content:38f89e90-a58d-4ab3-96b6-6578e9c19868'
+settings:
+  id: 'block_content:38f89e90-a58d-4ab3-96b6-6578e9c19868'
+  label: 'Background Image Block - LAM-TECH Banner'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/60"
+    negate: false
+    context_mapping: {  }

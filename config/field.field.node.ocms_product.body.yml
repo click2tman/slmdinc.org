@@ -1,0 +1,22 @@
+uuid: 184abae5-9a01-4f2e-895e-0efc3edd8a16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.ocms_product
+  module:
+    - text
+id: node.ocms_product.body
+field_name: body
+entity_type: node
+bundle: ocms_product
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

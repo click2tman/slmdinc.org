@@ -1,0 +1,21 @@
+uuid: 2dc4d9fd-2d40-43cc-8625-f8f26f4957fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_collapse_body
+    - paragraphs.paragraphs_type.ocms_collapse
+  module:
+    - text
+id: paragraph.ocms_collapse.field_ocms_collapse_body
+field_name: field_ocms_collapse_body
+entity_type: paragraph
+bundle: ocms_collapse
+label: 'Collapse Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

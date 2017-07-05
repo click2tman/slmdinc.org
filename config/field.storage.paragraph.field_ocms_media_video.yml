@@ -1,0 +1,19 @@
+uuid: 2ed9e451-de0d-4a94-bb5c-a2463c21101a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - video_embed_field
+id: paragraph.field_ocms_media_video
+field_name: field_ocms_media_video
+entity_type: paragraph
+type: video_embed_field
+settings: {  }
+module: video_embed_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

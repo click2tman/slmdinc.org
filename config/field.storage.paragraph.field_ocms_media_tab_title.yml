@@ -1,0 +1,21 @@
+uuid: e5514a9d-ee2e-44cf-b26f-c5f0c78927df
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_ocms_media_tab_title
+field_name: field_ocms_media_tab_title
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

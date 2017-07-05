@@ -1,0 +1,7 @@
+uuid: 74a79eb7-4cf9-4153-bd3d-a999f3dc6cc8
+langcode: en
+status: true
+dependencies: {  }
+id: ocms_featured_linked_text_tile
+label: 'Featured Linked Text Tile'
+behavior_plugins: {  }

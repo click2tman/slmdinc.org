@@ -1,0 +1,75 @@
+/**
+ * Content Box With Image
+ * @description Style for Content Box With Image Custom Blocks
+ */
+.field--name-field-ocms-icon-list {
+  display: none;
+  &-text {
+    display: inline;
+  }
+}
+
+.field--name-field-ocms-icon-content-checklist {
+  margin-bottom: 20px;
+
+}
+ .ocms-content-box-with-image {
+
+     .ocms-content-box-left {
+        padding: 20px;
+        border: 1px solid $callout-border;
+        height: 200px;
+
+         @media only screen and (max-width: 576px) { //below 576px
+            width: 350px;
+        }
+
+        .field-name-field-ocms-icon-list {
+          display: none;
+        }
+
+        i {
+          color: $ocms-blue-2
+        }
+
+        h3 {
+          margin-bottom: 20px;
+        }
+     }
+
+     .ocms-content-box-right {
+        padding: 0;
+        border: 1px solid $callout-border;
+        height: 200px;
+        background-color: rgba(21, 21, 21, .4);  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media only screen and (max-width: 576px) { //below 576px
+            width: 350px;
+        }
+
+        .ocms-content-box-image {
+          z-index: -2;
+          overflow: hidden;
+          .img-responsive {
+            max-width: none;
+          }
+        }
+
+        a {
+          position: absolute;
+          margin: 0 auto;
+          left: 0;
+          right: 0;
+          width: 80%;
+          color: $white;
+          z-index: 1;
+          text-decoration: none;
+            &:visited {
+              color: $white;
+            }
+        }
+     }
+ }

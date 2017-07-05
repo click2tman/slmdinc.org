@@ -1,0 +1,48 @@
+.page-node-type-ocms-content-list { // this class is added via configuration
+
+    //Teaser header    
+    .article, .ocms-landing-page {
+        h2 {
+            font-weight: bold;
+            font-size: em(19);
+            line-height: em(26);
+        }
+    }
+
+    //Style the Banner that extends across the page-break-inside:
+    .ocms-page-node-type-content-list__title {
+        border-bottom: 10px solid #234e76;
+    }
+
+    .field.field--name-field-ocms-description-abstract.field--type-string-long.field--label-hidden.field--item {
+        margin-bottom: 10px;
+    }
+
+    .field--item {
+        h2 {
+           a, a:hover, a:active, a:visited {
+               text-decoration: none;
+           }
+        }
+    }
+
+    .region-content {
+        .node-readmore > a {
+            color: transparent;
+
+            &::before {
+                color: $link-color;
+                @extend .fa;
+                content: $fa-var-angle-right;
+                text-decoration: underline;
+            }
+
+            &::after {
+                color: $link-color;
+                content: " Continue Reading";
+                text-decoration: underline;
+                margin-left: -4.6em;
+            }
+        }
+    }
+}

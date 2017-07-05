@@ -1,0 +1,31 @@
+uuid: c3724b5d-861a-4ef1-bdcf-97669d8f70cc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:ocms_background_image_block:79babfc3-9f57-4a6a-8589-cf1dfa1f33f1'
+  module:
+    - block_content
+    - system
+  theme:
+    - ocms_showcase
+id: backgroundimageblockcta
+theme: ocms_showcase
+region: media_background_first
+weight: 0
+provider: null
+plugin: 'block_content:79babfc3-9f57-4a6a-8589-cf1dfa1f33f1'
+settings:
+  id: 'block_content:79babfc3-9f57-4a6a-8589-cf1dfa1f33f1'
+  label: 'Background image block - CtA'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front> \r\n/node/60"
+    negate: false
+    context_mapping: {  }

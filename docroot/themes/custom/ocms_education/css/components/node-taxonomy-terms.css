@@ -1,0 +1,35 @@
+.field--entity-reference-target-type-taxonomy-term ul.field__items {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0 30px 0;
+  clear: both;
+}
+.node-teaser .field--entity-reference-target-type-taxonomy-term ul.field__items {
+  margin: 15px 0 10px 0;
+}
+.field--entity-reference-target-type-taxonomy-term ul.field__items {
+  padding: 0;
+}
+.field--entity-reference-target-type-taxonomy-term ul.field__items li {
+  display: inline;
+  margin-right: 2px;
+}
+.field--entity-reference-target-type-taxonomy-term ul.field__items li a {
+  color: #7d7d7d;
+  padding: 6px 8px;
+  line-height: 1;
+  background-color: #d2d2d2;
+  font-size: 11px;
+  min-width: auto;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 3px 0 2px 0;
+}
+.field--entity-reference-target-type-taxonomy-term ul.field__items li a:hover {
+  background-color: #000;
+  text-decoration: none;
+  color: #fff;
+}

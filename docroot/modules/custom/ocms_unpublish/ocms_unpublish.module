@@ -1,0 +1,210 @@
+<?php
+
+/**
+ * @file
+ * OCMS Unpublish Module for setting default unpublish date for certain entities.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_inline_entity_form_entity_form_alter().
+ */
+function ocms_unpublish_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  // Scheduled update types for scheduling content/media.
+  $unpublished_bundles = [
+    'schedule_media_unpub_date',
+    'schedule_content_unpub_date',
+  ];
+  $publish_bundles = [
+    'schedule_media_publish_date',
+    'schedule_content_publish_date',
+  ];
+
+  // Set default unpublished date if default value is not set.
+  if (in_array($entity_form['#bundle'], $unpublished_bundles)) {
+    $default_value = $entity_form['update_timestamp']['widget'][0]['value']['#default_value'];
+    if (empty($default_value)) {
+      // Set default to today + 366 days before midnight.
+      $now = new DateTime();
+      $one_year_on = DrupalDateTime::createFromDateTime($now->modify('+366 day 11:59:59 PM'));
+      $entity_form['update_timestamp']['widget'][0]['value']['#default_value'] = $one_year_on;
+    }
+  }
+
+  // Validate publish date is not too far into future.
+  if (in_array($entity_form['#bundle'], $publish_bundles)) {
+    $entity_form['#element_validate'][] = 'form_validation_publish_date_validate';
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * Modify an entity's unpublished scheduled_update entity references,
+ * as well as it's historic date.
+ */
+function ocms_unpublish_entity_presave(EntityInterface $entity) {
+  $type = $entity->getEntityType()->id();
+  $types_to_check = ['node', 'media_entity'];
+
+  // Exit if no schedule_unpublished_date field or not of types we're targeting.
+  if (!isset($entity->schedule_unpublished_date) || !in_array($type, $types_to_check)) {
+    return;
+  }
+
+  // Unpublished scheduled_update entity.
+  $unpublished_tid = $entity->schedule_unpublished_date->target_id;
+  if ($unpublished_tid) {
+    $schedule_unpublished_entity = \Drupal::entityTypeManager()
+      ->getStorage('scheduled_update')
+      ->load($unpublished_tid);
+  }
+
+  // Scheduled to publish scheduled_update entity.
+  $publish_tid = $entity->schedule_publish_date->target_id;
+  if ($publish_tid) {
+    $schedule_publish_entity = \Drupal::entityTypeManager()
+      ->getStorage('scheduled_update')
+      ->load($publish_tid);
+    $schedule_publish_time = $schedule_publish_entity->update_timestamp->value;
+    $schedule_publish_datetime = (new DateTime())->setTimestamp($schedule_publish_time);
+  }
+
+  // Conditions to check for removing or updating the unpublished date entity.
+  $is_moderation_published = ($entity->moderation_state->getValue()[0]['target_id'] == 'published' ? 1 : 0);
+  $is_historical = ($entity->field_ocms_historical->value == 'yes' ? 1 : 0);
+  $is_scheduled_to_publish = !empty($schedule_publish_datetime);
+  $has_unpublish_entity = isset($schedule_unpublished_entity);
+
+  // Set “Historic Date” to the appropriate date and time.
+  if ($is_historical && ($is_moderation_published || $is_scheduled_to_publish)) {
+    // It is published, so use now as historic date.
+    if ($is_moderation_published) {
+      $entity->field_ocms_historical_date->value = (new DateTime())->format('Y-m-d');
+    }
+    // Scheduled to publish, so use scheduled publish date.
+    if ($is_scheduled_to_publish) {
+      $entity->field_ocms_historical_date->value = $schedule_publish_datetime->format('Y-m-d');
+    }
+    drupal_set_message(t('The historical date has been set to: @date.', array('@date' => $entity->field_ocms_historical_date->value)));
+  }
+  else {
+    // Set “Historic Date” to empty value.
+    $entity->field_ocms_historical_date->value = '';
+  }
+
+  // Update unpublished timestamp if scheduled to publish.
+  if ($has_unpublish_entity && !$is_historical && ($is_moderation_published || $is_scheduled_to_publish)) {
+    if ($is_moderation_published) {
+      // Set unpublished to today + 366 days before midnight.
+      $one_year_on = (new DateTime())->modify('+366 day 11:59:59 PM')->getTimestamp();
+      $schedule_unpublished_entity->update_timestamp->value = $one_year_on;
+      $schedule_unpublished_entity->save();
+    }
+    elseif ($is_scheduled_to_publish) {
+      // Set unpublished to scheduled publish date + 366 days before midnight.
+      $one_year_on = $schedule_publish_datetime->modify('+366 day 11:59:59 PM')->getTimestamp();
+      $schedule_unpublished_entity->update_timestamp->value = $one_year_on;
+      $schedule_unpublished_entity->save();
+    }
+    drupal_set_message(t('The scheduled unpublished date has been set to: @date.', array('@date' => \Drupal::service('date.formatter')->format($schedule_unpublished_entity->update_timestamp->value))));
+  }
+
+  // Unset scheduled unpublished if content is historical or not set to publish.
+  if ($is_historical || (!$is_moderation_published && !$is_scheduled_to_publish)) {
+    // Remove unpublished date scheduled_update entity reference.
+    unset($entity->schedule_unpublished_date);
+
+    // Delete unpublished date scheduled_update entity.
+    if ($has_unpublish_entity) {
+      if ($type == 'node') {
+        delete_schedule_unpublished_date_entity($schedule_unpublished_entity, $entity, $type, $unpublished_tid);
+      }
+      elseif ($type == 'media_entity') {
+        delete_schedule_unpublished_date_entity($schedule_unpublished_entity, $entity, $type, $unpublished_tid);
+      }
+      drupal_set_message(t('The scheduled unpublished date was discarded because the content is either historical or not set to be published.'));
+    }
+  }
+}
+
+/**
+ * Delete schedule_unpublished_date referenced entity.
+ *
+ * @param EntityInterface $schedule_unpublished_entity
+ *   The scheduled_unpublished_entity to remove.
+ * @param EntityInterface $referencing_entity
+ *   The entity that references the scheduled_update entity.
+ * @param string $referencing_type
+ *   The type of the referencing entity (Ex. node, media_entity).
+ */
+function delete_schedule_unpublished_date_entity(EntityInterface $schedule_unpublished_entity, EntityInterface $referencing_entity, $referencing_type, $unpublished_tid) {
+  // Entity id() will be null if this is the first revision.
+  if ($referencing_entity->id()) {
+    // Get the default entity's unpublished date to compare against new one.
+    $default_vid = \Drupal::entityTypeManager()
+      ->getStorage($referencing_type)
+      ->load($referencing_entity->id())
+      ->vid->value;
+    $node_revision = \Drupal::entityTypeManager()
+      ->getStorage($referencing_type)
+      ->loadRevision($default_vid);
+    $default_unpublished_tid = $node_revision->schedule_unpublished_date->target_id;
+
+    // Before delete, check if the default revision uses the unpublished entity.
+    if ($default_unpublished_tid !== $unpublished_tid) {
+      $schedule_unpublished_entity->delete();
+    }
+  }
+  else {
+    // This is the first revision. Ok to remove.
+    $schedule_unpublished_entity->delete();
+  }
+}
+
+/**
+ * Validate the publish date.
+ */
+function form_validation_publish_date_validate(&$element, FormStateInterface &$form_state, $form) {
+  $publish_date = $form_state->getValue('schedule_publish_date');
+  $is_publish_date_invalid = FALSE;
+
+  if ($publish_date) {
+    if (isset($publish_date['form']['inline_entity_form']['entities'][0])) {
+      /** @var DrupalDateTime $publish_datetime */
+      $publish_datetime = $publish_date['form']['inline_entity_form']['entities'][0]['form']['update_timestamp'][0]['value'];
+    }
+    else {
+      $publish_datetime = $publish_date['form']['inline_entity_form']['update_timestamp'][0]['value'];
+    }
+    $now = new DateTime();
+    /** @var DateInterval $diff */
+    $diff = $publish_datetime->diff($now);
+
+    if ($diff->days > 366) {
+      $is_publish_date_invalid = TRUE;
+    }
+  }
+
+  // Publish date is less than 1 year from today.
+  if ($is_publish_date_invalid) {
+    $form_state->setError($element['update_timestamp'], t('Set a publish date less than one year and one day from today.'));
+  }
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function ocms_unpublish_views_data_alter(array &$data) {
+  $data['node']['scheduled_expiration_range'] = array(
+    'title' => t('Scheduled expiration range'),
+    'field' => array(
+      'title' => t('Scheduled expiration range'),
+      'help' => t('Returns 90, 60, 30, 15, 5, or 1 day until expiration.'),
+      'id' => 'scheduled_expiration_range',
+    ),
+  );
+}

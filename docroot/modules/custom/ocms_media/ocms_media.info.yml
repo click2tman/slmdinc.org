@@ -1,0 +1,6 @@
+name: OCMS Media
+type: module
+description: 'Preprocessing of custom embedded media entity (ex. hyperlink).'
+package: OCMS Custom
+core: 8.x
+version: '8.x-1.0'

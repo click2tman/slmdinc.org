@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Contains ocms_accessibility.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ocms_accessibility_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Get content_types we want to apply form changes to.
+  $config = \Drupal::config('ocms_accessibility.settings');
+  $forms_to_check = array_filter($config->get('content_types'));
+  $form_type = str_replace(['node_', '_edit', '_form'], '', $form_id);
+
+  if (in_array($form_type, $forms_to_check)) {
+    // Add js to call a11ychecker on form submit.
+    $form['#attached']['library'][] = 'ocms_accessibility/check_compliance';
+    $form['actions']['submit']['#attributes']['class'][] = 'submit-with-accessibility-checker';
+  }
+}

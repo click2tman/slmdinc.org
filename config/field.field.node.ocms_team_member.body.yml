@@ -1,0 +1,22 @@
+uuid: d8ec2388-1349-4442-99b4-fd41a9746f0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.ocms_team_member
+  module:
+    - text
+id: node.ocms_team_member.body
+field_name: body
+entity_type: node
+bundle: ocms_team_member
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

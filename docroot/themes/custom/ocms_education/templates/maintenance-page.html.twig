@@ -1,0 +1,158 @@
+{#
+/**
+ * @file
+ * Scholarly's theme implementation to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ *
+ * @see template_preprocess_maintenance_page()
+ */
+ #}
+
+{{ attach_library('ocms_education/maintenance-page') }}
+
+{# #header-top #}
+<div id="header-top" class="clearfix">
+  <div class="container">
+    <div id="header-top-inside" class="clearfix header-top-inside">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header-top-area">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{# EOF: #header-top #}
+
+<header id="header"  role="banner" class="header-container clearfix">
+  <div class="container">
+
+    <div id="header-inside" class="clearfix">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div id="header-inside-left" class="clearfix">
+
+            <div class="logo-and-site-name-wrapper clearfix">
+              {% if logo %}
+                <div class="logo">
+                  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-branding__logo">
+                    <img src="{{ logo }}" alt="{{ 'Home'|t }}" />
+                  </a>
+                </div>
+              {% endif %}
+              {% if site_name %}
+                <div class="site-name site-branding__name">
+                  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+                </div>
+              {% endif %}
+              {% if site_slogan %}
+                <div class="site-slogan site-branding__slogan">{{ site_slogan }}</div>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div id="header-inside-right" class="clearfix">
+
+            <div id="main-navigation" class="clearfix">
+              <nav role="navigation">
+
+              </nav>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</header>
+
+{# #page #}
+<div id="page" class="clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{ page.system_messages }}
+      </div>
+    </div>
+  </div>
+  {# #main-content #}
+  <div id="main-content" class="clearfix main-content white-region">
+    <div class="container">
+      <div class="row">
+        <section class="col-md-12">
+          {# #main #}
+          <div id="main" class="clearfix main main-area">
+            {% if title %}
+              <h1 class="title page-title">{{ title }}</h1>
+            {% endif %}
+            {{ page.content }}
+          </div>
+          {# EOF:#main #}
+        </section>
+      </div>
+    </div>
+  </div>
+  {# EOF:#main-content #}
+</div>
+
+<div id="bottom-content" class="clearfix">
+  <div class="container">
+
+    <div id="bottom-content-inside" class="clearfix">
+      <div class="bottom-content-area">
+        <div class="row">
+          <div class="col-md-12">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-top" class="clearfix">
+  <div class="container">
+
+    <div id="footer-top-inside" class="clearfix">
+      <div class="row">
+        <div class="col-md-12"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer id="footer" class="clearfix">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12"></div>
+    </div>
+
+  </div>
+</footer>
+
+<div id="subfooter" class="clearfix">
+  <div class="container">
+    <div id="subfooter-inside" class="clearfix">
+      <div class="row">
+        <div class="col-md-4">
+            <div class="subfooter-area left">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="subfooter-area right">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

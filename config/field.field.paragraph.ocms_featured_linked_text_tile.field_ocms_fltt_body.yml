@@ -1,0 +1,21 @@
+uuid: adf50a05-ca39-46ea-8d8b-0473f3c9a408
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ocms_fltt_body
+    - paragraphs.paragraphs_type.ocms_featured_linked_text_tile
+  module:
+    - text
+id: paragraph.ocms_featured_linked_text_tile.field_ocms_fltt_body
+field_name: field_ocms_fltt_body
+entity_type: paragraph
+bundle: ocms_featured_linked_text_tile
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

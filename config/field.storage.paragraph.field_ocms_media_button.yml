@@ -1,0 +1,19 @@
+uuid: 73654e97-64cd-4d32-904e-d66133cfa5ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_ocms_media_button
+field_name: field_ocms_media_button
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

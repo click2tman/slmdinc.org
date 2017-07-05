@@ -1,0 +1,72 @@
+diff --git a/config/install/simplesamlphp_auth.settings.yml b/config/install/simplesamlphp_auth.settings.yml
+index 0d57d52..5f7a99e 100644
+--- a/config/install/simplesamlphp_auth.settings.yml
++++ b/config/install/simplesamlphp_auth.settings.yml
+@@ -16,6 +16,7 @@ allow:
+   default_login: true
+   default_login_roles: []
+   default_login_users: '1'
++  default_login_email_domains: ''
+ logout_goto_url:
+ user_register_original:
+ sync:
+diff --git a/config/schema/simplesamlphp_auth.schema.yml b/config/schema/simplesamlphp_auth.schema.yml
+index 241e859..aa7bdcf 100644
+--- a/config/schema/simplesamlphp_auth.schema.yml
++++ b/config/schema/simplesamlphp_auth.schema.yml
+@@ -60,6 +60,9 @@ simplesamlphp_auth.settings:
+         default_login_users:
+           type: string
+           label: 'Users to be allowed to log in locally'
++        default_login_email_domains:
++          type: string
++          label: 'Email domains to be allowed to log in locally'
+     logout_goto_url:
+       type: string
+       label: 'Redirect users after logging out'
+diff --git a/src/EventSubscriber/SimplesamlSubscriber.php b/src/EventSubscriber/SimplesamlSubscriber.php
+index 886ab1e..1e9f3ed 100644
+--- a/src/EventSubscriber/SimplesamlSubscriber.php
++++ b/src/EventSubscriber/SimplesamlSubscriber.php
+@@ -94,6 +94,16 @@ class SimplesamlSubscriber implements EventSubscriberInterface {
+       if (array_intersect($this->account->getRoles(), $allowed_roles)) {
+         return;
+       }
++
++      $allowed_email_domains = explode(',', $this->config->get('allow.default_login_email_domains'));
++      $email_address = $this->account->getEmail();
++      $domain_position = strpos($email_address, '@');
++      if ($domain_position !== FALSE) {
++        $domain = substr($email_address, $domain_position + 1);
++        if (in_array($domain, $allowed_email_domains)) {
++          return;
++        }
++      }
+     }
+ 
+     if ($this->config->get('debug')) {
+diff --git a/src/Form/LocalSettingsForm.php b/src/Form/LocalSettingsForm.php
+index a1fefc1..f13051b 100644
+--- a/src/Form/LocalSettingsForm.php
++++ b/src/Form/LocalSettingsForm.php
+@@ -62,6 +62,12 @@ class LocalSettingsForm extends ConfigFormBase {
+       '#default_value' => $config->get('allow.default_login_users'),
+       '#description' => $this->t('Example: <i>1,2,3</i><br />A comma-separated list of user IDs that should be allowed to login without simpleSAMLphp.'),
+     ];
++    $form['authentication']['allow_default_login_email_domains'] = [
++      '#type' => 'textfield',
++      '#title' => $this->t('Which email domains should be allowed to login with local accounts?'),
++      '#default_value' => $config->get('allow.default_login_email_domains'),
++      '#description' => $this->t('Example: <i>example.com,example.net,test.org</i><br />A comma-separated list of e-mail domains that should be allowed to login without simpleSAMLphp.'),
++    ];
+     $form['authentication']['logout_goto_url'] = [
+       '#type' => 'textfield',
+       '#title' => $this->t('Redirect URL after logging out'),
+@@ -83,6 +89,7 @@ class LocalSettingsForm extends ConfigFormBase {
+     $config->set('allow.set_drupal_pwd', $form_state->getValue('allow_set_drupal_pwd'));
+     $config->set('allow.default_login_roles', $form_state->getValue('allow_default_login_roles'));
+     $config->set('allow.default_login_users', $form_state->getValue('allow_default_login_users'));
++    $config->set('allow.default_login_email_domains', $form_state->getValue('allow_default_login_email_domains'));
+     $config->set('logout_goto_url', $form_state->getValue('logout_goto_url'));
+     $config->save();
+   }

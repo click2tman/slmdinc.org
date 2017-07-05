@@ -1,0 +1,42 @@
+uuid: 4a8db0c7-f69a-4843-9a10-4ac32e062db4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ocms_dropdown.field_ocms_dropdown_block
+    - field.field.paragraph.ocms_dropdown.field_ocms_dropdown_trigger_icon
+    - paragraphs.paragraphs_type.ocms_dropdown
+  module:
+    - workbench_moderation
+id: paragraph.ocms_dropdown.default
+targetEntityType: paragraph
+bundle: ocms_dropdown
+mode: default
+content:
+  field_ocms_dropdown_block:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ocms_dropdown_trigger_icon:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

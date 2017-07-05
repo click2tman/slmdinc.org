@@ -1,0 +1,22 @@
+/**
+ * @description converts px to em
+ */
+@function em($px, $base: 16) {
+  @return ($px / $base) * 1em;
+}
+/**
+ * @description calculates unitless line-height from px
+ */
+ @function line($px_height, $px_size: 16) {
+  @return ($px_height / $px_size);
+}
+/**
+ * @description centers elements vertically in a container with fixed height
+ */
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

@@ -1,0 +1,7 @@
+ocms_universal_assets:
+  path: 'assets/universal/{asset}'
+  defaults:
+    _controller: '\Drupal\ocms_universal_assets\Controller\UniversalAssetsController::content'
+  requirements:
+    _permission: 'access content'
+    asset: ^[a-z]+

@@ -1,0 +1,56 @@
+uuid: ba0b8a6b-6f5b-4c94-a405-b36ded924133
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ocms_team_member.body
+    - field.field.node.ocms_team_member.field_ocms_banner_image
+    - field.field.node.ocms_team_member.field_ocms_facebook_account
+    - field.field.node.ocms_team_member.field_ocms_linkedin_account
+    - field.field.node.ocms_team_member.field_ocms_member_photo
+    - field.field.node.ocms_team_member.field_ocms_slideshow
+    - field.field.node.ocms_team_member.field_ocms_slideshow_image
+    - field.field.node.ocms_team_member.field_ocms_slideshow_text
+    - field.field.node.ocms_team_member.field_ocms_subtitle
+    - field.field.node.ocms_team_member.field_ocms_twitter_account
+    - node.type.ocms_team_member
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ocms_team_member.teaser
+targetEntityType: node
+bundle: ocms_team_member
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ocms_banner_image: true
+  field_ocms_facebook_account: true
+  field_ocms_linkedin_account: true
+  field_ocms_member_photo: true
+  field_ocms_slideshow: true
+  field_ocms_slideshow_image: true
+  field_ocms_slideshow_text: true
+  field_ocms_subtitle: true
+  field_ocms_twitter_account: true
+  langcode: true

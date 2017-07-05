@@ -1,0 +1,25 @@
+services:
+  ocms_linkchecker.access:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerAccessService
+    arguments: ['@database', '@ocms_linkchecker.utility']
+  ocms_linkchecker.database:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerDatabaseService
+    arguments: ['@ocms_linkchecker.extraction', '@ocms_linkchecker.utility', '@database']
+  ocms_linkchecker.extraction:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerExtractionService
+    arguments: ['@ocms_linkchecker.parsing', '@ocms_linkchecker.utility', '@language_manager', '@request_stack', '@config.factory']
+  ocms_linkchecker.filtering:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerFilteringService
+    arguments: ['@config.factory']
+  ocms_linkchecker.http:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerHttpService
+    arguments: ['@database', '@http_client', '@config.factory']
+  ocms_linkchecker.maintenance:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerMaintenanceService
+    arguments: ['@ocms_linkchecker.utility', '@database', '@queue', '@config.factory', '@string_translation']
+  ocms_linkchecker.parsing:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerParsingService
+    arguments: ['@ocms_linkchecker.filtering', '@entity_field.manager']
+  ocms_linkchecker.utility:
+    class: Drupal\ocms_linkchecker\PupLinkcheckerUtilityService
+    arguments: ['@config.factory', '@state', '@database', '@entity_type.manager']

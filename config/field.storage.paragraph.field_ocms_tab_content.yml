@@ -1,0 +1,19 @@
+uuid: 69c563f5-2949-46b5-b73a-c0f72be60d6b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_ocms_tab_content
+field_name: field_ocms_tab_content
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

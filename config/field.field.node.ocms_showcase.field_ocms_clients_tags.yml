@@ -1,0 +1,28 @@
+uuid: 509e1d7e-ba84-406c-b176-1ebb17e7504a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocms_clients_tags
+    - node.type.ocms_showcase
+    - taxonomy.vocabulary.ocms_collections
+id: node.ocms_showcase.field_ocms_clients_tags
+field_name: field_ocms_clients_tags
+entity_type: node
+bundle: ocms_showcase
+label: Clients
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ocms_collections: ocms_collections
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

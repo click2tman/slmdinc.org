@@ -1,0 +1,8 @@
+name: OCMS Linkchecker
+type: module
+description: Periodically checks for broken links in node types, blocks and fields and reports the results.
+package: IRS Custom
+core: 8.x
+configure: ocms_linkchecker.admin_settings
+dependencies:
+  - node
