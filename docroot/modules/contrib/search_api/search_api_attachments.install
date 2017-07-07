@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Search API Attachments module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function search_api_attachments_schema() {
+  $schema['search_api_attachments_log'] = _schema_definition();
+  return $schema;
+}
+
+/**
+ * Defines the schema for the {search_api_attachments_log} table.
+ */
+function _schema_definition() {
+  return [
+    'description' => 'Logs various messages regarding attachment indexing.',
+    'fields' => [
+      'log_id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: The ID of the logged message.',
+      ],
+      'entity_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The entity ID the file is attached to',
+      ],
+      'fid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The file ID',
+      ],
+      'message' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'big',
+        'description' => 'Text of logged message.',
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Unix timestamp of when event occurred.',
+      ],
+    ],
+    'primary key' => ['log_id'],
+  ];
+}
+
+/**
+ * Create search_api_attachments_log table to log file extraction errors.
+ */
+function search_api_attachments_update_8101() {
+  $databaseSchema = \Drupal::database()->schema();
+  if (!$databaseSchema->tableExists('search_api_attachments_log')) {
+    $databaseSchema->createTable('search_api_attachments_log', _schema_definition());
+  }
+}

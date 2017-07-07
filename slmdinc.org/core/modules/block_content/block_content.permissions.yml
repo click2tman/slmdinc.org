@@ -1,8 +1,0 @@
-access custom block library:
-  title: 'Access the Custom block library page'
-  description: 'Get an overview of all custom blocks.'
-administer block types:
-  title: 'Administer block types'
-
-permission_callbacks:
-  - \Drupal\block_content\BlockContentPermissions::blockTypePermissions
