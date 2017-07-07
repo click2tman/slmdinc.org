@@ -49,7 +49,9 @@
         "drupal/rdfui": "^1.0@beta",
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/paragraphs": "^1.1",
-        "drupal/filefield_sources": "1.x-dev"
+        "drupal/filefield_sources": "1.x-dev",
+        "drupal/geofield": "^1.0@alpha",
+        "drupal/geofield_map": "^1.4"
     },
     "repositories": [
         {

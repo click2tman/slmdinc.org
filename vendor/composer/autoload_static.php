@@ -1378,6 +1378,7 @@ class ComposerStaticInitaae8a28935102e5da13a69dc76be3924
         'Zend_Sniffs_Debug_CodeAnalyzerSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php',
         'Zend_Sniffs_Files_ClosingTagSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/Files/ClosingTagSniff.php',
         'Zend_Sniffs_NamingConventions_ValidVariableNameSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/NamingConventions/ValidVariableNameSniff.php',
+        'geoPHP' => __DIR__ . '/..' . '/phayes/geophp/geoPHP.inc',
     );
 
     public static function getInitializer(ClassLoader $loader)
